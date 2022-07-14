@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:58:16-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline"></p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_intro-sets.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_intro.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_intro-sets.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_intro.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul><li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="active">Functions</a></li>
+</ul>
+</li></ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="CkQ"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">0.4</span> <span class="title">Functions</span>
+</h2>
+<section class="introduction" id="SdI"><p id="sKa"> A <dfn class="terminology">function</dfn> is a rule that assigns each input exactly one output. We call the output the <dfn class="terminology">image</dfn> of the input. The set of all inputs for a function is called the <dfn class="terminology">domain</dfn>. The set of all allowable outputs is called the <dfn class="terminology">codomain</dfn>. We would write <span class="process-math">\(f:X \to Y\)</span> to describe a function with name <span class="process-math">\(f\text{,}\)</span> domain <span class="process-math">\(X\)</span> and codomain <span class="process-math">\(Y\text{.}\)</span> This does not tell us <em class="emphasis">which</em> function <span class="process-math">\(f\)</span> is though. To define the function, we must describe the rule. This is often done by giving a formula to compute the output for any input (although this is certainly not the only way to describe the rule).</p>
+<p id="YRj">For example, consider the function <span class="process-math">\(f:\N \to \N\)</span> defined by <span class="process-math">\(f(x) = x^2 + 3\text{.}\)</span> Here the domain and codomain are the same set (the natural numbers). The rule is: take your input, multiply it by itself and add 3. This works because we can apply this rule to every natural number (every element of the domain) and the result is always a natural number (an element of the codomain). Notice though that not every natural number is actually an output (there is no way to get 0, 1, 2, 5, etc.). The set of natural numbers that <em class="emphasis">are</em> outputs is called the <dfn class="terminology">range</dfn>  of the function (in this case, the range is <span class="process-math">\(\{3, 4, 7, 12, 19, 28, \ldots\}\text{,}\)</span> all the natural numbers that are 3 more than a perfect square).</p>
+<p id="EYs">The key thing that makes a rule a <em class="emphasis">function</em> is that there is <em class="emphasis">exactly one</em> output for each input. That is, it is important that the rule be a good rule. What output do we assign to the input 7? There can only be one answer for any particular function.</p>
+<article class="example example-like" id="ZIh"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.1</span><span class="period">.</span>
+</h3>
+<p id="jqo">The following are all examples of functions:</p>
+<ol class="decimal">
+<li id="ukS"><p id="FtR"><span class="process-math">\(f:\Z \to \Z\)</span> defined by <span class="process-math">\(f(n) = 3n\text{.}\)</span> The domain and codomain are both the set of integers. However, the range is only the set of integer multiples of 3.</p></li>
+<li id="asb"><p id="lBa"><span class="process-math">\(g: \{1,2,3\} \to \{a,b,c\}\)</span> defined by <span class="process-math">\(g(1) = c\text{,}\)</span> <span class="process-math">\(g(2) = a\)</span> and <span class="process-math">\(g(3) = a\text{.}\)</span> The domain is the set <span class="process-math">\(\{1,2,3\}\text{,}\)</span> the codomain is the set <span class="process-math">\(\{a,b,c\}\)</span> and the range is the set <span class="process-math">\(\{a,c\}\text{.}\)</span> Note that <span class="process-math">\(g(2)\)</span> and <span class="process-math">\(g(3)\)</span> are the same element of the codomain. This is okay since each element in the domain still has only one output.</p></li>
+<li id="Gzk">
+<p id="RIj"><span class="process-math">\(h:\{1,2,3,4\} \to \N\)</span> defined by the table:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="ptV">
+<tr>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">1</td>
+<td class="l m b1 r0 l0 t0 lines">2</td>
+<td class="l m b1 r0 l0 t0 lines">3</td>
+<td class="l m b1 r0 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(h(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">12</td>
+</tr>
+</table></div></div></div>
+<p id="xPs">Here the domain is the finite set <span class="process-math">\(\{1,2,3,4\}\)</span> and to codomain is the set of natural numbers, <span class="process-math">\(\N\text{.}\)</span> At first you might think this function is the same as <span class="process-math">\(f\)</span> defined above. It is absolutely not. Even though the rule is the same, the domain and codomain are different, so these are two different functions.</p>
+</li>
+</ol></article><article class="example example-like" id="FPq"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.2</span><span class="period">.</span>
+</h3>
+<p id="Pxx">Just because you can describe a rule in the same way you would write a function, does not mean that the rule is a function. The following are NOT functions.</p>
+<ol class="decimal">
+<li id="mGt"><p id="dWB"><span class="process-math">\(f:\N \to \N\)</span> defined by <span class="process-math">\(f(n) = \frac{n}{2}\text{.}\)</span> The reason this is not a function is because not every input has an output. Where does <span class="process-math">\(f\)</span> send 3? The rule says that <span class="process-math">\(f(3) = \frac{3}{2}\text{,}\)</span> but <span class="process-math">\(\frac{3}{2}\)</span> is not an element of the codomain.</p></li>
+<li id="SNC"><p id="KdK">Consider the rule that matches each person to their phone number. If you think of the set of people as the domain and the set of phone numbers as the codomain, then this is not a function, since some people have two phone numbers. Switching the domain and codomain sets doesn't help either, since some phone numbers belong to multiple people (assuming some households still have landlines when you are reading this).</p></li>
+</ol></article></section><section class="subsection" id="irZ"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Describing Functions</span>
+</h3>
+<p id="JIl">It is worth making a distinction between a function and its description. The function is the abstract mathematical object that in some way exists whether or not anyone ever talks about it. But when we <em class="emphasis">do</em> want to talk about the function, we need a way to describe it. A particular function can be described in multiple ways.</p>
+<p id="pPu"> Some calculus textbooks talk about the <em class="emphasis">Rule of Four</em>, that every function can be described in four ways: algebraically (a formula), numerically (a table), graphically, or in words. In discrete math, we can still use any of these to describe functions, but we can also be more specific since we are primarily concerned with functions that have <span class="process-math">\(\N\)</span> or a finite subset of <span class="process-math">\(\N\)</span> as their domain.</p>
+<p id="VWD"> Describing a function graphically usually means drawing the graph of the function: plotting the points on the plane. We can do this, and might get a graph like the following for a function <span class="process-math">\(f:\{1,2,3\} \to \{1,2,3\}\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:35%;margin-right:35%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/discrete-function-graph.svg" role="img" class="contained"></div></div></div>
+<p id="CdM">It would be absolutely WRONG to connect the dots or try to fit them to some curve. There are only three elements in the domain. A curve would mean that the domain contains an entire interval of real numbers.</p>
+<p id="ikV">Here is another way to represent that same function:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:41.5%;margin-right:41.5%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/arrow-function-example.svg" role="img" class="contained"></div></div></div>
+<p id="Ose">This shows that the function <span class="process-math">\(f\)</span> sends 1 to 2, 2 to 1 and 3 to 3: just follow the arrows.</p>
+<p id="uzn">The arrow diagram used to define the function above can be very helpful in visualizing functions. We will often be working with functions with <em class="emphasis">finite</em> domains, so this kind of picture is often more useful than a traditional graph of a function.</p>
+<p id="aGw">Note that for finite domains, finding an algebraic formula that gives the output for any input is often impossible. Of course we could use a piecewise defined function, like</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \begin{cases} x+1 \amp \text{ if } x = 1 \\ x-1 \amp \text{ if } x = 2 \\ x \amp \text{ if } x = 3\end{cases}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This describes exactly the same function as above, but we can all agree is a ridiculous way of doing so.</p>
+<p id="GNF">Since we will so often use functions with small domains and codomains, let's adopt some notation to describe them. All we need is some clear way of denoting the image of each element in the domain. In fact, writing a table of values would work perfectly:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="VBe">
+<tr>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">0</td>
+<td class="l m b1 r0 l0 t0 lines">1</td>
+<td class="l m b1 r0 l0 t0 lines">2</td>
+<td class="l m b1 r0 l0 t0 lines">3</td>
+<td class="l m b1 r0 l0 t0 lines">4</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+</tr>
+</table></div></div></div>
+<p id="mUO"> We simplify this further by writing this as a “matrix” with each input directly over its output:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \twoline{0 \amp 1 \amp 2\amp 3 \amp 4}{3 \amp 3 \amp 2 \amp 4 \amp 1}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Note this is just notation and not the same sort of matrix you would find in a linear algebra class (it does not make sense to do operations with these matrices, or row reduce them, for example).</p>
+<p id="TbX">One advantage of the two-line notation over the arrow diagrams is that it is harder to accidentally define a rule that is not a function using two-line notation.</p>
+<article class="example example-like" id="Tjb"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.3</span><span class="period">.</span>
+</h4>
+<p id="vEG">Which of the following diagrams represent a function? Let <span class="process-math">\(X = \{1,2,3,4\}\)</span> and <span class="process-math">\(Y = \{a,b,c,d\}\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:4.166666666666667%;margin-right:4.166666666666667%;">
+<div class="sbspanel top" style="width:27.2727272727273%;"><img src="generated/latex-image/f-arrows.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:27.2727272727273%;"><img src="generated/latex-image/g-arrows.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:27.2727272727273%;"><img src="generated/latex-image/h-arrows.svg" role="img" class="contained"></div>
+</div></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-ykR" id="ykR"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-ykR"><div class="solution solution-like">
+<p id="IYr"><span class="process-math">\(f\)</span> is a function. So is <span class="process-math">\(g\text{.}\)</span> There is no problem with an element of the codomain not being the image of any input, and there is no problem with <span class="process-math">\(a\)</span> from the codomain being the image of both 2 and 3 from the domain. We could use our two-line notation to write these as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f= \begin{pmatrix} 1 \amp 2 \amp 3 \amp 4 \\ d \amp a \amp c \amp b \end{pmatrix} \qquad g = \begin{pmatrix} 1 \amp 2 \amp 3 \amp 4 \\ d \amp a \amp a \amp b \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p id="pfA">However, <span class="process-math">\(h\)</span> is NOT a function. In fact, it fails for two reasons. First, the element 1 from the domain has not been mapped to any element from the codomain. Second, the element 2 from the domain has been mapped to more than one element from the codomain (<span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span>). Note that either one of these problems is enough to make a rule not a function. In general, neither of the following mappings are functions:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:13.75%;margin-right:13.75%;">
+<div class="sbspanel top" style="width:24.8275862068966%;"><img src="generated/latex-image/not-function-a.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:37.2413793103448%;"><img src="generated/latex-image/not-function-b.svg" role="img" class="contained"></div>
+</div></div>
+<p id="VmJ">It might also be helpful to think about how you would write the two-line notation for <span class="process-math">\(h\text{.}\)</span> We would have something like:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h=\twoline{1 \amp 2 \amp 3 \amp 4}{\amp a,c? \amp d \amp b}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">There is nothing under 1 (bad) and we needed to put more than one thing under 2 (very bad). With a rule that is actually a function, the two-line notation will always “work”.</p>
+</div></div>
+</div></article><p id="zjg">We will also be interested in functions with domain <span class="process-math">\(\N\text{.}\)</span> Here two-line notation is no good, but describing the function algebraically is often possible. Even tables are a little awkward, since they do not describe the function completely. For example, consider the function <span class="process-math">\(f:\N \to \N\)</span> given by the table below.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="BIn">
+<tr>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">0</td>
+<td class="l m b1 r0 l0 t0 lines">1</td>
+<td class="l m b1 r0 l0 t0 lines">2</td>
+<td class="l m b1 r0 l0 t0 lines">3</td>
+<td class="l m b1 r0 l0 t0 lines">4</td>
+<td class="l m b1 r0 l0 t0 lines">5</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\ldots\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">16</td>
+<td class="l m b0 r0 l0 t0 lines">25</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\ldots\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="fqp">Have I given you enough entries for you to be able to determine <span class="process-math">\(f(6)\text{?}\)</span> You might guess that <span class="process-math">\(f(6) = 36\text{,}\)</span> but there is no way for you to <em class="emphasis">know</em> this for sure. Maybe I am being a jerk and intended <span class="process-math">\(f(6) = 42\text{.}\)</span> In fact, for every natural number <span class="process-math">\(n\text{,}\)</span> there is a function that agrees with the table above, but for which <span class="process-math">\(f(6) = n\text{.}\)</span></p>
+<p id="Lxy">Okay, suppose I really did mean for <span class="process-math">\(f(6) = 36\text{,}\)</span> and in fact, for the rule that you think is governing the function to actually be the rule. Then I should say what that rule is. <span class="process-math">\(f(n) = n^2\text{.}\)</span> Now there is no confusion possible.</p>
+<p id="rEH">Giving an explicit formula that calculates the image of any element in the domain is a great way to describe a function. We will say that these explicit rules are <dfn class="terminology">closed formulas</dfn> for the function. </p>
+<p id="XLQ">There is another very useful way to describe functions whose domain is <span class="process-math">\(\N\text{,}\)</span> that rely specifically on the structure of the natural numbers. We can define a function <em class="emphasis">recursively</em>!</p>
+<article class="example example-like" id="zqk"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.4</span><span class="period">.</span>
+</h4>
+<p id="bLP">Consider the function <span class="process-math">\(f:\N \to \N\)</span> given by <span class="process-math">\(f(0) = 0\)</span> and <span class="process-math">\(f(n+1) = f(n) + 2n+1\text{.}\)</span> Find <span class="process-math">\(f(6)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-esa" id="esa"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-esa"><div class="solution solution-like">
+<p id="BtS">The rule says that <span class="process-math">\(f(6) = f(5) + 11\)</span> (we are using <span class="process-math">\(6 = n+1\)</span> so <span class="process-math">\(n = 5\)</span>). We don't know what <span class="process-math">\(f(5)\)</span> is though. Well, we know that <span class="process-math">\(f(5) = f(4) + 9\text{.}\)</span> So we need to compute <span class="process-math">\(f(4)\text{,}\)</span> which will require knowing <span class="process-math">\(f(3)\text{,}\)</span> which will require <span class="process-math">\(f(2)\text{,}\)</span>… will it ever end?</p>
+<p id="hBb">Yes! In fact, this process will always end because we have <span class="process-math">\(\N\)</span> as our domain, so there is a least element. And we gave the value of <span class="process-math">\(f(0)\)</span> explicitly, so we are good. In fact, we might decide to work up to <span class="process-math">\(f(6)\)</span> instead of working down from <span class="process-math">\(f(6)\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="bqq">
+\begin{align*}
+f(1) = \amp f(0) + 1 = \amp 0 + 1 = 1\\
+f(2) = \amp f(1) + 3 = \amp 1 + 3 = 4\\
+f(3) = \amp f(2) + 5 = \amp 4 + 5 = 9\\
+f(4) = \amp f(3) + 7 = \amp 9 + 7 = 16\\
+f(5) = \amp f(4) + 9 = \amp 16 + 9 = 25\\
+f(6) = \amp f(5) + 11 = \amp 25 + 11 = 36
+\end{align*}
+</div>
+<p id="NIk">It looks that this recursively defined function is the same as the explicitly defined function <span class="process-math">\(f(n) = n^2\text{.}\)</span> Is it? Later we will prove that it is.</p>
+</div></div>
+</div></article><p id="DSZ">Recursively defined functions are often easier to create from a “real world” problem, because they describe how the values of the functions are changing. However, this comes with a price. It is harder to calculate the image of a single input, since you need to know the images of other (previous) elements in the domain.</p>
+<article class="assemblage assemblage-like" id="aNA"><h4 class="heading"><span class="title">Recursively Defined Functions.</span></h4>
+<p id="RmK"> For a function <span class="process-math">\(f:\N \to \N\text{,}\)</span> a <dfn class="terminology">recursive definition</dfn> consists of an <dfn class="terminology">initial condition</dfn> together with a <dfn class="terminology">recurrence relation</dfn>. The initial condition is the explicitly given value of <span class="process-math">\(f(0)\text{.}\)</span> The recurrence relation is a formula for <span class="process-math">\(f(n+1)\)</span> in terms for <span class="process-math">\(f(n)\)</span> (and possibly <span class="process-math">\(n\)</span> itself).</p></article><article class="example example-like" id="fxt"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.5</span><span class="period">.</span>
+</h4>
+<p id="HSY">Give recursive definitions for the functions described below.</p>
+<ol class="decimal">
+<li id="yUL"><p id="qkT"><span class="process-math">\(f:\N \to \N\)</span> gives the number of snails in your terrarium <span class="process-math">\(n\)</span> years after you built it, assuming you started with 3 snails and the number of snails doubles each year.</p></li>
+<li id="fbU"><p id="Wsc"><span class="process-math">\(g:\N \to \N\)</span> gives the number of push-ups you do <span class="process-math">\(n\)</span> days after you started your push-ups challenge, assuming you could do 7 push-ups on day 0 and you can do 2 more push-ups each day.</p></li>
+<li id="Ljd"><p id="Czl"><span class="process-math">\(h:\N \to \N\)</span> defined by <span class="process-math">\(h(n) = n!\text{.}\)</span> Recall that <span class="process-math">\(n! = 1 \cdot 2 \cdot 3 \cdot \cdots \cdot (n-1)\cdot n\)</span> is the product of all numbers from <span class="process-math">\(1\)</span> through <span class="process-math">\(n\text{.}\)</span> We also define <span class="process-math">\(0! = 1\text{.}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-Kzj" id="Kzj"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Kzj"><div class="solution solution-like"><ol id="tPt" class="decimal">
+<li id="rqm">
+<p id="iGu">The initial condition is <span class="process-math">\(f(0) = 3\text{.}\)</span> To get <span class="process-math">\(f(n+1)\)</span> we would double the number of snails in the terrarium the previous year, which is given by <span class="process-math">\(f(n)\text{.}\)</span> Thus <span class="process-math">\(f(n+1) = 2f(n)\text{.}\)</span> The full recursive definition contains both of these, and would be written,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(0) = 3;~ f(n+1) = 2f(n)\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Xxv">
+<p id="OND">We are told that on day 0 you can do 7 push-ups, so <span class="process-math">\(g(0) = 7\text{.}\)</span> The number of push-ups you can do on day <span class="process-math">\(n+1\)</span> is 2 more than the number you can do on day <span class="process-math">\(n\text{,}\)</span> which is given by <span class="process-math">\(g(n)\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(0) = 7;~ g(n+1) = g(n) + 2\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="DEE">
+<p id="uUM">Here <span class="process-math">\(h(0) = 1\text{.}\)</span> To get the recurrence relation, think about how you can get <span class="process-math">\(h(n+1) = (n+1)!\)</span> from <span class="process-math">\(h(n) = n!\text{.}\)</span> If you write out both of these as products, you see that <span class="process-math">\((n+1)!\)</span> is just like <span class="process-math">\(n!\)</span> except you have one more term in the product, an extra <span class="process-math">\(n+1\text{.}\)</span> So we have,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(0) = 1;~ h(n+1) = (n+1)\cdot h(n)\text{.}
+\end{equation*}
+</div>
+</li>
+</ol></div></div>
+</div></article></section><section class="subsection" id="Ozi"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Surjections, Injections, and Bijections</span>
+</h3>
+<p id="kai">We now turn to investigating special properties functions might or might not possess.</p>
+<p id="Qhr">In the examples above, you may have noticed that sometimes there are elements of the codomain which are not in the range. When this sort of the thing <em class="emphasis">does not</em> happen, (that is, when everything in the codomain is in the range) we say the function is <dfn class="terminology">onto</dfn>  or that the function maps the domain <em class="emphasis">onto</em> the codomain. This terminology should make sense: the function puts the domain (entirely) on top of the codomain. The fancy math term for an onto function is a <dfn class="terminology">surjection</dfn>,  and we say that an onto function is a <dfn class="terminology">surjective</dfn> function.</p>
+<p id="woA">In pictures:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel top" style="width:37.5%;"><img src="generated/latex-image/surjective-ex.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="generated/latex-image/non-surjective-ex.svg" role="img" class="contained"></div>
+</div></div>
+<article class="example example-like" id="wvE"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.6</span><span class="period">.</span>
+</h4>
+<p id="oah">Which functions are surjective (i.e., onto)?</p>
+<ol class="decimal">
+<li id="jLN"><p id="p-derived-jLN"><span class="process-math">\(f:\Z \to \Z\)</span> defined by <span class="process-math">\(f(n) = 3n\text{.}\)</span></p></li>
+<li id="PSW"><p id="p-derived-PSW"><span class="process-math">\(g: \{1,2,3\} \to \{a,b,c\}\)</span> defined by <span class="process-math">\(g = \begin{pmatrix}1 \amp 2 \amp 3 \\ c \amp a \amp a \end{pmatrix}\text{.}\)</span></p></li>
+<li id="waf">
+<p id="bbV"><span class="process-math">\(h:\{1,2,3\} \to \{1,2,3\}\)</span> defined as follows:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/ex-surj-q.svg" role="img" class="contained"></div></div></div>
+</li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-qGs" id="qGs"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-qGs"><div class="solution solution-like"><ol id="ZWC" class="decimal">
+<li id="cho"><p id="p-derived-cho"><span class="process-math">\(f\)</span> is not surjective. There are elements in the codomain which are not in the range. For example, no <span class="process-math">\(n \in \Z\)</span> gets mapped to the number 1 (the rule would say that <span class="process-math">\(\frac{1}{3}\)</span> would be sent to 1, but <span class="process-math">\(\frac{1}{3}\)</span> is not in the domain). In fact, the range of the function is <span class="process-math">\(3\Z\)</span> (the integer multiples of 3), which is not equal to <span class="process-math">\(\Z\text{.}\)</span></p></li>
+<li id="Iox"><p id="p-derived-Iox"><span class="process-math">\(g\)</span> is not surjective. There is no <span class="process-math">\(x \in \{1,2,3\}\)</span> (the domain) for which <span class="process-math">\(g(x) = b\text{,}\)</span> so <span class="process-math">\(b\text{,}\)</span> which is in the codomain, is not in the range. Notice that there is an element from the codomain “missing” from the bottom row of the matrix.</p></li>
+<li id="ovG"><p id="p-derived-ovG"><span class="process-math">\(h\)</span> is surjective. Every element of the codomain is also in the range. Nothing in the codomain is missed.</p></li>
+</ol></div></div>
+</div></article><p id="cvJ">To be a function, a rule cannot assign a single element of the domain to two or more different elements of the codomain. However, we have seen that the reverse <em class="emphasis">is</em> permissible: a function might assign the same element of the codomain to two or more different elements of the domain. When this <em class="emphasis">does not</em> occur (that is, when each element of the codomain is the image of at most one element of the domain) then we say the function is <dfn class="terminology">one-to-one</dfn>.  Again, this terminology makes sense: we are sending at most one element from the domain to one element from the codomain. One input to one output. The fancy math term for a one-to-one function is an <dfn class="terminology">injection</dfn>.  We call one-to-one functions <dfn class="terminology">injective</dfn> functions.</p>
+<p id="ICS">In pictures:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/injective-ex.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/latex-image/non-injective-ex.svg" role="img" class="contained"></div>
+</div></div>
+<article class="example example-like" id="cCN"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.7</span><span class="period">.</span>
+</h4>
+<p id="Uhq">Which functions are injective (i.e., one-to-one)?</p>
+<ol class="decimal">
+<li id="UCP"><p id="p-derived-UCP"><span class="process-math">\(f:\Z \to \Z\)</span> defined by <span class="process-math">\(f(n) = 3n\text{.}\)</span></p></li>
+<li id="AJY"><p id="p-derived-AJY"><span class="process-math">\(g: \{1,2,3\} \to \{a,b,c\}\)</span> defined by <span class="process-math">\(g = \begin{pmatrix}1 \amp 2 \amp 3 \\ c \amp a \amp a \end{pmatrix}\text{.}\)</span></p></li>
+<li id="gRh">
+<p id="Hje"><span class="process-math">\(h:\{1,2,3\} \to \{1,2,3\}\)</span> defined as follows:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/image-26.svg" role="img" class="contained"></div></div></div>
+</li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-WNB" id="WNB"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-WNB"><div class="solution solution-like"><ol id="GdL" class="decimal">
+<li id="MYq"><p id="p-derived-MYq"><span class="process-math">\(f\)</span> is injective. Each element in the codomain is assigned to at <em class="emphasis">most</em> one element from the domain. If <span class="process-math">\(x\)</span> is a multiple of three, then only <span class="process-math">\(x/3\)</span> is mapped to <span class="process-math">\(x\text{.}\)</span> If <span class="process-math">\(x\)</span> is not a multiple of 3, then there is no input corresponding to the output <span class="process-math">\(x\text{.}\)</span></p></li>
+<li id="tfz"><p id="p-derived-tfz"><span class="process-math">\(g\)</span> is not injective. Both inputs <span class="process-math">\(2\)</span> and <span class="process-math">\(3\)</span> are assigned the output <span class="process-math">\(a\text{.}\)</span> Notice that there is an element from the codomain that appears more than once on the bottom row of the matrix.</p></li>
+<li id="ZmI"><p id="p-derived-ZmI"><span class="process-math">\(h\)</span> is injective. Each output is only an output once.</p></li>
+</ol></div></div>
+</div></article><p id="oKb">Be careful: “surjective” and “injective” are NOT opposites. You can see in the two examples above that there are functions which are surjective but not injective, injective but not surjective, both, or neither. In the case when a function is both one-to-one and onto (an injection and surjection), we say the function is a <dfn class="terminology">bijection</dfn>,  or that the function is a <dfn class="terminology">bijective</dfn> function.</p>
+<p id="URk">To illustrate the contrast between these two properties, consider a more formal definition of each, side by side.</p>
+<article class="assemblage assemblage-like" id="GUJ"><h4 class="heading"><span class="title">Injective vs Surjective.</span></h4>
+<p id="xtT">A function is <dfn class="terminology">injective</dfn> provided every element of the codomain is the image of <em class="emphasis">at most</em> one element from the domain.</p>
+<p id="dBc">A function is <dfn class="terminology">surjective</dfn> provided every element of the codomain is the image of <em class="emphasis">at least</em> one element from the domain.</p></article><p id="AYt">Notice both properties are determined by what happens to elements of the codomain: they could be repeated as images or they could be “missed” (not be images). Injective functions do not have repeats but might or might not miss elements. Surjective functions do not miss elements, but might or might not have repeats. The bijective functions are those that do not have repeats and do not miss elements.</p></section><section class="subsection" id="uGr"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Image and Inverse Image</span>
+</h3>
+<p id="hfC">When discussing functions, we have notation for talking about an element of the domain (say <span class="process-math">\(x\)</span>) and its corresponding element in the codomain (we write <span class="process-math">\(f(x)\text{,}\)</span> which <em class="emphasis">is</em> the image of <span class="process-math">\(x\)</span>). Sometimes we will want to talk about all the elements that are images of some subset of the domain. It would also be nice to start with some element of the codomain (say <span class="process-math">\(y\)</span>) and talk about which element or elements (if any) from the domain it is the image of. We could write “those <span class="process-math">\(x\)</span> in the domain such that <span class="process-math">\(f(x) = y\text{,}\)</span>” but this is a lot of writing. Here is some notation to make our lives easier.</p>
+<p id="NmL"> To address the first situation, what we are after is a way to describe the <em class="emphasis">set</em> of images of elements in some subset of the domain. Suppose <span class="process-math">\(f:X \to Y\)</span> is a function and that <span class="process-math">\(A \subseteq X\)</span> is some subset of the domain (possibly all of it). We will use the notation <span class="process-math">\(f(A)\)</span> to denote the <dfn class="terminology">image of <span class="process-math">\(A\)</span> under <span class="process-math">\(f\)</span></dfn>, namely the set of elements in <span class="process-math">\(Y\)</span> that are the image of elements from <span class="process-math">\(A\text{.}\)</span> That is, <span class="process-math">\(f(A) = \{f(a) \in Y \st a \in A\}\text{.}\)</span> </p>
+<p id="ttU"> We can do this in the other direction as well. We might ask which elements of the domain get mapped to a particular set in the codomain. Let <span class="process-math">\(f:X \to Y\)</span> be a function and suppose <span class="process-math">\(B \subseteq Y\)</span> is a subset of the codomain. Then we will write <span class="process-math">\(f\inv(B)\)</span> for the <dfn class="terminology">inverse image of <span class="process-math">\(B\)</span> under <span class="process-math">\(f\)</span></dfn>, namely the set of elements in <span class="process-math">\(X\)</span> whose image are elements in <span class="process-math">\(B\text{.}\)</span> In other words, <span class="process-math">\(f\inv(B) = \{x \in X \st f(x) \in B\}\text{.}\)</span> </p>
+<p id="ZBd">Often we are interested in the element(s) whose image is a particular element <span class="process-math">\(y\)</span> of in the codomain. The notation above works: <span class="process-math">\(f\inv(\{y\})\)</span> is the set of all elements in the domain that <span class="process-math">\(f\)</span> sends to <span class="process-math">\(y\text{.}\)</span> It makes sense to think of this as a set: there might not be anything sent to <span class="process-math">\(y\)</span> (if <span class="process-math">\(y\)</span> is not in the range), in which case <span class="process-math">\(f\inv(\{y\}) = \emptyset\text{.}\)</span> Or <span class="process-math">\(f\)</span> might send multiple elements to <span class="process-math">\(y\)</span> (if <span class="process-math">\(f\)</span> is not injective). As a notational convenience, we usually drop the set braces around the <span class="process-math">\(y\)</span> and write <span class="process-math">\(f\inv(y)\)</span> instead for this set.</p>
+<p id="FIm"> WARNING: <span class="process-math">\(f\inv(y)\)</span> is not an inverse function! Inverse functions only exist for bijections, but <span class="process-math">\(f\inv(y)\)</span> is defined for any function <span class="process-math">\(f\text{.}\)</span> The point: <span class="process-math">\(f\inv(y)\)</span> is a <em class="emphasis">set</em>, not an <em class="emphasis">element</em> of the domain. This is just sloppy notation for <span class="process-math">\(f\inv(\{y\})\text{.}\)</span> To help make this distinction, we would call <span class="process-math">\(f\inv(y)\)</span> the <dfn class="terminology">complete inverse image of <span class="process-math">\(y\)</span> under <span class="process-math">\(f\)</span></dfn>. It is not the image of <span class="process-math">\(y\)</span> under <span class="process-math">\(f\inv\)</span> (since the function <span class="process-math">\(f\inv\)</span> might not exist).</p>
+<article class="example example-like" id="hmG"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.8</span><span class="period">.</span>
+</h4>
+<p id="Aoz">Consider the function <span class="process-math">\(f:\{1,2,3,4,5,6\} \to \{a,b,c,d\}\)</span> given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \begin{pmatrix}1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \\ a \amp a \amp b \amp b \amp b \amp c\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Find <span class="process-math">\(f(\{1,2,3\})\text{,}\)</span> <span class="process-math">\(f\inv(\{a,b\})\text{,}\)</span> and <span class="process-math">\(f\inv(d)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-CUK" id="CUK"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-CUK"><div class="solution solution-like">
+<p id="mkU"><span class="process-math">\(f(\{1,2,3\}) = \{a,b\}\)</span> since <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are the elements in the codomain to which <span class="process-math">\(f\)</span> sends <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(2\text{,}\)</span> and <span class="process-math">\(3\text{.}\)</span></p>
+<p id="Ssd"><span class="process-math">\(f\inv(\{a,b\}) = \{1,2,3,4,5\}\)</span> since these are exactly the elements that <span class="process-math">\(f\)</span> sends to <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span></p>
+<p id="yzm"><span class="process-math">\(f\inv(d) = \emptyset\)</span> since <span class="process-math">\(d\)</span> is not in the range of <span class="process-math">\(f\text{.}\)</span></p>
+</div></div>
+</div></article><article class="example example-like" id="NtP"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.9</span><span class="period">.</span>
+</h4>
+<p id="gvI">Consider the function <span class="process-math">\(g:\Z \to \Z\)</span> defined by <span class="process-math">\(g(n) = n^2 + 1\text{.}\)</span> Find <span class="process-math">\(g(1)\)</span> and <span class="process-math">\(g(\{1\})\text{.}\)</span> Then find <span class="process-math">\(g\inv(1)\text{,}\)</span> <span class="process-math">\(g\inv(2)\text{,}\)</span> and <span class="process-math">\(g\inv(3)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-jbT" id="jbT"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-jbT"><div class="solution solution-like">
+<p id="eGv">Note that <span class="process-math">\(g(1) \ne g(\{1\})\text{.}\)</span> The first is an element: <span class="process-math">\(g(1) = 2\text{.}\)</span> The second is a set: <span class="process-math">\(g(\{1\}) = \{2\}\text{.}\)</span></p>
+<p id="KNE">To find <span class="process-math">\(g\inv(1)\text{,}\)</span> we need to find all integers <span class="process-math">\(n\)</span> such that <span class="process-math">\(n^2 + 1 = 1\text{.}\)</span> Clearly only 0 works, so <span class="process-math">\(g\inv(1) = \{0\}\)</span> (note that even though there is only one element, we still write it as a set with one element in it).</p>
+<p id="qUN">To find <span class="process-math">\(g\inv(2)\text{,}\)</span> we need to find all <span class="process-math">\(n\)</span> such that <span class="process-math">\(n^2 + 1 = 2\text{.}\)</span> We see <span class="process-math">\(g\inv(2) = \{-1,1\}\text{.}\)</span></p>
+<p id="XbW">Finally, if <span class="process-math">\(n^2 + 1 = 3\text{,}\)</span> then we are looking for an <span class="process-math">\(n\)</span> such that <span class="process-math">\(n^2 = 2\text{.}\)</span> There are no such integers so <span class="process-math">\(g\inv(3) = \emptyset\text{.}\)</span></p>
+</div></div>
+</div></article><p id="lPv">Since <span class="process-math">\(f\inv(y)\)</span> is a set, it makes sense to ask for <span class="process-math">\(\card{f\inv(y)}\text{,}\)</span> the number of elements in the domain which map to <span class="process-math">\(y\text{.}\)</span></p>
+<article class="example example-like" id="tAY"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.4.10</span><span class="period">.</span>
+</h4>
+<p id="MCR">Find a function <span class="process-math">\(f:\{1,2,3,4,5\} \to \N\)</span> such that <span class="process-math">\(\card{f\inv(7)} = 5\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-Pjc" id="Pjc"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Pjc"><div class="solution solution-like">
+<p id="Djf">There is only one such function. We need five elements of the domain to map to the number <span class="process-math">\(7 \in \N\text{.}\)</span> Since there are only five elements in the domain, all of them must map to 7. So</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \begin{pmatrix}1 \amp 2 \amp 3 \amp 4 \amp 5 \\ 7 \amp 7 \amp 7 \amp 7 \amp 7\end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><section class="paragraphs" id="nbS"><h4 class="heading"><span class="title">Function Definitions.</span></h4>
+<p id="lfB">Here is a summary of all the main concepts and definitions we use when working with functions.</p>
+<ul class="disc">
+<li id="YCO"><p id="nqn"> A <dfn class="terminology">function</dfn> is a rule that assigns each element of a set, called the <dfn class="terminology">domain</dfn>, to exactly one element of a second set, called the <dfn class="terminology">codomain</dfn>.</p></li>
+<li id="EJX"><p id="Txw"> Notation: <span class="process-math">\(f:X \to Y\)</span> is our way of saying that the function is called <span class="process-math">\(f\text{,}\)</span> the domain is the set <span class="process-math">\(X\text{,}\)</span> and the codomain is the set <span class="process-math">\(Y\text{.}\)</span></p></li>
+<li id="kRg">
+<p id="zEF"> To specify the rule for a function with small domain, use <dfn class="terminology">two-line notation</dfn> by writing a matrix with each output directly below its corresponding input, as in:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f = \begin{pmatrix}1 \amp 2 \amp 3 \amp 4 \\ 2 \amp 1 \amp 3 \amp 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="QYp"><p id="fLO"> <span class="process-math">\(f(x) = y\)</span> means the element <span class="process-math">\(x\)</span> of the domain (input) is assigned to the element <span class="process-math">\(y\)</span> of the codomain. We say <span class="process-math">\(y\)</span> is an output. Alternatively, we call <span class="process-math">\(y\)</span> the <dfn class="terminology">image of <span class="process-math">\(x\)</span> under <span class="process-math">\(f\)</span></dfn>.</p></li>
+<li id="xfy"><p id="LSX"> The <dfn class="terminology">range</dfn> is a subset of the codomain. It is the set of all elements which are assigned to at least one element of the domain by the function. That is, the range is the set of all outputs.</p></li>
+<li id="dmH"><p id="sag"> A function is <dfn class="terminology">injective</dfn> (an <dfn class="terminology">injection</dfn> or <dfn class="terminology">one-to-one</dfn>) if every element of the codomain is the image of <dfn class="terminology">at most</dfn> one element from the domain.</p></li>
+<li id="JtQ"><p id="Yhp"> A function is <dfn class="terminology">surjective</dfn> (a <dfn class="terminology">surjection</dfn> or <dfn class="terminology">onto</dfn>) if every element of the codomain is the image of <dfn class="terminology">at least</dfn> one element from the domain.</p></li>
+<li id="pAZ"><p id="Eoy"> A <dfn class="terminology">bijection</dfn> is a function which is both an injection and surjection. In other words, if every element of the codomain is the image of <dfn class="terminology">exactly one</dfn> element from the domain.</p></li>
+<li id="VIi"><p id="kvH"> The <dfn class="terminology">image</dfn> of an element <span class="process-math">\(x\)</span> in the domain is the element <span class="process-math">\(y\)</span> in the codomain that <span class="process-math">\(x\)</span> is mapped to. That is, the image of <span class="process-math">\(x\)</span> under <span class="process-math">\(f\)</span> is <span class="process-math">\(f(x)\text{.}\)</span></p></li>
+<li id="BPr"><p id="QCQ"> The <dfn class="terminology">complete inverse image</dfn> of an element <span class="process-math">\(y\)</span> in the codomain, written <span class="process-math">\(f\inv(y)\text{,}\)</span> is the <em class="emphasis">set</em> of all elements in the domain which are assigned to <span class="process-math">\(y\)</span> by the function.</p></li>
+<li id="hWA"><p id="wJZ"> The <dfn class="terminology">image</dfn> of a subset <span class="process-math">\(A\)</span> of the domain is the set <span class="process-math">\(f(A) = \{f(a) \in Y \st a \in A\}\text{.}\)</span></p></li>
+<li id="OdJ"><p id="cRi"> The <dfn class="terminology">inverse image</dfn> of a subset <span class="process-math">\(B\)</span> of the codomain is the set <span class="process-math">\(f\inv(B) = \{x \in X \st f(x) \in B\}\text{.}\)</span></p></li>
+</ul></section></section><section class="exercises" id="XHz"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="blM"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-22" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="22" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApMZXQgW2BBID0gXHsxLDIsXGxkb3RzLCAxMFx9XHRleHR7Ln1gXSBIb3cgbWFueSBzdWJzZXRzIG9mIFtgQWBdIGNvbnRhaW4gZXhhY3RseSBvbmUgZWxlbWVudCAoaS5lLiwgaG93IG1hbnkgc2luZ2xldG9uIHN1YnNldHMgYXJlIHRoZXJlKT8gc2luZ2xldG9uIHNldAoKW19dezEwfXs1fQoKSG93IG1hbnkgZG91YmxldG9uIHN1YnNldHMgKGNvbnRhaW5pbmcgZXhhY3RseSB0d28gZWxlbWVudHMpIGFyZSB0aGVyZT8gZG91YmxldG9uIHNldAoKW19dezQ1fXs1fQoKCkVORF9QR01MCgpCRUdJTl9QR01MX0hJTlQKV3JpdGUgdGhlc2Ugb3V0LCBvciBhdCBsZWFzdCBzdGFydCB0byBhbmQgbG9vayBmb3IgYSBwYXR0ZXJuLgoKCkVORF9QR01MX0hJTlQKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-859">Let <span class="process-math">\(A = \{1,2,\ldots, 10\}\text{.}\)</span> How many subsets of <span class="process-math">\(A\)</span> contain exactly one element (i.e., how many singleton subsets are there)? singleton set</p>
+<p id="p-860"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-861">How many doubleton subsets (containing exactly two elements) are there? doubleton set</p>
+<p id="p-862"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-22')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="HsV"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-23" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="23" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApMZXQgW2BBID0gXHsyLCA0LCA2LCA4XH1cdGV4dHsufWBdIFN1cHBvc2UgW2BCYF0gaXMgYSBzZXQgd2l0aCBbYHxCfCA9IDVcdGV4dHsufWBdCmEuICBXaGF0IGFyZSB0aGUgc21hbGxlc3QgYW5kIGxhcmdlc3QgcG9zc2libGUgdmFsdWVzIG9mIFtgfEEgXGN1cCBCfFx0ZXh0ez99YF0gRXhwbGFpbi4KCiAgICBbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbX117NX17NX0gW2AgXGxlIHxBIFxjdXAgQnwgXGxlIGBdIFtfXXs5fXs1fScpQF0qKgoKCmEuICBXaGF0IGFyZSB0aGUgc21hbGxlc3QgYW5kIGxhcmdlc3QgcG9zc2libGUgdmFsdWVzIG9mIFtgfEEgXGNhcCBCfFx0ZXh0ez99YF0gRXhwbGFpbi4KCiAgICBbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbX117MH17NX0gW2AgXGxlIHxBIFxjYXAgQnwgXGxlIGBdIFtfXXs0fXs1fScpQF0qKgoKCmEuICBXaGF0IGFyZSB0aGUgc21hbGxlc3QgYW5kIGxhcmdlc3QgcG9zc2libGUgdmFsdWVzIG9mIFtgfEEgXHRpbWVzIEJ8XHRleHR7P31gXSBFeHBsYWluLgoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tfXXsyMH17NX0gW2AgXGxlIHxBIFx0aW1lcyBCfCBcbGUgYF0gW19dezIwfXs1fScpQF0qKgoKCgoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-866">Let <span class="process-math">\(A = \{2, 4, 6, 8\}\text{.}\)</span> Suppose <span class="process-math">\(B\)</span> is a set with <span class="process-math">\(|B| = 5\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-559"><p id="p-867">What are the smallest and largest possible values of <span class="process-math">\(|A \cup B|\text{?}\)</span> Explain.</p></li>
+<li id="li-560"><p id="p-868">What are the smallest and largest possible values of <span class="process-math">\(|A \cap B|\text{?}\)</span> Explain.</p></li>
+<li id="li-561"><p id="p-869">What are the smallest and largest possible values of <span class="process-math">\(|A \times B|\text{?}\)</span> Explain.</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-23')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="nAe"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-24" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="24" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxuZXdjb21tYW5ke1x0d29saW5lfVsyXXtcYmVnaW57cG1hdHJpeH0jMSBcXCAjMiBcZW5ke3BtYXRyaXh9fVxuZXdjb21tYW5ke1xhbXB9eyZ9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKQ29uc2lkZXIgdGhlIGZ1bmN0aW9uIFtgZjpcezEsMiwzLDRcfSBcdG8gXHsxLDIsMyw0XH1gXSBnaXZlbiBieQoKW2BgYAogICAgICAgICAgICAgIGYobikgPSBcdHdvbGluZXsxIFxhbXAgMiBcYW1wIDMgXGFtcCA0fXs0IFxhbXAgMSBcYW1wIDMgXGFtcCA0fQogICAgICAgICAgICBcdGV4dHsufWBgYF0KCgphLiAgRmluZCBbYGYoMSlcdGV4dHsufWBdCgogICAgW19dezR9ezV9CgoKYS4gIEZpbmQgYW4gZWxlbWVudCBbYG5gXSBpbiB0aGUgZG9tYWluIHN1Y2ggdGhhdCBbYGYobikgPSAxXHRleHR7Ln1gXQoKICAgIFtfXXsyfXs1fQoKCmEuICBGaW5kIGFuIGVsZW1lbnQgW2BuYF0gb2YgdGhlIGRvbWFpbiBzdWNoIHRoYXQgW2BmKG4pID0gblx0ZXh0ey59YF0KCiAgICBbX117NH17NX0KCgphLiAgRmluZCBhbiBlbGVtZW50IG9mIHRoZSBjb2RvbWFpbiB0aGF0IGlzIG5vdCBpbiB0aGUgcmFuZ2UuCgogICAgW19dezJ9ezV9CgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYGYoMSkgPSA0XHRleHR7LH1gXSBzaW5jZSBbYDRgXSBpcyB0aGUgbnVtYmVyIGJlbG93IDEgaW4gdGhlIHR3by1saW5lIG5vdGF0aW9uLgoKCmEuICBTdWNoIGFuIFtgbmBdIGlzIFtgbj0gMlx0ZXh0eyx9YF0gc2luY2UgW2BmKDIpID0gMVx0ZXh0ey59YF0gTm90ZSB0aGF0IDIgaXMgYWJvdmUgYSAxIGluIHRoZSBub3RhdGlvbi4KCgphLiAgW2BuID0gNGBdIGhhcyB0aGlzIHByb3BlcnR5LiBXZSBzYXkgdGhhdCA0IGlzIGEgZml4ZWQgcG9pbnQgb2YgW2BmXHRleHR7Ln1gXSBOb3QgYWxsIGZ1bmN0aW9ucyBoYXZlIHN1Y2ggYSBwb2ludC4KCgphLiAgU3VjaCBhbiBlbGVtZW50IGlzIDIgKGluIGZhY3QsIHRoYXQgaXMgdGhlIG9ubHkgZWxlbWVudCBpbiB0aGUgY29kb21haW4gdGhhdCBpcyBub3QgaW4gdGhlIHJhbmdlKS4gSW4gb3RoZXIgd29yZHMsIDIgaXMgbm90IHRoZSBpbWFnZSBvZiBhbnkgZWxlbWVudCB1bmRlciBbYGZcdGV4dHs7fWBdIG5vdGhpbmcgaXMgc2VudCB0byAyLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-870">Consider the function <span class="process-math">\(f:\{1,2,3,4\} \to \{1,2,3,4\}\)</span> given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-871">
+\begin{equation*}
+f(n) = \twoline{1 \amp 2 \amp 3 \amp 4}{4 \amp 1 \amp 3 \amp 4}
+\text{.}
+\end{equation*}
+</div>
+<ol id="p-872" class="lower-alpha">
+<li id="li-562">
+<p id="p-873">Find <span class="process-math">\(f(1)\text{.}\)</span></p>
+<p id="p-874"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-563">
+<p id="p-875">Find an element <span class="process-math">\(n\)</span> in the domain such that <span class="process-math">\(f(n) = 1\text{.}\)</span></p>
+<p id="p-876"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-564">
+<p id="p-877">Find an element <span class="process-math">\(n\)</span> of the domain such that <span class="process-math">\(f(n) = n\text{.}\)</span></p>
+<p id="p-878"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-565">
+<p id="p-879">Find an element of the codomain that is not in the range.</p>
+<p id="p-880"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-24')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="THn"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-25" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="25" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJwYXJzZXJQb3BVcC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpURVhUKE1PREVTKFBUWD0+JycsSFRNTD0+JzxkaXYgc3R5bGU9ImRpc3BsYXk6bm9uZTsiPlwoXG5ld2NvbW1hbmR7XHR3b2xpbmV9WzJde1xiZWdpbntwbWF0cml4fSMxIFxcICMyIFxlbmR7cG1hdHJpeH19XG5ld2NvbW1hbmR7XGFtcH17Jn1cKTwvZGl2PicpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRpbmplY3RpdmUgPSBQb3BVcCgKWyI/IiwgIkluamVjdGl2ZSIsICJTdXJqZWN0aXZlIiwgIkJpamVjdGl2ZSIsICJOZWl0aGVyIl0sICJJbmplY3RpdmUiLAopOwokc3VyamVjdGl2ZSA9IFBvcFVwKApbIj8iLCAiSW5qZWN0aXZlIiwgIlN1cmplY3RpdmUiLCAiQmlqZWN0aXZlIiwgIk5laXRoZXIiXSwgIlN1cmplY3RpdmUiLAopOwokYmlqZWN0aXZlID0gUG9wVXAoClsiPyIsICJJbmplY3RpdmUiLCAiU3VyamVjdGl2ZSIsICJCaWplY3RpdmUiLCAiTmVpdGhlciJdLCAiQmlqZWN0aXZlIiwKKTsKJG5laXRoZXIgPSBQb3BVcCgKWyI/IiwgIkluamVjdGl2ZSIsICJTdXJqZWN0aXZlIiwgIkJpamVjdGl2ZSIsICJOZWl0aGVyIl0sICJOZWl0aGVyIiwKKTsKCkJFR0lOX1BHTUwKVGhlIGZvbGxvd2luZyBmdW5jdGlvbnMgYWxsIGhhdmUgW2BcezEsMiwzLDQsNVx9YF0gYXMgYm90aCB0aGVpciBkb21haW4gYW5kIGNvZG9tYWluLiBGb3IgZWFjaCwgZGV0ZXJtaW5lIHdoZXRoZXIgaXQgaXMgKG9ubHkpIGluamVjdGl2ZSwgKG9ubHkpIHN1cmplY3RpdmUsIGJpamVjdGl2ZSwgb3IgbmVpdGhlciBpbmplY3RpdmUgbm9yIHN1cmplY3RpdmUuCmEuICBbYGYgPSBcdHdvbGluZXsxIFxhbXAgMiBcYW1wIDMgXGFtcCA0IFxhbXAgNX17MyBcYW1wIDMgXGFtcCAzIFxhbXAgMyBcYW1wIDN9XHRleHR7Ln1gXSBbX117JG5laXRoZXJ9ezV9CgoKYS4gIFtgZiA9IFx0d29saW5lezEgXGFtcCAyIFxhbXAgMyBcYW1wIDQgXGFtcCA1fXsyIFxhbXAgMyBcYW1wIDEgXGFtcCA1IFxhbXAgNH1cdGV4dHsufWBdIFtfXXskYmlqZWN0aXZlfXs1fQoKCmEuICBbYGYoeCkgPSA2IC0geFx0ZXh0ey59YF0gW19deyRiaWplY3RpdmV9ezV9CgoKYS4gIFtgZih4KSA9IFxiZWdpbntjYXNlc30geC8yIFxhbXAgXHRleHR7IGlmIH0geCBcdGV4dHsgaXMgZXZlbn0gXFwgKHgrMSkvMiBcYW1wIFx0ZXh0eyBpZiB9IHggXHRleHR7IGlzIG9kZH1cZW5ke2Nhc2VzfVx0ZXh0ey59YF0gW19deyRuZWl0aGVyfXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgVGhpcyBpcyBuZWl0aGVyIGluamVjdGl2ZSBub3Igc3VyamVjdGl2ZS4gSXQgaXMgbm90IGluamVjdGl2ZSBiZWNhdXNlIG1vcmUgdGhhbiBvbmUgZWxlbWVudCBmcm9tIHRoZSBkb21haW4gaGFzIDMgYXMgaXRzIGltYWdlLiBJdCBpcyBub3Qgc3VyamVjdGl2ZSBiZWNhdXNlIHRoZXJlIGFyZSBlbGVtZW50cyBvZiB0aGUgY29kb21haW4gKDEsIDIsIDQsIGFuZCA1KSB0aGF0IGFyZSBub3QgaW1hZ2VzIG9mIGFueXRoaW5nIGZyb20gdGhlIGRvbWFpbi4KCgphLiAgVGhpcyBpcyBhIGJpamVjdGlvbi4gRXZlcnkgZWxlbWVudCBpbiB0aGUgY29kb21haW4gaXMgdGhlIGltYWdlIG9mIF9leGFjdGx5XyBvbmUgZWxlbWVudCBvZiB0aGUgZG9tYWluLgoKCmEuICBUaGlzIGlzIGEgYmlqZWN0aW9uLiBOb3RlIHRoYXQgd2UgY2FuIHdyaXRlIHRoaXMgZnVuY3Rpb24gaW4gdHdvIGxpbmUgbm90YXRpb24gYXMgW2BmID0gXHR3b2xpbmV7MSBcYW1wIDIgXGFtcCAzIFxhbXAgNCBcYW1wIDV9ezUgXGFtcCA0IFxhbXAgMyBcYW1wIDIgXGFtcCAxfVx0ZXh0ey59YF0KCgphLiAgSW4gdHdvIGxpbmUgbm90YXRpb24sIHRoaXMgZnVuY3Rpb24gaXMgW2BmID0gXHR3b2xpbmV7MSBcYW1wIDIgXGFtcCAzIFxhbXAgNCBcYW1wIDV9ezEgXGFtcCAxIFxhbXAgMiBcYW1wIDIgXGFtcCAzfVx0ZXh0ey59YF0gRnJvbSB0aGlzIHdlIGNhbiBxdWlja2x5IHNlZSBpdCBpcyBuZWl0aGVyIGluamVjdGl2ZSAoZm9yIGV4YW1wbGUsIDEgaXMgdGhlIGltYWdlIG9mIGJvdGggMSBhbmQgMikgbm9yIHN1cmplY3RpdmUgKGZvciBleGFtcGxlLCA0IGlzIG5vdCB0aGUgaW1hZ2Ugb2YgYW55dGhpbmcpLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-890">The following functions all have <span class="process-math">\(\{1,2,3,4,5\}\)</span> as both their domain and codomain. For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.</p>
+<ol class="lower-alpha">
+<li id="li-570"><p id="p-891"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{3 \amp 3 \amp 3 \amp 3 \amp 3}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-572"><p id="p-893">Injective</p></li>
+<li id="li-573"><p id="p-894">Surjective</p></li>
+<li id="li-574"><p id="p-895">Bijective</p></li>
+<li id="li-575"><p id="p-896">Neither</p></li>
+</ul></p></li>
+<li id="li-576"><p id="p-897"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{2 \amp 3 \amp 1 \amp 5 \amp 4}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-578"><p id="p-899">Injective</p></li>
+<li id="li-579"><p id="p-900">Surjective</p></li>
+<li id="li-580"><p id="p-901">Bijective</p></li>
+<li id="li-581"><p id="p-902">Neither</p></li>
+</ul></p></li>
+<li id="li-582"><p id="p-903"><span class="process-math">\(f(x) = 6 - x\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-584"><p id="p-905">Injective</p></li>
+<li id="li-585"><p id="p-906">Surjective</p></li>
+<li id="li-586"><p id="p-907">Bijective</p></li>
+<li id="li-587"><p id="p-908">Neither</p></li>
+</ul></p></li>
+<li id="li-588"><p id="p-909"><span class="process-math">\(f(x) = \begin{cases} x/2 \amp \text{ if } x \text{ is even} \\ (x+1)/2 \amp \text{ if } x \text{ is odd}\end{cases}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-590"><p id="p-911">Injective</p></li>
+<li id="li-591"><p id="p-912">Surjective</p></li>
+<li id="li-592"><p id="p-913">Bijective</p></li>
+<li id="li-593"><p id="p-914">Neither</p></li>
+</ul></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-25')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="zOw"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-26" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="26" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJwYXJzZXJQb3BVcC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpURVhUKE1PREVTKFBUWD0+JycsSFRNTD0+JzxkaXYgc3R5bGU9ImRpc3BsYXk6bm9uZTsiPlwoXG5ld2NvbW1hbmR7XHR3b2xpbmV9WzJde1xiZWdpbntwbWF0cml4fSMxIFxcICMyIFxlbmR7cG1hdHJpeH19XG5ld2NvbW1hbmR7XGd0fXs+fVxuZXdjb21tYW5ke1xhbXB9eyZ9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTskaW5qZWN0aXZlID0gUG9wVXAoClsiPyIsICJJbmplY3RpdmUiLCAiU3VyamVjdGl2ZSIsICJCaWplY3RpdmUiLCAiTmVpdGhlciJdLCAiSW5qZWN0aXZlIiwKKTsKJHN1cmplY3RpdmUgPSBQb3BVcCgKWyI/IiwgIkluamVjdGl2ZSIsICJTdXJqZWN0aXZlIiwgIkJpamVjdGl2ZSIsICJOZWl0aGVyIl0sICJTdXJqZWN0aXZlIiwKKTsKJGJpamVjdGl2ZSA9IFBvcFVwKApbIj8iLCAiSW5qZWN0aXZlIiwgIlN1cmplY3RpdmUiLCAiQmlqZWN0aXZlIiwgIk5laXRoZXIiXSwgIkJpamVjdGl2ZSIsCik7CiRuZWl0aGVyID0gUG9wVXAoClsiPyIsICJJbmplY3RpdmUiLCAiU3VyamVjdGl2ZSIsICJCaWplY3RpdmUiLCAiTmVpdGhlciJdLCAiTmVpdGhlciIsCik7CgpCRUdJTl9QR01MClRoZSBmb2xsb3dpbmcgZnVuY3Rpb25zIGFsbCBoYXZlIGRvbWFpbiBbYFx7MSwyLDMsNCw1XH1gXSBhbmQgY29kb21haW4gW2BcezEsMiwzXH1cdGV4dHsufWBdIEZvciBlYWNoLCBkZXRlcm1pbmUgd2hldGhlciBpdCBpcyAob25seSkgaW5qZWN0aXZlLCAob25seSkgc3VyamVjdGl2ZSwgYmlqZWN0aXZlLCBvciBuZWl0aGVyIGluamVjdGl2ZSBub3Igc3VyamVjdGl2ZS4KYS4gIFtgZiA9IFx0d29saW5lezEgXGFtcCAyIFxhbXAgMyBcYW1wIDQgXGFtcCA1fXsxIFxhbXAgMiBcYW1wIDEgXGFtcCAyIFxhbXAgMX1cdGV4dHsufWBdIFtfXXskbmVpdGhlcn17NX0KCgphLiAgW2BmID0gXHR3b2xpbmV7MSBcYW1wIDIgXGFtcCAzIFxhbXAgNCBcYW1wIDV9ezEgXGFtcCAyIFxhbXAgMyBcYW1wIDEgXGFtcCAyfVx0ZXh0ey59YF0gW19deyRzdXJqZWN0aXZlfXs1fQoKCmEuICBbYGYoeCkgPSBcYmVnaW57Y2FzZXN9IHggXGFtcCBcdGV4dHsgaWYgfSB4IFxsZSAzIFxcIHgtMyBcYW1wIFx0ZXh0eyBpZiB9IHggXGd0IDNcZW5ke2Nhc2VzfVx0ZXh0ey59YF0gW19deyRzdXJqZWN0aXZlfXs1fQoKCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-924">The following functions all have domain <span class="process-math">\(\{1,2,3,4,5\}\)</span> and codomain <span class="process-math">\(\{1,2,3\}\text{.}\)</span> For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.</p>
+<ol class="lower-alpha">
+<li id="li-598"><p id="p-925"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{1 \amp 2 \amp 1 \amp 2 \amp 1}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-600"><p id="p-927">Injective</p></li>
+<li id="li-601"><p id="p-928">Surjective</p></li>
+<li id="li-602"><p id="p-929">Bijective</p></li>
+<li id="li-603"><p id="p-930">Neither</p></li>
+</ul></p></li>
+<li id="li-604"><p id="p-931"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4 \amp 5}{1 \amp 2 \amp 3 \amp 1 \amp 2}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-606"><p id="p-933">Injective</p></li>
+<li id="li-607"><p id="p-934">Surjective</p></li>
+<li id="li-608"><p id="p-935">Bijective</p></li>
+<li id="li-609"><p id="p-936">Neither</p></li>
+</ul></p></li>
+<li id="li-610"><p id="p-937"><span class="process-math">\(f(x) = \begin{cases} x \amp \text{ if } x \le 3 \\ x-3 \amp \text{ if } x \gt 3\end{cases}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-612"><p id="p-939">Injective</p></li>
+<li id="li-613"><p id="p-940">Surjective</p></li>
+<li id="li-614"><p id="p-941">Bijective</p></li>
+<li id="li-615"><p id="p-942">Neither</p></li>
+</ul></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-26')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="fVF"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-27" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="27" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJwYXJzZXJQb3BVcC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpURVhUKE1PREVTKFBUWD0+JycsSFRNTD0+JzxkaXYgc3R5bGU9ImRpc3BsYXk6bm9uZTsiPlwoXG5ld2NvbW1hbmR7XHR3b2xpbmV9WzJde1xiZWdpbntwbWF0cml4fSMxIFxcICMyIFxlbmR7cG1hdHJpeH19XG5ld2NvbW1hbmR7XGFtcH17Jn1cKTwvZGl2PicpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRpbmplY3RpdmUgPSBQb3BVcCgKWyI/IiwgIkluamVjdGl2ZSIsICJTdXJqZWN0aXZlIiwgIkJpamVjdGl2ZSIsICJOZWl0aGVyIl0sICJJbmplY3RpdmUiLAopOwokc3VyamVjdGl2ZSA9IFBvcFVwKApbIj8iLCAiSW5qZWN0aXZlIiwgIlN1cmplY3RpdmUiLCAiQmlqZWN0aXZlIiwgIk5laXRoZXIiXSwgIlN1cmplY3RpdmUiLAopOwokYmlqZWN0aXZlID0gUG9wVXAoClsiPyIsICJJbmplY3RpdmUiLCAiU3VyamVjdGl2ZSIsICJCaWplY3RpdmUiLCAiTmVpdGhlciJdLCAiQmlqZWN0aXZlIiwKKTsKJG5laXRoZXIgPSBQb3BVcCgKWyI/IiwgIkluamVjdGl2ZSIsICJTdXJqZWN0aXZlIiwgIkJpamVjdGl2ZSIsICJOZWl0aGVyIl0sICJOZWl0aGVyIiwKKTsKCkJFR0lOX1BHTUwKVGhlIGZvbGxvd2luZyBmdW5jdGlvbnMgYWxsIGhhdmUgZG9tYWluIFtgXHsxLDIsMyw0XH1gXSBhbmQgY29kb21haW4gW2BcezEsMiwzLDQsNVx9XHRleHR7Ln1gXSBGb3IgZWFjaCwgZGV0ZXJtaW5lIHdoZXRoZXIgaXQgaXMgKG9ubHkpIGluamVjdGl2ZSwgKG9ubHkpIHN1cmplY3RpdmUsIGJpamVjdGl2ZSwgb3IgbmVpdGhlciBpbmplY3RpdmUgbm9yIHN1cmplY3RpdmUuCmEuICBbYGYgPSBcdHdvbGluZXsxIFxhbXAgMiBcYW1wIDMgXGFtcCA0fXsxIFxhbXAgMiBcYW1wIDUgXGFtcCA0fVx0ZXh0ey59YF0gW19deyRpbmplY3RpdmV9ezV9CgoKYS4gIFtgZiA9IFx0d29saW5lezEgXGFtcCAyIFxhbXAgMyBcYW1wIDR9ezEgXGFtcCAyIFxhbXAgMyBcYW1wIDJ9XHRleHR7Ln1gXSBbX117JG5laXRoZXJ9ezV9CgoKYS4gIFtgZih4KWBdIGdpdmVzIHRoZSBudW1iZXIgb2YgbGV0dGVycyBpbiB0aGUgRW5nbGlzaCB3b3JkIGZvciB0aGUgbnVtYmVyIFtgeFx0ZXh0ey59YF0gRm9yIGV4YW1wbGUsIFtgZigxKSA9IDNgXSBzaW5jZSAib25lIiBjb250YWlucyB0aHJlZSBsZXR0ZXJzLiBbX117JG5laXRoZXJ9ezV9CgoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-946">The following functions all have domain <span class="process-math">\(\{1,2,3,4\}\)</span> and codomain <span class="process-math">\(\{1,2,3,4,5\}\text{.}\)</span> For each, determine whether it is (only) injective, (only) surjective, bijective, or neither injective nor surjective.</p>
+<ol class="lower-alpha">
+<li id="li-616"><p id="p-947"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4}{1 \amp 2 \amp 5 \amp 4}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-618"><p id="p-949">Injective</p></li>
+<li id="li-619"><p id="p-950">Surjective</p></li>
+<li id="li-620"><p id="p-951">Bijective</p></li>
+<li id="li-621"><p id="p-952">Neither</p></li>
+</ul></p></li>
+<li id="li-622"><p id="p-953"><span class="process-math">\(f = \twoline{1 \amp 2 \amp 3 \amp 4}{1 \amp 2 \amp 3 \amp 2}\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-624"><p id="p-955">Injective</p></li>
+<li id="li-625"><p id="p-956">Surjective</p></li>
+<li id="li-626"><p id="p-957">Bijective</p></li>
+<li id="li-627"><p id="p-958">Neither</p></li>
+</ul></p></li>
+<li id="li-628"><p id="p-959"><span class="process-math">\(f(x)\)</span> gives the number of letters in the English word for the number <span class="process-math">\(x\text{.}\)</span> For example, <span class="process-math">\(f(1) = 3\)</span> since “one” contains three letters. <ul style="list-style:circle;">
+<li id="li-630"><p id="p-961">Injective</p></li>
+<li id="li-631"><p id="p-962">Surjective</p></li>
+<li id="li-632"><p id="p-963">Bijective</p></li>
+<li id="li-633"><p id="p-964">Neither</p></li>
+</ul></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-27')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="McO"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="Ptg">Consider the function <span class="process-math">\(f:\{1,2,3,4,5\} \to \{1,2,3,4\}\)</span> given by the table below:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="rAq">
+<tr>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">1</td>
+<td class="l m b1 r0 l0 t0 lines">2</td>
+<td class="l m b1 r0 l0 t0 lines">3</td>
+<td class="l m b1 r0 l0 t0 lines">4</td>
+<td class="l m b1 r0 l0 t0 lines">5</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+</tr>
+</table></div></div></div>
+<ol id="vAp" class="lower-alpha">
+<li id="dpu"><p id="XOD">Is <span class="process-math">\(f\)</span> injective? Explain.</p></li>
+<li id="JwD"><p id="DVM">Is <span class="process-math">\(f\)</span> surjective? Explain.</p></li>
+<li id="pDM"><p id="kcV">Write the function using two-line notation.</p></li>
+</ol></article><article class="exercise exercise-like" id="sjX"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="bHy">Consider the function <span class="process-math">\(f:\{1,2,3,4\} \to \{1,2,3,4\}\)</span> given by the graph below.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/graph-function-ques.svg" role="img" class="contained"></div></div></div>
+<ol id="HOH" class="lower-alpha">
+<li id="Ogw"><p id="IFF">Is <span class="process-math">\(f\)</span> injective? Explain.</p></li>
+<li id="unF"><p id="oMO">Is <span class="process-math">\(f\)</span> surjective? Explain.</p></li>
+<li id="auO"><p id="UTX">Write the function using two-line notation.</p></li>
+</ol></article><article class="exercise exercise-like" id="Yrg"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-28" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="28" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApXcml0ZSBvdXQgYWxsIGZ1bmN0aW9ucyBbYGY6IFx7MSwyLDNcfSBcdG8gXHthLGJcfWBdICh1c2luZyB0d28tbGluZSBub3RhdGlvbikuCgpIb3cgbWFueSBmdW5jdGlvbnMgYXJlIHRoZXJlPwoKW19dezh9ezV9CgpIb3cgbWFueSBhcmUgaW5qZWN0aXZlPwoKW19dezB9ezV9CgpIb3cgbWFueSBhcmUgc3VyamVjdGl2ZT8KCltfXXs2fXs1fQoKSG93IG1hbnkgYXJlIGJpamVjdGl2ZT8KCltfXXswfXs1fQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OClRoZXJlIGFyZSA4IGZ1bmN0aW9ucywgaW5jbHVkaW5nIDYgc3VyamVjdGl2ZSBhbmQgemVybyBpbmplY3RpdmUgZnVuY3Rpb25zLgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-982">Write out all functions <span class="process-math">\(f: \{1,2,3\} \to \{a,b\}\)</span> (using two-line notation).</p>
+<p id="p-983">How many functions are there?</p>
+<p id="p-984"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-985">How many are injective?</p>
+<p id="p-986"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-987">How many are surjective?</p>
+<p id="p-988"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-989">How many are bijective?</p>
+<p id="p-990"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-28')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Eyp"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div id="webwork-29" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="29" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApXcml0ZSBvdXQgYWxsIGZ1bmN0aW9ucyBbYGY6IFx7MSwyXH0gXHRvIFx7YSxiLGNcfWBdIChpbiB0d28tbGluZSBub3RhdGlvbikuCgpIb3cgbWFueSBmdW5jdGlvbnMgYXJlIHRoZXJlPwoKW19dezl9ezV9CgpIb3cgbWFueSBhcmUgaW5qZWN0aXZlPwoKW19dezZ9ezV9CgpIb3cgbWFueSBhcmUgc3VyamVjdGl2ZT8KCltfXXswfXs1fQoKSG93IG1hbnkgYXJlIGJpamVjdGl2ZT8KCltfXXswfXs1fQoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-996">Write out all functions <span class="process-math">\(f: \{1,2\} \to \{a,b,c\}\)</span> (in two-line notation).</p>
+<p id="p-997">How many functions are there?</p>
+<p id="p-998"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-999">How many are injective?</p>
+<p id="p-1000"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-1001">How many are surjective?</p>
+<p id="p-1002"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-1003">How many are bijective?</p>
+<p id="p-1004"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-29')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="kFy"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="grr">Suppose <span class="process-math">\(f:\N \to \N\)</span> satisfies the recurrence relation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(n+1) = \begin{cases} \frac{f(n)}{2} \amp \text{ if } f(n) \text{ is even} \\ 3f(n) + 1 \amp \text{ if } f(n) \text{ is odd}\end{cases}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Note that with the initial condition <span class="process-math">\(f(0) = 1\text{,}\)</span> the values of the function are: <span class="process-math">\(f(1) = 4\text{,}\)</span> <span class="process-math">\(f(2) = 2\text{,}\)</span> <span class="process-math">\(f(3) = 1\text{,}\)</span> <span class="process-math">\(f(4) = 4\text{,}\)</span> and so on, the images cycling through those three numbers. Thus <span class="process-math">\(f\)</span> is NOT injective (and also certainly not surjective). Might it be under other initial conditions?<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-3" id="fn-3"><sup> 3 </sup></a></p>
+<ol class="lower-alpha">
+<li id="DHr"><p id="ygA">If <span class="process-math">\(f\)</span> satisfies the initial condition <span class="process-math">\(f(0) = 5\text{,}\)</span> is <span class="process-math">\(f\)</span> injective? Explain why or give a specific example of two elements from the domain with the same image.</p></li>
+<li id="jOA"><p id="enJ">If <span class="process-math">\(f\)</span> satisfies the initial condition <span class="process-math">\(f(0) = 3\text{,}\)</span> is <span class="process-math">\(f\)</span> injective? Explain why or give a specific example of two elements from the domain with the same image.</p></li>
+<li id="PVJ"><p id="KuS">If <span class="process-math">\(f\)</span> satisfies the initial condition <span class="process-math">\(f(0) = 27\text{,}\)</span> then it turns out that <span class="process-math">\(f(105) = 10\)</span> and no two numbers less than 105 have the same image. Could <span class="process-math">\(f\)</span> be injective? Explain.</p></li>
+<li id="wcS"><p id="qCb">Prove that no matter what initial condition you choose, the function cannot be surjective.</p></li>
+</ol></article><article class="exercise exercise-like" id="QMH"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="MyA">For each function given below, determine whether or not the function is injective and whether or not the function is surjective.</p>
+<ol class="lower-alpha">
+<li id="ckb"><p id="p-derived-ckb"><span class="process-math">\(f:\N \to \N\)</span> given by <span class="process-math">\(f(n) = n+4\text{.}\)</span></p></li>
+<li id="Irk"><p id="p-derived-Irk"><span class="process-math">\(f:\Z \to \Z\)</span> given by <span class="process-math">\(f(n) = n+4\text{.}\)</span></p></li>
+<li id="oyt"><p id="p-derived-oyt"><span class="process-math">\(f:\Z \to \Z\)</span> given by <span class="process-math">\(f(n) = 5n - 8\text{.}\)</span></p></li>
+<li id="UFC"><p id="p-derived-UFC"><span class="process-math">\(f:\Z \to \Z\)</span> given by <span class="process-math">\(f(n) = \begin{cases}n/2 \amp \text{ if } n \text{ is even} \\ (n+1)/2 \amp \text{ if } n \text{ is odd} . \end{cases}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="wTQ"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="sFJ">Let <span class="process-math">\(A = \{1,2,3,\ldots,10\}\text{.}\)</span> Consider the function <span class="process-math">\(f:\pow(A) \to \N\)</span> given by <span class="process-math">\(f(B) = |B|\text{.}\)</span> That is, <span class="process-math">\(f\)</span> takes a subset of <span class="process-math">\(A\)</span> as an input and outputs the cardinality of that set.</p>
+<ol class="lower-alpha">
+<li id="Zpv"><p id="WJk">Is <span class="process-math">\(f\)</span> injective? Prove your answer.</p></li>
+<li id="FwE"><p id="CQt">Is <span class="process-math">\(f\)</span> surjective? Prove your answer.</p></li>
+<li id="lDN"><p id="iXC">Find <span class="process-math">\(f\inv(1)\text{.}\)</span></p></li>
+<li id="RKW"><p id="PeL">Find <span class="process-math">\(f\inv(0)\text{.}\)</span></p></li>
+<li id="xSf"><p id="vlU">Find <span class="process-math">\(f\inv(12)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="daZ"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<div id="webwork-30" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="30" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxyZW5ld2NvbW1hbmR7XGR9e1xkaXNwbGF5c3R5bGV9XG5ld2NvbW1hbmR7XE59e1xtYXRoYmIgTn1cKTwvZGl2PicpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApDb25zaWRlciB0aGUgZnVuY3Rpb24gW2BmOlxOIFx0byBcTmBdIGdpdmVuIF9yZWN1cnNpdmVseV8gYnkgW2BmKDApID0gMWBdIGFuZCBbYGYobisxKSA9IDJcY2RvdCBmKG4pXHRleHR7Ln1gXSBGaW5kIFtgZigxMClcdGV4dHsufWBdCgpbX117MTAyNH17NX0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYGYoMTApID0gMTAyNFx0ZXh0ey59YF0gVG8gZmluZCBbYGYoMTApXHRleHR7LH1gXSB3ZSBuZWVkIHRvIGtub3cgW2BmKDkpXHRleHR7LH1gXSBmb3Igd2hpY2ggd2UgbmVlZCBbYGYoOClcdGV4dHssfWBdIGFuZCBzbyBvbi4gU28gYnVpbGQgdXAgZnJvbSBbYGYoMCkgPSAxXHRleHR7Ln1gXSBUaGVuIFtgZigxKSA9IDJcdGV4dHssfWBdIFtgZigyKSA9IDRcdGV4dHssfWBdIFtgZigzKSA9IDhcdGV4dHssfWBdIC4uLi4gSW4gZmFjdCwgaXQgbG9va3MgbGlrZSBhIGNsb3NlZCBmb3JtdWxhIGZvciBbYGZgXSBpcyBbYGYobikgPSAyXm5cdGV4dHsufWBdIExhdGVyIHdlIHdpbGwgc2VlIGhvdyB0byBwcm92ZSB0aGlzIGlzIGNvcnJlY3QuCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1028">Consider the function <span class="process-math">\(f:\N \to \N\)</span> given <em class="emphasis">recursively</em> by <span class="process-math">\(f(0) = 1\)</span> and <span class="process-math">\(f(n+1) = 2\cdot f(n)\text{.}\)</span> Find <span class="process-math">\(f(10)\text{.}\)</span></p>
+<p id="p-1029"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-30')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Jii"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="EUb">Consider the set <span class="process-math">\(\N^2 = \N \times \N\text{,}\)</span> the set of all ordered pairs <span class="process-math">\((a,b)\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are natural numbers. Consider a function <span class="process-math">\(f: \N^2 \to \N\)</span> given by <span class="process-math">\(f((a,b)) =a+b\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="TAj"><p id="pwI">Let <span class="process-math">\(A = \{(a,b) \in \N^2 \st a, b \le 10\}\text{.}\)</span> Find <span class="process-math">\(f(A)\text{.}\)</span></p></li>
+<li id="zHs"><p id="VDR">Find <span class="process-math">\(f\inv(3)\)</span> and <span class="process-math">\(f\inv(\{0,1,2,3\})\text{.}\)</span></p></li>
+<li id="fOB"><p id="BLa">Give geometric descriptions of <span class="process-math">\(f\inv(n)\)</span> and <span class="process-math">\(f\inv(\{0, 1, \ldots, n\})\)</span> for any <span class="process-math">\(n \ge 1\text{.}\)</span></p></li>
+<li id="LVK"><p id="hSj">Find <span class="process-math">\(\card{f\inv(8)}\)</span> and <span class="process-math">\(\card{f\inv(\{0,1, \ldots, 8\})}\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="ppr"><h4 class="heading"><span class="codenumber">16<span class="period">.</span></span></h4>
+<p id="lbk">Let <span class="process-math">\(f:X \to Y\)</span> be some function. Suppose <span class="process-math">\(3 \in Y\text{.}\)</span> What can you say about <span class="process-math">\(f\inv(3)\)</span> if you know,</p>
+<ol class="lower-alpha">
+<li id="scT"><p id="NZs"><span class="process-math">\(f\)</span> is injective? Explain.</p></li>
+<li id="Ykc"><p id="ugB"><span class="process-math">\(f\)</span> is surjective? Explain.</p></li>
+<li id="Erl"><p id="anK"><span class="process-math">\(f\)</span> is bijective? Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="VwA"><h4 class="heading"><span class="codenumber">17<span class="period">.</span></span></h4>
+<p id="Rit">Find a set <span class="process-math">\(X\)</span> and a function <span class="process-math">\(f:X \to \N\)</span> so that <span class="process-math">\(f\inv(0) \cup f\inv(1) = X\text{.}\)</span></p></article><article class="exercise exercise-like" id="BDJ"><h4 class="heading"><span class="codenumber">18<span class="period">.</span></span></h4>
+<p id="xpC">What can you deduce about the sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> if you know,</p>
+<ol class="lower-alpha">
+<li id="cTV"><p id="yQu">there is an injective function <span class="process-math">\(f:X \to Y\text{?}\)</span> Explain.</p></li>
+<li id="Jbe"><p id="eXD">there is a surjective function <span class="process-math">\(f:X \to Y\text{?}\)</span> Explain.</p></li>
+<li id="pin"><p id="LeM">there is a bijective function <span class="process-math">\(f:X \to Y\text{?}\)</span> Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="hKS"><h4 class="heading"><span class="codenumber">19<span class="period">.</span></span></h4>
+<p id="dwL">Suppose <span class="process-math">\(f:X \to Y\)</span> is a function. Which of the following are possible? Explain.</p>
+<ol class="lower-alpha">
+<li id="Vpw"><p id="p-derived-Vpw"><span class="process-math">\(f\)</span> is injective but not surjective.</p></li>
+<li id="BwF"><p id="p-derived-BwF"><span class="process-math">\(f\)</span> is surjective but not injective.</p></li>
+<li id="hDO"><p id="p-derived-hDO"><span class="process-math">\(|X| = |Y|\)</span> and <span class="process-math">\(f\)</span> is injective but not surjective.</p></li>
+<li id="NKX"><p id="p-derived-NKX"><span class="process-math">\(|X| = |Y|\)</span> and <span class="process-math">\(f\)</span> is surjective but not injective.</p></li>
+<li id="tSg"><p id="p-derived-tSg"><span class="process-math">\(|X| = |Y|\text{,}\)</span> <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite, and <span class="process-math">\(f\)</span> is injective but not surjective.</p></li>
+<li id="ZZp"><p id="p-derived-ZZp"><span class="process-math">\(|X| = |Y|\text{,}\)</span> <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite, and <span class="process-math">\(f\)</span> is surjective but not injective.</p></li>
+</ol></article><article class="exercise exercise-like" id="NSb"><h4 class="heading"><span class="codenumber">20<span class="period">.</span></span></h4>
+<p id="JDU">Let <span class="process-math">\(f:X \to Y\)</span> and <span class="process-math">\(g:Y \to Z\)</span> be functions. We can define the <dfn class="terminology">composition</dfn>  of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> to be the function <span class="process-math">\(g\circ f:X \to Z\)</span> for which the image of each <span class="process-math">\(x \in X\)</span> is <span class="process-math">\(g(f(x))\text{.}\)</span> That is, plug <span class="process-math">\(x\)</span> into <span class="process-math">\(f\text{,}\)</span> then plug the result into <span class="process-math">\(g\)</span> (just like composition in algebra and calculus).</p>
+<ol class="lower-alpha">
+<li id="Ggy"><p id="rlV">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are both injective, must <span class="process-math">\(g\circ f\)</span> be injective? Explain.</p></li>
+<li id="mnH"><p id="Xte">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are both surjective, must <span class="process-math">\(g\circ f\)</span> be surjective? Explain.</p></li>
+<li id="SuQ"><p id="DAn">Suppose <span class="process-math">\(g\circ f\)</span> is injective. What, if anything, can you say about <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{?}\)</span> Explain.</p></li>
+<li id="yBZ"><p id="jHw">Suppose <span class="process-math">\(g\circ f\)</span> is surjective. What, if anything, can you say about <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{?}\)</span> Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="tZk"><h4 class="heading"><span class="codenumber">21<span class="period">.</span></span></h4>
+<p id="pLd">Consider the function <span class="process-math">\(f:\Z \to \Z\)</span> given by <span class="process-math">\(f(n) = \begin{cases}n+1 \amp \text{ if }n\text{ is even} \\ n-3 \amp \text{ if }n\text{ is odd} . \end{cases}\)</span></p>
+<ol class="lower-alpha">
+<li id="eJi"><p id="POF">Is <span class="process-math">\(f\)</span> injective? Prove your answer.</p></li>
+<li id="KQr"><p id="vVO">Is <span class="process-math">\(f\)</span> surjective? Prove your answer.</p></li>
+</ol></article><article class="exercise exercise-like" id="agt"><h4 class="heading"><span class="codenumber">22<span class="period">.</span></span></h4>
+<p id="VSm">At the end of the semester a teacher assigns letter grades to each of her students. Is this a function? If so, what sets make up the domain and codomain, and is the function injective, surjective, bijective, or neither?</p></article><article class="exercise exercise-like" id="GnC"><h4 class="heading"><span class="codenumber">23<span class="period">.</span></span></h4>
+<p id="BZv">In the game of <em class="emphasis">Hearts</em>, four players are each dealt 13 cards from a deck of 52. Is this a function? If so, what sets make up the domain and codomain, and is the function injective, surjective, bijective, or neither?</p></article><article class="exercise exercise-like" id="muL"><h4 class="heading"><span class="codenumber">24<span class="period">.</span></span></h4>
+<p id="igE">Seven players are playing 5-card stud. Each player initially receives 5 cards from a deck of 52. Is this a function? If so, what sets make up the domain and codomain, and is the function injective, surjective, bijective, or neither?</p></article><article class="exercise exercise-like" id="SBU"><h4 class="heading"><span class="codenumber">25<span class="period">.</span></span></h4>
+<p id="OnN">Consider the function <span class="process-math">\(f:\N \to \N\)</span> that gives the number of handshakes that take place in a room of <span class="process-math">\(n\)</span> people assuming everyone shakes hands with everyone else. Give a recursive definition for this function.</p></article><article class="exercise exercise-like" id="yJd"><h4 class="heading"><span class="codenumber">26<span class="period">.</span></span></h4>
+<p id="uuW">Let <span class="process-math">\(f:X \to Y\)</span> be a function and <span class="process-math">\(A \subseteq X\)</span> be a finite subset of the domain. What can you say about the relationship between <span class="process-math">\(\card{A}\)</span> and <span class="process-math">\(\card{f(A)}\text{?}\)</span> Consider both the general case and what happens when you know <span class="process-math">\(f\)</span> is injective, surjective, or bijective.</p></article><article class="exercise exercise-like" id="eQm"><h4 class="heading"><span class="codenumber">27<span class="period">.</span></span></h4>
+<p id="aCf">Let <span class="process-math">\(f:X \to Y\)</span> be a function and <span class="process-math">\(B \subseteq Y\)</span> be a finite subset of the codomain. What can you say about the relationship between <span class="process-math">\(\card{B}\)</span> and <span class="process-math">\(\card{f\inv(B)}\text{?}\)</span> Consider both the general case and what happens when you know <span class="process-math">\(f\)</span> is injective, surjective, or bijective.</p></article><article class="exercise exercise-like" id="KXv"><h4 class="heading"><span class="codenumber">28<span class="period">.</span></span></h4>
+<p id="GJo">Let <span class="process-math">\(f:X \to Y\)</span> be a function, <span class="process-math">\(A \subseteq X\)</span> and <span class="process-math">\(B \subseteq Y\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="DlS"><p id="AFH">Is <span class="process-math">\(f\inv\left(f(A)\right) = A\text{?}\)</span> Always, sometimes, never? Explain.</p></li>
+<li id="jtb"><p id="gMQ">Is <span class="process-math">\(f\left(f\inv(B)\right) = B\text{?}\)</span> Always, sometimes, never? Explain.</p></li>
+<li id="PAk"><p id="MTZ">If one or both of the above do not always hold, is there something else you can say? Will equality always hold for particular types of functions? Is there some other relationship other than equality that would always hold? Explore.</p></li>
+</ol></article><article class="exercise exercise-like" id="reE"><h4 class="heading"><span class="codenumber">29<span class="period">.</span></span></h4>
+<p id="mQx">Let <span class="process-math">\(f:X \to Y\)</span> be a function and <span class="process-math">\(A, B \subseteq X\)</span> be subsets of the domain.</p>
+<ol class="lower-alpha">
+<li id="vHt"><p id="tbi">Is <span class="process-math">\(f(A \cup B) = f(A) \cup f(B)\text{?}\)</span> Always, sometimes, or never? Explain.</p></li>
+<li id="bOC"><p id="Zir">Is <span class="process-math">\(f(A \cap B) = f(A) \cap f(B)\text{?}\)</span> Always, sometimes, or never? Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="XlN"><h4 class="heading"><span class="codenumber">30<span class="period">.</span></span></h4>
+<p id="SXG">Let <span class="process-math">\(f:X \to Y\)</span> be a function and <span class="process-math">\(A, B \subseteq Y\)</span> be subsets of the codomain.</p>
+<ol class="lower-alpha">
+<li id="HVL"><p id="FpA">Is <span class="process-math">\(f\inv(A \cup B) = f\inv(A) \cup f\inv(B)\text{?}\)</span> Always, sometimes, or never? Explain.</p></li>
+<li id="ocU"><p id="lwJ">Is <span class="process-math">\(f\inv(A \cap B) = f\inv(A) \cap f\inv(B)\text{?}\)</span> Always, sometimes, or never? Explain.</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-3"><div class="fn">It turns out this is a <em class="emphasis">really</em> hard question to answer in general. The <em class="emphasis">Collatz conjecture</em> is that no matter what the initial condition is, the function will eventually produce 1 as an output. This is an open problem in mathematics: nobody knows the answer.</div></div>
+</div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

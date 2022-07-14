@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:17-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Binomial Coefficients</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_counting-addmult.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_counting.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_counting-combperm.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_counting-addmult.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_counting.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_counting-combperm.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="active">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="internal">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="internal">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="vZs"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Binomial Coefficients</span>
+</h2>
+<section class="introduction" id="KcX"><article class="project-like" id="qkg"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<p id="Btf">In chess, a rook can move only in straight lines (not diagonally). Fill in each square of the chess board below with the number of different shortest paths the rook, in the upper left corner, can take to get to that square. For example, one square is already filled in. There are six different paths from the rook to the square: DDRR (down down right right), DRDR, DRRD, RDDR, RDRD and RRDD.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/chessboard.svg" role="img" class="contained"></div></div></div></article><p id="hAo">Here are some apparently different discrete objects we can count: subsets, bit strings, lattice paths, and binomial coefficients. We will give an example of each type of counting problem (and say what these things even are). As we will see, these counting problems are surprisingly similar.</p></section><section class="subsection" id="cgB"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Subsets</span>
+</h3>
+<p id="GcY">Subsets should be familiar, otherwise read over <a href="sec_intro-sets.html" class="internal" title="Section 0.3: Sets">Section 0.3</a> again. Suppose we look at the set <span class="process-math">\(A = \{1,2,3,4,5\}\text{.}\)</span> How many subsets of <span class="process-math">\(A\)</span> contain exactly 3 elements?</p>
+<p id="mkh">First, a simpler question: How many subsets of <span class="process-math">\(A\)</span> are there total? In other words, what is <span class="process-math">\(|\pow(A)|\)</span> (the cardinality of the power set of <span class="process-math">\(A\)</span>)? Think about how we would build a subset. We need to decide, for each of the elements of <span class="process-math">\(A\text{,}\)</span> whether or not to include the element in our subset. So we need to decide “yes” or “no” for the element 1. And for each choice we make, we need to decide “yes” or “no” for the element 2. And so on. For each of the 5 elements, we have 2 choices. Therefore the number of subsets is simply <span class="process-math">\(2\cdot 2\cdot 2 \cdot 2\cdot 2 = 2^5\)</span> (by the multiplicative principle).</p>
+<p id="Srq">Of those 32 subsets, how many have 3 elements? This is not obvious. Note that we cannot just use the multiplicative principle. Maybe we want to say we have 2 choices (yes/no) for the first element, 2 choices for the second, 2 choices for the third, and then only 1 choice for the other two. But what if we said “no” to one of the first three elements? Then we would have two choices for the 4th element. What a mess!</p>
+<p id="yyz">Another (bad) idea: we need to pick three elements to be in our subset. There are 5 elements to choose from. So there are 5 choices for the first element, and for each of those 4 choices for the second, and then 3 for the third (last) element. The multiplicative principle would say then that there are a total of <span class="process-math">\(5 \cdot 4 \cdot 3 = 60\)</span> ways to select the 3-element subset. But this cannot be correct (<span class="process-math">\(60 &gt; 32\)</span> for one thing). One of the outcomes we would get from these choices would be the set <span class="process-math">\(\{3,2,5\}\text{,}\)</span> by choosing the element 3 first, then the element 2, then the element 5. Another outcome would be <span class="process-math">\(\{5,2,3\}\)</span> by choosing the element 5 first, then the element 2, then the element 3. But these are the same set! We can correct this by dividing: for each set of three elements, there are 6 outcomes counted among our 60 (since there are 3 choices for which element we list first, 2 for which we list second, and 1 for which we list last). So we expect there to be 10 3-element subsets of <span class="process-math">\(A\text{.}\)</span></p>
+<p id="eFI">Is this right? Well, we could list out all 10 of them, being very systematic in doing so, to make sure we don't miss any or list any twice. Or we could try to count how many subsets of <span class="process-math">\(A\)</span> <em class="emphasis">don't</em> have 3 elements in them. How many have no elements? Just 1 (the empty set). How many have 5? Again, just 1. These are the cases in which we say “no” to all elements, or “yes” to all elements. Okay, what about the subsets which contain a single element? There are 5 of these. We must say “yes” to exactly one element, and there are 5 to choose from. This is also the number of subsets containing 4 elements. Those are the ones for which we must say “no” to exactly one element.</p>
+<p id="KMR">So far we have counted 12 of the 32 subsets. We have not yet counted the subsets with cardinality 2 and with cardinality 3. There are a total of 20 subsets left to split up between these two groups. But the number of each must be the same! If we say “yes” to exactly two elements, that can be accomplished in exactly the same number of ways as the number of ways we can say “no” to exactly two elements. So the number of 2-element subsets is equal to the number of 3-element subsets. Together there are 20 of these subsets, so 10 each.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="RVR">
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Number of elements:</td>
+<td class="c m b1 r0 l0 t0 lines">0</td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">4</td>
+<td class="c m b1 r0 l0 t0 lines">5</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Number of subsets:</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">10</td>
+<td class="c m b0 r0 l0 t0 lines">10</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+</table></div></div></div></section><section class="subsection" id="InK"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Bit Strings</span>
+</h3>
+<p id="qUa"> “Bit” is short for “binary digit,” so a <dfn class="terminology">bit string</dfn> is a string of binary digits. The <dfn class="terminology">binary digits</dfn> are simply the numbers 0 and 1. All of the following are bit strings:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1001 \quad 0 \quad 1111 \quad 1010101010\text{.}
+\end{equation*}
+</div>
+<p id="Xbj"> The number of bits (0's or 1's) in the string is the <dfn class="terminology">length</dfn> of the string; the strings above have lengths 4, 1, 4, and 10 respectively. We also can ask how many of the bits are 1's. The number of 1's in a bit string is the <dfn class="terminology">weight</dfn> of the string; the weights of the above strings are 2, 0, 4, and 5 respectively.</p>
+<article class="assemblage assemblage-like" id="gQu"><h4 class="heading"><span class="title">Bit Strings.</span></h4>
+<ul id="NHx" class="disc">
+<li id="OMQ"><p id="QCd">An <dfn class="terminology"><span class="process-math">\(n\)</span>-bit string</dfn> is a bit string of length <span class="process-math">\(n\text{.}\)</span> That is, it is a string containing <span class="process-math">\(n\)</span> symbols, each of which is a bit, either 0 or 1.</p></li>
+<li id="uTZ"><p id="wJm">The <dfn class="terminology">weight</dfn>  of a bit string is the number of 1's in it.</p></li>
+<li id="bbi"><p id="p-derived-bbi"><span class="process-math">\(\B^n\)</span>  is the <em class="emphasis">set</em> of all <span class="process-math">\(n\)</span>-bit strings.</p></li>
+<li id="Hir"><p id="p-derived-Hir"><span class="process-math">\(\B^n_k\)</span>  is the set of all <span class="process-math">\(n\)</span>-bit strings of weight <span class="process-math">\(k\text{.}\)</span></p></li>
+</ul></article><p id="Dis">For example, the elements of the set <span class="process-math">\(\B^3_2\)</span> are the bit strings 011, 101, and 110. Those are the only strings containing three bits exactly two of which are 1's.</p>
+<p id="jpB">The counting questions: How many bit strings have length 5? How many of those have weight 3? In other words, we are asking for the cardinalities <span class="process-math">\(|\B^5|\)</span> and <span class="process-math">\(|\B^5_3|\text{.}\)</span></p>
+<p id="PwK">To find the number of 5-bit strings is straight forward. We have 5 bits, and each can either be a 0 or a 1. So there are 2 choices for the first bit, 2 choices for the second, and so on. By the multiplicative principle, there are <span class="process-math">\(2 \cdot 2 \cdot 2\cdot 2 \cdot 2 = 2^5 = 32\)</span> such strings.</p>
+<p id="vDT">Finding the number of 5-bit strings of weight 3 is harder. Think about how such a string could start. The first bit must be either a 0 or a 1. In the first case (the string starts with a 0), we must then decide on four more bits. To have a total of three 1's, among those four remaining bits there must be three 1's. To count all of these strings, we must include all 4-bit strings of weight 3. In the second case (the string starts with a 1), we still have four bits to choose, but now only two of them can be 1's, so we should look at all the 4-bit strings of weight 2. So the strings in <span class="process-math">\(\B^5_3\)</span> all have the form <span class="process-math">\(1\B^4_2\)</span> (that is, a 1 followed by a string from <span class="process-math">\(\B^4_2\)</span>) or <span class="process-math">\(0\B^4_3\text{.}\)</span> These two sets are disjoint, so we can use the additive principle:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\B^5_3| = |\B^4_2| + |\B^4_3|\text{.}
+\end{equation*}
+</div>
+<p id="bLc"> This is an example of a <dfn class="terminology">recurrence relation</dfn>. We represented one instance of our counting problem in terms of two simpler instances of the problem. If only we knew the cardinalities of <span class="process-math">\(\B^4_2\)</span> and <span class="process-math">\(\B^4_3\text{.}\)</span> Repeating the same reasoning,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\B^4_2| = |\B^3_1| + |\B^3_2| \quad \mbox{and} \quad |\B^4_3| = |\B^3_2| + |\B^3_3|\text{.}
+\end{equation*}
+</div>
+<p id="HSl">We can keep going down, but this should be good enough. Both <span class="process-math">\(\B^3_1\)</span> and <span class="process-math">\(\B^3_2\)</span> contain 3 bit strings: we must pick one of the three bits to be a 1 (three ways to do that) or one of the three bits to be a 0 (three ways to do that). Also, <span class="process-math">\(\B^3_3\)</span> contains just one string: 111. Thus <span class="process-math">\(|\B^4_2| = 6\)</span> and <span class="process-math">\(|\B^4_3| = 4\text{,}\)</span> which puts <span class="process-math">\(\B^5_3\)</span> at a total of 10 strings.</p>
+<p id="nZu"> But wait —32 and 10 were the answers to the counting questions about subsets. Coincidence? Not at all. Each bit string can be thought of as a <em class="emphasis">code</em> for a subset. To represent the subsets of <span class="process-math">\(A = \{1,2,3,4,5\}\text{,}\)</span> we can use 5-bit strings, one bit for each element of <span class="process-math">\(A\text{.}\)</span> Each bit in the string is a 0 if its corresponding element of <span class="process-math">\(A\)</span> is not in the subset, and a 1 if the element of <span class="process-math">\(A\)</span> is in the subset. Remember, deciding the subset amounted to a sequence of five yes/no votes for the elements of <span class="process-math">\(A\text{.}\)</span> Instead of yes, we put a 1; instead of no, we put a 0.</p>
+<p id="UgD">For example, the bit string <span class="process-math">\(11001\)</span> represents the subset <span class="process-math">\(\{1,2,5\}\)</span> since the first, second and fifth bits are 1's. The subset <span class="process-math">\(\{3,5\}\)</span> would be coded by the string <span class="process-math">\(00101\text{.}\)</span> What we really have here is a bijection from <span class="process-math">\(\pow(A)\)</span> to <span class="process-math">\(\B^5\text{.}\)</span></p>
+<p id="AnM">Now for a subset to contain exactly three elements, the corresponding bit string must contain exactly three 1's. In other words, the weight must be 3. Thus counting the number of 3-element subsets of <span class="process-math">\(A\)</span> is the same as counting the number 5-bit strings of weight 3.</p></section><section class="subsection" id="ouT"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Lattice Paths</span>
+</h3>
+<p id="guV"> The <dfn class="terminology">integer lattice</dfn> is the set of all points in the Cartesian plane for which both the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> coordinates are integers. If you like to draw graphs on graph paper, the lattice is the set of all the intersections of the grid lines.</p>
+<p id="MCe">A <dfn class="terminology">lattice path</dfn>  is one of the shortest possible paths connecting two points on the lattice, moving only horizontally and vertically. For example, here are three possible lattice paths from the point <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((3,2)\text{:}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.666666666666667%;margin-right:1.666666666666667%;">
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="generated/latex-image/lattice-path-1.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="generated/latex-image/lattice-path-2.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="generated/latex-image/lattice-path-3.svg" role="img" class="contained"></div>
+</div></div>
+<p id="sJn">Notice to ensure the path is the <em class="emphasis">shortest</em> possible, each move must be either to the right or up. Additionally, in this case, note that no matter what path we take, we must make three steps right and two steps up. No matter what order we make these steps, there will always be 5 steps. Thus each path has <em class="emphasis">length</em> 5. </p>
+<p id="YQw">The counting question: how many lattice paths are there between <span class="process-math">\((0,0)\)</span> and <span class="process-math">\((3,2)\text{?}\)</span> We could try to draw all of these, or instead of drawing them, maybe just list which direction we travel on each of the 5 steps. One path might be RRUUR, or maybe UURRR, or perhaps RURRU (those correspond to the three paths drawn above). So how many such strings of R's and U's are there?</p>
+<p id="EXF"> Notice that each of these strings must contain 5 symbols. Exactly 3 of them must be R's (since our destination is 3 units to the right). This seems awfully familiar. In fact, what if we used <span class="process-math">\(1\)</span>'s instead of R's and 0's instead of U's? Then we would just have 5-bit strings of weight 3. There are 10 of those, so there are 10 lattice paths from (0,0) to (3,2).</p>
+<p id="leO">The correspondence between bit strings and lattice paths does not stop there. Here is another way to count lattice paths. Consider the lattice shown below:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/lattice-ab.svg" role="img" class="contained"></div></div></div>
+<p id="RlX">Any lattice path from (0,0) to (3,2) must pass through exactly one of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> The point <span class="process-math">\(A\)</span> is 4 steps away from (0,0) and two of them are towards the right. The number of lattice paths to <span class="process-math">\(A\)</span> is the same as the number of 4-bit strings of weight 2, namely 6. The point <span class="process-math">\(B\)</span> is 4 steps away from (0,0), but now 3 of them are towards the right. So the number of paths to point <span class="process-math">\(B\)</span> is the same as the number of 4-bit strings of weight 3, namely 4. So the total number of paths to (3,2) is just <span class="process-math">\(6+4\text{.}\)</span> This is the same way we calculated the number of 5-bit strings of weight 3. The point: the exact same recurrence relation exists for bit strings and for lattice paths.</p></section><section class="subsection" id="UCc"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Binomial Coefficients</span>
+</h3>
+<p id="xtg"> <dfn class="terminology">Binomial coefficients</dfn> are the coefficients in the expanded version of a binomial, such as <span class="process-math">\((x+y)^5\text{.}\)</span> What happens when we multiply such a binomial out? We will expand <span class="process-math">\((x+y)^n\)</span> for various values of <span class="process-math">\(n\text{.}\)</span> Each of these are done by multiplying everything out (i.e., FOIL-ing) and then collecting like terms.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^1 = x + y
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^2 = x^2 + 2xy + y^2
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^4 = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4\text{.}
+\end{equation*}
+</div>
+<p id="dAp">In fact, there is a quicker way to expand the above binomials. For example, consider the next one, <span class="process-math">\((x+y)^5\text{.}\)</span> What we are really doing is multiplying out,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)(x+y)(x+y)(x+y)(x+y)\text{.}
+\end{equation*}
+</div>
+<p id="JHy">If that looks daunting, go back to the case of <span class="process-math">\((x+y)^3 = (x+y)(x+y)(x+y)\text{.}\)</span> Why do we only have one <span class="process-math">\(x^3\)</span> and <span class="process-math">\(y^3\)</span> but three <span class="process-math">\(x^2y\)</span> and <span class="process-math">\(xy^2\)</span> terms? Every time we distribute over an <span class="process-math">\((x+y)\)</span> we create two copies of what is left, one multiplied by <span class="process-math">\(x\text{,}\)</span> the other multiplied by <span class="process-math">\(y\text{.}\)</span> To get <span class="process-math">\(x^3\text{,}\)</span> we need to pick the “multiplied by <span class="process-math">\(x\)</span>” side every time (we don't have any <span class="process-math">\(y\)</span>'s in the term). This will only happen once. On the other hand, to get <span class="process-math">\(x^2y\)</span> we need to select the <span class="process-math">\(x\)</span> side twice and the <span class="process-math">\(y\)</span> side once. In other words, we need to pick one of the three <span class="process-math">\((x+y)\)</span> terms to “contribute” their <span class="process-math">\(y\text{.}\)</span></p>
+<p id="pOH">Similarly, in the expansion of <span class="process-math">\((x+y)^5\text{,}\)</span> there will be only one <span class="process-math">\(x^5\)</span> term and one <span class="process-math">\(y^5\)</span> term. This is because to get an <span class="process-math">\(x^5\text{,}\)</span> we need to use the <span class="process-math">\(x\)</span> term in each of the copies of the binomial <span class="process-math">\((x+y)\text{,}\)</span> and similarly for <span class="process-math">\(y^5\text{.}\)</span> What about <span class="process-math">\(x^4y\text{?}\)</span> To get terms like this, we need to use four <span class="process-math">\(x\)</span>'s and one <span class="process-math">\(y\text{,}\)</span> so we need exactly one of the five binomials to contribute a <span class="process-math">\(y\text{.}\)</span> There are 5 choices for this, so there are 5 ways to get <span class="process-math">\(x^4y\text{,}\)</span> so the coefficient of <span class="process-math">\(x^4y\)</span> is 5. This is also the coefficient for <span class="process-math">\(xy^4\)</span> for the same (but opposite) reason: there are 5 ways to pick which of the 5 binomials contribute the single <span class="process-math">\(x\text{.}\)</span> So far we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^5 = x^5 + 5x^4y + \underline{~?~}~x^3y^2 + \underline{~?~}~x^2y^3 + 5 xy^4 + y^5\text{.}
+\end{equation*}
+</div>
+<p id="VVQ">We still need the coefficients of <span class="process-math">\(x^3y^2\)</span> and <span class="process-math">\(x^2y^3\text{.}\)</span> In both cases, we need to pick exactly 3 of the 5 binomials to contribute one variable, the other two to contribute the other. Wait. This sounds familiar. We have 5 things, each can be one of two things, and we need a total of 3 of one of them. That's just like taking 5 bits and making sure exactly 3 of them are 1's. So the coefficient of <span class="process-math">\(x^3y^2\)</span> (and also <span class="process-math">\(x^2y^3\)</span>) will be exactly the same as the number of bit strings of length 5 and weight 3, which we found earlier to be 10. So we have:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(x+y)^5 = x^5 + 5x^4y + 10x^3y^2 + 10x^2y^3 + 5 xy^4 + y^5\text{.}
+\end{equation*}
+</div>
+<p id="CcZ">These numbers we keep seeing over and over again. They are the number of subsets of a particular size, the number of bit strings of a particular weight, the number of lattice paths, and the coefficients of these binomial products. We will call them <dfn class="terminology">binomial coefficients</dfn>. We even have a special symbol for them: <span class="process-math">\({n \choose k}\text{.}\)</span></p>
+<article class="assemblage assemblage-like" id="MXD"><h4 class="heading"><span class="title">Binomial Coefficients.</span></h4>
+<p id="tOG">For each integer <span class="process-math">\(n \ge 0\)</span> and integer <span class="process-math">\(k\)</span> with <span class="process-math">\(0 \le k \le n\)</span> there is a number</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{n\choose k}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">read “<span class="process-math">\(n\)</span> choose <span class="process-math">\(k\text{.}\)</span>” We have:</p>
+<ul class="disc">
+<li id="npA"><p id="p-derived-npA"><span class="process-math">\({n\choose k} = |\B^n_k|\text{,}\)</span> the number of <span class="process-math">\(n\)</span>-bit strings of weight <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="TwJ"><p id="p-derived-TwJ"><span class="process-math">\({n \choose k}\)</span> is the number of subsets of a set of size <span class="process-math">\(n\)</span> each with cardinality <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="zDS"><p id="p-derived-zDS"><span class="process-math">\({n \choose k}\)</span> is the number of lattice paths of length <span class="process-math">\(n\)</span> containing <span class="process-math">\(k\)</span> steps to the right.</p></li>
+<li id="fLb"><p id="p-derived-fLb"><span class="process-math">\({n \choose k}\)</span> is the coefficient of <span class="process-math">\(x^ky^{n-k}\)</span> in the expansion of <span class="process-math">\((x+y)^n\text{.}\)</span></p></li>
+<li id="LSk"><p id="p-derived-LSk"><span class="process-math">\({n \choose k}\)</span> is the number of ways to select <span class="process-math">\(k\)</span> objects from a total of <span class="process-math">\(n\)</span> objects.</p></li>
+</ul></article><p id="iki">The last bullet point is usually taken as the definition of <span class="process-math">\({n \choose k}\text{.}\)</span> Out of <span class="process-math">\(n\)</span> objects we must choose <span class="process-math">\(k\)</span> of them, so there are <span class="process-math">\(n\)</span> choose <span class="process-math">\(k\)</span> ways of doing this. Each of our counting problems above can be viewed in this way:</p>
+<ul class="disc">
+<li id="rZt"><p id="cQv">How many subsets of <span class="process-math">\(\{1,2,3,4,5\}\)</span> contain exactly 3 elements? We must choose <span class="process-math">\(3\)</span> of the 5 elements to be in our subset. There are <span class="process-math">\({5 \choose 3}\)</span> ways to do this, so there are <span class="process-math">\({5 \choose 3}\)</span> such subsets.</p></li>
+<li id="YgC"><p id="IXE">How many bit strings have length 5 and weight 3? We must choose <span class="process-math">\(3\)</span> of the 5 bits to be 1's. There are <span class="process-math">\({5 \choose 3}\)</span> ways to do this, so there are <span class="process-math">\({5 \choose 3}\)</span> such bit strings.</p></li>
+<li id="EnL"><p id="peN">How many lattice paths are there from (0,0) to (3,2)? We must choose 3 of the 5 steps to be towards the right. There are <span class="process-math">\({5 \choose 3}\)</span> ways to do this, so there are <span class="process-math">\({5 \choose 3}\)</span> such lattice paths.</p></li>
+<li id="kuU"><p id="VlW">What is the coefficient of <span class="process-math">\(x^3y^2\)</span> in the expansion of <span class="process-math">\((x+y)^5\text{?}\)</span> We must choose 3 of the 5 copies of the binomial to contribute an <span class="process-math">\(x\text{.}\)</span> There are <span class="process-math">\({5 \choose 3}\)</span> ways to do this, so the coefficient is <span class="process-math">\({5 \choose 3}\text{.}\)</span></p></li>
+</ul>
+<p id="Orr">It should be clear that in each case above, we have the right answer. All we had to do is phrase the question correctly and it became obvious that <span class="process-math">\({5 \choose 3}\)</span> is correct. However, this does not tell us that the answer is in fact 10 in each case. We will eventually find a formula for <span class="process-math">\({n \choose k}\text{,}\)</span> but for now, look back at how we arrived at the answer 10 in our counting problems above. It all came down to bit strings, and we have a recurrence relation for bit strings:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|\B^n_k| = |\B^{n-1}_{k-1}| + |\B^{n-1}_k|\text{.}
+\end{equation*}
+</div>
+<p id="uyA">Remember, this is because we can start the bit string with either a 1 or a 0. In both cases, we have <span class="process-math">\(n-1\)</span> more bits to pick. The strings starting with 1 must contain <span class="process-math">\(k-1\)</span> more 1's, while the strings starting with 0 still need <span class="process-math">\(k\)</span> more 1's.</p>
+<p id="aFJ">Since <span class="process-math">\(|\B^n_k| = {n \choose k}\text{,}\)</span> the same recurrence relation holds for binomial coefficients:</p>
+<article class="assemblage assemblage-like" id="teM"><h4 class="heading"><span class="title">Recurrence relation for <span class="process-math">\({n \choose k}\)</span>.</span></h4>
+<div class="displaymath process-math" data-contains-math-knowls="" id="ZVP">
+\begin{equation*}
+{n \choose k} = {n-1 \choose k-1} + {n-1 \choose k}\text{.}
+\end{equation*}
+</div></article></section><section class="subsection" id="AJl"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Pascal's Triangle</span>
+</h3>
+<p id="GMS">Let's arrange the binomial coefficients <span class="process-math">\({n \choose k}\)</span> into a triangle like follows:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:15%;margin-right:15%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/pascal-nCk.svg" role="img" class="contained"></div></div></div>
+<p id="mUb">This can continue as far down as we like. The recurrence relation for <span class="process-math">\({n \choose k}\)</span> tells us that each entry in the triangle is the sum of the two entries above it. The entries on the sides of the triangle are always 1. This is because <span class="process-math">\({n \choose 0} = 1\)</span> for all <span class="process-math">\(n\)</span> since there is only one way to pick 0 of <span class="process-math">\(n\)</span> objects and <span class="process-math">\({n \choose n} = 1\)</span> since there is one way to select all <span class="process-math">\(n\)</span> out of <span class="process-math">\(n\)</span> objects. Using the recurrence relation, and the fact that the sides of the triangle are 1's, we can easily replace all the entries above with the correct values of <span class="process-math">\({n \choose k}\text{.}\)</span> Doing so gives us <dfn class="terminology">Pascal's triangle</dfn>. </p>
+<p id="Tbk">We can use Pascal's triangle to calculate binomial coefficients. For example, using the triangle below, we can find <span class="process-math">\({12 \choose 6} = 924\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/pascal-large.svg" role="img" class="contained"></div></div></div></section><section class="exercises" id="uWm"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="Ubz"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-43" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="43" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApMZXQgW2BTID0gXHsxLCAyLCAzLCA0LCA1LCA2XH1gXQphLiAgSG93IG1hbnkgc3Vic2V0cyBhcmUgdGhlcmUgdG90YWw/CgogICAgW19dezY0fXs1fQoKCmEuICBIb3cgbWFueSBzdWJzZXRzIGhhdmUgW2BcezIsMyw1XH1gXSBhcyBhIHN1YnNldD8KCiAgICBbX117OH17NX0KCgphLiAgSG93IG1hbnkgc3Vic2V0cyBjb250YWluIGF0IGxlYXN0IG9uZSBvZGQgbnVtYmVyPwoKICAgIFtfXXs1Nn17NX0KCgphLiAgSG93IG1hbnkgc3Vic2V0cyBjb250YWluIGV4YWN0bHkgb25lIGV2ZW4gbnVtYmVyPwoKICAgIFtfXXsyNH17NX0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgMl42ID0gNjRgXSBzdWJzZXRzLiBXZSBuZWVkIHRvIHNlbGVjdCB5ZXMvbm8gZm9yIGVhY2ggb2YgdGhlIHNpeCBlbGVtZW50cy4KYS4gIFtgMl4zID0gOGBdIHN1YnNldHMuIFdlIG5lZWQgdG8gc2VsZWN0IHllcy9ubyBmb3IgZWFjaCBvZiB0aGUgcmVtYWluaW5nIHRocmVlIGVsZW1lbnRzLgphLiAgW2AyXjYgLSAyXjMgPSA1NmBdIHN1YnNldHMuIFRoZXJlIGFyZSA4IHN1YnNldHMgd2hpY2ggZG8gbm90IGNvbnRhaW4gYW55IG9kZCBudW1iZXJzIChzZWxlY3QgeWVzL25vIGZvciBlYWNoIGV2ZW4gbnVtYmVyKS4KYS4gIFtgM1xjZG90IDJeMyA9IDI0YF0gc3Vic2V0cy4gRmlyc3QgcGljayB0aGUgZXZlbiBudW1iZXIuIFRoZW4gc2F5IHllcyBvciBubyB0byBlYWNoIG9mIHRoZSBvZGQgbnVtYmVycy4gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1360">Let <span class="process-math">\(S = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-775">
+<p id="p-1361">How many subsets are there total?</p>
+<p id="p-1362"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-776">
+<p id="p-1363">How many subsets have <span class="process-math">\(\{2,3,5\}\)</span> as a subset?</p>
+<p id="p-1364"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-777">
+<p id="p-1365">How many subsets contain at least one odd number?</p>
+<p id="p-1366"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-778">
+<p id="p-1367">How many subsets contain exactly one even number?</p>
+<p id="p-1368"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-43')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="AiI"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-44" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="44" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CgpCRUdJTl9QR01MCkxldCBbYFMgPSBcezEsIDIsIDMsIDQsIDUsIDZcfWBdCmEuICBIb3cgbWFueSBzdWJzZXRzIGFyZSB0aGVyZSBvZiBjYXJkaW5hbGl0eSA0PwoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tfXXtDKDYsNCl9ezV9IChOb3RlOiB5b3UgY2FuIGVudGVyICJDKG4saykiIGZvciBbYFxiaW5vbXtufXtrfVx0ZXh0ey59YF0pJylAXSoqCgoKYS4gIEhvdyBtYW55IHN1YnNldHMgb2YgY2FyZGluYWxpdHkgNCBoYXZlIFtgXHsyLDMsNVx9YF0gYXMgYSBzdWJzZXQ/CgogICAgW19de0MoMywxKX17NX0KCgphLiAgSG93IG1hbnkgc3Vic2V0cyBvZiBjYXJkaW5hbGl0eSA0IGNvbnRhaW4gYXQgbGVhc3Qgb25lIG9kZCBudW1iZXI/CgogICAgW19de0MoNiw0KX17NX0KCgphLiAgSG93IG1hbnkgc3Vic2V0cyBvZiBjYXJkaW5hbGl0eSA0IGNvbnRhaW4gZXhhY3RseSBvbmUgZXZlbiBudW1iZXI/CgogICAgW19de0MoMywxKX17NX0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezZcY2hvb3NlIDR9ID0gMTVgXSBzdWJzZXRzLgphLiAgW2B7MyBcY2hvb3NlIDF9ID0gM2BdIHN1YnNldHMuIFdlIG5lZWQgdG8gc2VsZWN0IDEgb2YgdGhlIDMgcmVtYWluaW5nIGVsZW1lbnRzIHRvIGJlIGluIHRoZSBzdWJzZXQuCmEuICBbYHs2IFxjaG9vc2UgNH0gPSAxNWBdIHN1YnNldHMuIEFsbCBzdWJzZXRzIG9mIGNhcmRpbmFsaXR5IDQgbXVzdCBjb250YWluIGF0IGxlYXN0IG9uZSBvZGQgbnVtYmVyLgphLiAgW2B7MyBcY2hvb3NlIDF9ID0gM2BdIHN1YnNldHMuIFNlbGVjdCAxIG9mIHRoZSAzIGV2ZW4gbnVtYmVycy4gVGhlIHJlbWFpbmluZyB0aHJlZSBvZGQgbnVtYmVycyBvZiBbYFNgXSBtdXN0IGFsbCBiZSBpbiB0aGUgc2V0LiAgIAoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1378">Let <span class="process-math">\(S = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-783"><p id="p-1379">How many subsets are there of cardinality 4?</p></li>
+<li id="li-784">
+<p id="p-1380">How many subsets of cardinality 4 have <span class="process-math">\(\{2,3,5\}\)</span> as a subset?</p>
+<p id="p-1381"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-785">
+<p id="p-1382">How many subsets of cardinality 4 contain at least one odd number?</p>
+<p id="p-1383"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-786">
+<p id="p-1384">How many subsets of cardinality 4 contain exactly one even number?</p>
+<p id="p-1385"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-44')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="gpR"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-45" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="45" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpURVhUKE1PREVTKFBUWD0+JycsSFRNTD0+JzxkaXYgc3R5bGU9ImRpc3BsYXk6bm9uZTsiPlwoXG5ld2NvbW1hbmR7XHBvd317XG1hdGhjYWwgUH1cKTwvZGl2PicpKTsKQ29udGV4dCgiSW50ZWdlckZ1bmN0aW9ucyIpOwokYW5zMSA9IENvbXB1dGUoIjJeOSIpOwokYW5zMiA9IENvbXB1dGUoIkMoOSw1KSIpOwokYW5zMyA9IENvbXB1dGUoIjJeNCIpOwokYW5zNCA9IENvbXB1dGUoIkMoOSwwKStDKDksMikrQyg5LDQpK0MoOSw2KStDKDksOCkiKTsKCkJFR0lOX1BHTUwKTGV0IFtgQSA9IFx7MSwyLDMsXGxkb3RzLDlcfVx0ZXh0ey59YF0KYS4gIEhvdyBtYW55IHN1YnNldHMgb2YgW2BBYF0gYXJlIHRoZXJlPyBUaGF0IGlzLCBmaW5kIFtgfFxwb3coQSl8XHRleHR7Ln1gXSBFeHBsYWluLgoKICAgIFtfXXskYW5zMX17NX0KCgphLiAgSG93IG1hbnkgc3Vic2V0cyBvZiBbYEFgXSBjb250YWluIGV4YWN0bHkgNSBlbGVtZW50cz8gRXhwbGFpbi4KCiAgICBbX117JGFuczJ9ezV9CgoKYS4gIEhvdyBtYW55IHN1YnNldHMgb2YgW2BBYF0gY29udGFpbiBvbmx5IGV2ZW4gbnVtYmVycz8gRXhwbGFpbi4KCiAgICBbX117JGFuczN9ezV9CgoKYS4gIEhvdyBtYW55IHN1YnNldHMgb2YgW2BBYF0gY29udGFpbiBhbiBldmVuIG51bWJlciBvZiBlbGVtZW50cz8gRXhwbGFpbi4KCiAgICBbX117JGFuczR9ezV9CgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBUaGVyZSBhcmUgW2A1MTJgXSBzdWJzZXRzLgoKCmEuICBbYHs5IFxjaG9vc2UgNX0gPSAxMjZcdGV4dHsufWBdCgoKYS4gIFtgMl40ID0gMTZcdGV4dHsufWBdIChOb3RlLCBpZiB5b3Ugd2lzaCB0byBleGNsdWRlIHRoZSBlbXB0eSBzZXQgXC0gaXQgZG9lcyBub3QgY29udGFpbiBvZGQgbnVtYmVycywgYnV0IG5vIGV2ZW5zIGVpdGhlciBcLSB0aGVuIHlvdSBjb3VsZCBzdWJ0cmFjdCAxKS4KCgphLiAgW2AyNTZcdGV4dHsufWBdCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1394">Let <span class="process-math">\(A = \{1,2,3,\ldots,9\}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-791">
+<p id="p-1395">How many subsets of <span class="process-math">\(A\)</span> are there? That is, find <span class="process-math">\(|\pow(A)|\text{.}\)</span> Explain.</p>
+<p id="p-1396"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-792">
+<p id="p-1397">How many subsets of <span class="process-math">\(A\)</span> contain exactly 5 elements? Explain.</p>
+<p id="p-1398"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-793">
+<p id="p-1399">How many subsets of <span class="process-math">\(A\)</span> contain only even numbers? Explain.</p>
+<p id="p-1400"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-794">
+<p id="p-1401">How many subsets of <span class="process-math">\(A\)</span> contain an even number of elements? Explain.</p>
+<p id="p-1402"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-45')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Mxa"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-46" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="46" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CgpCRUdJTl9QR01MCkhvdyBtYW55IFtgOWBdLWJpdCBzdHJpbmdzICh0aGF0IGlzLCBiaXQgc3RyaW5ncyBvZiBsZW5ndGggOSkgYXJlIHRoZXJlIHdoaWNoOgphLiAgU3RhcnQgd2l0aCB0aGUgc3ViLXN0cmluZyAxMDE/IEV4cGxhaW4uCgogICAgW19dezY0fXs1fQoKCmEuICBIYXZlIHdlaWdodCA1IChpLmUuLCBjb250YWluIGV4YWN0bHkgZml2ZSAxJ3MpIGFuZCBzdGFydCB3aXRoIHRoZSBzdWItc3RyaW5nIDEwMT8gRXhwbGFpbi4KCiAgICBbX117Qyg2LDMpfXs1fQoKCmEuICBFaXRoZXIgc3RhcnQgd2l0aCBbYDEwMWBdIG9yIGVuZCB3aXRoIFtgMTFgXSAob3IgYm90aCk/IEV4cGxhaW4uCgogICAgW19dezY0ICsgMTI4IC0gMTZ9ezV9CgoKYS4gIEhhdmUgd2VpZ2h0IDUgYW5kIGVpdGhlciBzdGFydCB3aXRoIDEwMSBvciBlbmQgd2l0aCAxMSAob3IgYm90aCk/IEV4cGxhaW4uCgogICAgW19dezUxfXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2AyXjYgPSA2NFx0ZXh0ey59YF0KCgphLiAgW2B7NiBcY2hvb3NlIDN9ID0gMjBcdGV4dHsufWBdCgoKYS4gIDE3Ni4KCgphLiAgNTEuCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1412">How many <span class="process-math">\(9\)</span>-bit strings (that is, bit strings of length 9) are there which:</p>
+<ol class="lower-alpha">
+<li id="li-799">
+<p id="p-1413">Start with the sub-string 101? Explain.</p>
+<p id="p-1414"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-800">
+<p id="p-1415">Have weight 5 (i.e., contain exactly five 1’s) and start with the sub-string 101? Explain.</p>
+<p id="p-1416"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-801">
+<p id="p-1417">Either start with <span class="process-math">\(101\)</span> or end with <span class="process-math">\(11\)</span> (or both)? Explain.</p>
+<p id="p-1418"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-802">
+<p id="p-1419">Have weight 5 and either start with 101 or end with 11 (or both)? Explain.</p>
+<p id="p-1420"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-46')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="sEj"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-47" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="47" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CgpCRUdJTl9QR01MCllvdSBicmVhayB5b3VyIHBpZ2d5LWJhbmsgdG8gZGlzY292ZXIgbG90cyBvZiBwZW5uaWVzIGFuZCBuaWNrZWxzLiBZb3Ugc3RhcnQgYXJyYW5naW5nIHRoZXNlIGluIHJvd3Mgb2YgNiBjb2lucy4KYS4gIFlvdSBmaW5kIHlvdXJzZWxmIG1ha2luZyByb3dzIGNvbnRhaW5pbmcgYW4gZXF1YWwgbnVtYmVyIG9mIHBlbm5pZXMgYW5kIG5pY2tlbHMuIEZvciBmdW4sIHlvdSBkZWNpZGUgdG8gbGF5IG91dCBldmVyeSBwb3NzaWJsZSBzdWNoIHJvdy4gSG93IG1hbnkgY29pbnMgd2lsbCB5b3UgbmVlZD8KCiAgICBbX117MTIwfXs1fQoKCmEuICBIb3cgbWFueSBjb2lucyB3b3VsZCB5b3UgbmVlZCB0byBtYWtlIGFsbCBwb3NzaWJsZSByb3dzIG9mIDYgY29pbnMgKG5vdCBuZWNlc3NhcmlseSB3aXRoIGVxdWFsIG51bWJlciBvZiBwZW5uaWVzIGFuZCBuaWNrZWxzKT8KCiAgICBbX117NioyKio2fXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UClBlbm5pZXMgYXJlIHNvcnQgb2YgbGlrZSAwJ3MgYW5kIG5pY2tlbHMgYXJlIHNvcnQgb2YgbGlrZSAxJ3MuCgoKRU5EX1BHTUxfSElOVAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgV2Ugd2lsbCBuZWVkIFtgNlxjZG90IDIwID0gMTIwYF0gY29pbnMgKDYwIG9mIGVhY2gpLgoKCmEuICBXZSBuZWVkIFtgNiBcY2RvdCA2NCA9IDM4NGBdIGNvaW5zICgxOTIgb2YgZWFjaCkuCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1430">You break your piggy-bank to discover lots of pennies and nickels. You start arranging these in rows of 6 coins.</p>
+<ol class="lower-alpha">
+<li id="li-807">
+<p id="p-1431">You find yourself making rows containing an equal number of pennies and nickels. For fun, you decide to lay out every possible such row. How many coins will you need?</p>
+<p id="p-1432"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-808">
+<p id="p-1433">How many coins would you need to make all possible rows of 6 coins (not necessarily with equal number of pennies and nickels)?</p>
+<p id="p-1434"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-47')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="YLs"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-48" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="48" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMgPSBDb21wdXRlKCJDKDEwLDYpICsgQygxMCw3KSArIEMoMTAsOCkgKyBDKDEwLDkpICsgQygxMCwxMCkiKTsKCkJFR0lOX1BHTUwKSG93IG1hbnkgMTAtYml0IHN0cmluZ3MgY29udGFpbiA2IG9yIG1vcmUgMSdzPwoKW19deyRhbnN9ezV9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2B7MTAgXGNob29zZSA2fSArIHsxMFxjaG9vc2UgN30gKyB7MTBcY2hvb3NlIDh9ICsgezEwIFxjaG9vc2UgOX0gKyB7MTBcY2hvb3NlIDEwfSA9IDM4NmBdIHN0cmluZ3MuCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1441">How many 10-bit strings contain 6 or more 1’s?</p>
+<p id="p-1442"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-48')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="ESB"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-49" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="49" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CgpCRUdJTl9QR01MCkhvdyBtYW55IHN1YnNldHMgb2YgW2BcezAsMSxcbGRvdHMsIDlcfWBdIGhhdmUgY2FyZGluYWxpdHkgNiBvciBtb3JlPwoKW19dezM4Nn17NX0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UCkJyZWFrIHRoZSBxdWVzdGlvbiBpbnRvIGZpdmUgY2FzZXMuCgoKRU5EX1BHTUxfSElOVAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1445">How many subsets of <span class="process-math">\(\{0,1,\ldots, 9\}\)</span> have cardinality 6 or more?</p>
+<p id="p-1446"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-49')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="kZK"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-50" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="50" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMgPSBDb21wdXRlKCJDKDE1LDEyKSoyXjMiKTsKCkJFR0lOX1BHTUwKV2hhdCBpcyB0aGUgY29lZmZpY2llbnQgb2YgW2B4XnsxMn1gXSBpbiBbYCh4KzIpXnsxNX1cdGV4dHs/fWBdCgpbX117JGFuc317N30KCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1449">What is the coefficient of <span class="process-math">\(x^{12}\)</span> in <span class="process-math">\((x+2)^{15}\text{?}\)</span></p>
+<p id="p-1450"><span class="fillin underline" role="img" aria-label="7-character blank" style="width: 3.181818181818182em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-50')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="RgT"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-51" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="51" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMgPSBDb21wdXRlKCJDKDE0LDkpK0MoMTUsNikqMl45Iik7CgpCRUdJTl9QR01MCldoYXQgaXMgdGhlIGNvZWZmaWNpZW50IG9mIFtgeF45YF0gaW4gdGhlIGV4cGFuc2lvbiBvZiBbYCh4KzEpXnsxNH0gKyB4XjMoeCsyKV57MTV9XHRleHR7P31gXQoKW19deyRhbnN9ezEwfQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgezE0XGNob29zZSA5fSArIHsxNSBcY2hvb3NlIDZ9Ml45XHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1452">What is the coefficient of <span class="process-math">\(x^9\)</span> in the expansion of <span class="process-math">\((x+1)^{14} + x^3(x+2)^{15}\text{?}\)</span></p>
+<p id="p-1453"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-51')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="xoc"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div id="webwork-52" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="52" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxNCw3KSIpOwokYW5zMiA9IENvbXB1dGUoIkMoNiwyKSpDKDgsNSkiKTsKJGFuczMgPSBDb21wdXRlKCJDKDE0LDcpIC0gQyg2LDIpKkMoOCw1KSIpOwoKQkVHSU5fUEdNTApIb3cgbWFueSBsYXR0aWNlIHBhdGhzIHN0YXJ0IGF0ICgzLDMpIGFuZAphLiAgZW5kIGF0ICgxMCwxMCk/CgogICAgW19deyRhbnMxfXs1fQoKCmEuICBlbmQgYXQgKDEwLDEwKSBhbmQgcGFzcyB0aHJvdWdoICg1LDcpPwoKICAgIFtfXXskYW5zMn17N30KCgphLiAgZW5kIGF0ICgxMCwxMCkgYW5kIGF2b2lkICg1LDcpPwoKICAgIFtfXXskYW5zM317N30KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezE0IFxjaG9vc2UgN30gPSAzNDMyYF0gcGF0aHMuCmEuICBbYHs2IFxjaG9vc2UgMn17OFxjaG9vc2UgNX0gPSA4NDBgXSBwYXRocy4KYS4gIFtgezE0IFxjaG9vc2UgN30gLSB7NlxjaG9vc2UgMn17OCBcY2hvb3NlIDV9YF0gcGF0aHMuICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1456">How many lattice paths start at (3,3) and</p>
+<ol class="lower-alpha">
+<li id="li-811">
+<p id="p-1457">end at (10,10)?</p>
+<p id="p-1458"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-812">
+<p id="p-1459">end at (10,10) and pass through (5,7)?</p>
+<p id="p-1460"><span class="fillin underline" role="img" aria-label="7-character blank" style="width: 3.181818181818182em;"></span></p>
+</li>
+<li id="li-813">
+<p id="p-1461">end at (10,10) and avoid (5,7)?</p>
+<p id="p-1462"><span class="fillin underline" role="img" aria-label="7-character blank" style="width: 3.181818181818182em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-52')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="dvl"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="WtC">Gridtown USA, besides having excellent donut shops, is known for its precisely laid out grid of streets and avenues. Streets run east-west, and avenues north-south, for the entire stretch of the town, never curving and never interrupted by parks or schools or the like.</p>
+<p id="CAL">Suppose you live on the corner of 3rd and 3rd and work on the corner of 12th and 12th. Thus you must travel 18 blocks to get to work as quickly as possible.</p>
+<ol class="lower-alpha">
+<li id="jyS"><p id="ELx">How many different routes can you take to work, assuming you want to get there as quickly as possible? Explain.</p></li>
+<li id="PGb"><p id="kSG">Now suppose you want to stop and get a donut on the way to work, from your favorite donut shop on the corner of 10th ave and 8th st. How many routes to work, stopping at the donut shop, can you take (again, ensuring the shortest possible route)? Explain.</p></li>
+<li id="vNk"><p id="QZP">Disaster Strikes Gridtown: there is a pothole on 4th ave between 5th st and 6th st. How many routes to work can you take avoiding that unsightly (and dangerous) stretch of road? Explain.</p></li>
+<li id="bUt"><p id="xgY">The pothole has been repaired (phew) and a new donut shop has opened on the corner of 4th ave and 5th st. How many routes to work drive by one or the other (or both) donut shops? Hint: the donut shops serve PIE.</p></li>
+</ol></article><article class="exercise exercise-like" id="JCu"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<div id="webwork-53" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="53" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxMSwzKSIpOwokYW5zMiA9IENvbXB1dGUoIkMoMTAsMykiKTsKJGFuczMgPSBDb21wdXRlKCJDKDEwLDIpIik7CgpCRUdJTl9QR01MClN1cHBvc2UgeW91IGFyZSBvcmRlcmluZyBhIGxhcmdlIHBpenphIGZyb20gX0QuUC5bJE5CU1BdKkRvdWdoXy4gWW91IHdhbnQgMyBkaXN0aW5jdCB0b3BwaW5ncywgY2hvc2VuIGZyb20gdGhlaXIgbGlzdCBvZiAxMSB2ZWdldGFyaWFuIHRvcHBpbmdzLgphLiAgSG93IG1hbnkgY2hvaWNlcyBkbyB5b3UgaGF2ZSBmb3IgeW91ciBwaXp6YT8KCiAgICBbX117JGFuczF9ezV9CgoKYS4gIEhvdyBtYW55IGNob2ljZXMgZG8geW91IGhhdmUgZm9yIHlvdXIgcGl6emEgaWYgeW91IHJlZnVzZSB0byBoYXZlIHBpbmVhcHBsZSBhcyBvbmUgb2YgeW91ciB0b3BwaW5ncz8KCiAgICBbX117JGFuczJ9ezV9CgoKYS4gIEhvdyBtYW55IGNob2ljZXMgZG8geW91IGhhdmUgZm9yIHlvdXIgcGl6emEgaWYgeW91IF9pbnNpc3RfIG9uIGhhdmluZyBwaW5lYXBwbGUgYXMgb25lIG9mIHlvdXIgdG9wcGluZ3M/CgogICAgW19deyRhbnMzfXs1fQoKCmEuICBIb3cgZG8gdGhlIHRocmVlIHF1ZXN0aW9ucyBhYm92ZSByZWxhdGUgdG8gZWFjaCBvdGhlcj8gRXhwbGFpbi4KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezExIFxjaG9vc2UgM30gPSAxNjVgXSBjaG9pY2VzLCBzaW5jZSB5b3UgaGF2ZSB0byBzZWxlY3QgYSAzLWVsZW1lbnQgc3Vic2V0IG9mIHRoZSBzZXQgb2YgMTEgdG9wcGluZ3MuCmEuICBbYHsxMCBcY2hvb3NlIDN9ID0gMTIwYF0gY2hvaWNlcywgc2luY2UgeW91IG11c3Qgc2VsZWN0IDMgb2YgdGhlIDEwIG5vbi1waW5lYXBwbGUgdG9wcGluZ3MuCmEuICBbYHsxMCBcY2hvb3NlIDJ9ID0gNDVgXSBjaG9pY2VzLCBzaW5jZSB5b3UgbXVzdCBzZWxlY3QgMiBvZiB0aGUgcmVtYWluaW5nIDEwIG5vbi1waW5lYXBwbGUgdG9wcGluZ3MgdG8gaGF2ZSBpbiBhZGRpdGlvbiB0byB0aGUgcGluZWFwcGxlLgphLiAgW2AxNjUgPSAxMjAgKyA0NWBdIGNob2ljZXMsIHdoaWNoIG1ha2VzIHNlbnNlIGJlY2F1c2UgZXZlcnkgMy10b3BwaW5nIHBpenphIGVpdGhlciBoYXMgcGluZWFwcGxlIG9yIGRvZXMgbm90IGhhdmUgcGluZWFwcGxlIGFzIGEgdG9wcGluZy4gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1481">Suppose you are ordering a large pizza from <em class="emphasis">D.P. Dough</em>. You want 3 distinct toppings, chosen from their list of 11 vegetarian toppings.</p>
+<ol class="lower-alpha">
+<li id="li-825">
+<p id="p-1482">How many choices do you have for your pizza?</p>
+<p id="p-1483"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-826">
+<p id="p-1484">How many choices do you have for your pizza if you refuse to have pineapple as one of your toppings?</p>
+<p id="p-1485"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-827">
+<p id="p-1486">How many choices do you have for your pizza if you <em class="emphasis">insist</em> on having pineapple as one of your toppings?</p>
+<p id="p-1487"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-828"><p id="p-1488">How do the three questions above relate to each other? Explain.</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-53')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="pJD"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="OPd">Explain why the coefficient of <span class="process-math">\(x^5y^3\)</span> the same as the coefficient of <span class="process-math">\(x^3y^5\)</span> in the expansion of <span class="process-math">\((x+y)^8\text{?}\)</span></p></article></section></section></div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

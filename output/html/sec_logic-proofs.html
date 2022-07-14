@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:19-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Proofs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_propositional.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_logic.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_logic-conc.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_propositional.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_logic.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_logic-conc.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="internal">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="internal">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="active">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="lnf"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Proofs</span>
+</h2>
+<section class="introduction" id="rMl"><article class="project-like" id="XTu"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<p id="mlu">Decide which of the following are valid proofs of the following statement:</p>
+<blockquote class="blockquote" id="WOb"><p id="EoY">If <span class="process-math">\(a b\)</span> is an even number, then <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is even.</p></blockquote>
+<ol id="SsD" class="decimal">
+<li id="bxU">
+<p id="dnh">Suppose <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd. That is, <span class="process-math">\(a=2k+1\)</span> and <span class="process-math">\(b=2m+1\)</span> for some integers <span class="process-math">\(k\)</span> and <span class="process-math">\(m\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="GOf">
+\begin{align*}
+ab \amp =(2k+1)(2m+1)\\
+\amp =4km+2k+2m+1\\
+\amp =2(2km+k+m)+1\text{.}
+\end{align*}
+</div>
+<p id="Juq">Therefore <span class="process-math">\(ab\)</span> is odd.</p>
+</li>
+<li id="HFd">
+<p id="pBz">Assume that <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is even - say it is <span class="process-math">\(a\)</span> (the case where <span class="process-math">\(b\)</span> is even will be identical). That is, <span class="process-math">\(a=2k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="mVo">
+\begin{align*}
+ab \amp =(2k)b\\
+\amp =2(kb)\text{.}
+\end{align*}
+</div>
+<p id="VII">Thus <span class="process-math">\(ab\)</span> is even.</p>
+</li>
+<li id="nMm">
+<p id="BPR">Suppose that <span class="process-math">\(ab\)</span> is even but <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are both odd. Namely, <span class="process-math">\(ab = 2n\text{,}\)</span> <span class="process-math">\(a=2k+1\)</span> and <span class="process-math">\(b=2j+1\)</span> for some integers <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(k\text{,}\)</span> and <span class="process-math">\(j\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Tcx">
+\begin{align*}
+2n \amp =(2k+1)(2j+1)\\
+2n \amp =4kj+2k+2j+1\\
+n \amp = 2kj+k+j+\frac{1}{2}\text{.}
+\end{align*}
+</div>
+<p id="hXa">But since <span class="process-math">\(2kj+k+j\)</span> is an integer, this says that the integer <span class="process-math">\(n\)</span> is equal to a non-integer, which is impossible.</p>
+</li>
+<li id="TTv">
+<p id="Oej">Let <span class="process-math">\(ab\)</span> be an even number, say <span class="process-math">\(ab=2n\text{,}\)</span> and <span class="process-math">\(a\)</span> be an odd number, say <span class="process-math">\(a=2k+1\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="zjG">
+\begin{align*}
+ab \amp =(2k+1)b\\
+2n \amp =2kb+b\\
+2n-2kb\amp =b\\
+2(n-kb)\amp =b\text{.}
+\end{align*}
+</div>
+<p id="uls">Therefore <span class="process-math">\(b\)</span> must be even.</p>
+</li>
+</ol></article><p id="yzM">Anyone who doesn't believe there is creativity in mathematics clearly has not tried to write proofs. Finding a way to convince the world that a particular statement is necessarily true is a mighty undertaking and can often be quite challenging. There is not a guaranteed path to success in the search for proofs. For example, in the summer of 1742, a German mathematician by the name of Christian Goldbach wondered whether every even integer greater than 2 could be written as the sum of two primes. Centuries later, we still don't have a proof of this apparent fact (computers have checked that “Goldbach's Conjecture” holds for all numbers less than <span class="process-math">\(4\times 10^{18}\text{,}\)</span> which leaves only infinitely many more numbers to check).</p>
+<p id="eGV">Writing proofs is a bit of an art. Like any art, to be truly great at it, you need some sort of inspiration, as well as some foundational technique. Just as musicians can learn proper fingering, and painters can learn the proper way to hold a brush, we can look at the proper way to construct arguments. A good place to start might be to study a classic.</p>
+<article class="theorem theorem-like" id="LFc"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h3>
+<p id="wKz">There are infinitely many primes. </p></article><article class="proof" id="qGS"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<p id="saG">Suppose this were not the case. That is, suppose there are only finitely many primes. Then there must be a last, largest prime, call it <span class="process-math">\(p\text{.}\)</span> Consider the number</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+N = p! + 1 = (p \cdot (p-1) \cdot \cdots 3\cdot 2 \cdot 1) + 1\text{.}
+\end{equation*}
+</div>
+<p id="YhP">Now <span class="process-math">\(N\)</span> is certainly larger than <span class="process-math">\(p\text{.}\)</span> Also, <span class="process-math">\(N\)</span> is not divisible by any number less than or equal to <span class="process-math">\(p\text{,}\)</span> since every number less than or equal to <span class="process-math">\(p\)</span> divides <span class="process-math">\(p!\text{.}\)</span> Thus the prime factorization of <span class="process-math">\(N\)</span> contains prime numbers (possibly just <span class="process-math">\(N\)</span> itself) all greater than <span class="process-math">\(p\text{.}\)</span> So <span class="process-math">\(p\)</span> is not the largest prime, a contradiction. Therefore there are infinitely many primes.</p></article><p id="KOe">This proof is an example of a <em class="emphasis">proof by contradiction</em>, one of the standard styles of mathematical proof. First and foremost, the proof is an argument. It contains sequence of statements, the last being the <em class="emphasis">conclusion</em> which follows from the previous statements. The argument is valid so the conclusion must be true if the premises are true. Let's go through the proof line by line.</p>
+<ol id="qVn" class="decimal">
+<li id="AaE"><p id="asB">Suppose there are only finitely many primes. <em class="emphasis">[this is a premise. Note the use of “suppose.”]</em></p></li>
+<li id="ghN"><p id="GzK">There must be a largest prime, call it <span class="process-math">\(p\text{.}\)</span> <em class="emphasis">[follows from line 1, by the definition of “finitely many.”]</em></p></li>
+<li id="MoW"><p id="mGT">Let <span class="process-math">\(N = p! + 1\text{.}\)</span> <em class="emphasis">[basically just notation, although this is the inspired part of the proof; looking at <span class="process-math">\(p! + 1\)</span> is the key insight.]</em></p></li>
+<li id="swf"><p id="p-derived-swf"><span class="process-math">\(N\)</span> is larger than <span class="process-math">\(p\text{.}\)</span> <em class="emphasis">[by the definition of <span class="process-math">\(p!\)</span>]</em></p></li>
+<li id="YDo"><p id="p-derived-YDo"><span class="process-math">\(N\)</span> is not divisible by any number less than or equal to <span class="process-math">\(p\text{.}\)</span> <em class="emphasis">[by definition, <span class="process-math">\(p!\)</span> is divisible by each number less than or equal to <span class="process-math">\(p\text{,}\)</span> so <span class="process-math">\(p! + 1\)</span> is not.]</em></p></li>
+<li id="EKx"><p id="SOc">The prime factorization of <span class="process-math">\(N\)</span> contains prime numbers greater than <span class="process-math">\(p\text{.}\)</span> <em class="emphasis">[since <span class="process-math">\(N\)</span> is divisible by each prime number in the prime factorization of <span class="process-math">\(N\text{,}\)</span> and by line 5.]</em></p></li>
+<li id="kRG"><p id="yVl">Therefore <span class="process-math">\(p\)</span> is not the largest prime. <em class="emphasis">[by line 6, <span class="process-math">\(N\)</span> is divisible by a prime larger than <span class="process-math">\(p\text{.}\)</span>]</em></p></li>
+<li id="QYP"><p id="fcu">This is a contradiction. <em class="emphasis">[from line 2 and line 7: the largest prime is <span class="process-math">\(p\)</span> and there is a prime larger than <span class="process-math">\(p\text{.}\)</span>]</em></p></li>
+<li id="xfY"><p id="LjD">Therefore there are infinitely many primes. <em class="emphasis">[from line 1 and line 8: our only premise lead to a contradiction, so the premise is false.]</em></p></li>
+</ol>
+<p id="Xcw">We should say a bit more about the last line. Up through line 8, we have a valid argument with the premise “there are only finitely many primes” and the conclusion “there is a prime larger than the largest prime.” This is a valid argument as each line follows from previous lines. So if the premises are true, then the conclusion <em class="emphasis">must</em> be true. However, the conclusion is NOT true. The only way out: the premise must be false.</p>
+<p id="DjF">The sort of line-by-line analysis we did above is a great way to really understand what is going on. Whenever you come across a proof in a textbook, you really should make sure you understand what each line is saying and why it is true. Additionally, it is equally important to understand the overall structure of the proof. This is where using tools from logic is helpful. Luckily there are a relatively small number of standard proof styles that keep showing up again and again. Being familiar with these can help understand proof, as well as give ideas of how to write your own.</p></section><section class="subsection" id="Ruo"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Direct Proof</span>
+</h3>
+<p id="jqO">The simplest (from a logic perspective) style of proof is a <dfn class="terminology">direct proof</dfn>. Often all that is required to prove something is a systematic explanation of what everything means. Direct proofs are especially useful when proving implications. The general format to prove <span class="process-math">\(P \imp Q\)</span> is this:</p>
+<blockquote class="blockquote" id="CVk"><p id="kwh">Assume <span class="process-math">\(P\text{.}\)</span> Explain, explain, …, explain. Therefore <span class="process-math">\(Q\text{.}\)</span></p></blockquote>
+<p id="PxX">Often we want to prove universal statements, perhaps of the form <span class="process-math">\(\forall x (P(x) \imp Q(x))\text{.}\)</span> Again, we will want to assume <span class="process-math">\(P(x)\)</span> is true and deduce <span class="process-math">\(Q(x)\text{.}\)</span> But what about the <span class="process-math">\(x\text{?}\)</span> We want this to work for <em class="emphasis">all</em> <span class="process-math">\(x\text{.}\)</span> We accomplish this by fixing <span class="process-math">\(x\)</span> to be an arbitrary element (of the sort we are interested in).</p>
+<p id="vFg">Here are a few examples. First, we will set up the proof structure for a direct proof, then fill in the details.</p>
+<article class="example example-like" id="Weh"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h4>
+<p id="cRI">Prove: For all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(n^2\)</span> is even.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-EaD" id="EaD"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-EaD"><div class="solution solution-like">
+<p id="rqM">The format of the proof will be this: Let <span class="process-math">\(n\)</span> be an arbitrary integer. Assume that <span class="process-math">\(n\)</span> is even. Explain explain explain. Therefore <span class="process-math">\(n^2\)</span> is even.</p>
+<p id="XxV">To fill in the details, we will basically just explain what it means for <span class="process-math">\(n\)</span> to be even, and then see what that means for <span class="process-math">\(n^2\text{.}\)</span> Here is a complete proof.</p>
+<article class="proof" id="khM"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="DFe">Let <span class="process-math">\(n\)</span> be an arbitrary integer. Suppose <span class="process-math">\(n\)</span> is even. Then <span class="process-math">\(n = 2k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> Now <span class="process-math">\(n^2 = (2k)^2 = 4k^2 = 2(2k^2)\text{.}\)</span> Since <span class="process-math">\(2k^2\)</span> is an integer, <span class="process-math">\(n^2\)</span> is even.</p></article>
+</div></div>
+</div></article><article class="example example-like" id="Clq"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h4>
+<p id="IYR">Prove: For all integers <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> if <span class="process-math">\(a|b\)</span> and <span class="process-math">\(b|c\)</span> then <span class="process-math">\(a|c\text{.}\)</span> (Here <span class="process-math">\(x|y\text{,}\)</span> read “<span class="process-math">\(x\)</span> divides <span class="process-math">\(y\)</span>” means that <span class="process-math">\(y\)</span> is a multiple of <span class="process-math">\(x\text{,}\)</span> i.e., that <span class="process-math">\(x\)</span> will divide into <span class="process-math">\(y\)</span> without remainder).</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-QoV" id="QoV"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-QoV"><div class="solution solution-like">
+<p id="jMn">Even before we know what the divides symbol means, we can set up a direct proof for this statement. It will go something like this: Let <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> be arbitrary integers. Assume that <span class="process-math">\(a|b\)</span> and <span class="process-math">\(b|c\text{.}\)</span> Dot dot dot. Therefore <span class="process-math">\(a|c\text{.}\)</span></p>
+<p id="PTw">How do we connect the dots? We say what our hypothesis (<span class="process-math">\(a|b\)</span> and <span class="process-math">\(b|c\)</span>) really means and why this gives us what the conclusion (<span class="process-math">\(a|c\)</span>) really means. Another way to say that <span class="process-math">\(a|b\)</span> is to say that <span class="process-math">\(b = ka\)</span> for some integer <span class="process-math">\(k\)</span> (that is, that <span class="process-math">\(b\)</span> is a multiple of <span class="process-math">\(a\)</span>). What are we going for? That <span class="process-math">\(c = la\text{,}\)</span> for some integer <span class="process-math">\(l\)</span> (because we want <span class="process-math">\(c\)</span> to be a multiple of <span class="process-math">\(a\)</span>). Here is the complete proof.</p>
+<article class="proof" id="wwe"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="waF">Let <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> be integers. Assume that <span class="process-math">\(a|b\)</span> and <span class="process-math">\(b|c\text{.}\)</span> In other words, <span class="process-math">\(b\)</span> is a multiple of <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> is a multiple of <span class="process-math">\(b\text{.}\)</span> So there are integers <span class="process-math">\(k\)</span> and <span class="process-math">\(j\)</span> such that <span class="process-math">\(b = ka\)</span> and <span class="process-math">\(c = jb\text{.}\)</span> Combining these (through substitution) we get that <span class="process-math">\(c = jka\text{.}\)</span> But <span class="process-math">\(jk\)</span> is an integer, so this says that <span class="process-math">\(c\)</span> is a multiple of <span class="process-math">\(a\text{.}\)</span> Therefore <span class="process-math">\(a|c\text{.}\)</span></p></article>
+</div></div>
+</div></article></section><section class="subsection" id="xBx"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Proof by Contrapositive</span>
+</h3>
+<p id="bMp">Recall that an implication <span class="process-math">\(P \imp Q\)</span> is logically equivalent to its contrapositive <span class="process-math">\(\neg Q \imp \neg P\text{.}\)</span> There are plenty of examples of statements which are hard to prove directly, but whose contrapositive can easily be proved directly. This is all that <dfn class="terminology">proof by contrapositive</dfn> does. It gives a direct proof of the contrapositive of the implication. This is enough because the contrapositive is logically equivalent to the original implication.</p>
+<p id="HTy">The skeleton of the proof of <span class="process-math">\(P \imp Q\)</span> by contrapositive will always look roughly like this:</p>
+<blockquote class="blockquote" id="jct"><p id="QDq">Assume <span class="process-math">\(\neg Q\text{.}\)</span> Explain, explain, … explain. Therefore <span class="process-math">\(\neg P\text{.}\)</span></p></blockquote>
+<p id="oaH">As before, if there are variables and quantifiers, we set them to be arbitrary elements of our domain. Here are two examples:</p>
+<article class="example example-like" id="isz"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span>
+</h4>
+<p id="pga">Is the statement “for all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n^2\)</span> is even, then <span class="process-math">\(n\)</span> is even” true?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-cDn" id="cDn"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-cDn"><div class="solution solution-like">
+<p id="chO">This is the converse of the statement we proved above using a direct proof. From trying a few examples, this statement definitely appears to be true. So let's prove it.</p>
+<p id="IoX">A direct proof of this statement would require fixing an arbitrary <span class="process-math">\(n\)</span> and assuming that <span class="process-math">\(n^2\)</span> is even. But it is not at all clear how this would allow us to conclude anything about <span class="process-math">\(n\text{.}\)</span> Just because <span class="process-math">\(n^2 = 2k\)</span> does not in itself suggest how we could write <span class="process-math">\(n\)</span> as a multiple of 2.</p>
+<p id="owg">Try something else: write the contrapositive of the statement. We get, for all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n\)</span> is odd then <span class="process-math">\(n^2\)</span> is odd. This looks much more promising. Our proof will look something like this:</p>
+<p id="UDp">Let <span class="process-math">\(n\)</span> be an arbitrary integer. Suppose that <span class="process-math">\(n\)</span> is not even. This means that …. In other words …. But this is the same as saying …. Therefore <span class="process-math">\(n^2\)</span> is not even.</p>
+<p id="AKy">Now we fill in the details:</p>
+<article class="proof" id="IKw"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="gRH">We will prove the contrapositive. Let <span class="process-math">\(n\)</span> be an arbitrary integer. Suppose that <span class="process-math">\(n\)</span> is not even, and thus odd. Then <span class="process-math">\(n= 2k+1\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> Now <span class="process-math">\(n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1\text{.}\)</span> Since <span class="process-math">\(2k^2 + 2k\)</span> is an integer, we see that <span class="process-math">\(n^2\)</span> is odd and therefore not even.</p></article>
+</div></div>
+</div></article><article class="example example-like" id="OzI"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="period">.</span>
+</h4>
+<p id="Vnj">Prove: for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a + b\)</span> is odd, then <span class="process-math">\(a\)</span> is odd or <span class="process-math">\(b\)</span> is odd.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-oRF" id="oRF"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-oRF"><div class="solution solution-like">
+<p id="MYQ">The problem with trying a direct proof is that it will be hard to separate <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> from knowing something about <span class="process-math">\(a+b\text{.}\)</span> On the other hand, if we know something about <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> separately, then combining them might give us information about <span class="process-math">\(a+b\text{.}\)</span> The contrapositive of the statement we are trying to prove is: for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are even, then <span class="process-math">\(a+b\)</span> is even. Thus our proof will have the following format:</p>
+<p id="tfZ">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be integers. Assume that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are both even. la la la. Therefore <span class="process-math">\(a+b\)</span> is even.</p>
+<p id="Zni">Here is a complete proof:</p>
+<article class="proof" id="UYO"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="Fur">Let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be integers. Assume that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are even. Then <span class="process-math">\(a = 2k\)</span> and <span class="process-math">\(b = 2l\)</span> for some integers <span class="process-math">\(k\)</span> and <span class="process-math">\(l\text{.}\)</span> Now <span class="process-math">\(a + b = 2k + 2l = 2(k+1)\text{.}\)</span> Since <span class="process-math">\(k + l\)</span> is an integer, we see that <span class="process-math">\(a + b\)</span> is even, completing the proof.</p></article><p id="lBA">Note that our assumption that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are even is really the negation of <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is odd. We used De Morgan's law here.</p>
+</div></div>
+</div></article><p id="UhQ">We have seen how to prove some statements in the form of implications: either directly or by contrapositive. Some statements are not written as implications to begin with.</p>
+<article class="example example-like" id="uGR"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.6</span><span class="period">.</span>
+</h4>
+<p id="Bus">Consider the following statement: for every prime number <span class="process-math">\(p\text{,}\)</span> either <span class="process-math">\(p = 2\)</span> or <span class="process-math">\(p\)</span> is odd. We can rephrase this: for every prime number <span class="process-math">\(p\text{,}\)</span> if <span class="process-math">\(p \ne 2\text{,}\)</span> then <span class="process-math">\(p\)</span> is odd. Now try to prove it.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-BfX" id="BfX"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-BfX"><div class="solution solution-like"><article class="proof" id="hng"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="RIJ">Let <span class="process-math">\(p\)</span> be an arbitrary prime number. Assume <span class="process-math">\(p\)</span> is not odd. So <span class="process-math">\(p\)</span> is divisible by 2. Since <span class="process-math">\(p\)</span> is prime, it must have exactly two divisors, and it has 2 as a divisor, so <span class="process-math">\(p\)</span> must be divisible by only 1 and 2. Therefore <span class="process-math">\(p = 2\text{.}\)</span> This completes the proof (by contrapositive).</p></article></div></div>
+</div></article></section><section class="subsection" id="dIG"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Proof by Contradiction</span>
+</h3>
+<p id="AoZ">There might be statements which really cannot be rephrased as implications. For example, “<span class="process-math">\(\sqrt 2\)</span> is irrational.” In this case, it is hard to know where to start. What can we assume? Well, say we want to prove the statement <span class="process-math">\(P\text{.}\)</span> What if we could prove that <span class="process-math">\(\neg P \imp Q\)</span> where <span class="process-math">\(Q\)</span> was false? If this implication is true, and <span class="process-math">\(Q\)</span> is false, what can we say about <span class="process-math">\(\neg P\text{?}\)</span> It must be false as well, which makes <span class="process-math">\(P\)</span> true!</p>
+<p id="gwi">This is why <dfn class="terminology">proof by contradiction</dfn> works. If we can prove that <span class="process-math">\(\neg P\)</span> leads to a contradiction, then the only conclusion is that <span class="process-math">\(\neg P\)</span> is false, so <span class="process-math">\(P\)</span> is true. That's what we wanted to prove. In other words, if it is impossible for <span class="process-math">\(P\)</span> to be false, <span class="process-math">\(P\)</span> must be true.</p>
+<p id="MDr">Here are three examples of proofs by contradiction:</p>
+<article class="example example-like" id="aOa"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span>
+</h4>
+<p id="hBB">Prove that <span class="process-math">\(\sqrt{2}\)</span> is irrational.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-Nup" id="Nup"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Nup"><div class="solution solution-like"><article class="proof" id="tBy"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="xPS">Suppose not. Then <span class="process-math">\(\sqrt 2\)</span> is equal to a fraction <span class="process-math">\(\frac{a}{b}\text{.}\)</span> Without loss of generality, assume <span class="process-math">\(\frac{a}{b}\)</span> is in lowest terms (otherwise reduce the fraction). So,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2 = \frac{a^2}{b^2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2b^2 = a^2\text{.}
+\end{equation*}
+</div>
+<p id="dXb">Thus <span class="process-math">\(a^2\)</span> is even, and as such <span class="process-math">\(a\)</span> is even. So <span class="process-math">\(a = 2k\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> and <span class="process-math">\(a^2 = 4k^2\text{.}\)</span> We then have,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2b^2 = 4k^2
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+b^2 = 2k^2\text{.}
+\end{equation*}
+</div>
+<p id="Kek">Thus <span class="process-math">\(b^2\)</span> is even, and as such <span class="process-math">\(b\)</span> is even. Since <span class="process-math">\(a\)</span> is also even, we see that <span class="process-math">\(\frac{a}{b}\)</span> is not in lowest terms, a contradiction. Thus <span class="process-math">\(\sqrt 2\)</span> is irrational.</p></article></div></div>
+</div></article><article class="example example-like" id="GVj"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.8</span><span class="period">.</span>
+</h4>
+<p id="NIK">Prove: There are no integers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(x^2 = 4y + 2\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-ZIH" id="ZIH"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-ZIH"><div class="solution solution-like"><article class="proof" id="FPQ"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="qlt">We proceed by contradiction. So suppose there <em class="emphasis">are</em> integers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(x^2 = 4y + 2 = 2(2y + 1)\text{.}\)</span> So <span class="process-math">\(x^2\)</span> is even. We have seen that this implies that <span class="process-math">\(x\)</span> is even. So <span class="process-math">\(x = 2k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> Then <span class="process-math">\(x^2 = 4k^2\text{.}\)</span> This in turn gives <span class="process-math">\(2k^2 = (2y + 1)\text{.}\)</span> But <span class="process-math">\(2k^2\)</span> is even, and <span class="process-math">\(2y + 1\)</span> is odd, so these cannot be equal. Thus we have a contradiction, so there must not be any integers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(x^2 = 4y + 2\text{.}\)</span></p></article></div></div>
+</div></article><article class="example example-like" id="ncs"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.9</span><span class="period">.</span>
+</h4>
+<p id="tPT">The <dfn class="terminology">Pigeonhole Principle</dfn>:  If more than <span class="process-math">\(n\)</span> pigeons fly into <span class="process-math">\(n\)</span> pigeon holes, then at least one pigeon hole will contain at least two pigeons. Prove this!</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-lWZ" id="lWZ"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-lWZ"><div class="solution solution-like">
+<article class="proof" id="Sei"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="WsC">Suppose, contrary to stipulation, that each of the pigeon holes contain at most one pigeon. Then at most, there will be <span class="process-math">\(n\)</span> pigeons. But we assumed that there are more than <span class="process-math">\(n\)</span> pigeons, so this is impossible. Thus there must be a pigeonhole with more than one pigeon.</p></article><p id="CzL">While we phrased this proof as a proof by contradiction, we could have also used a proof by contrapositive since our contradiction was simply the negation of the hypothesis. Sometimes this will happen, in which case you can use either style of proof. There are examples however where the contradiction occurs “far away” from the original statement.</p>
+</div></div>
+</div></article></section><section class="subsection" id="JPP"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Proof by (counter) Example</span>
+</h3>
+<p id="sKA">It is almost NEVER okay to prove a statement with just an example. Certainly none of the statements proved above can be proved through an example. This is because in each of those cases we are trying to prove that something holds of all integers. We claim that <span class="process-math">\(n^2\)</span> being even implies that <span class="process-math">\(n\)</span> is even, <em class="emphasis">no matter what integer</em> <span class="process-math">\(n\)</span> we pick. Showing that this works for <span class="process-math">\(n = 4\)</span> is not even close to enough.</p>
+<p id="YRJ">This cannot be stressed enough. If you are trying to prove a statement of the form <span class="process-math">\(\forall x P(x)\text{,}\)</span> you absolutely CANNOT prove this with an example.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-13" id="fn-13"><sup> 1 </sup></a></p>
+<p id="EYS">However, existential statements can be proven this way. If we want to prove that there is an integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(n^2-n+41\)</span> is not prime, all we need to do is find one. This might seem like a silly thing to want to prove until you try a few values for <span class="process-math">\(n\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="rFh">
+<tr>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(n\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">4</td>
+<td class="c m b1 r0 l0 t0 lines">5</td>
+<td class="c m b1 r0 l0 t0 lines">6</td>
+<td class="c m b1 r0 l0 t0 lines">7</td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(n^2 - n + 41\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">41</td>
+<td class="c m b0 r0 l0 t0 lines">43</td>
+<td class="c m b0 r0 l0 t0 lines">47</td>
+<td class="c m b0 r0 l0 t0 lines">53</td>
+<td class="c m b0 r0 l0 t0 lines">61</td>
+<td class="c m b0 r0 l0 t0 lines">71</td>
+<td class="c m b0 r0 l0 t0 lines">83</td>
+</tr>
+</table></div></div></div>
+<p id="lgb">So far we have gotten only primes. You might be tempted to conjecture, “For all positive integers <span class="process-math">\(n\text{,}\)</span> the number <span class="process-math">\(n^2 - n + 41\)</span> is prime.” If you wanted to prove this, you would need to use a direct proof, a proof by contrapositive, or another style of proof, but certainly it is not enough to give even 7 examples. In fact, we can prove this conjecture is <em class="emphasis">false</em> by proving its negation: “There is a positive integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(n^2 - n + 41\)</span> is not prime.” Since this is an existential statement, it suffices to show that there does indeed exist such a number.</p>
+<p id="Rnk">In fact, we can quickly see that <span class="process-math">\(n = 41\)</span> will give <span class="process-math">\(41^2\)</span> which is certainly not prime. You might say that this is a counterexample to the conjecture that <span class="process-math">\(n^2 - n + 41\)</span> is always prime. Since so many statements in mathematics are universal, making their negations existential, we can often prove that a statement is false (if it is) by providing a counterexample.</p>
+<article class="example example-like" id="TjB"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.10</span><span class="period">.</span>
+</h4>
+<p id="ZXc">Above we proved, “for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a+b\)</span> is odd, then <span class="process-math">\(a\)</span> is odd or <span class="process-math">\(b\)</span> is odd.” Is the converse true?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-ylr" id="ylr"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-ylr"><div class="solution solution-like">
+<p id="iGU">The converse is the statement, “for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> is odd or <span class="process-math">\(b\)</span> is odd, then <span class="process-math">\(a + b\)</span> is odd.” This is false! How do we prove it is false? We need to prove the negation of the converse. Let's look at the symbols. The converse is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\forall a \forall b ((O(a) \vee O(b)) \imp O(a+b))\text{.}
+\end{equation*}
+</div>
+<p id="OOd">We want to prove the negation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\neg \forall a \forall b ((O(a) \vee O(b)) \imp O(a+b))\text{.}
+\end{equation*}
+</div>
+<p id="uVm">Simplify using the rules from the previous sections:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\exists a \exists b ((O(a) \vee O(b)) \wedge \neg O(a+b))\text{.}
+\end{equation*}
+</div>
+<p id="bcv">As the negation passed by the quantifiers, they changed from <span class="process-math">\(\forall\)</span> to <span class="process-math">\(\exists\text{.}\)</span> We then needed to take the negation of an implication, which is equivalent to asserting the if part and not the then part.</p>
+<p id="HjE">Now we know what to do. To prove that the converse is false we need to find two integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> so that <span class="process-math">\(a\)</span> is odd or <span class="process-math">\(b\)</span> is odd, but <span class="process-math">\(a+b\)</span> is not odd (so even). That's easy: 1 and 3. (remember, “or” means one or the other or both). Both of these are odd, but <span class="process-math">\(1+3 = 4\)</span> is not odd.</p>
+</div></div>
+</div></article></section><section class="subsection" id="pWY"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Proof by Cases</span>
+</h3>
+<p id="xut">We could go on and on and on about different proof styles (we haven't even mentioned induction or combinatorial proofs here), but instead we will end with one final useful technique: proof by cases. The idea is to prove that <span class="process-math">\(P\)</span> is true by proving that <span class="process-math">\(Q \imp P\)</span> and <span class="process-math">\(\neg Q \imp P\)</span> for some statement <span class="process-math">\(Q\text{.}\)</span> So no matter what, whether or not <span class="process-math">\(Q\)</span> is true, we know that <span class="process-math">\(P\)</span> is true. In fact, we could generalize this. Suppose we want to prove <span class="process-math">\(P\text{.}\)</span> We know that at least one of the statements <span class="process-math">\(Q_1, Q_2, \ldots, Q_n\)</span> is true. If we can show that <span class="process-math">\(Q_1 \imp P\)</span> and <span class="process-math">\(Q_2 \imp P\)</span> and so on all the way to <span class="process-math">\(Q_n \imp P\text{,}\)</span> then we can conclude <span class="process-math">\(P\text{.}\)</span> The key thing is that we want to be sure that one of our cases (the <span class="process-math">\(Q_i\)</span>'s) must be true no matter what.</p>
+<p id="dBC">If that last paragraph was confusing, perhaps an example will make things better.</p>
+<article class="example example-like" id="fxT"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.11</span><span class="period">.</span>
+</h4>
+<p id="Gel">Prove: For any integer <span class="process-math">\(n\text{,}\)</span> the number <span class="process-math">\((n^3 -n)\)</span> is even.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-esA" id="esA"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-esA"><div class="solution solution-like">
+<p id="nqN">It is hard to know where to start this, because we don't know much of anything about <span class="process-math">\(n\text{.}\)</span> We might be able to prove that <span class="process-math">\(n^3 - n\)</span> is even if we knew that <span class="process-math">\(n\)</span> was even. In fact, we could probably prove that <span class="process-math">\(n^3-n\)</span> was even if <span class="process-math">\(n\)</span> was odd. But since <span class="process-math">\(n\)</span> must either be even or odd, this will be enough. Here's the proof.</p>
+<article class="proof" id="KzJ"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="TxW">We consider two cases: if <span class="process-math">\(n\)</span> is even or if <span class="process-math">\(n\)</span> is odd.</p>
+<p id="zFf">Case 1: <span class="process-math">\(n\)</span> is even. Then <span class="process-math">\(n = 2k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> This give</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="fqP">
+\begin{align*}
+n^3 - n \amp = 8k^3 - 2k\\
+\amp = 2(4k^2 - k)\text{,}
+\end{align*}
+</div>
+<p class="continuation">and since <span class="process-math">\(4k^2 - k\)</span> is an integer, this says that <span class="process-math">\(n^3-n\)</span> is even.</p>
+<p id="fMo">Case 2: <span class="process-math">\(n\)</span> is odd. Then <span class="process-math">\(n = 2k+1\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> This gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="LxY">
+\begin{align*}
+n^3 - n \amp = (2k+1)^3 - (2k+1)\\
+\amp = 8k^3 + 6k^2 + 6k + 1 - 2k - 1\\
+\amp = 2(4k^3 + 3k^2 + 2k)\text{,}
+\end{align*}
+</div>
+<p class="continuation">and since <span class="process-math">\(4k^3 + 3k^2 + 2k\)</span> is an integer, we see that <span class="process-math">\(n^3 - n\)</span> is even again.</p>
+<p id="LTx">Since <span class="process-math">\(n^3 - n\)</span> is even in both exhaustive cases, we see that <span class="process-math">\(n^3 - n\)</span> is indeed always even.</p></article>
+</div></div>
+</div></article></section><section class="exercises" id="Fqn"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ENx"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="BLN">Consider the statement “for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a + b\)</span> is even, then <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are even”</p>
+<ol class="lower-alpha">
+<li id="YkP"><p id="dEC">Write the contrapositive of the statement.</p></li>
+<li id="ErY"><p id="JLL">Write the converse of the statement.</p></li>
+<li id="kzh"><p id="pSU">Write the negation of the statement.</p></li>
+<li id="QGq"><p id="Wad">Is the original statement true or false? Prove your answer.</p></li>
+<li id="wNz"><p id="Chm">Is the contrapositive of the original statement true or false? Prove your answer.</p></li>
+<li id="cUI"><p id="iov">Is the converse of the original statement true or false? Prove your answer.</p></li>
+<li id="JbR"><p id="OvE">Is the negation of the original statement true or false? Prove your answer.</p></li>
+</ol></article><article class="exercise exercise-like" id="kUG"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="hSW">For each of the statements below, say what method of proof you should use to prove them. Then say how the proof starts and how it ends. Bonus points for filling in the middle.</p>
+<ol class="lower-alpha">
+<li id="Ghl"><p id="rIh">There are no integers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(x\)</span> is a prime greater than 5 and <span class="process-math">\(x = 6y + 3\text{.}\)</span></p></li>
+<li id="mou"><p id="XPq">For all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n\)</span> is a multiple of 3, then <span class="process-math">\(n\)</span> can be written as the sum of consecutive integers.</p></li>
+<li id="SvD"><p id="DWz">For all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a^2 + b^2\)</span> is odd, then <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is odd.</p></li>
+</ol></article><article class="exercise exercise-like" id="RbP"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="Oaf">Consider the statement: for all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n\)</span> is even then <span class="process-math">\(8n\)</span> is even.</p>
+<ol class="lower-alpha">
+<li id="qYn"><p id="czj">Prove the statement. What sort of proof are you using?</p></li>
+<li id="Xfw"><p id="IGs">Is the converse true? Prove or disprove.</p></li>
+</ol></article><article class="exercise exercise-like" id="xiY"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="uho">The game TENZI comes with 40 six-sided dice (each numbered 1 to 6). Suppose you roll all 40 dice.</p>
+<ol class="lower-alpha">
+<li id="PAX"><p id="p-derived-PAX">Prove that there will be at least seven dice that land on the same number.</p></li>
+<li id="vIg"><p id="BbT">How many dice would you have to roll before you were guaranteed that some four of them would all match or all be different? Prove your answer.</p></li>
+</ol></article><article class="exercise exercise-like" id="dqh"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="aox">Prove that for all integers <span class="process-math">\(n\text{,}\)</span> it is the case that <span class="process-math">\(n\)</span> is  even if and only if <span class="process-math">\(3n\)</span> is even.  That is, prove both implications: if <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(3n\)</span> is even, and if <span class="process-math">\(3n\)</span> is even, then <span class="process-math">\(n\)</span> is even.</p></article><article class="exercise exercise-like" id="Jxq"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="GvG">Prove that <span class="process-math">\(\sqrt 3\)</span> is irrational.</p></article><article class="exercise exercise-like" id="pEz"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="mCP">Consider the statement: for all integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> is even and <span class="process-math">\(b\)</span> is a multiple of 3, then <span class="process-math">\(ab\)</span> is a multiple of 6.</p>
+<ol class="lower-alpha">
+<li id="odH"><p id="FLM">Prove the statement. What sort of proof are you using?</p></li>
+<li id="UkQ"><p id="lSV">State the converse. Is it true? Prove or disprove.</p></li>
+</ol></article><article class="exercise exercise-like" id="VLI"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="SJY">Prove the statement: For all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(5n\)</span> is odd, then <span class="process-math">\(n\)</span> is odd. Clearly state the style of proof you are using.</p></article><article class="exercise exercise-like" id="BSR"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="yRh">Prove the statement: For all integers <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{,}\)</span> if <span class="process-math">\(a^2 + b^2 = c^2\text{,}\)</span> then <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is even.</p></article><article class="exercise exercise-like" id="iaa"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="eYq">Suppose that you would like to prove the following implication:</p>
+<blockquote class="blockquote" id="Zqi"><p id="VEE">For all numbers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n\)</span> is prime then <span class="process-math">\(n\)</span> is solitary.</p></blockquote>
+<p id="Lfz">Write out the beginning and end of the argument if you were to prove the statement,</p>
+<ol class="lower-alpha">
+<li id="ArZ"><p id="Sae">Directly</p></li>
+<li id="gzi"><p id="yhn">By contrapositive</p></li>
+<li id="MGr"><p id="eow">By contradiction</p></li>
+</ol>
+<p id="rmI">You do not need to provide details for the proofs (since you do not know what solitary means). However, make sure that you provide the first few and last few lines of the proofs so that we can see that logical structure you would follow.</p></article><article class="exercise exercise-like" id="Ohj"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="XtR">Suppose you have a collection of 5-cent stamps and 8-cent stamps. We saw earlier that it is possible to make any amount of postage greater than 27 cents using combinations of both these types of stamps. But, let's ask some other questions:</p>
+<ol class="lower-alpha">
+<li id="sNA"><p id="KvF">Prove that if you only use an even number of both types of stamps, the amount of postage you make must be even.</p></li>
+<li id="YUJ"><p id="qCO">Suppose you made an even amount of postage. Prove that you used an even number of at least one of the types of stamps.</p></li>
+<li id="FbS"><p id="WJX">Suppose you made exactly 72 cents of postage. Prove that you used at least 6 of one type of stamp.</p></li>
+</ol></article><article class="exercise exercise-like" id="uos"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="DBa">Prove: <span class="process-math">\(x=y\)</span> if and only if <span class="process-math">\(xy=\dfrac{(x+y)^2}{4}\text{.}\)</span> Note, you will need to prove two “directions” here: the “if” and the “only if” part.</p></article><article class="exercise exercise-like" id="avB"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="jIj">Prove that <span class="process-math">\(\log(7)\)</span> is irrational.</p></article><article class="exercise exercise-like" id="GCK"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<p id="PPs">Prove that there are no integer solutions to the equation <span class="process-math">\(x^2 = 4y + 3\text{.}\)</span></p></article><article class="exercise exercise-like" id="mJT"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="vWB">Prove that every prime number greater than 3 is either one more or one less than a multiple of 6.</p></article><article class="exercise exercise-like" id="SRc"><h4 class="heading"><span class="codenumber">16<span class="period">.</span></span></h4>
+<p id="cdK">Your “friend” has shown you a “proof” he wrote to show that <span class="process-math">\(1 = 3\text{.}\)</span> Here is the proof:</p>
+<article class="proof" id="Khk"><h5 class="heading"><span class="type">Proof<span class="period">.</span></span></h5>
+<p id="pxv">I claim that <span class="process-math">\(1 = 3\text{.}\)</span> Of course we can do anything to one side of an equation as long as we also do it to the other side. So subtract 2 from both sides. This gives <span class="process-math">\(-1 = 1\text{.}\)</span> Now square both sides, to get <span class="process-math">\(1 = 1\text{.}\)</span> And we all agree this is true.</p></article><p id="IkT">What is going on here? Is your friend's argument valid? Is the argument a proof of the claim <span class="process-math">\(1=3\text{?}\)</span> Carefully explain using what we know about logic.</p></article><article class="exercise exercise-like" id="yYl"><h4 class="heading"><span class="codenumber">17<span class="period">.</span></span></h4>
+<p id="osc">A standard deck of 52 cards consists of 4 suites (hearts, diamonds, spades and clubs) each containing 13 different values (Ace, 2, 3, …, 10, J, Q, K). If you draw some number of cards at random you might or might not have a pair (two cards with the same value) or three cards all of the same suit. However, if you draw enough cards, you will be guaranteed to have these. For each of the following, find the smallest number of cards you would need to draw to be guaranteed having the specified cards. Prove your answers.</p>
+<ol class="lower-alpha">
+<li id="ljb"><p id="CRg">Three of a kind (for example, three 7's).</p></li>
+<li id="Rqk"><p id="iYp">A flush of five cards (for example, five hearts).</p></li>
+<li id="xxt"><p id="Pfy">Three cards that are either all the same suit or all different suits.</p></li>
+</ol></article><article class="exercise exercise-like" id="ffu"><h4 class="heading"><span class="codenumber">18<span class="period">.</span></span></h4>
+<p id="Uzl">Suppose you are at a party with 19 of your closest friends (so including you, there are 20 people there). Explain why there must be least two people at the party who are friends with the same number of people at the party. Assume friendship is always reciprocated.</p></article><article class="exercise exercise-like" id="LmD"><h4 class="heading"><span class="codenumber">19<span class="period">.</span></span></h4>
+<p id="AGu">Your friend has given you his list of 115 best Doctor Who episodes (in order of greatness). It turns out that you have seen 60 of them. Prove that there are at least two episodes you have seen that are exactly four episodes apart on your friend's list.</p></article><article class="exercise exercise-like" id="rtM"><h4 class="heading"><span class="codenumber">20<span class="period">.</span></span></h4>
+<p id="gND">Suppose you have an <span class="process-math">\(n\times n\)</span> chessboard but your dog has eaten one of the corner squares. Can you still cover the remaining squares with dominoes? What needs to be true about <span class="process-math">\(n\text{?}\)</span> Give necessary and sufficient conditions (that is, say exactly which values of <span class="process-math">\(n\)</span> work and which do not work). Prove your answers.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/image-63.svg" role="img" class="contained"></div></div></div></article><article class="exercise exercise-like" id="XAV"><h4 class="heading"><span class="codenumber">21<span class="period">.</span></span></h4>
+<p id="MUM">What if your <span class="process-math">\(n\times n\)</span> chessboard is missing two opposite corners? Prove that no matter what <span class="process-math">\(n\)</span> is, you will not be able to cover the remaining squares with dominoes.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/image-64.svg" role="img" class="contained"></div></div></div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-13"><div class="fn">This is not to say that looking at examples is a waste of time. Doing so will often give you an idea of how to write a proof. But the examples do not belong in the proof.</div></div>
+</div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

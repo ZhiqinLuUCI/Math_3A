@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:35-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">1.6.3.1</span><span class="period">.</span>
+</h3>
+<p>We must subtract off the number of solutions in which one or more of the variables has a value greater than 3. We will need to use PIE because counting the number of solutions for which each of the five variables separately are greater than 3 counts solutions multiple times. Here is what we get:</p>
+<ul class="disc">
+<li><p>Total solutions: <span class="process-math">\({17 \choose 4}\text{.}\)</span></p></li>
+<li><p>Solutions where <span class="process-math">\(x_1 &gt; 3\text{:}\)</span> <span class="process-math">\({13 \choose 4}\text{.}\)</span> Give <span class="process-math">\(x_1\)</span> 4 units first, then distribute the remaining 9 units to the 5 variables.</p></li>
+<li><p>Solutions where <span class="process-math">\(x_1 &gt; 3\)</span> and <span class="process-math">\(x_2 &gt; 3\text{:}\)</span> <span class="process-math">\({9 \choose 4}\text{.}\)</span> After you give 4 units to <span class="process-math">\(x_1\)</span> and another 4 to <span class="process-math">\(x_2\text{,}\)</span> you only have 5 units left to distribute.</p></li>
+<li><p>Solutions where <span class="process-math">\(x_1 &gt; 3\text{,}\)</span> <span class="process-math">\(x_2 &gt; 3\)</span> and <span class="process-math">\(x_3 &gt; 3\text{:}\)</span> <span class="process-math">\({5 \choose 4}\text{.}\)</span></p></li>
+<li><p>Solutions where <span class="process-math">\(x_1 &gt; 3\text{,}\)</span> <span class="process-math">\(x_2 &gt; 3\text{,}\)</span> <span class="process-math">\(x_3 &gt; 3\text{,}\)</span> and <span class="process-math">\(x_4 &gt; 3\text{:}\)</span> 0.</p></li>
+</ul>
+<p>We also need to account for the fact that we could choose any of the five variables in the place of <span class="process-math">\(x_1\)</span> above (so there will be <span class="process-math">\({5 \choose 1}\)</span> outcomes like this), any pair of variables in the place of <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> (<span class="process-math">\({5 \choose 2}\)</span> outcomes) and so on. It is because of this that the double counting occurs, so we need to use PIE. All together we have that the number of solutions with <span class="process-math">\(0 \le x_i \le 3\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+{17 \choose 4} - \left[{5\choose 1}{13 \choose 4} - {5 \choose 2}{9 \choose 4} + {5 \choose 3}{5 \choose 4}\right] = 15\text{.}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec_advPIE.html#ays" class="internal">in-context</a></span>
+</body>
+</html>

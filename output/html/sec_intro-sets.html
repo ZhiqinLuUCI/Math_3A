@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:58:16-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Sets</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline"></p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_intro-statements.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_intro.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_intro-functions.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_intro-statements.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_intro.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_intro-functions.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul><li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="active">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li></ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="ltW"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">0.3</span> <span class="title">Sets</span>
+</h2>
+<section class="introduction" id="Ehu"><p id="HEQ">The most fundamental objects we will use in our studies (and really in all of math) are <em class="emphasis">sets</em>. Much of what follows might be review, but it is very important that you are fluent in the language of set theory. Most of the notation we use below is standard, although some might be a little different than what you have seen before.</p>
+<p id="nLZ">For us, a <dfn class="terminology">set</dfn>  will simply be an unordered collection of objects. Two examples: we could consider the set of all actors who have played <em class="emphasis">The Doctor</em> on <em class="emphasis">Doctor Who</em>,  or the set of natural numbers between 1 and 10 inclusive. In the first case, Tom Baker is an element (or member) of the set, while Idris Elba, among many others, is not an element of the set. Also, the two examples are of different sets. Two sets are equal exactly if they contain the exact same elements. For example, the set containing all of the vowels in the declaration of independence is precisely the same set as the set of vowels in the word “questionably” (namely, all of them); we do not care about order or repetitions, just whether the element is in the set or not.</p></section><section class="subsection" id="RBf"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Notation</span>
+</h3>
+<p id="MoJ">We need some notation to make talking about sets easier. Consider,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = \{1, 2, 3\}\text{.}
+\end{equation*}
+</div>
+<p id="svS">This is read, “<span class="process-math">\(A\)</span> is the set containing the elements 1, 2 and 3.” We use curly braces “<span class="process-math">\(\{,~~ \}\)</span>” to enclose elements of a set. Some more notation:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a \in \{a, b, c\}\text{.}
+\end{equation*}
+</div>
+<p id="YDb">The symbol “<span class="process-math">\(\in\)</span>” is read “is in” or “is an element of.”  Thus the above means that <span class="process-math">\(a\)</span> is an element of the set containing the letters <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span> Note that this is a true statement. It would also be true to say that <span class="process-math">\(d\)</span> is not in that set:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+d \not\in \{a, b, c\}\text{.}
+\end{equation*}
+</div>
+<p id="EKk">Be warned: we write “<span class="process-math">\(x \in A\)</span>” when we wish to express that one of the elements of the set <span class="process-math">\(A\)</span> is <span class="process-math">\(x\text{.}\)</span> For example, consider the set,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = \{1, b, \{x, y, z\}, \emptyset\}\text{.}
+\end{equation*}
+</div>
+<p id="kRt">This is a strange set, to be sure. It contains four elements: the number 1, the letter b, the set <span class="process-math">\(\{x,y,z\}\text{,}\)</span> and the empty set <span class="process-math">\(\emptyset = \{ \}\text{,}\)</span> the set containing no elements. Is <span class="process-math">\(x\)</span> in <span class="process-math">\(A\text{?}\)</span> The answer is no. None of the four elements in <span class="process-math">\(A\)</span> are the letter <span class="process-math">\(x\text{,}\)</span> so we must conclude that <span class="process-math">\(x \notin A\text{.}\)</span> Similarly, consider the set <span class="process-math">\(B = \{1,b\}\text{.}\)</span> Even though the elements of <span class="process-math">\(B\)</span> are elements of <span class="process-math">\(A\text{,}\)</span> we cannot say that the <em class="emphasis">set</em> <span class="process-math">\(B\)</span> is one of the elements of <span class="process-math">\(A\text{.}\)</span> Therefore <span class="process-math">\(B \notin A\text{.}\)</span> (Soon we will see that <span class="process-math">\(B\)</span> is a <em class="emphasis">subset</em> of <span class="process-math">\(A\text{,}\)</span> but this is different from being an <em class="emphasis">element</em> of <span class="process-math">\(A\text{.}\)</span>)</p>
+<p id="QYC">We have described the sets above by listing their elements. Sometimes this is hard to do, especially when there are a lot of elements in the set (perhaps infinitely many). For instance, if we want <span class="process-math">\(A\)</span> to be the set of all even natural numbers, would could write,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = \{0, 2, 4, 6, \ldots\}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">but this is a little imprecise. A better way would be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = \{x \in \N \st \exists n\in \N ( x = 2 n)\}\text{.}
+\end{equation*}
+</div>
+<p id="xfL">Let's look at this carefully.  First, there are some new symbols to digest: “<span class="process-math">\(\N\)</span>” is the symbol usually used to denote that <dfn class="terminology">natural numbers</dfn>, which we will take to be the set <span class="process-math">\(\{0, 1, 2, 3, \ldots\}\text{.}\)</span>   Next, the colon, “:”, is read <em class="emphasis">such that</em>; it separates the elements that are in the set from the condition that the elements in the set must satisfy. So putting this all together, we would read the set as, “the set of all <span class="process-math">\(x\)</span> in the natural numbers, such that there exists some <span class="process-math">\(n\)</span> in the natural numbers for which <span class="process-math">\(x\)</span> is twice <span class="process-math">\(n\text{.}\)</span>” In other words, the set of all natural numbers, that are even.  Here is another way to write the same set.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A = \{x \in \N \st x\text{ is even} \}\text{.}
+\end{equation*}
+</div>
+<p id="dmU">Note: Sometimes mathematicians use <span class="process-math">\(|\)</span> or <span class="process-math">\(\backepsilon\)</span> for the “such that” symbol instead of the colon. Also, there is a fairly even split between mathematicians about whether <span class="process-math">\(0\)</span> is an element of the natural numbers, so be careful there.</p>
+<p id="Jud"> This notation is usually called <dfn class="terminology">set builder notation</dfn>. It tells us how to <em class="emphasis">build</em> a set by telling us precisely the condition elements must meet to gain access (the condition is the logical statement after the “<span class="process-math">\(\st\)</span>” symbol).  Reading and comprehending sets written in this way takes practice. Here are some more examples:</p>
+<article class="example example-like" id="Csh"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.1</span><span class="period">.</span>
+</h4>
+<p id="SdV">Describe each of the following sets both in words and by listing out enough elements to see the pattern.</p>
+<ol id="yle" class="decimal">
+<li id="Dcb"><p id="p-derived-Dcb"><span class="process-math">\(\{x \st x + 3 \in \N\}\text{.}\)</span></p></li>
+<li id="jjk"><p id="p-derived-jjk"><span class="process-math">\(\{x \in \N \st x + 3 \in \N\}\text{.}\)</span></p></li>
+<li id="Pqt"><p id="p-derived-Pqt"><span class="process-math">\(\{x \st x \in \N \vee -x \in \N\}\text{.}\)</span></p></li>
+<li id="vxC"><p id="p-derived-vxC"><span class="process-math">\(\{x \st x \in \N \wedge -x \in \N\}\text{.}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-koD" id="koD"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-koD"><div class="solution solution-like"><ol id="cDa" class="decimal">
+<li id="bEL"><p id="Glc">This is the set of all numbers which are 3 less than a natural number (i.e., that if you add 3 to them, you get a natural number). The set could also be written as <span class="process-math">\(\{-3, -2, -1, 0, 1, 2, \ldots\}\)</span> (note that 0 is a natural number, so <span class="process-math">\(-3\)</span> is in this set because <span class="process-math">\(-3 + 3 = 0\)</span>).</p></li>
+<li id="HLU"><p id="msl">This is the set of all natural numbers which are 3 less than a natural number. So here we just have <span class="process-math">\(\{0, 1, 2,3 \ldots\}\text{.}\)</span></p></li>
+<li id="nTd"><p id="Szu">This is the set of all integers  (positive and negative whole numbers, written <span class="process-math">\(\Z\)</span>). In other words, <span class="process-math">\(\{\ldots, -2, -1, 0, 1, 2, \ldots\}\text{.}\)</span></p></li>
+<li id="Uam"><p id="yGD">Here we want all numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(x\)</span> and <span class="process-math">\(-x\)</span> are natural numbers. There is only one: 0. So we have the set <span class="process-math">\(\{0\}\text{.}\)</span></p></li>
+</ol></div></div>
+</div></article><p id="pBm">There is also a subtle variation on set builder notation.  While the condition is generally given after the “such that”, sometimes it is hidden in the first part.  Here is an example.</p>
+<article class="example example-like" id="izq"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.2</span><span class="period">.</span>
+</h4>
+<p id="esn">List a few elements in the sets below and describe them in words.  The set <span class="process-math">\(\Z\)</span> is the set of <dfn class="terminology">integers</dfn>; positive and negative whole numbers.</p>
+<ol class="decimal">
+<li id="Ahv"><p id="eNM"><span class="process-math">\(\displaystyle A = \{x \in \Z \st x^2 \in \N\}\)</span></p></li>
+<li id="goE"><p id="KUV"><span class="process-math">\(\displaystyle B = \{x^2 \st x \in \N\}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-QvM" id="QvM"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-QvM"><div class="solution solution-like"><ol id="IKj" class="decimal">
+<li id="MvN"><p id="rce">The set of integers that pass the condition that their square is a natural number.  Well, every integer, when you square it, gives you a non-negative integer, so a natural number.  Thus <span class="process-math">\(A = \Z = \{\ldots, -2, -1, 0, 1, 2, 3, \ldots\}\text{.}\)</span></p></li>
+<li id="sCW">
+<p id="Xjn">Here we are looking for the set of all <span class="process-math">\(x^2\)</span>s where <span class="process-math">\(x\)</span> is a natural number.  So this set is simply the set of perfect squares.  <span class="process-math">\(B = \{0, 1, 4, 9, 16, \ldots\}\text{.}\)</span></p>
+<p id="Dqw">Another way we could have written this set, using more strict set builder notation, would be as <span class="process-math">\(B = \{x \in \N \st x = n^2 \text{ for some } n \in \N\}\text{.}\)</span></p>
+</li>
+</ol></div></div>
+</div></article><p id="VIv">We already have a lot of notation, and there is more yet. Below is a handy chart of symbols. Some of these will be discussed in greater detail as we move forward.</p>
+<article class="assemblage assemblage-like" id="qdP"><h4 class="heading"><span class="title">Special sets.</span></h4>
+<dl id="Aar" class="description-list narrow">
+<dt id="vcd"><span class="process-math">\(\emptyset\)</span></dt>
+<dd><p id="jxF">The <dfn class="terminology">empty set</dfn> is the set which contains no elements. </p></dd>
+<dt id="bjm"><span class="process-math">\(\U\)</span></dt>
+<dd><p id="PEO">The <dfn class="terminology">universe set</dfn> is the set of all elements. </p></dd>
+<dt id="Hqv"><span class="process-math">\(\N\)</span></dt>
+<dd><p id="vLX">The set of natural numbers. That is, <span class="process-math">\(\N = \{0, 1, 2, 3\ldots\}\text{.}\)</span> </p></dd>
+<dt id="nxE"><span class="process-math">\(\Z\)</span></dt>
+<dd><p id="bTg">The set of integers. That is, <span class="process-math">\(\Z = \{\ldots, -2, -1, 0, 1, 2, 3, \ldots\}\text{.}\)</span> </p></dd>
+<dt id="TEN"><span class="process-math">\(\Q\)</span></dt>
+<dd><p id="Iap">The set of rational numbers. </p></dd>
+<dt id="zLW"><span class="process-math">\(\R\)</span></dt>
+<dd><p id="ohy">The set of real numbers. </p></dd>
+<dt id="fTf"><span class="process-math">\(\pow(A)\)</span></dt>
+<dd><p id="UoH">The <dfn class="terminology">power set</dfn> of any set <span class="process-math">\(A\)</span> is the set of all subsets of <span class="process-math">\(A\text{.}\)</span> </p></dd>
+</dl></article><article class="assemblage assemblage-like" id="WkY"><h4 class="heading"><span class="title">Set Theory Notation.</span></h4>
+<dl id="ghA" class="description-list narrow">
+<dt id="Mao"><span class="process-math">\(\{, \}\)</span></dt>
+<dd><p id="AvQ">We use these <dfn class="terminology">braces</dfn> to enclose the elements of a set. So <span class="process-math">\(\{1,2,3\}\)</span> is the set containing 1, 2, and 3. </p></dd>
+<dt id="shx"><span class="process-math">\(\st\)</span></dt>
+<dd><p id="gCZ"><span class="process-math">\(\{x \st x &gt; 2\}\)</span> is the set of all <span class="process-math">\(x\)</span> <dfn class="terminology">such that</dfn> <span class="process-math">\(x\)</span> is greater than 2. </p></dd>
+<dt id="YoG"><span class="process-math">\(\in\)</span></dt>
+<dd><p id="MKi"><span class="process-math">\(2 \in \{1,2,3\}\)</span> asserts that 2 is <dfn class="terminology">an element of</dfn> the set <span class="process-math">\(\{1,2,3\}\text{.}\)</span> </p></dd>
+<dt id="EvP"><span class="process-math">\(\not\in\)</span></dt>
+<dd><p id="sRr"><span class="process-math">\(4 \notin \{1,2,3\}\)</span> because 4 <dfn class="terminology">is not an element of</dfn> the set <span class="process-math">\(\{1,2,3\}\text{.}\)</span></p></dd>
+<dt id="kCY"><span class="process-math">\(\subseteq\)</span></dt>
+<dd><p id="YYA"><span class="process-math">\(A \subseteq B\)</span> asserts that <dfn class="terminology"><span class="process-math">\(A\)</span> is a subset of <span class="process-math">\(B\)</span></dfn>: every element of <span class="process-math">\(A\)</span> is also an element of <span class="process-math">\(B\text{.}\)</span> </p></dd>
+<dt id="QKh"><span class="process-math">\(\subset\)</span></dt>
+<dd><p id="FfJ"><span class="process-math">\(A \subset B\)</span> asserts that <dfn class="terminology"><span class="process-math">\(A\)</span> is a proper subset of <span class="process-math">\(B\)</span></dfn>: every element of <span class="process-math">\(A\)</span> is also an element of <span class="process-math">\(B\text{,}\)</span> but <span class="process-math">\(A \ne B\text{.}\)</span> </p></dd>
+<dt id="wRq"><span class="process-math">\(\cap\)</span></dt>
+<dd><p id="lmS"><span class="process-math">\(A \cap B\)</span> is the <dfn class="terminology">intersection of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span></dfn>: the set containing all elements which are elements of both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> </p></dd>
+<dt id="cYz"><span class="process-math">\(\cup\)</span></dt>
+<dd><p id="Rub"><span class="process-math">\(A \cup B\)</span> is the <dfn class="terminology">union of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span></dfn>: is the set containing all elements which are elements of <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> or both. </p></dd>
+<dt id="JfI"><span class="process-math">\(\times\)</span></dt>
+<dd><p id="xBk"><span class="process-math">\(A \times B\)</span> is the <dfn class="terminology">Cartesian product of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span></dfn>: the set of all ordered pairs <span class="process-math">\((a,b)\)</span> with <span class="process-math">\(a \in A\)</span> and <span class="process-math">\(b \in B\text{.}\)</span> </p></dd>
+<dt id="pmR"><span class="process-math">\(\setminus\)</span></dt>
+<dd><p id="dIt"><span class="process-math">\(A \setminus B\)</span> is <dfn class="terminology">set difference between <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span></dfn>: the set containing all elements of <span class="process-math">\(A\)</span> which are not elements of <span class="process-math">\(B\text{.}\)</span> </p></dd>
+<dt id="Vua"><span class="process-math">\(\bar{A}\)</span></dt>
+<dd><p id="JPC">The <dfn class="terminology">complement of <span class="process-math">\(A\)</span></dfn> is the set of everything which is not an element of <span class="process-math">\(A\text{.}\)</span> </p></dd>
+<dt id="BBj"><span class="process-math">\(\card{A}\)</span></dt>
+<dd><p id="pWL">The <dfn class="terminology">cardinality (or size) of <span class="process-math">\(A\)</span></dfn> is the number of elements in <span class="process-math">\(A\text{.}\)</span> </p></dd>
+</dl></article><article class="project-like" id="OGz"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<ol id="TTi" class="decimal">
+<li id="YKf">
+<p id="YhC">Find the cardinality of each set below.</p>
+<ol class="lower-alpha">
+<li id="EoL"><p id="p-derived-EoL"><span class="process-math">\(A = \{3,4,\ldots, 15\}\text{.}\)</span></p></li>
+<li id="ERo"><p id="p-derived-ERo"><span class="process-math">\(B = \{n \in \N \st 2 \lt n \le 200\}\text{.}\)</span></p></li>
+<li id="kYx"><p id="p-derived-kYx"><span class="process-math">\(C = \{n \le 100 \st n \in \N \wedge \exists m \in \N (n = 2m+1)\}\text{.}\)</span></p></li>
+</ol>
+</li>
+<li id="hIs"><p id="WdU">Find two sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> for which <span class="process-math">\(|A| = 5\text{,}\)</span> <span class="process-math">\(|B| = 6\text{,}\)</span> and <span class="process-math">\(|A\cup B| = 9\text{.}\)</span> What is <span class="process-math">\(|A \cap B|\text{?}\)</span></p></li>
+<li id="NPB"><p id="Cld">Find sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> with <span class="process-math">\(|A| = |B|\)</span> such that <span class="process-math">\(|A\cup B| = 7\)</span> and <span class="process-math">\(|A \cap B| = 3\text{.}\)</span> What is <span class="process-math">\(|A|\text{?}\)</span></p></li>
+<li id="tWK"><p id="ism">Let <span class="process-math">\(A = \{1,2,\ldots, 10\}\text{.}\)</span> Define <span class="process-math">\(\mathcal{B}_2 = \{B \subseteq A \st |B| = 2\}\text{.}\)</span> Find <span class="process-math">\(|\mathcal{B}_2|\text{.}\)</span></p></li>
+<li id="adT"><p id="p-derived-adT">For any sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> define <span class="process-math">\(AB = \{ab \st a\in A \wedge b \in B\}\text{.}\)</span> If <span class="process-math">\(A = \{1,2\}\)</span> and <span class="process-math">\(B = \{2,3,4\}\text{,}\)</span> what is <span class="process-math">\(|AB|\text{?}\)</span> What is <span class="process-math">\(|A \times B|\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="xIo"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Relationships Between Sets</span>
+</h3>
+<p id="BPE">We have already said what it means for two sets to be equal: they have exactly the same elements. Thus, for example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{1, 2, 3\} = \{2, 1, 3\}\text{.}
+\end{equation*}
+</div>
+<p id="hWN">(Remember, the order the elements are written down in does not matter.) Also,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\{1, 2, 3\} = \{1, 1+1, 1+1+1\} = \{I, II, III\} = \{1, 2, 3, 1+2\}
+\end{equation*}
+</div>
+<p class="continuation">since these are all ways to write the set containing the first three positive integers (how we write them doesn't matter, just what they are).</p>
+<p id="OdW">What about the sets <span class="process-math">\(A = \{1, 2, 3\}\)</span> and <span class="process-math">\(B = \{1, 2, 3, 4\}\text{?}\)</span> Clearly <span class="process-math">\(A \ne B\text{,}\)</span> but notice that every element of <span class="process-math">\(A\)</span> is also an element of <span class="process-math">\(B\text{.}\)</span> Because of this we say that <span class="process-math">\(A\)</span> is a <em class="emphasis">subset</em>  of <span class="process-math">\(B\text{,}\)</span> or in symbols <span class="process-math">\(A \subset B\)</span> or <span class="process-math">\(A \subseteq B\text{.}\)</span> Both symbols are read “is a subset of.” The difference is that sometimes we want to say that <span class="process-math">\(A\)</span> is either equal to or is a subset of <span class="process-math">\(B\text{,}\)</span> in which case we use <span class="process-math">\(\subseteq\text{.}\)</span> This is analogous to the difference between <span class="process-math">\(\lt\)</span> and <span class="process-math">\(\le\text{.}\)</span></p>
+<article class="example example-like" id="uNI"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.3</span><span class="period">.</span>
+</h4>
+<p id="Kzw">Let <span class="process-math">\(A = \{1, 2, 3, 4, 5, 6\}\text{,}\)</span> <span class="process-math">\(B = \{2, 4, 6\}\text{,}\)</span> <span class="process-math">\(C = \{1, 2, 3\}\)</span> and <span class="process-math">\(D = \{7, 8, 9\}\text{.}\)</span> Determine which of the following are true, false, or meaningless.</p>
+<ol id="qGF" class="decimal cols3">
+<li id="RfG"><p id="p-derived-RfG"><span class="process-math">\(A \subset B\text{.}\)</span></p></li>
+<li id="xmP"><p id="p-derived-xmP"><span class="process-math">\(B \subset A\text{.}\)</span></p></li>
+<li id="dtY"><p id="p-derived-dtY"><span class="process-math">\(B \in C\text{.}\)</span></p></li>
+<li id="JBh"><p id="p-derived-JBh"><span class="process-math">\(\emptyset \in A\text{.}\)</span></p></li>
+<li id="pIq"><p id="p-derived-pIq"><span class="process-math">\(\emptyset \subset A\text{.}\)</span></p></li>
+<li id="VPz"><p id="p-derived-VPz"><span class="process-math">\(A \lt D\text{.}\)</span></p></li>
+<li id="BWI"><p id="p-derived-BWI"><span class="process-math">\(3 \in C\text{.}\)</span></p></li>
+<li id="idR"><p id="p-derived-idR"><span class="process-math">\(3 \subset C\text{.}\)</span></p></li>
+<li id="Ola"><p id="p-derived-Ola"><span class="process-math">\(\{3\} \subset C\text{.}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-wCV" id="wCV"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-wCV"><div class="solution solution-like"><ol id="oRs" class="decimal">
+<li id="usj"><p id="Ozv">False. For example, <span class="process-math">\(1\in A\)</span> but <span class="process-math">\(1 \notin B\text{.}\)</span></p></li>
+<li id="azs"><p id="uGE">True. Every element in <span class="process-math">\(B\)</span> is an element in <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="GGB"><p id="aNN">False. The elements in <span class="process-math">\(C\)</span> are 1, 2, and 3. The <em class="emphasis">set</em> <span class="process-math">\(B\)</span> is not equal to 1, 2, or 3.</p></li>
+<li id="mNK"><p id="GUW">False. <span class="process-math">\(A\)</span> has exactly 6 elements, and none of them are the empty set.</p></li>
+<li id="SUT"><p id="ncf">True. Everything in the empty set (nothing) is also an element of <span class="process-math">\(A\text{.}\)</span> Notice that the empty set is a subset of every set.</p></li>
+<li id="zcc"><p id="Tjo">Meaningless. A set cannot be less than another set.</p></li>
+<li id="fjl"><p id="zqx">True. <span class="process-math">\(3\)</span> is one of the elements of the set <span class="process-math">\(C\text{.}\)</span></p></li>
+<li id="Lqu"><p id="fxG">Meaningless. <span class="process-math">\(3\)</span> is not a set, so it cannot be a subset of another set.</p></li>
+<li id="rxD"><p id="LEP">True. <span class="process-math">\(3\)</span> is the only element of the set <span class="process-math">\(\{3\}\text{,}\)</span> and is an element of <span class="process-math">\(C\text{,}\)</span> so every element in <span class="process-math">\(\{3\}\)</span> is an element of <span class="process-math">\(C\text{.}\)</span></p></li>
+</ol></div></div>
+</div></article><p id="ulf">In the example above, <span class="process-math">\(B\)</span> is a subset of <span class="process-math">\(A\text{.}\)</span> You might wonder what other sets are subsets of <span class="process-math">\(A\text{.}\)</span> If you collect all these subsets of <span class="process-math">\(A\)</span> into a new set, we get a set of sets. We call the set of all subsets of <span class="process-math">\(A\)</span> the <dfn class="terminology">power set</dfn>  of <span class="process-math">\(A\text{,}\)</span> and write it <span class="process-math">\(\pow(A)\text{.}\)</span></p>
+<article class="example example-like" id="aUR"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.4</span><span class="period">.</span>
+</h4>
+<p id="WNO">Let <span class="process-math">\(A = \{1,2,3\}\text{.}\)</span> Find <span class="process-math">\(\pow(A)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-cKe" id="cKe"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-cKe"><div class="solution solution-like">
+<p id="UYB"><span class="process-math">\(\pow(A)\)</span> is a set of sets, all of which are subsets of <span class="process-math">\(A\text{.}\)</span> So</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\pow(A) = \{ \emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1, 3\}, \{2,3\}, \{1,2,3\}\}\text{.}
+\end{equation*}
+</div>
+<p id="BfK">Notice that while <span class="process-math">\(2 \in A\text{,}\)</span> it is wrong to write <span class="process-math">\(2 \in \pow(A)\)</span> since none of the elements in <span class="process-math">\(\pow(A)\)</span> are numbers! On the other hand, we do have <span class="process-math">\(\{2\} \in \pow(A)\)</span> because <span class="process-math">\(\{2\} \subseteq A\text{.}\)</span></p>
+<p id="hmT">What does a subset of <span class="process-math">\(\pow(A)\)</span> look like? Notice that <span class="process-math">\(\{2\} \not\subseteq \pow(A)\)</span> because not everything in <span class="process-math">\(\{2\}\)</span> is in <span class="process-math">\(\pow(A)\text{.}\)</span> But we do have <span class="process-math">\(\{ \{2\} \} \subseteq \pow(A)\text{.}\)</span> The only element of <span class="process-math">\(\{\{2\}\}\)</span> is the set <span class="process-math">\(\{2\}\)</span> which is also an element of <span class="process-math">\(\pow(A)\text{.}\)</span> We could take the collection of all subsets of <span class="process-math">\(\pow(A)\)</span> and call that <span class="process-math">\(\pow(\pow(A))\text{.}\)</span> Or even the power set of that set of sets of sets.</p>
+</div></div>
+</div></article><p id="aso">Another way to compare sets is by their <em class="emphasis">size</em>. Notice that in the example above, <span class="process-math">\(A\)</span> has 6 elements and <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(C\text{,}\)</span> and <span class="process-math">\(D\)</span> all have 3 elements. The size of a set is called the set's <dfn class="terminology">cardinality</dfn> .  We would write <span class="process-math">\(|A| = 6\text{,}\)</span> <span class="process-math">\(|B| = 3\text{,}\)</span> and so on. For sets that have a finite number of elements, the cardinality of the set is simply the number of elements in the set. Note that the cardinality of <span class="process-math">\(\{ 1, 2, 3, 2, 1\}\)</span> is 3. We do not count repeats (in fact, <span class="process-math">\(\{1, 2, 3, 2, 1\}\)</span> is exactly the same set as <span class="process-math">\(\{1, 2, 3\}\)</span>). There are sets with infinite cardinality, such as <span class="process-math">\(\N\text{,}\)</span> the set of rational numbers (written <span class="process-math">\(\mathbb Q\)</span>), the set of even natural numbers, and the set of real numbers (<span class="process-math">\(\mathbb R\)</span>). It is possible to distinguish between different infinite cardinalities, but that is beyond the scope of this text. For us, a set will either be infinite, or finite; if it is finite, the we can determine its cardinality by counting elements.</p>
+<article class="example example-like" id="Hca"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.5</span><span class="period">.</span>
+</h4>
+<ol id="CUX" class="decimal">
+<li id="XEM"><p id="rLY">Find the cardinality of <span class="process-math">\(A = \{23, 24, \ldots, 37, 38\}\text{.}\)</span></p></li>
+<li id="DLV"><p id="XTh">Find the cardinality of <span class="process-math">\(B = \{1, \{2, 3, 4\}, \emptyset\}\text{.}\)</span></p></li>
+<li id="jTe"><p id="Eaq">If <span class="process-math">\(C = \{1,2,3\}\text{,}\)</span> what is the cardinality of <span class="process-math">\(\pow(C)\text{?}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-IRn" id="IRn"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-IRn"><div class="solution solution-like"><ol id="Nuc" class="decimal">
+<li id="Qan"><p id="khz">Since <span class="process-math">\(38 - 23 = 15\text{,}\)</span> we can conclude that the cardinality of the set is <span class="process-math">\(|A| = 16\)</span> (you need to add one since 23 is included).</p></li>
+<li id="whw"><p id="QoI">Here <span class="process-math">\(|B| = 3\text{.}\)</span> The three elements are the number 1, the set <span class="process-math">\(\{2,3,4\}\text{,}\)</span> and the empty set.</p></li>
+<li id="coF"><p id="wvR">We wrote out the elements of the power set <span class="process-math">\(\pow(C)\)</span> above, and there are 8 elements (each of which is a set). So <span class="process-math">\(\card{\pow(C)} = 8\text{.}\)</span> (You might wonder if there is a relationship between <span class="process-math">\(\card{A}\)</span> and <span class="process-math">\(\card{\pow(A)}\)</span> for all sets <span class="process-math">\(A\text{.}\)</span> This is a good question which we will return to in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "ch_counting" missing or not unique]</code>.)</p></li>
+</ol></div></div>
+</div></article></section><section class="subsection" id="dPx"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Operations On Sets</span>
+</h3>
+<p id="Gzx">Is it possible to add two sets? Not really, however there is something similar. If we want to combine two sets to get the collection of objects that are in either set, then we can take the <dfn class="terminology">union</dfn>  of the two sets. Symbolically,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C = A \cup B\text{,}
+\end{equation*}
+</div>
+<p class="continuation">read, “<span class="process-math">\(C\)</span> is the union of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span>” means that the elements of <span class="process-math">\(C\)</span> are exactly the elements which are either an element of <span class="process-math">\(A\)</span> or an element of <span class="process-math">\(B\)</span> (or an element of both). For example, if <span class="process-math">\(A = \{1, 2, 3\}\)</span> and <span class="process-math">\(B = \{2, 3, 4\}\text{,}\)</span> then <span class="process-math">\(A \cup B = \{1, 2, 3, 4\}\text{.}\)</span></p>
+<p id="mGG">The other common operation on sets is <dfn class="terminology">intersection</dfn>.  We write,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C = A \cap B
+\end{equation*}
+</div>
+<p class="continuation">and say, “<span class="process-math">\(C\)</span> is the intersection of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span>” when the elements in <span class="process-math">\(C\)</span> are precisely those both in <span class="process-math">\(A\)</span> and in <span class="process-math">\(B\text{.}\)</span> So if <span class="process-math">\(A = \{1, 2, 3\}\)</span> and <span class="process-math">\(B = \{2, 3, 4\}\text{,}\)</span> then <span class="process-math">\(A \cap B = \{2, 3\}\text{.}\)</span></p>
+<p id="SNP">Often when dealing with sets, we will have some understanding as to what “everything” is. Perhaps we are only concerned with natural numbers. In this case we would say that our <dfn class="terminology">universe</dfn> is <span class="process-math">\(\N\text{.}\)</span>  Sometimes we denote this universe by <span class="process-math">\(\U\text{.}\)</span> Given this context, we might wish to speak of all the elements which are <em class="emphasis">not</em> in a particular set. We say <span class="process-math">\(B\)</span> is the <dfn class="terminology">complement</dfn>  of <span class="process-math">\(A\text{,}\)</span> and write,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+B = \bar A
+\end{equation*}
+</div>
+<p class="continuation">when <span class="process-math">\(B\)</span> contains every element not contained in <span class="process-math">\(A\text{.}\)</span> So, if our universe is <span class="process-math">\(\{1, 2,\ldots, 9, 10\}\text{,}\)</span> and <span class="process-math">\(A = \{2, 3, 5, 7\}\text{,}\)</span> then <span class="process-math">\(\bar A = \{1, 4, 6, 8, 9,10\}\text{.}\)</span></p>
+<p id="yUY">Of course we can perform more than one operation at a time. For example, consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cap \bar B\text{.}
+\end{equation*}
+</div>
+<p id="fch">This is the set of all elements which are both elements of <span class="process-math">\(A\)</span> and not elements of <span class="process-math">\(B\text{.}\)</span> What have we done? We've started with <span class="process-math">\(A\)</span> and removed all of the elements which were in <span class="process-math">\(B\text{.}\)</span> Another way to write this is the <dfn class="terminology">set difference</dfn>: </p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A \cap \bar B = A \setminus B\text{.}
+\end{equation*}
+</div>
+<p id="Ljq">It is important to remember that these operations (union, intersection, complement, and difference) on sets produce other sets. Don't confuse these with the symbols from the previous section (element of and subset of). <span class="process-math">\(A \cap B\)</span> is a set, while <span class="process-math">\(A \subseteq B\)</span> is true or false. This is the same difference as between <span class="process-math">\(3 + 2\)</span> (which is a number) and <span class="process-math">\(3 \le 2\)</span> (which is false).</p>
+<article class="example example-like" id="njj"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.6</span><span class="period">.</span>
+</h4>
+<p id="jcg">Let <span class="process-math">\(A = \{1, 2, 3, 4, 5, 6\}\text{,}\)</span> <span class="process-math">\(B = \{2, 4, 6\}\text{,}\)</span> <span class="process-math">\(C = \{1, 2, 3\}\)</span> and <span class="process-math">\(D = \{7, 8, 9\}\text{.}\)</span> If the universe is <span class="process-math">\(\U = \{1, 2, \ldots, 10\}\text{,}\)</span> find:</p>
+<ol class="decimal cols3">
+<li id="IvO"><p id="p-derived-IvO"><span class="process-math">\(A \cup B\text{.}\)</span></p></li>
+<li id="oCX"><p id="p-derived-oCX"><span class="process-math">\(A \cap B\text{.}\)</span></p></li>
+<li id="UKg"><p id="p-derived-UKg"><span class="process-math">\(B \cap C\text{.}\)</span></p></li>
+<li id="ARp"><p id="p-derived-ARp"><span class="process-math">\(A \cap D\text{.}\)</span></p></li>
+<li id="gYy"><p id="p-derived-gYy"><span class="process-math">\(\bar{B \cup C}\text{.}\)</span></p></li>
+<li id="NfH"><p id="p-derived-NfH"><span class="process-math">\(A \setminus B\text{.}\)</span></p></li>
+<li id="tmQ"><p id="p-derived-tmQ"><span class="process-math">\((D \cap \bar C) \cup \bar{A \cap B}\text{.}\)</span></p></li>
+<li id="ZtZ"><p id="p-derived-ZtZ"><span class="process-math">\(\emptyset \cup C\text{.}\)</span></p></li>
+<li id="lIr"><p id="p-derived-lIr"><span class="process-math">\(\emptyset \cap C\text{.}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-oYw" id="oYw"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-oYw"><div class="solution solution-like"><ol id="tBl" class="decimal">
+<li id="RPA"><p id="p-derived-RPA"><span class="process-math">\(A \cup B = \{1, 2, 3, 4, 5, 6\} = A\)</span> since everything in <span class="process-math">\(B\)</span> is already in <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="xWJ"><p id="p-derived-xWJ"><span class="process-math">\(A \cap B = \{2, 4, 6\} = B\)</span> since everything in <span class="process-math">\(B\)</span> is in <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="edS"><p id="p-derived-edS"><span class="process-math">\(B \cap C = \{2\}\)</span> as the only element of both <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> is 2.</p></li>
+<li id="Klb"><p id="p-derived-Klb"><span class="process-math">\(A \cap D = \emptyset\)</span> since <span class="process-math">\(A\)</span> and <span class="process-math">\(D\)</span> have no common elements.</p></li>
+<li id="qsk"><p id="p-derived-qsk"><span class="process-math">\(\bar{B \cup C} = \{5, 7, 8, 9, 10\}\text{.}\)</span> First we find that <span class="process-math">\(B \cup C = \{1, 2, 3, 4, 6\}\text{,}\)</span> then we take everything not in that set.</p></li>
+<li id="Wzt"><p id="p-derived-Wzt"><span class="process-math">\(A \setminus B = \{1, 3, 5\}\)</span> since the elements 1, 3, and 5 are in <span class="process-math">\(A\)</span> but not in <span class="process-math">\(B\text{.}\)</span> This is the same as <span class="process-math">\(A \cap \bar B\text{.}\)</span></p></li>
+<li id="CGC"><p id="p-derived-CGC"><span class="process-math">\((D \cap \bar C) \cup \bar{A \cap B} = \{1, 3, 5, 7, 8, 9, 10\}\text{.}\)</span> The set contains all elements that are either in <span class="process-math">\(D\)</span> but not in <span class="process-math">\(C\)</span> (i.e., <span class="process-math">\(\{7,8,9\}\)</span>), or not in both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> (i.e., <span class="process-math">\(\{1,3,5,7,8,9,10\}\)</span>).</p></li>
+<li id="iNL"><p id="p-derived-iNL"><span class="process-math">\(\emptyset \cup C = C\)</span> since nothing is added by the empty set.</p></li>
+<li id="OUU"><p id="p-derived-OUU"><span class="process-math">\(\emptyset \cap C = \emptyset\)</span> since nothing can be both in a set and in the empty set.</p></li>
+</ol></div></div>
+</div></article><p id="rqz">Having notation like this is useful.  We will often want to add or remove elements from sets, and our notation allows us to do so precisely.</p>
+<article class="example example-like" id="Tqs"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.7</span><span class="period">.</span>
+</h4>
+<p id="Pjp">If <span class="process-math">\(A = \{1,2,3\}\text{,}\)</span> then we can describe the set we get by adding the number 4 as <span class="process-math">\(A \cup \{4\}\text{.}\)</span>  If we want to express the set we get by removing the number 2 from <span class="process-math">\(A\)</span> we can do so by writing <span class="process-math">\(A \setminus \{2\}\text{.}\)</span></p>
+<p id="vqy">Careful though.  If you add an element to the set, you get a new set!  So you would have <span class="process-math">\(B = A \cup \{4\}\)</span> and then correctly say that <span class="process-math">\(B\)</span> contains 4, but <span class="process-math">\(A\)</span> does not.</p></article><p id="XxI">You might notice that the symbols for union and intersection slightly resemble the logic symbols for “or” and “and.” This is no accident. What does it mean for <span class="process-math">\(x\)</span> to be an element of <span class="process-math">\(A\cup B\text{?}\)</span> It means that <span class="process-math">\(x\)</span> is an element of <span class="process-math">\(A\)</span> <em class="emphasis">or</em> <span class="process-math">\(x\)</span> is an element of <span class="process-math">\(B\)</span> (or both). That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x \in A \cup B \qquad \Iff \qquad x \in A \vee x \in B\text{.}
+\end{equation*}
+</div>
+<p id="DER">Similarly,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x \in A \cap B \qquad \Iff \qquad x \in A \wedge x \in B\text{.}
+\end{equation*}
+</div>
+<p id="jMa">Also,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x \in \bar A \qquad \Iff \qquad \neg (x \in A)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">which says <span class="process-math">\(x\)</span> is an element of the complement of <span class="process-math">\(A\)</span> if <span class="process-math">\(x\)</span> is not an element of <span class="process-math">\(A\text{.}\)</span></p>
+<p id="PTj">There is one more way to combine sets which will be useful for us: the <dfn class="terminology">Cartesian product</dfn>,  <span class="process-math">\(A \times B\text{.}\)</span>  This sounds fancy but is nothing you haven't seen before. When you graph a function in calculus, you graph it in the Cartesian plane. This is the set of all ordered pairs of real numbers <span class="process-math">\((x,y)\text{.}\)</span> We can do this for <em class="emphasis">any</em> pair of sets, not just the real numbers with themselves.</p>
+<p id="was">Put another way, <span class="process-math">\(A \times B = \{(a,b) \st a \in A \wedge b \in B\}\text{.}\)</span> The first coordinate comes from the first set and the second coordinate comes from the second set. Sometimes we will want to take the Cartesian product of a set with itself, and this is fine: <span class="process-math">\(A \times A = \{(a,b) \st a, b \in A\}\)</span> (we might also write <span class="process-math">\(A^2\)</span> for this set). Notice that in <span class="process-math">\(A \times A\text{,}\)</span> we still want <em class="emphasis">all</em> ordered pairs, not just the ones where the first and second coordinate are the same. We can also take products of 3 or more sets, getting ordered triples, or quadruples, and so on.</p>
+<article class="example example-like" id="zxB"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">0.3.8</span><span class="period">.</span>
+</h4>
+<p id="bxH">Let <span class="process-math">\(A = \{1,2\}\)</span> and <span class="process-math">\(B = \{3,4,5\}\text{.}\)</span> Find <span class="process-math">\(A \times B\)</span> and <span class="process-math">\(A \times A\text{.}\)</span> How many elements do you expect to be in <span class="process-math">\(B \times B\text{?}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-VfF" id="VfF"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-VfF"><div class="solution solution-like">
+<p id="ZIu"><span class="process-math">\(A \times B = \{(1,3), (1,4), (1,5), (2,3), (2,4), (2,5)\}\text{.}\)</span></p>
+<p id="FPD"><span class="process-math">\(A \times A = A^2 = \{(1,1), (1,2), (2,1), (2,2)\}\text{.}\)</span></p>
+<p id="lWM"><span class="process-math">\(|B\times B| = 9\text{.}\)</span> There will be 3 pairs with first coordinate <span class="process-math">\(3\text{,}\)</span> three more with first coordinate <span class="process-math">\(4\text{,}\)</span> and a final three with first coordinate <span class="process-math">\(5\text{.}\)</span></p>
+</div></div>
+</div></article></section><section class="subsection" id="JWG"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Venn Diagrams</span>
+</h3>
+<p id="chB"> There is a very nice visual tool we can use to represent operations on sets. A <dfn class="terminology">Venn diagram</dfn> displays sets as intersecting circles. We can shade the region we are talking about when we carry out an operation. We can also represent cardinality of a particular set by putting the number in the corresponding region.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:8%;margin-right:8%;">
+<div class="sbspanel top" style="width:40.4761904761905%;"><img src="generated/latex-image/two-set-venn-empty.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:40.4761904761905%;"><img src="generated/latex-image/three-set-empty.svg" role="img" class="contained"></div>
+</div></div>
+<p id="IoK">Each circle represents a set. The rectangle containing the circles represents the universe. To represent combinations of these sets, we shade the corresponding region. For example, we could draw <span class="process-math">\(A \cap B\)</span> as: </p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:33%;margin-right:33%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/two-set-cap.svg" role="img" class="contained"></div></div></div>
+<p id="ovT">Here is a representation of <span class="process-math">\(A \cap \bar B\text{,}\)</span> or equivalently <span class="process-math">\(A \setminus B\text{:}\)</span> </p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:33%;margin-right:33%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/two-set-a-minus-b.svg" role="img" class="contained"></div></div></div>
+<p id="UDc">A more complicated example is <span class="process-math">\((B \cap C) \cup (C \cap \bar A)\text{,}\)</span> as seen below.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:37%;margin-right:37%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/three-set-complicated.svg" role="img" class="contained"></div></div></div>
+<p id="AKl">Notice that the shaded regions above could also be arrived at in another way. We could have started with all of <span class="process-math">\(C\text{,}\)</span> then excluded the region where <span class="process-math">\(C\)</span> and <span class="process-math">\(A\)</span> overlap outside of <span class="process-math">\(B\text{.}\)</span> That region is <span class="process-math">\((A \cap C) \cap \bar B\text{.}\)</span> So the above Venn diagram also represents <span class="process-math">\(C \cap \bar{\left((A\cap C)\cap \bar B\right)}\text{.}\)</span> So using just the picture, we have determined that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(B \cap C) \cup (C \cap \bar A) = C \cap \bar{\left((A\cap C)\cap \bar B\right)}\text{.}
+\end{equation*}
+</div></section><section class="exercises" id="DAA"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="AUc"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-11" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="11" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJwYXJzZXJSYWRpb0J1dHRvbnMucGwiLCJwYXJzZXJWZWN0b3JVdGlscy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7JGZvcmFsbHRydWUgPSBSYWRpb0J1dHRvbnMoClsnR2l2ZSBhbiBleGFtcGxlIG9mIGFuIGVsZW1lbnQgXChuXCkgaW4gdGhlIGRvbWFpbiBmb3Igd2hpY2ggXChQKG4pXCkgaXMgdHJ1ZS4nLCdHaXZlIGFuIGV4YW1wbGUgb2YgYW4gZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluIGZvciB3aGljaCBcKFAobilcKSBpcyBmYWxzZS4nLCdTaG93IGZvciBldmVyeSBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4sIHRoYXQgXChQKG4pXCkgaXMgdHJ1ZS4nLCdTaG93IGZvciBldmVyeSBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4sIHRoYXQgXChQKG4pXCkgaXMgZmFsc2UuJ10sCidTaG93IGZvciBldmVyeSBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4sIHRoYXQgXChQKG4pXCkgaXMgdHJ1ZS4nLCAjIGNvcnJlY3QgYW5zd2VyCik7CiRmb3JhbGxmYWxzZSA9IFJhZGlvQnV0dG9ucygKWydHaXZlIGFuIGV4YW1wbGUgb2YgYW4gZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluIGZvciB3aGljaCBcKFAobilcKSBpcyB0cnVlLicsJ0dpdmUgYW4gZXhhbXBsZSBvZiBhbiBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4gZm9yIHdoaWNoIFwoUChuKVwpIGlzIGZhbHNlLicsJ1Nob3cgZm9yIGV2ZXJ5IGVsZW1lbnQgXChuXCkgaW4gdGhlIGRvbWFpbiwgdGhhdCBcKFAobilcKSBpcyB0cnVlLicsJ1Nob3cgZm9yIGV2ZXJ5IGVsZW1lbnQgXChuXCkgaW4gdGhlIGRvbWFpbiwgdGhhdCBcKFAobilcKSBpcyBmYWxzZS4nXSwKJ0dpdmUgYW4gZXhhbXBsZSBvZiBhbiBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4gZm9yIHdoaWNoIFwoUChuKVwpIGlzIGZhbHNlLicsICMgY29ycmVjdCBhbnN3ZXIKKTsKJGV4aXN0c3RydWUgPSBSYWRpb0J1dHRvbnMoClsnR2l2ZSBhbiBleGFtcGxlIG9mIGFuIGVsZW1lbnQgXChuXCkgaW4gdGhlIGRvbWFpbiBmb3Igd2hpY2ggXChQKG4pXCkgaXMgdHJ1ZS4nLCdHaXZlIGFuIGV4YW1wbGUgb2YgYW4gZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluIGZvciB3aGljaCBcKFAobilcKSBpcyBmYWxzZS4nLCdTaG93IGZvciBldmVyeSBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4sIHRoYXQgXChQKG4pXCkgaXMgdHJ1ZS4nLCdTaG93IGZvciBldmVyeSBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4sIHRoYXQgXChQKG4pXCkgaXMgZmFsc2UuJ10sCidHaXZlIGFuIGV4YW1wbGUgb2YgYW4gZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluIGZvciB3aGljaCBcKFAobilcKSBpcyB0cnVlLicsICMgY29ycmVjdCBhbnN3ZXIKKTsKJGV4aXN0c2ZhbHNlID0gUmFkaW9CdXR0b25zKApbJ0dpdmUgYW4gZXhhbXBsZSBvZiBhbiBlbGVtZW50IFwoblwpIGluIHRoZSBkb21haW4gZm9yIHdoaWNoIFwoUChuKVwpIGlzIHRydWUuJywnR2l2ZSBhbiBleGFtcGxlIG9mIGFuIGVsZW1lbnQgXChuXCkgaW4gdGhlIGRvbWFpbiBmb3Igd2hpY2ggXChQKG4pXCkgaXMgZmFsc2UuJywnU2hvdyBmb3IgZXZlcnkgZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluLCB0aGF0IFwoUChuKVwpIGlzIHRydWUuJywnU2hvdyBmb3IgZXZlcnkgZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluLCB0aGF0IFwoUChuKVwpIGlzIGZhbHNlLiddLAonU2hvdyBmb3IgZXZlcnkgZWxlbWVudCBcKG5cKSBpbiB0aGUgZG9tYWluLCB0aGF0IFwoUChuKVwpIGlzIGZhbHNlLicsICMgY29ycmVjdCBhbnN3ZXIKKTsKCkJFR0lOX1BHTUwKRm9yIGEgZ2l2ZW4gcHJlZGljYXRlIFtgUCh4KVx0ZXh0eyx9YF0geW91IG1pZ2h0IGJlbGlldmUgdGhhdCB0aGUgc3RhdGVtZW50cyBbYFxmb3JhbGwgeCBQKHgpYF0gb3IgW2BcZXhpc3RzIHggUCh4KWBdIGFyZSBlaXRoZXIgdHJ1ZSBvciBmYWxzZS4gSG93IHdvdWxkIHlvdSBkZWNpZGUgaWYgeW91IHdlcmUgY29ycmVjdCBpbiBlYWNoIGNhc2U/ICBZb3UgaGF2ZSBmb3VyIGNob2ljZXM6IHlvdSBjb3VsZCBnaXZlIGFuIGV4YW1wbGUgb2YgYW4gZWxlbWVudCBbYG5gXSBpbiB0aGUgZG9tYWluIGZvciB3aGljaCBbYFAobilgXSBpcyB0cnVlIG9yIGZvciB3aGljaCBbYFAobilgXSBpZiBmYWxzZSwgb3IgeW91IGNvdWxkIGFyZ3VlIHRoYXQgbm8gbWF0dGVyIHdoYXQgW2BuYF0gaXMsIFtgUChuKWBdIGlzIHRydWUgb3IgaXMgZmFsc2UuCmEuICBXaGF0IHdvdWxkIHlvdSBuZWVkIHRvIGRvIHRvIHByb3ZlIFtgXGZvcmFsbCB4IFAoeClgXSBpcyB0cnVlPwoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tfXXskZm9yYWxsdHJ1ZX17NX0nKUBdKioKCgphLiAgV2hhdCB3b3VsZCB5b3UgbmVlZCB0byBkbyB0byBwcm92ZSBbYFxmb3JhbGwgeCBQKHgpYF0gaXMgZmFsc2U/CgogICAgW0BLZXlib2FyZEluc3RydWN0aW9ucygnW19deyRmb3JhbGxmYWxzZX17NX0nKUBdKioKCgphLiAgV2hhdCB3b3VsZCB5b3UgbmVlZCB0byBkbyB0byBwcm92ZSBbYFxleGlzdHMgeCBQKHgpYF0gaXMgdHJ1ZT8KCiAgICBbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbX117JGV4aXN0c3RydWV9ezV9JylAXSoqCgoKYS4gIFdoYXQgd291bGQgeW91IG5lZWQgdG8gZG8gdG8gcHJvdmUgW2BcZXhpc3RzIHggUCh4KWBdIGlzIGZhbHNlPwoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tfXXskZXhpc3RzZmFsc2V9ezV9JylAXSoqCgoKCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFRoZSBjbGFpbSB0aGF0IFtgXGZvcmFsbCB4IFAoeClgXSBtZWFucyB0aGF0IFtgUChuKWBdIGlzIHRydWUgbm8gbWF0dGVyIHdoYXQgW2BuYF0geW91IGNvbnNpZGVyIGluIHRoZSBkb21haW4gb2YgZGlzY291cnNlLiBUaHVzIHRoZSBvbmx5IHdheSB0byBwcm92ZSB0aGF0IFtgXGZvcmFsbCB4IFAoeClgXSBpcyB0cnVlIGlzIHRvIGNoZWNrIG9yIG90aGVyd2lzZSBhcmd1ZSB0aGF0IFtgUChuKWBdIGlzIHRydWUgZm9yIGFsbCBbYG5gXSBpbiB0aGUgZG9tYWluLgoKCmEuICBUbyBwcm92ZSBbYFxmb3JhbGwgeCBQKHgpYF0gaXMgZmFsc2UgYWxsIHlvdSBuZWVkIGlzIG9uZSBleGFtcGxlIG9mIGFuIGVsZW1lbnQgaW4gdGhlIGRvbWFpbiBmb3Igd2hpY2ggW2BQKG4pYF0gaXMgZmFsc2UuIFRoaXMgaXMgb2Z0ZW4gY2FsbGVkIGEgY291bnRlcmV4YW1wbGUuCgoKYS4gIFdlIGFyZSBzaW1wbHkgY2xhaW1pbmcgdGhhdCB0aGVyZSBpcyBzb21lIGVsZW1lbnQgW2BuYF0gaW4gdGhlIGRvbWFpbiBvZiBkaXNjb3Vyc2UgZm9yIHdoaWNoIFtgUChuKWBdIGlzIHRydWUuIElmIHlvdSBjYW4gZmluZCBvbmUgc3VjaCBlbGVtZW50LCB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgY2xhaW0uCgoKYS4gIEhlcmUgd2UgYXJlIGNsYWltaW5nIHRoYXQgbm8gZWxlbWVudCB3ZSBmaW5kIHdpbGwgbWFrZSBbYFAobilgXSB0cnVlLiBUaGUgb25seSB3YXkgdG8gYmUgc3VyZSBvZiB0aGlzIGlzIHRvIHZlcmlmeSB0aGF0IF9ldmVyeV8gZWxlbWVudCBvZiB0aGUgZG9tYWluIG1ha2VzIFtgUChuKWBdIGZhbHNlLiBOb3RlIHRoYXQgdGhlIGxldmVsIG9mIHByb29mIG5lZWRlZCBmb3IgdGhpcyBzdGF0ZW1lbnQgaXMgdGhlIHNhbWUgYXMgdG8gcHJvdmUgdGhhdCBbYFxmb3JhbGwgeCBQKHgpYF0gaXMgdHJ1ZS4KCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-580">For a given predicate <span class="process-math">\(P(x)\text{,}\)</span> you might believe that the statements <span class="process-math">\(\forall x P(x)\)</span> or <span class="process-math">\(\exists x P(x)\)</span> are either true or false. How would you decide if you were correct in each case?  You have four choices: you could give an example of an element <span class="process-math">\(n\)</span> in the domain for which <span class="process-math">\(P(n)\)</span> is true or for which <span class="process-math">\(P(n)\)</span> if false, or you could argue that no matter what <span class="process-math">\(n\)</span> is, <span class="process-math">\(P(n)\)</span> is true or is false.</p>
+<ol class="lower-alpha">
+<li id="li-427"><p id="p-581">What would you need to do to prove <span class="process-math">\(\forall x P(x)\)</span> is true?</p></li>
+<li id="li-428"><p id="p-582">What would you need to do to prove <span class="process-math">\(\forall x P(x)\)</span> is false?</p></li>
+<li id="li-429"><p id="p-583">What would you need to do to prove <span class="process-math">\(\exists x P(x)\)</span> is true?</p></li>
+<li id="li-430"><p id="p-584">What would you need to do to prove <span class="process-math">\(\exists x P(x)\)</span> is false?</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-11')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="hbl"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-12" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="12" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJwYXJzZXJQb3BVcC5wbCIsInBhcnNlclZlY3RvclV0aWxzLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskdHJ1ZSA9IFBvcFVwKApbIj8iLCJUcnVlIiwiRmFsc2UiLCJOb3QgZW5vdWdoIGluZm9ybWF0aW9uIl0sCiJUcnVlIiwKKTsKJGZhbHNlID0gUG9wVXAoClsiPyIsIlRydWUiLCJGYWxzZSIsIk5vdCBlbm91Z2ggaW5mb3JtYXRpb24iXSwKIkZhbHNlIiwKKTsKJG5hID0gUG9wVXAoClsiPyIsIlRydWUiLCJGYWxzZSIsIk5vdCBlbm91Z2ggaW5mb3JtYXRpb24iXSwKIk5vdCBlbm91Z2ggaW5mb3JtYXRpb24iLAopOwoKQkVHSU5fUEdNTApVc2UgdGhlIHRhYmxlIHRvIGRlY2lkZSB3aGV0aGVyIHRoZSBmb2xsb3dpbmcgc3RhdGVtZW50cyBhcmUgdHJ1ZSBvciBmYWxzZS4KYS4gIFtgXGZvcmFsbCB4IFxleGlzdHMgeSBQKHgseSlcdGV4dHsufWBdIFtfXXskZmFsc2V9ezV9CgoKYS4gIFtgXGZvcmFsbCB5IFxleGlzdHMgeCBQKHgseSlcdGV4dHsufWBdIFtfXXskdHJ1ZX17NX0KCgphLiAgW2BcZXhpc3RzIHggXGZvcmFsbCB5IFAoeCx5KVx0ZXh0ey59YF0gW19deyR0cnVlfXs1fQoKCmEuICBbYFxleGlzdHMgeSBcZm9yYWxsIHggUCh4LHkpXHRleHR7Ln1gXSBbX117JGZhbHNlfXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2BcZm9yYWxsIHggXGV4aXN0cyB5IFAoeCx5KWBdIGlzIGZhbHNlIGJlY2F1c2Ugd2hlbiBbYHggPSA0XHRleHR7LH1gXSB0aGVyZSBpcyBubyBbYHlgXSB3aGljaCBtYWtlcyBbYFAoNCx5KWBdIHRydWUuCgoKYS4gIFtgXGZvcmFsbCB5IFxleGlzdHMgeCBQKHgseSlgXSBpcyB0cnVlLiBObyBtYXR0ZXIgd2hhdCBbYHlgXSBpcyAoaS5lLiwgbm8gbWF0dGVyIHdoYXQgY29sdW1uIHdlIGFyZSBpbikgdGhlcmUgaXMgc29tZSBbYHhgXSBmb3Igd2hpY2ggW2BQKHgseSlgXSBpcyB0cnVlLiBJbiBmYWN0LCB3ZSBjYW4gYWx3YXlzIHRha2UgW2B4YF0gdG8gYmUgW2AzXHRleHR7Ln1gXQoKCmEuICBbYFxleGlzdHMgeCBcZm9yYWxsIHkgUCh4LHkpYF0gaXMgdHJ1ZS4gSW4gcGFydGljdWxhciBbYHg9M2BdIGlzIHN1Y2ggYSBudW1iZXIsIHNvIHRoYXQgbm8gbWF0dGVyIHdoYXQgW2B5YF0gaXMsIFtgUCh4LHkpYF0gaXMgdHJ1ZS4KCgphLiAgW2BcZXhpc3RzIHkgXGZvcmFsbCB4IFAoeCx5KWBdIGlzIGZhbHNlLiBJbiBmYWN0LCBubyBtYXR0ZXIgd2hhdCBbYHlgXSAoY29sdW1uKSB3ZSBsb29rIGF0LCB0aGVyZSBpcyBhbHdheXMgc29tZSBbYHhgXSAocm93KSB3aGljaCBtYWtlcyBbYFAoeCx5KWBdIGZhbHNlLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-590">Use the table to decide whether the following statements are true or false.</p>
+<ol class="lower-alpha">
+<li id="li-435"><p id="p-591"><span class="process-math">\(\forall x \exists y P(x,y)\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-437"><p id="p-593">True</p></li>
+<li id="li-438"><p id="p-594">False</p></li>
+<li id="li-439"><p id="p-595">Not enough information</p></li>
+</ul></p></li>
+<li id="li-440"><p id="p-596"><span class="process-math">\(\forall y \exists x P(x,y)\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-442"><p id="p-598">True</p></li>
+<li id="li-443"><p id="p-599">False</p></li>
+<li id="li-444"><p id="p-600">Not enough information</p></li>
+</ul></p></li>
+<li id="li-445"><p id="p-601"><span class="process-math">\(\exists x \forall y P(x,y)\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-447"><p id="p-603">True</p></li>
+<li id="li-448"><p id="p-604">False</p></li>
+<li id="li-449"><p id="p-605">Not enough information</p></li>
+</ul></p></li>
+<li id="li-450"><p id="p-606"><span class="process-math">\(\exists y \forall x P(x,y)\text{.}\)</span> <ul style="list-style:circle;">
+<li id="li-452"><p id="p-608">True</p></li>
+<li id="li-453"><p id="p-609">False</p></li>
+<li id="li-454"><p id="p-610">Not enough information</p></li>
+</ul></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-12')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Niu"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-13" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="13" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgiSW50ZXJ2YWwiKTsKCkJFR0lOX1BHTUwKTGV0IFtgQSA9IFx7MSwgNCwgOVx9YF0gYW5kIFtgQiA9IFx7MSwgMywgNiwgMTBcfVx0ZXh0ey59YF0gRmluZCBlYWNoIG9mIHRoZSBmb2xsb3dpbmcgc2V0cy4KYS4gIFtgQSBcY3VwIEJcdGV4dHsufWBdCgogICAgW19de1NldCgxLDMsNCw2LDksMTApfXsxNX0KCgphLiAgW2BBIFxjYXAgQlx0ZXh0ey59YF0KCiAgICBbX117U2V0KDEpfXsxNX0KCgphLiAgW2BBIFxzZXRtaW51cyBCXHRleHR7Ln1gXQoKICAgIFtfXXtTZXQoNCw5KX17MTV9CgoKYS4gIFtgQiBcc2V0bWludXMgQVx0ZXh0ey59YF0KCiAgICBbX117U2V0KDMsIDYsIDEwKX17MTV9CgoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnWW91ciBhbnN3ZXJzIHNob3VsZCBpbmNsdWRlIHRoZSBjdXJseSBicmFjZXMnKUBdKioKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2BcezEsIDMsIDQsIDYsIDksIDEwXH1cdGV4dHsufWBdCgoKYS4gIFtgXHsxXH1cdGV4dHsufWBdCgoKYS4gIFtgXHs0LDlcfVx0ZXh0ey59YF0KCgphLiAgW2BcezMsIDYsIDEwXH1cdGV4dHsufWBdCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-620">Let <span class="process-math">\(A = \{1, 4, 9\}\)</span> and <span class="process-math">\(B = \{1, 3, 6, 10\}\text{.}\)</span> Find each of the following sets.</p>
+<ol class="lower-alpha">
+<li id="li-459">
+<p id="p-621"><span class="process-math">\(A \cup B\text{.}\)</span></p>
+<p id="p-622"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+<li id="li-460">
+<p id="p-623"><span class="process-math">\(A \cap B\text{.}\)</span></p>
+<p id="p-624"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+<li id="li-461">
+<p id="p-625"><span class="process-math">\(A \setminus B\text{.}\)</span></p>
+<p id="p-626"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+<li id="li-462">
+<p id="p-627"><span class="process-math">\(B \setminus A\text{.}\)</span></p>
+<p id="p-628"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-13')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="tpD"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-14" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="14" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxyZW5ld2NvbW1hbmR7XGR9e1xkaXNwbGF5c3R5bGV9XG5ld2NvbW1hbmR7XE59e1xtYXRoYmIgTn1cbmV3Y29tbWFuZHtcc3R9ezp9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKRmluZCB0aGUgbGVhc3QgZWxlbWVudCBvZiBlYWNoIG9mIHRoZSBmb2xsb3dpbmcgc2V0cywgaWYgdGhlcmUgaXMgb25lLgphLiAgW2Bce24gXGluIFxOIFxzdCBuXjIgLSAzIFxnZSAyXH1cdGV4dHsufWBdCgogICAgW19dezN9ezR9CgoKYS4gIFtgXHtuIFxpbiBcTiBcc3Qgbl4yIC0gNSBcaW4gXE5cfVx0ZXh0ey59YF0KCiAgICBbX117M317NH0KCgphLiAgW2Bce25eMisxIFxzdCBuIFxpbiBcTlx9XHRleHR7Ln1gXQoKICAgIFtfXXsxfXs0fQoKCmEuICBbYFx7biBcaW4gXE4gXHN0IG4gPSBrXjIgKyAxIFx0ZXh0eyBmb3Igc29tZSB9IGsgXGluIFxOXH1cdGV4dHsufWBdCgogICAgW19dezF9ezR9CgoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnSWYgdGhlcmUgaXMgbm8gbGVhc3QgZWxlbWVudCwgZW50ZXIgIm5vbmUiLicpQF0qKgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBUaGlzIGlzIHRoZSBzZXQgW2BcezMsIDQsIDUsIFxsZG90cyBcfWBdIHNpbmNlIHdlIG5lZWQgZWFjaCBlbGVtZW50IHRvIGJlIGEgbmF0dXJhbCBudW1iZXIgd2hvc2Ugc3F1YXJlIGlzIGF0IGxlYXN0IHRocmVlIG1vcmUgdGhhbiAyLiBTaW5jZSBbYDNeMiAtIDMgPSA2YF0gYnV0IFtgMl4yIC0gMyA9IDFgXSB3ZSBzZWUgdGhhdCB0aGUgZmlyc3Qgc3VjaCBuYXR1cmFsIG51bWJlciBpcyAzLgoKCmEuICBXZSBnZXQgdGhlIHNhbWUgc2V0IGFzIHdlIGRpZCBpbiB0aGUgcHJldmlvdXMgcGFydCwgYW5kIHRoZSBzbWFsbGVzdCBub24tbmVnYXRpdmUgbnVtYmVyIGZvciB3aGljaCBbYG5eMiAtIDVgXSBpcyBhIG5hdHVyYWwgbnVtYmVycyBpcyAzLgoKICAgIE5vdGUgdGhhdCBpZiB3ZSBkaWRuJ3Qgc3BlY2lmeSBbYG4gXGluIFxOYF0gdGhlbiBhbnkgaW50ZWdlciBsZXNzIHRoYW4gW2AtM2BdIHdvdWxkIGFsc28gYmUgaW4gdGhlIHNldCwgc28gdGhlcmUgd291bGQgbm90IGJlIGEgbGVhc3QgZWxlbWVudC4KCgphLiAgVGhpcyBpcyB0aGUgc2V0IFtgXHsxLCAyLCA1LCAxMCwgXGxkb3RzXH1cdGV4dHssfWBdIG5hbWVseSB0aGUgc2V0IG9mIG51bWJlcnMgdGhhdCBhcmUgdGhlIF9yZXN1bHRfIG9mIHNxdWFyaW5nIGFuZCBhZGRpbmcgMSB0byBhIG5hdHVyYWwgbnVtYmVyLiAoW2AwXjIgKyAxID0gMVx0ZXh0eyx9YF0gW2AxXjIgKyAxID0gMlx0ZXh0eyx9YF0gW2AyXjIgKyAxID0gNWBdIGFuZCBzbyBvbi4pIFRodXMgdGhlIGxlYXN0IGVsZW1lbnQgb2YgdGhlIHNldCBpcyAxLgoKCmEuICBOb3cgd2UgYXJlIGxvb2tpbmcgZm9yIG5hdHVyYWwgbnVtYmVycyB0aGF0IGFyZSBlcXVhbCB0byB0YWtpbmcgc29tZSBuYXR1cmFsIG51bWJlciwgc3F1YXJpbmcgaXQgYW5kIGFkZGluZyAxLiBUaGF0IGlzLCBbYFx7MSwgMiwgNSwgMTAsIFxsZG90c1x9XHRleHR7LH1gXSB0aGUgc2FtZSBzZXQgYXMgdGhlIHByZXZpb3VzIHBhcnQuIFNvIGFnYWluLCB0aGUgbGVhc3QgZWxlbWVudCBpcyAxLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-638">Find the least element of each of the following sets, if there is one.</p>
+<ol class="lower-alpha">
+<li id="li-467">
+<p id="p-639"><span class="process-math">\(\{n \in \N \st n^2 - 3 \ge 2\}\text{.}\)</span></p>
+<p id="p-640"><span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span></p>
+</li>
+<li id="li-468">
+<p id="p-641"><span class="process-math">\(\{n \in \N \st n^2 - 5 \in \N\}\text{.}\)</span></p>
+<p id="p-642"><span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span></p>
+</li>
+<li id="li-469">
+<p id="p-643"><span class="process-math">\(\{n^2+1 \st n \in \N\}\text{.}\)</span></p>
+<p id="p-644"><span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span></p>
+</li>
+<li id="li-470">
+<p id="p-645"><span class="process-math">\(\{n \in \N \st n = k^2 + 1 \text{ for some } k \in \N\}\text{.}\)</span></p>
+<p id="p-646"><span class="fillin underline" role="img" aria-label="4-character blank" style="width: 1.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-14')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="ZwM"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-15" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="15" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxyZW5ld2NvbW1hbmR7XGR9e1xkaXNwbGF5c3R5bGV9XG5ld2NvbW1hbmR7XE59e1xtYXRoYmIgTn1cbmV3Y29tbWFuZHtcWn17XG1hdGhiYiBafVxuZXdjb21tYW5ke1xzdH17On1cKTwvZGl2PicpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIHRoZSBmb2xsb3dpbmcgY2FyZGluYWxpdGllczoKYS4gIFtgfEF8YF0gd2hlbiBbYEEgPSBcezQsNSw2LFxsZG90cywzN1x9XHRleHR7Ln1gXQoKICAgIFtfXXszNH17NX0KCgphLiAgW2B8QXxgXSB3aGVuIFtgQSA9IFx7eCBcaW4gXFogXHN0IC0yIFxsZSB4IFxsZSAxMDBcfVx0ZXh0ey59YF0KCiAgICBbX117MTAzfXs1fQoKCmEuICBbYHxBIFxjYXAgQnxgXSB3aGVuIFtgQSA9IFx7eCBcaW4gXE4gXHN0IHggXGxlIDIwXH1gXSBhbmQgW2BCID0gXHt4IFxpbiBcTiBcc3QgeCBcbWJveHsgaXMgcHJpbWV9IFx9XHRleHR7Ln1gXQoKICAgIFtfXXs4fXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgMzQuIE5vdGUgdGhhdCBbYDM3LTQgPSAzM1x0ZXh0eyx9YF0gYnV0IHRoaXMgY2FsY3VsYXRpb24gd291bGQgbm90IGluY2x1ZGUgNCBpdHNlbGYuCgoKYS4gIDEwMy4gQWdhaW4sIHlvdSBjb3VsZCBjb21wdXRlIHRoaXMgYnkgW2AxMDAtKC0yKSsxXHRleHR7LH1gXSBvciBzaW1wbHkgY291bnQ6IDEwMCBudW1iZXJzIGZyb20gMSB0aHJvdWdoIDEwMCwgcGx1cyAtMiwgLTEsIGFuZCAwLgoKCmEuICA4LiBUaGVyZSBhcmUgOCBwcmltZXMgbm90IGdyZWF0ZXIgdGhhbiAyMDogW2BcezIsIDMsIDUsIDcsIDExLCAxMywgMTcsIDE5XH1cdGV4dHsufWBdCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-657">Find the following cardinalities:</p>
+<ol class="lower-alpha">
+<li id="li-475">
+<p id="p-658"><span class="process-math">\(|A|\)</span> when <span class="process-math">\(A = \{4,5,6,\ldots,37\}\text{.}\)</span></p>
+<p id="p-659"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-476">
+<p id="p-660"><span class="process-math">\(|A|\)</span> when <span class="process-math">\(A = \{x \in \Z \st -2 \le x \le 100\}\text{.}\)</span></p>
+<p id="p-661"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-477">
+<p id="p-662"><span class="process-math">\(|A \cap B|\)</span> when <span class="process-math">\(A = \{x \in \N \st x \le 20\}\)</span> and <span class="process-math">\(B = \{x \in \N \st x \mbox{ is prime} \}\text{.}\)</span></p>
+<p id="p-663"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-15')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="FDV"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-16" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="16" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgiSW50ZXJ2YWwiKTsKJEEgPSBTZXQoMSwyLDMsNCw1KTsKJEIgPSBTZXQoMiw0LDYsOCwxMCk7CiRJbnQgPSAkQS0+aW50ZXJzZWN0KCRCKTsKJGV4YW1wbGUgPSAkSW50OwoKQkVHSU5fUEdNTApGaW5kIGEgc2V0IG9mIGxhcmdlc3QgcG9zc2libGUgc2l6ZSB0aGF0IGlzIGEgc3Vic2V0IG9mIGJvdGggW2BcezEsIDIsIDMsIDQsIDVcfWBdIGFuZCBbYFx7MiwgNCwgNiwgOCwxMFx9XHRleHR7Ln1gXQoKW19deyRleGFtcGxlfXsxNX0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYFx7Miw0XH1cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-671">Find a set of largest possible size that is a subset of both <span class="process-math">\(\{1, 2, 3, 4, 5\}\)</span> and <span class="process-math">\(\{2, 4, 6, 8,10\}\text{.}\)</span></p>
+<p id="p-672"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-16')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="lLe"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-17" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="17" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgiSW50ZXJ2YWwiKTsKJEEgPSBTZXQoMSwyLDMsNCw1KTsKJEIgPSBTZXQoMiw0LDYsOCwxMCk7CiRhbnN3ZXIgPSBTZXQoJEEgKyAkQik7CgpCRUdJTl9QR01MCkZpbmQgYSBzZXQgb2Ygc21hbGxlc3QgcG9zc2libGUgc2l6ZSB0aGF0IGhhcyBib3RoIFtgXHsxLDIsMyw0LDVcfWBdIGFuZCBbYFx7Miw0LDYsOCwxMFx9YF0gYXMgc3Vic2V0cy4KCltfXXskYW5zd2VyfXsxNX0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYFx7MSwyLDMsNCw1LDYsOCwxMFx9YF0KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-675">Find a set of smallest possible size that has both <span class="process-math">\(\{1,2,3,4,5\}\)</span> and <span class="process-math">\(\{2,4,6,8,10\}\)</span> as subsets.</p>
+<p id="p-676"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-17')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="RSn"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-18" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="18" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxyZW5ld2NvbW1hbmR7XGR9e1xkaXNwbGF5c3R5bGV9XG5ld2NvbW1hbmR7XE59e1xtYXRoYmIgTn1cbmV3Y29tbWFuZHtcc3R9ezp9XHJlbmV3Y29tbWFuZHtcYmFyfXtcb3ZlcmxpbmV9XG5ld2NvbW1hbmR7XGNhcmR9WzFde1xsZWZ0fCAjMSBccmlnaHR8fVxyZW5ld2NvbW1hbmR7XHZ9e1x2dHh7YWJvdmV9e319XG5ld2NvbW1hbmR7XGx0fXs8fVwpPC9kaXY+JykpOwpDb250ZXh0KCdOdW1lcmljJyk7CgpCRUdJTl9QR01MCkxldCBbYEEgPSBce24gXGluIFxOIFxzdCAyMCBcbGUgbiBcbHQgNTBcfWBdIGFuZCBbYEIgPSBce24gXGluIFxOIFxzdCAxMCBcbHQgbiBcbGUgMzBcfVx0ZXh0ey59YF0gU3VwcG9zZSBbYENgXSBpcyBhIHNldCBzdWNoIHRoYXQgW2BDIFxzdWJzZXRlcSBBYF0gYW5kIFtgQyBcc3Vic2V0ZXEgQlx0ZXh0ey59YF0gV2hhdCBpcyB0aGUgbGFyZ2VzdCBwb3NzaWJsZSBjYXJkaW5hbGl0eSBvZiBbYENcdGV4dHs/fWBdCgpbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbYFxjYXJke0N9IFxsZSBgXVtfXXsxMX17Nn0nKUBdKioKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgoxMS4KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><p id="p-679">Let <span class="process-math">\(A = \{n \in \N \st 20 \le n \lt 50\}\)</span> and <span class="process-math">\(B = \{n \in \N \st 10 \lt n \le 30\}\text{.}\)</span> Suppose <span class="process-math">\(C\)</span> is a set such that <span class="process-math">\(C \subseteq A\)</span> and <span class="process-math">\(C \subseteq B\text{.}\)</span> What is the largest possible cardinality of <span class="process-math">\(C\text{?}\)</span></p></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-18')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="xZw"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-19" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="19" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApMZXQgW2BBID0gXHsxLDIsMyw0LDVcfWBdIGFuZCBbYEIgPSBcezIsIDMsIDRcfVx0ZXh0ey59YF0gSG93IG1hbnkgc2V0cyBbYENgXSBoYXZlIHRoZSBwcm9wZXJ0eSB0aGF0IFtgQyBcc3Vic2V0ZXEgQWBdIGFuZCBbYEIgXHN1YnNldGVxIENcdGV4dHsufWBdCgpbX117NH17NX0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UCllvdSBzaG91bGQgYmUgYWJsZSB0byB3cml0ZSBhbGwgb2YgdGhlbSBvdXQuIERvbid0IGZvcmdldCBbYEFgXSBhbmQgW2BCXHRleHR7LH1gXSB3aGljaCBhcmUgYWxzbyBjYW5kaWRhdGVzIGZvciBbYENcdGV4dHsufWBdCgoKRU5EX1BHTUxfSElOVAoKQkVHSU5fUEdNTF9TT0xVVElPTgpUaGVyZSB3aWxsIGJlIGV4YWN0bHkgNCBzdWNoIHNldHM6IFtgXHsyLCAzLCA0XH1cdGV4dHssfWBdIFtgXHsxLDIsMyw0XH1cdGV4dHssfWBdIFtgXHsyLDMsNCw1XH1gXSBhbmQgW2BcezEsMiwzLDQsNVx9XHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-681">Let <span class="process-math">\(A = \{1,2,3,4,5\}\)</span> and <span class="process-math">\(B = \{2, 3, 4\}\text{.}\)</span> How many sets <span class="process-math">\(C\)</span> have the property that <span class="process-math">\(C \subseteq A\)</span> and <span class="process-math">\(B \subseteq C\text{.}\)</span></p>
+<p id="p-682"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-19')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="egF"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="iXP">Let <span class="process-math">\(A = \{x \in \N \st 3 \le x \le 13\}\text{,}\)</span> <span class="process-math">\(B = \{x \in \N \st x \mbox{ is even} \}\text{,}\)</span> and <span class="process-math">\(C = \{x \in \N \st x \mbox{ is odd} \}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="jeT"><p id="yCm">Find <span class="process-math">\(A \cap B\text{.}\)</span></p></li>
+<li id="Pmc"><p id="eJv">Find <span class="process-math">\(A \cup B\text{.}\)</span></p></li>
+<li id="vtl"><p id="KQE">Find <span class="process-math">\(B \cap C\text{.}\)</span></p></li>
+<li id="bAu"><p id="qXN">Find <span class="process-math">\(B \cup C\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="KnO"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="PeY">Find an example of sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that <span class="process-math">\(A\cap B = \{3, 5\}\)</span> and <span class="process-math">\(A \cup B = \{2, 3, 5, 7, 8\}\text{.}\)</span></p></article><article class="exercise exercise-like" id="quX"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="vmh">Find an example of sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that <span class="process-math">\(A \subseteq B\)</span> and <span class="process-math">\(A \in B\text{.}\)</span></p></article><article class="exercise exercise-like" id="WCg"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="btq">Recall <span class="process-math">\(\Z = \{\ldots,-2,-1,0, 1,2,\ldots\}\)</span> (the integers). Let <span class="process-math">\(\Z^+ = \{1, 2, 3, \ldots\}\)</span> be the positive integers. Let <span class="process-math">\(2\Z\)</span> be the even integers, <span class="process-math">\(3\Z\)</span> be the multiples of 3, and so on.</p>
+<ol class="lower-alpha">
+<li id="HHD"><p id="XeW">Is <span class="process-math">\(\Z^+ \subseteq 2\Z\text{?}\)</span> Explain.</p></li>
+<li id="nOM"><p id="Dmf">Is <span class="process-math">\(2\Z \subseteq \Z^+\text{?}\)</span> Explain.</p></li>
+<li id="TVV"><p id="jto">Find <span class="process-math">\(2\Z \cap 3\Z\text{.}\)</span> Describe the set in words, and using set notation.</p></li>
+<li id="Ade"><p id="PAx">Express <span class="process-math">\(\{x \in \Z \st \exists y\in \Z (x = 2y \vee x = 3y)\}\)</span> as a union or intersection of two sets already described in this problem.</p></li>
+</ol></article><article class="exercise exercise-like" id="CJp"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<p id="HAz">Let <span class="process-math">\(A_2\)</span> be the set of all multiples of 2 except for <span class="process-math">\(2\text{.}\)</span> Let <span class="process-math">\(A_3\)</span> be the set of all multiples of 3 except for 3. And so on, so that <span class="process-math">\(A_n\)</span> is the set of all multiples of <span class="process-math">\(n\)</span> except for <span class="process-math">\(n\text{,}\)</span> for any <span class="process-math">\(n \ge 2\text{.}\)</span> Describe (in words) the set <span class="process-math">\(\bar{A_2 \cup A_3 \cup A_4 \cup \cdots}\text{.}\)</span></p></article><article class="exercise exercise-like" id="iQy"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="nHI">Draw a Venn diagram to represent each of the following:</p>
+<ol class="lower-alpha">
+<li id="EMX"><p id="p-derived-EMX"><span class="process-math">\(\displaystyle A \cup \bar B\)</span></p></li>
+<li id="kUg"><p id="p-derived-kUg"><span class="process-math">\(\displaystyle \bar{(A \cup B)}\)</span></p></li>
+<li id="Rbp"><p id="p-derived-Rbp"><span class="process-math">\(\displaystyle A \cap (B \cup C)\)</span></p></li>
+<li id="xiy"><p id="p-derived-xiy"><span class="process-math">\(\displaystyle (A \cap B) \cup C\)</span></p></li>
+<li id="dpH"><p id="p-derived-dpH"><span class="process-math">\(\displaystyle \bar A \cap B \cap \bar C\)</span></p></li>
+<li id="JwQ"><p id="p-derived-JwQ"><span class="process-math">\(\displaystyle (A \cup B) \setminus C\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="OXH"><h4 class="heading"><span class="codenumber">16<span class="period">.</span></span></h4>
+<p id="TOR">Describe a set in terms of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> (using set notation) which has the following Venn diagram:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:40%;margin-right:40%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/not-A-and-B.svg" role="img" class="contained"></div></div></div></article><article class="exercise exercise-like" id="veQ"><h4 class="heading"><span class="codenumber">17<span class="period">.</span></span></h4>
+<p id="zWa">Let <span class="process-math">\(A = \{a, b, c, d\}\text{.}\)</span> Find <span class="process-math">\(\pow(A)\text{.}\)</span></p></article><article class="exercise exercise-like" id="blZ"><h4 class="heading"><span class="codenumber">18<span class="period">.</span></span></h4>
+<div id="webwork-20" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="20" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgiSW50ZXJ2YWwiKTsKJGFuczEgPSBTZXQoMyw0LDUpOwokYW5zMiA9IFNldCgxLDIsMyw0LDUsNiw3KTsKJGFuczMgPSBTZXQoMSwyKTsKJGFuczQgPSBTZXQoMSk7CgpCRUdJTl9QR01MCkxldCBbYEEgPSBcezEsMiwzLDQsNVx9XHRleHR7LH1gXSBbYEIgPSBcezMsNCw1LDYsN1x9XHRleHR7LH1gXSBhbmQgW2BDID0gXHsyLDMsNVx9XHRleHR7Ln1gXQphLiAgRmluZCBbYEEgXGNhcCBCXHRleHR7Ln1gXQoKICAgIFtfXXskYW5zMX17MTB9CgoKYS4gIEZpbmQgW2BBIFxjdXAgQlx0ZXh0ey59YF0KCiAgICBbX117JGFuczJ9ezEwfQoKCmEuICBGaW5kIFtgQSBcc2V0bWludXMgQlx0ZXh0ey59YF0KCiAgICBbX117JGFuczN9ezEwfQoKCmEuICBGaW5kIFtgQSBcY2FwIFxvdmVybGluZXsoQiBcY3VwIEMpfVx0ZXh0ey59YF0KCiAgICBbX117JGFuczR9ezEwfQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2BBIFxjYXAgQiA9IFx7Myw0LDVcfVx0ZXh0ey59YF0KYS4gIFtgQSBcY3VwIEIgPSBcezEsMiwzLDQsNSw2LDdcfVx0ZXh0ey59YF0KYS4gIFtgQSBcc2V0bWludXMgQiA9IFx7MSwyXH1cdGV4dHsufWBdCmEuICBbYEEgXGNhcCBcb3ZlcmxpbmV7KEIgXGN1cCBDKX0gPSBcezFcfVx0ZXh0ey59YF0gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-717">Let <span class="process-math">\(A = \{1,2,3,4,5\}\text{,}\)</span> <span class="process-math">\(B = \{3,4,5,6,7\}\text{,}\)</span> and <span class="process-math">\(C = \{2,3,5\}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-505">
+<p id="p-718">Find <span class="process-math">\(A \cap B\text{.}\)</span></p>
+<p id="p-719"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-506">
+<p id="p-720">Find <span class="process-math">\(A \cup B\text{.}\)</span></p>
+<p id="p-721"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-507">
+<p id="p-722">Find <span class="process-math">\(A \setminus B\text{.}\)</span></p>
+<p id="p-723"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-508">
+<p id="p-724">Find <span class="process-math">\(A \cap \overline{(B \cup C)}\text{.}\)</span></p>
+<p id="p-725"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-20')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Hti"><h4 class="heading"><span class="codenumber">19<span class="period">.</span></span></h4>
+<p id="EFT">Let <span class="process-math">\(A = \{1,2,3,4,5,6\}\text{.}\)</span> Find all sets <span class="process-math">\(B \in \pow(A)\)</span> which have the property <span class="process-math">\(\{2,3,5\} \subseteq B\text{.}\)</span></p></article><article class="exercise exercise-like" id="nAr"><h4 class="heading"><span class="codenumber">20<span class="period">.</span></span></h4>
+<p id="kNc">Find an example of sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that <span class="process-math">\(|A| = 4\text{,}\)</span> <span class="process-math">\(|B| = 5\text{,}\)</span> and <span class="process-math">\(|A \cup B| = 9\text{.}\)</span></p></article><article class="exercise exercise-like" id="THA"><h4 class="heading"><span class="codenumber">21<span class="period">.</span></span></h4>
+<p id="QUl">Find an example of sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that <span class="process-math">\(|A| = 3\text{,}\)</span> <span class="process-math">\(|B| = 4\text{,}\)</span> and <span class="process-math">\(|A \cup B| = 5\text{.}\)</span></p></article><article class="exercise exercise-like" id="zOJ"><h4 class="heading"><span class="codenumber">22<span class="period">.</span></span></h4>
+<p id="xbu">Are there sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that <span class="process-math">\(|A| = |B|\text{,}\)</span> <span class="process-math">\(|A\cup B| = 10\text{,}\)</span> and <span class="process-math">\(|A\cap B| = 5\text{?}\)</span> Explain.</p></article><article class="exercise exercise-like" id="fVS"><h4 class="heading"><span class="codenumber">23<span class="period">.</span></span></h4>
+<div id="webwork-21" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="21" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxyZW5ld2NvbW1hbmR7XGR9e1xkaXNwbGF5c3R5bGV9XG5ld2NvbW1hbmR7XE59e1xtYXRoYmIgTn1cbmV3Y29tbWFuZHtcc3R9ezp9XHJlbmV3Y29tbWFuZHtcdn17XHZ0eHthYm92ZX17fX1cbmV3Y29tbWFuZHtcbHR9ezx9XCk8L2Rpdj4nKSk7CkNvbnRleHQoIkludGVydmFsIik7CiRBID0gU2V0KDQsNSw2LDcsOCw5LDEwLDExKTsKJGFuczEgPSBTZXQoNCw2LDgsMTApOwokYW5zMiA9IFNldCg1LDcsOSwxMSk7CgpCRUdJTl9QR01MCkxldCBbYEEgPSBce3ggXGluIFxOIFxzdCA0IFxsZSB4IFxsdCAxMlx9YF0gYW5kIFtgQiA9IFx7eCBcaW4gXE4gXHN0IHggXHRleHR7IGlzIGV2ZW59XH1cdGV4dHsufWBdCmEuICBGaW5kIFtgQSBcY2FwIEJcdGV4dHsufWBdCgogICAgW19deyRhbnMxfXsxMH0KCgphLiAgRmluZCBbYEEgXHNldG1pbnVzIEJcdGV4dHsufWBdCgogICAgW19deyRhbnMyfXsxMH0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgQSBcY2FwIEJgXSB3aWxsIGJlIHRoZSBzZXQgb2YgbmF0dXJhbCBudW1iZXJzIHRoYXQgYXJlIGJvdGggYXQgbGVhc3QgNCBhbmQgbGVzcyB0aGFuIDEyLCBhbmQgZXZlbi4gVGhhdCBpcywgW2BBIFxjYXAgQiA9IFx7eCBcaW4gXE4gXHN0IDRcbGUgeCBcbHQgMTIgXHdlZGdlIHggXHRleHR7IGlzIGV2ZW59XH0gPSBcezQsIDYsIDgsIDEwXH1cdGV4dHsufWBdCgoKYS4gIFtgQSBcc2V0bWludXMgQmBdIGlzIHRoZSBzZXQgb2YgYWxsIGVsZW1lbnRzIHRoYXQgYXJlIGluIFtgQWBdIGJ1dCBub3QgW2BCXHRleHR7Ln1gXSBTbyB0aGlzIGlzIFtgXHt4IFxpbiBcTiBcc3QgNCBcbGUgeCBcbHQgMTIgXHdlZGdlIHggXHRleHR7IGlzIG9kZH1cfSA9IFx7NSw3LDksMTFcfVx0ZXh0ey59YF0KCiAgICBOb3RlIHRoaXMgaXMgdGhlIHNhbWUgc2V0IGFzIFtgQSBcY2FwIFxvdmVybGluZXtCfVx0ZXh0ey59YF0KCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-740">Let <span class="process-math">\(A = \{x \in \N \st 4 \le x \lt 12\}\)</span> and <span class="process-math">\(B = \{x \in \N \st x \text{ is even}\}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-513">
+<p id="p-741">Find <span class="process-math">\(A \cap B\text{.}\)</span></p>
+<p id="p-742"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-514">
+<p id="p-743">Find <span class="process-math">\(A \setminus B\text{.}\)</span></p>
+<p id="p-744"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-21')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Mdb"><h4 class="heading"><span class="codenumber">24<span class="period">.</span></span></h4>
+<p id="JpM">Let <span class="process-math">\(X = \{n \in \N \st 10 \le n \lt 20\}\text{.}\)</span> Find examples of sets with the properties below and very briefly explain why your examples work.</p>
+<ol class="lower-alpha">
+<li id="SQC"><p id="liB">A set <span class="process-math">\(A \subseteq \N\)</span> with <span class="process-math">\(|A| = 10\)</span> such that <span class="process-math">\(X \setminus A = \{10, 12, 14\}\text{.}\)</span></p></li>
+<li id="yXL"><p id="RpK">A set <span class="process-math">\(B \in \pow(X)\)</span> with <span class="process-math">\(|B| = 5\text{.}\)</span></p></li>
+<li id="feU"><p id="xwT">A set <span class="process-math">\(C \subseteq \pow(X)\)</span> with <span class="process-math">\(|C| = 5\text{.}\)</span></p></li>
+<li id="Lmd"><p id="dEc">A set <span class="process-math">\(D \subseteq X \times X\)</span> with <span class="process-math">\(|D| = 5\)</span></p></li>
+<li id="rtm"><p id="JLl">A set <span class="process-math">\(E \subseteq X\)</span> such that <span class="process-math">\(|E| \in E\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="skk"><h4 class="heading"><span class="codenumber">25<span class="period">.</span></span></h4>
+<p id="pwV">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> be sets.</p>
+<ol class="lower-alpha">
+<li id="XAv"><p id="pSu">Suppose that <span class="process-math">\(A \subseteq B\)</span> and <span class="process-math">\(B \subseteq C\text{.}\)</span> Does this mean that <span class="process-math">\(A \subseteq C\text{?}\)</span> Prove your answer. Hint: to prove that <span class="process-math">\(A \subseteq C\)</span> you must prove the implication, “for all <span class="process-math">\(x\text{,}\)</span> if <span class="process-math">\(x \in A\)</span> then <span class="process-math">\(x \in C\text{.}\)</span>”</p></li>
+<li id="DHE"><p id="VZD">Suppose that <span class="process-math">\(A \in B\)</span> and <span class="process-math">\(B \in C\text{.}\)</span> Does this mean that <span class="process-math">\(A \in C\text{?}\)</span> Give an example to prove that this does NOT always happen (and explain why your example works). You should be able to give an example where <span class="process-math">\(|A| = |B| = |C| = 2\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="Yrt"><h4 class="heading"><span class="codenumber">26<span class="period">.</span></span></h4>
+<p id="VEe">In a regular deck of playing cards there are 26 red cards and 12 face cards. Explain, using sets and what you have learned about cardinalities, why there are only 32 cards which are either red or a face card.</p></article><article class="exercise exercise-like" id="EyC"><h4 class="heading"><span class="codenumber">27<span class="period">.</span></span></h4>
+<p id="BLn">Find an example of a set <span class="process-math">\(A\)</span> with <span class="process-math">\(|A| = 3\)</span> which contains only other sets and has the following property: for all sets <span class="process-math">\(B \in A\text{,}\)</span> we also have <span class="process-math">\(B \subseteq A\text{.}\)</span> Explain why your example works. (FYI: sets that have this property are called <dfn class="terminology">transitive</dfn>.) </p></article><article class="exercise exercise-like" id="kFL"><h4 class="heading"><span class="codenumber">28<span class="period">.</span></span></h4>
+<p id="hSw">Consider the sets <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> where <span class="process-math">\(A = \{3, |B|\}\)</span> and <span class="process-math">\(B = \{1, |A|, |B|\}\text{.}\)</span>  What are the sets?</p></article><article class="exercise exercise-like" id="QMU"><h4 class="heading"><span class="codenumber">29<span class="period">.</span></span></h4>
+<p id="NZF">Explain why there is no set <span class="process-math">\(A\)</span> which satisfies <span class="process-math">\(A = \{2, \card{A}\}\text{.}\)</span></p></article><article class="exercise exercise-like" id="wUd"><h4 class="heading"><span class="codenumber">30<span class="period">.</span></span></h4>
+<p id="ugO">Find all sets <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> which satisfy the following.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Gvg">
+\begin{align*}
+A = \amp \{1, \card{B}, \card{C}\}\\
+B = \amp \{2, \card{A}, \card{C}\}\\
+C = \amp \{1, 2, \card{A}, \card{B}\}\text{.}
+\end{align*}
+</div></article></section></section></div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

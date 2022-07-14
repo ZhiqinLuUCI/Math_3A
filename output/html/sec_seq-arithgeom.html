@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:18-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Arithmetic and Geometric Sequences</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_seq_intro.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_sequences.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_polyfit.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_seq_intro.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_sequences.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_polyfit.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="internal">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="active">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="internal">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="lIR"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Arithmetic and Geometric Sequences</span>
+</h2>
+<section class="introduction" id="VuA"><article class="project-like" id="BBJ"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<div class="introduction" id="MZd"><p id="FQd">For the patterns of dots below, draw the next pattern in the sequence. Then give a recursive definition and a closed formula for the number of dots in the <span class="process-math">\(n\)</span>th pattern.</p></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:17.5%;margin-right:17.5%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/inv_dots-seq1.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:17.5%;margin-right:17.5%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/inv_dots-seq2.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:15%;margin-right:15%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/inv_dots-seq3.svg" role="img" class="contained"></div></div></div></article><p id="kRT">We now turn to the question of finding closed formulas for particular types of sequences.</p>
+<article class="assemblage assemblage-like" id="KlB"><h3 class="heading"><span class="title">Arithmetic Sequences.</span></h3>
+<p id="jcG">If the terms of a sequence differ by a constant, we say the sequence is <dfn class="terminology">arithmetic</dfn>. If the initial term (<span class="process-math">\(a_0\)</span>) of the sequence is <span class="process-math">\(a\)</span> and the <dfn class="terminology">common difference</dfn> is <span class="process-math">\(d\text{,}\)</span> then we have,</p>
+<p id="PjP">Recursive definition: <span class="process-math">\(a_n = a_{n-1} + d\)</span> with <span class="process-math">\(a_0 = a\text{.}\)</span></p>
+<p id="vqY">Closed formula: <span class="process-math">\(a_n = a + dn\text{.}\)</span></p></article><p id="QZc">How do we know this? For the recursive definition, we need to specify <span class="process-math">\(a_0\text{.}\)</span> Then we need to express <span class="process-math">\(a_n\)</span> in terms of <span class="process-math">\(a_{n-1}\text{.}\)</span> If we call the first term <span class="process-math">\(a\text{,}\)</span> then <span class="process-math">\(a_0 = a\text{.}\)</span> For the recurrence relation, by the definition of an arithmetic sequence, the difference between successive terms is some constant, say <span class="process-math">\(d\text{.}\)</span> So <span class="process-math">\(a_n - a_{n-1} = d\text{,}\)</span> or in other words,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_0 = a \qquad a_n=a_{n-1}+d\text{.}
+\end{equation*}
+</div>
+<p id="xgl">To find a closed formula, first write out the sequence in general:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="mHg">
+\begin{align*}
+a_0 \amp = a\\
+a_1 \amp = a_0 + d = a+d\\
+a_2 \amp = a_1 + d = a+d+d = a+2d\\
+a_3 \amp = a_2 + d = a+2d+d = a+3d\\
+\amp \vdots
+\end{align*}
+</div>
+<p id="dnu">We see that to find the <span class="process-math">\(n\)</span>th term, we need to start with <span class="process-math">\(a\)</span> and then add <span class="process-math">\(d\)</span> a bunch of times. In fact, add it <span class="process-math">\(n\)</span> times. Thus <span class="process-math">\(a_n = a+dn\text{.}\)</span></p>
+<article class="example example-like" id="kDy"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+</h3>
+<p id="wwr">Find recursive definitions and closed formulas for the arithmetic sequences below. Assume the first term listed is <span class="process-math">\(a_0\text{.}\)</span></p>
+<ol id="cDA" class="decimal">
+<li id="jyf"><p id="p-derived-jyf"><span class="process-math">\(2, 5, 8, 11, 14, \ldots\text{.}\)</span></p></li>
+<li id="PFo"><p id="p-derived-PFo"><span class="process-math">\(50, 43, 36, 29, \ldots\text{.}\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-hIS" id="hIS"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hIS"><div class="solution solution-like">
+<p id="pXl">First we should check that these sequences really are arithmetic by taking differences of successive terms. Doing so will reveal the common difference <span class="process-math">\(d\text{.}\)</span></p>
+<ol id="Weu" class="decimal">
+<li id="vMx"><p id="p-derived-vMx"><span class="process-math">\(5-2 = 3\text{,}\)</span> <span class="process-math">\(8-5 = 3\text{,}\)</span> etc. To get from each term to the next, we add three, so <span class="process-math">\(d = 3\text{.}\)</span> The recursive definition is therefore <span class="process-math">\(a_n = a_{n-1} + 3\)</span> with <span class="process-math">\(a_0 = 2\text{.}\)</span> The closed formula is <span class="process-math">\(a_n = 2 + 3n\text{.}\)</span></p></li>
+<li id="bTG"><p id="Fgj">Here the common difference is <span class="process-math">\(-7\text{,}\)</span> since we add <span class="process-math">\(-7\)</span> to 50 to get 43, and so on. Thus we have a recursive definition of <span class="process-math">\(a_n = a_{n-1} - 7\)</span> with <span class="process-math">\(a_0 = 50\text{.}\)</span> The closed formula is <span class="process-math">\(a_n = 50 - 7n\text{.}\)</span></p></li>
+</ol>
+</div></div>
+</div></article><p id="JuD">What about sequences like <span class="process-math">\(2, 6, 18, 54, \ldots\text{?}\)</span> This is not arithmetic because the difference between terms is not constant. However, the <em class="emphasis">ratio</em> between successive terms is constant. We call such sequences <dfn class="terminology">geometric</dfn>.</p>
+<p id="pBM">The recursive definition for the geometric sequence with initial term <span class="process-math">\(a\)</span> and common ratio <span class="process-math">\(r\)</span> is <span class="process-math">\(a_n = a_{n-1}\cdot r; a_0 = a\text{.}\)</span> To get the next term we multiply the previous term by <span class="process-math">\(r\text{.}\)</span> We can find the closed formula like we did for the arithmetic progression. Write</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="SOp">
+\begin{align*}
+a_0 \amp = a\\
+a_1 \amp = a_0\cdot r\\
+a_2 \amp = a_1 \cdot r = a_0\cdot r\cdot r = a_0\cdot r^2\\
+\amp \vdots
+\end{align*}
+</div>
+<p class="continuation">We must multiply the first term <span class="process-math">\(a\)</span> by <span class="process-math">\(r\)</span> a number of times, <span class="process-math">\(n\)</span> times to be precise. We get <span class="process-math">\(a_n = a\cdot r^{n}\text{.}\)</span></p>
+<article class="assemblage assemblage-like" id="qsK"><h3 class="heading"><span class="title">Geometric Sequences.</span></h3>
+<p id="byh">A sequence is called <dfn class="terminology">geometric</dfn> if the ratio between successive terms is constant. Suppose the initial term <span class="process-math">\(a_0\)</span> is <span class="process-math">\(a\)</span> and the <dfn class="terminology">common ratio</dfn> is <span class="process-math">\(r\text{.}\)</span> Then we have,</p>
+<p id="HFq">Recursive definition: <span class="process-math">\(a_n = ra_{n-1}\)</span> with <span class="process-math">\(a_0 = a\text{.}\)</span></p>
+<p id="nMz">Closed formula: <span class="process-math">\(a_n = a\cdot r^{n}\text{.}\)</span></p></article><article class="example example-like" id="QKH"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h3>
+<p id="IKJ">Find the recursive and closed formula for the geometric sequences below. Again, the first term listed is <span class="process-math">\(a_0\text{.}\)</span></p>
+<ol class="decimal">
+<li id="IaP"><p id="p-derived-IaP"><span class="process-math">\(\displaystyle 3, 6, 12, 24, 48, \ldots\)</span></p></li>
+<li id="ohY"><p id="p-derived-ohY"><span class="process-math">\(\displaystyle 27, 9, 3, 1, 1/3, \ldots\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-NQb" id="NQb"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-NQb"><div class="solution solution-like">
+<p id="ClD">Start by checking that these sequences really are geometric by dividing each term by its previous term. If this ratio really is constant, we will have found <span class="process-math">\(r\text{.}\)</span></p>
+<ol class="decimal">
+<li id="Uph"><p id="p-derived-Uph"><span class="process-math">\(6/3 = 2\text{,}\)</span> <span class="process-math">\(12/6 = 2\text{,}\)</span> <span class="process-math">\(24/12 = 2\text{,}\)</span> etc. Yes, to get from any term to the next, we multiply by <span class="process-math">\(r = 2\text{.}\)</span> So the recursive definition is <span class="process-math">\(a_n = 2a_{n-1}\)</span> with <span class="process-math">\(a_0 = 3\text{.}\)</span> The closed formula is <span class="process-math">\(a_n = 3\cdot 2^{n}\text{.}\)</span></p></li>
+<li id="Awq"><p id="lns">The common ratio is <span class="process-math">\(r = 1/3\text{.}\)</span> So the sequence has recursive definition <span class="process-math">\(a_n = \frac{1}{3}a_{n-1}\)</span> with <span class="process-math">\(a_0 = 27\)</span> and closed formula <span class="process-math">\(a_n = 27\cdot \frac{1}{3}^{n}\text{.}\)</span></p></li>
+</ol>
+</div></div>
+</div></article><p id="VIV">In the examples and formulas above, we assumed that the <em class="emphasis">initial</em> term was <span class="process-math">\(a_0\text{.}\)</span> If your sequence starts with <span class="process-math">\(a_1\text{,}\)</span> you can easily find the term that would have been <span class="process-math">\(a_0\)</span> and use that in the formula. For example, if we want a formula for the sequence <span class="process-math">\(2, 5, 8,\ldots\)</span> and insist that <span class="process-math">\(2= a_1\text{,}\)</span> then we can find <span class="process-math">\(a_0 = -1\)</span> (since the sequence is arithmetic with common difference 3, we have <span class="process-math">\(a_0 + 3 = a_1\)</span>). Then the closed formula will be <span class="process-math">\(a_n = -1 + 3n\text{.}\)</span></p>
+<article class="remark remark-like" id="wRQ"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h3>
+<p id="ZIU">If you look at other textbooks or online, you might find that their closed formulas for arithmetic and geometric sequences differ from ours. Specifically, you might find the formulas <span class="process-math">\(a_n = a +(n-1)d\)</span> (arithmetic) and <span class="process-math">\(a_n = a\cdot r^{n-1}\)</span> (geometric). Which is correct? Both! In our case, we take <span class="process-math">\(a\)</span> to be <span class="process-math">\(a_0\text{.}\)</span> If instead we had <span class="process-math">\(a_1\)</span> as our initial term, we would get the (slightly more complicated) formulas you find elsewhere.</p></article></section><section class="subsection" id="RQa"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sums of Arithmetic and Geometric Sequences</span>
+</h3>
+<section class="introduction" id="Ypg"><article class="project-like" id="Ewp"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<p id="lXm">Your neighborhood grocery store has a candy machine full of Skittles.</p>
+<ol class="decimal">
+<li id="gDz">
+<p id="RuB">Suppose that the candy machine currently holds exactly 650 Skittles, and every time someone inserts a quarter, exactly 7 Skittles come out of the machine.</p>
+<ol class="lower-alpha">
+<li id="AKL"><p id="UDC">How many Skittles will be left in the machine after 20 quarters have been inserted?</p></li>
+<li id="MKI"><p id="xBK">Will there ever be exactly zero Skittles left in the machine? Explain.</p></li>
+</ol>
+</li>
+<li id="sRR"><p id="dIT">What if the candy machine gives 7 Skittles to the first customer who put in a quarter, 10 to the second, 13 to the third, 16 to the fourth, etc. How many Skittles has the machine given out after 20 quarters are put into the machine?</p></li>
+<li id="YZa"><p id="JQc">Now, what if the machine gives 4 Skittles to the first customer, 7 to the second, 12 to the third, 19 to the fourth, etc. How many Skittles has the machine given out after 20 quarters are put into the machine?</p></li>
+</ol></article><p id="Sev">Look at the sequence <span class="process-math">\((T_n)_{n\ge 1}\)</span> which starts <span class="process-math">\(1, 3, 6, 10, 15,\ldots\text{.}\)</span> These are called the <dfn class="terminology">triangular numbers</dfn>  since they represent the number of dots in an equilateral triangle (think of how you arrange 10 bowling pins: a row of 4 plus a row of 3 plus a row of 2 and a row of 1).</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/image-50.svg" role="img" class="contained"></div></div></div>
+<p id="ylE">Is this sequence arithmetic? No, since <span class="process-math">\(3-1 = 2\)</span> and <span class="process-math">\(6-3 = 3 \ne 2\text{,}\)</span> so there is no common difference. Is the sequence geometric? No. <span class="process-math">\(3/1 = 3\)</span> but <span class="process-math">\(6/3 = 2\text{,}\)</span> so there is no common ratio. What to do?</p>
+<p id="esN">Notice that the <em class="emphasis">differences</em> between terms <em class="emphasis">do</em> form an arithmetic sequence: <span class="process-math">\(2, 3, 4, 5, 6,\ldots\text{.}\)</span> This means that the <span class="process-math">\(n\)</span>th term of the sequence <span class="process-math">\((T_n)\)</span> is the <em class="emphasis">sum</em> of the first <span class="process-math">\(n\)</span> terms in the sequence <span class="process-math">\(1,2,3,4,5,\ldots\text{.}\)</span> We say that <span class="process-math">\((T_n)\)</span> is the <dfn class="terminology">sequence of partial sums</dfn>  of the sequence <span class="process-math">\(1,2,3,\ldots\)</span> (<em class="emphasis">partial</em> sums because we are not taking the sum of all infinitely many terms).</p>
+<p id="KzW">This should become clearer if we write the triangular numbers like this:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="yVy">
+\begin{align*}
+1 \amp = 1\\
+3 \amp = 1+2\\
+6 \amp = 1 + 2 + 3\\
+10 \amp = 1+2 + 3+ 4\\
+\vdots \amp \qquad \vdots\\
+T_n \amp = 1 + 2 + 3 + \cdots + n\text{.}
+\end{align*}
+</div>
+<p id="qHf">If we know how to add up the terms of an arithmetic sequence, we could find a closed formula for a sequence whose differences are the terms of that arithmetic sequence. Consider how we could find the sum of the first 100 positive integers (that is, <span class="process-math">\(T_{100}\)</span>). Instead of adding them in order, we regroup and add <span class="process-math">\(1+100 = 101\text{.}\)</span> The next pair to combine is <span class="process-math">\(2+99 = 101\text{.}\)</span> Then <span class="process-math">\(3+98 = 101\text{.}\)</span> Keep going. This gives 50 pairs which each add up to <span class="process-math">\(101\text{,}\)</span> so <span class="process-math">\(T_{100} = 101\cdot 50 = 5050\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-8" id="fn-8"><sup> 1 </sup></a></p>
+<p id="WOo">In general, using this same sort of regrouping, we find that <span class="process-math">\(T_n = \frac{n(n+1)}{2}\text{.}\)</span> Incidentally, this is exactly the same as <span class="process-math">\({n+1 \choose 2}\text{,}\)</span> which makes sense if you think of the triangular numbers as counting the number of handshakes that take place at a party with <span class="process-math">\(n+1\)</span> people: the first person shakes <span class="process-math">\(n\)</span> hands, the next shakes an additional <span class="process-math">\(n-1\)</span> hands and so on.</p>
+<p id="CVx">The point of all of this is that some sequences, while not arithmetic or geometric, can be interpreted as the sequence of partial sums of arithmetic and geometric sequences. Luckily there are methods we can use to compute these sums quickly.</p></section><section class="subsubsection" id="xXj"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Summing Arithmetic Sequences: Reverse and Add</span>
+</h4>
+<p id="TTI">Here is a technique that allows us to quickly find the sum of an arithmetic sequence.</p>
+<article class="example example-like" id="WzT"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h5>
+<p id="oRS">Find the sum: <span class="process-math">\(2 + 5 + 8 + 11 + 14 + \cdots + 470\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-tXk" id="tXk"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-tXk"><div class="solution solution-like">
+<p id="isM">The idea is to mimic how we found the formula for triangular numbers. If we add the first and last terms, we get 472. The second term and second-to-last term also add up to 472. To keep track of everything, we might express this as follows. Call the sum <span class="process-math">\(S\text{.}\)</span> Then,</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="jMA">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(S  =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(467\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">470</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(+ \quad S  =\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(470\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(467\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(464\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(2S  =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(472\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(472\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(472\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(472\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(472\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="OzV">To find <span class="process-math">\(2S\)</span> then we add 472 to itself a number of times. What number? We need to decide how many terms (<dfn class="terminology">summands</dfn>) are in the sum. Since the terms form an arithmetic sequence, the <span class="process-math">\(n\)</span>th term in the sum (counting <span class="process-math">\(2\)</span> as the 0th term) can be expressed as <span class="process-math">\(2 + 3n\text{.}\)</span> If <span class="process-math">\(2 + 3n = 470\)</span> then <span class="process-math">\(n = 156\text{.}\)</span> So <span class="process-math">\(n\)</span> ranges from 0 to 156, giving 157 terms in the sum. This is the number of 472's in the sum for <span class="process-math">\(2S\text{.}\)</span> Thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2S = 157\cdot 472 = 74104\text{.}
+\end{equation*}
+</div>
+<p id="uHe">It is now easy to find <span class="process-math">\(S\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = 74104/2 = 37052\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="AaR">This will work for the sum of any <em class="emphasis">arithmetic</em> sequence. Call the sum <span class="process-math">\(S\text{.}\)</span> Reverse and add. This produces a single number added to itself many times. Find the number of times. Multiply. Divide by 2. Done.</p>
+<article class="example example-like" id="CHc"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h5>
+<p id="UZb">Find a closed formula for <span class="process-math">\(6 + 10 + 14 + \cdots + (4n - 2)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-aet" id="aet"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-aet"><div class="solution solution-like">
+<p id="aOn">Again, we have a sum of an arithmetic sequence. How many terms are in the sequence? Clearly each term in the sequence has the form <span class="process-math">\(4k -2\)</span> (as evidenced by the last term). For which values of <span class="process-math">\(k\)</span> though? To get 6, <span class="process-math">\(k = 2\text{.}\)</span> To get <span class="process-math">\(4n-2\)</span> take <span class="process-math">\(k = n\text{.}\)</span> So to find the number of terms, we must count the number of integers in the range <span class="process-math">\(2,3,\ldots, n\text{.}\)</span> This is <span class="process-math">\(n-1\text{.}\)</span> (There are <span class="process-math">\(n\)</span> numbers from 1 to <span class="process-math">\(n\text{,}\)</span> so one less if we start with 2.)</p>
+<p id="GVw">Now reverse and add:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="PTJ">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(S  =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(6\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n-6\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n-2\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(+ \quad S  =\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(4n-2\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(4n-6\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">6</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(2S  =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n+4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n+4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n+4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4n+4\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="ncF">Since there are <span class="process-math">\(n-1\)</span> terms, we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2S = (n-1)(4n+4)\qquad \mbox{ so } \qquad S = \frac{(n-1)(4n+4)}{2}\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="gia">Besides finding sums, we can use this technique to find closed formulas for sequences we recognize as sequences of partial sums.</p>
+<article class="example example-like" id="iOl"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span>
+</h5>
+<p id="Bgk">Use partial sums to find a closed formula for <span class="process-math">\((a_n)_{n\ge 0}\)</span> which starts <span class="process-math">\(2, 3, 7, 14, 24, 37,\ldots \ldots\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-GlC" id="GlC"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-GlC"><div class="solution solution-like">
+<p id="TjO">First, if you look at the differences between terms, you get a sequence of differences: <span class="process-math">\(1,4,7,10,13, \ldots\text{,}\)</span> which is an arithmetic sequence. Written another way:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="fcH">
+\begin{align*}
+a_0 \amp = 2\\
+a_1 \amp = 2+1\\
+a_2 \amp = 2+1+4\\
+a_3 \amp = 2+1+4+7
+\end{align*}
+</div>
+<p class="continuation">and so on. We can write the general term of <span class="process-math">\((a_n)\)</span> in terms of the arithmetic sequence as follows:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_n = 2 + 1 + 4 + 7 + 10 + \cdots + (1+3(n-1))
+\end{equation*}
+</div>
+<p class="continuation">(we use <span class="process-math">\(1+3(n-1)\)</span> instead of <span class="process-math">\(1+3n\)</span> to get the indices to line up correctly; for <span class="process-math">\(a_3\)</span> we add up to 7, which is <span class="process-math">\(1+3(3-1)\)</span>).</p>
+<p id="zqX">We can reverse and add, but the initial 2 does not fit our pattern. This just means we need to keep the 2 out of the reverse part:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="waS">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(a_n  =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1+3(n-1)\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(+ \quad a_n  =\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(1+3(n-1)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(1+3(n-2)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(2a_n =\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2+3(n-1)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2+3(n-1)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(+ \cdots +\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2+3(n-1)\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="fyg">Not counting the first term (the 4) there are <span class="process-math">\(n\)</span> summands of <span class="process-math">\(2+3(n-1) = 3n-1\)</span> so the right-hand side becomes <span class="process-math">\(4+(3n-1)n\text{.}\)</span></p>
+<p id="LFp">Finally, solving for <span class="process-math">\(a_n\)</span> we get</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_n = \d \frac{4+(3n-1)n}{2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Just to be sure, we check <span class="process-math">\(a_0 = \frac{4}{2} = 2\text{,}\)</span> <span class="process-math">\(a_1 = \frac{4+2}{2} = 3\text{,}\)</span> etc. We have the correct closed formula.</p>
+</div></div>
+</div></article></section><section class="subsubsection" id="ees"><h4 class="heading hide-type">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Summing Geometric Sequences: Multiply, Shift and Subtract</span>
+</h4>
+<p id="Mpj">To find the sum of a geometric sequence, we cannot just reverse and add. Do you see why? The reason we got the same term added to itself many times is because there was a constant difference. So as we added that difference in one direction, we subtracted the difference going the other way, leaving a constant total. For geometric sums, we have a different technique.</p>
+<article class="example example-like" id="OVu"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span>
+</h5>
+<p id="hnt">What is <span class="process-math">\(3 + 6 + 12 + 24 + \cdots + 12288\text{?}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-msL" id="msL"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-msL"><div class="solution solution-like"><p id="rMy">Multiply each term by 2, the common ratio. You get <span class="process-math">\(2S = 6 + 12 + 24 + \cdots + 24576\text{.}\)</span> Now subtract: <span class="process-math">\(2S - S = -3 + 24576 = 24573\text{.}\)</span> Since <span class="process-math">\(2S - S = S\text{,}\)</span> we have our answer.</p></div></div>
+</div></article><p id="sws">To better see what happened in the above example, try writing it this way:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="cib">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(S=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3 \, +\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(6 + 12 + 24 + \cdots + 12288\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(- \qquad 2S=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6 + 12 + 24 + \cdots + 12288\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(+ 24576\)</span></td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(-S = \)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3 \, +\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0 + 0 + 0 +  \cdots + 0 \)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-24576\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="YDB">Then divide both sides by <span class="process-math">\(-1\)</span> and we have the same result for <span class="process-math">\(S\text{.}\)</span> The idea is, by multiplying the sum by the common ratio, each term becomes the next term. We shift over the sum to get the subtraction to mostly cancel out, leaving just the first term and new last term.</p>
+<article class="example example-like" id="vcD"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
+</h5>
+<p id="NuC">Find a closed formula for <span class="process-math">\(S(n) = 2 + 10 + 50 + \cdots + 2\cdot 5^n\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-SzU" id="SzU"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-SzU"><div class="solution solution-like">
+<p id="XTH">The common ratio is 5. So we have</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="Ipk">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(S\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(= 2 + 10 + 50 + \cdots + 2\cdot 5^n\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(- \qquad 5S\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(= ~~~~~~10 + 50 + \cdots + 2\cdot 5^n + 2\cdot5^{n+1}\)</span></td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(-4S\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(= 2  - 2\cdot5^{n+1}\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="EaQ">Thus <span class="process-math">\(S = \dfrac{2-2\cdot 5^{n+1}}{-4}\)</span></p>
+</div></div>
+</div></article><p id="EKK">Even though this might seem like a new technique, you have probably used it before.</p>
+<article class="example example-like" id="bjM"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
+</h5>
+<p id="tBL">Express <span class="process-math">\(0.464646\ldots\)</span> as a fraction.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-yHd" id="yHd"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-yHd"><div class="solution solution-like">
+<p id="khZ">Let <span class="process-math">\(N = 0.46464646\ldots\text{.}\)</span> Consider <span class="process-math">\(0.01N\text{.}\)</span> We get:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="owt">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(N =\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4646464\ldots\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(- \qquad 0.01N =\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.00464646\ldots\)</span></td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(0.99N =\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.46\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="Qpi">So <span class="process-math">\(N = \frac{46}{99}\text{.}\)</span> What have we done? We viewed the repeating decimal <span class="process-math">\(0.464646\ldots\)</span> as a sum of the geometric sequence <span class="process-math">\(0.46, 0.0046, 0.000046, \ldots\)</span> The common ratio is <span class="process-math">\(0.01\text{.}\)</span> The only real difference is that we are now computing an <em class="emphasis">infinite</em> geometric sum, we do not have the extra “last” term to consider. Really, this is the result of taking a limit as you would in calculus when you compute <em class="emphasis">infinite</em> geometric sums.</p>
+</div></div>
+</div></article></section></section><section class="exercises" id="EGG"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="qKf"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="Qle">Consider the sequence <span class="process-math">\(5, 9, 13, 17, 21, \ldots\)</span> with <span class="process-math">\(a_1 = 5\)</span></p>
+<ol class="lower-alpha">
+<li id="jPA"><p id="BxF">Give a recursive definition for the sequence.</p></li>
+<li id="PWJ"><p id="hEO">Give a closed formula for the <span class="process-math">\(n\)</span>th term of the sequence.</p></li>
+<li id="wdS"><p id="NLX">Is <span class="process-math">\(2013\)</span> a term in the sequence? Explain.</p></li>
+<li id="clb"><p id="tTg">How many terms does the sequence <span class="process-math">\(5, 9, 13, 17, 21, \ldots, 533\)</span> have?</p></li>
+<li id="Isk"><p id="aap">Find the sum: <span class="process-math">\(5 + 9 + 13 + 17 + 21 + \cdots + 533\text{.}\)</span> Show your work.</p></li>
+<li id="ozt"><p id="Ghy">Use what you found above to find <span class="process-math">\(b_n\text{,}\)</span> the <span class="process-math">\(n^{th}\)</span> term of <span class="process-math">\(1, 6, 15, 28, 45, \ldots\text{,}\)</span> where <span class="process-math">\(b_0 = 1\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="WRo"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-100" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="100" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMxID0gMzI7CiRhbnMyID0gRm9ybXVsYSgiOCs2biIpOwokYW5zMyA9IDMwNTAwOwoKQkVHSU5fUEdNTApDb25zaWRlciB0aGUgc2VxdWVuY2UgW2AoYV9uKV97biBcZ2UgMH1gXSB3aGljaCBzdGFydHMgW2A4LCAxNCwgMjAsIDI2LCBcbGRvdHNcdGV4dHsufWBdCmEuICBXaGF0IGlzIHRoZSBuZXh0IHRlcm0gaW4gdGhlIHNlcXVlbmNlPwoKICAgIFtfXXskYW5zMX17NX0KCgphLiAgRmluZCBhIGZvcm11bGEgZm9yIHRoZSBbYG5gXXRoIHRlcm0gb2YgdGhpcyBzZXF1ZW5jZS4KCiAgICBbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbYGFfbiA9IGBdIFtfXXskYW5zMn17MTB9JylAXSoqCgoKYS4gIEZpbmQgdGhlIHN1bSBvZiB0aGUgZmlyc3QgMTAwIHRlcm1zIG9mIHRoZSBzZXF1ZW5jZTogW2Bcc3VtX3trPTB9Xns5OX1hX2tcdGV4dHsufWBdCgogICAgW19deyRhbnMzfXs1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2AzMlx0ZXh0eyx9YF0gd2hpY2ggaXMgW2AyNis2XHRleHR7Ln1gXQoKCmEuICBUaGUgc2VxdWVuY2UgaXMgYXJpdGhtZXRpYywgd2l0aCBbYGFfMCA9IDhgXSBhbmQgY29uc3RhbnQgZGlmZmVyZW5jZSA2LCBzbyBbYGFfbiA9IDggKyA2blx0ZXh0ey59YF0KYS4gIFtgMzA1MDBcdGV4dHsufWBdIFdlIHdhbnQgW2A4ICsgMTQgKyBcY2RvdHMgKyA2MDJcdGV4dHsufWBdIFJldmVyc2UgYW5kIGFkZCB0byBnZXQgMTAwIHN1bXMgb2YgNjEwLCBhIHRvdGFsIG9mIDYxMDAwLCB3aGljaCBpcyB0d2ljZSB0aGUgc3VtIHdlIGFyZSBsb29raW5nIGZvci4gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2591">Consider the sequence <span class="process-math">\((a_n)_{n \ge 0}\)</span> which starts <span class="process-math">\(8, 14, 20, 26, \ldots\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1301">
+<p id="p-2592">What is the next term in the sequence?</p>
+<p id="p-2593"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1302"><p id="p-2594">Find a formula for the <span class="process-math">\(n\)</span>th term of this sequence.</p></li>
+<li id="li-1303">
+<p id="p-2595">Find the sum of the first 100 terms of the sequence: <span class="process-math">\(\sum_{k=0}^{99}a_k\text{.}\)</span></p>
+<p id="p-2596"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-100')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="CYx"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-101" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="101" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApDb25zaWRlciB0aGUgc3VtIFtgNCArIDExICsgMTggKyAyNSArIFxjZG90cyArIDI0OVx0ZXh0ey59YF0KYS4gIEhvdyBtYW55IHRlcm1zIChzdW1tYW5kcykgYXJlIGluIHRoZSBzdW0/CgogICAgW19dezM2fXs1fQoKCmEuICBDb21wdXRlIHRoZSBzdW0gdXNpbmcgYSB0ZWNobmlxdWUgZGlzY3Vzc2VkIGluIHRoaXMgc2VjdGlvbi4KCiAgICBbX117NDU1NH17fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgMzYuCgoKYS4gIFtgXGZyYWN7MjUzIFxjZG90IDM2fXsyfSA9IDQ1NTRcdGV4dHsufWBdICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2603">Consider the sum <span class="process-math">\(4 + 11 + 18 + 25 + \cdots + 249\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1307">
+<p id="p-2604">How many terms (summands) are in the sum?</p>
+<p id="p-2605"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1308"><p id="p-2606">Compute the sum using a technique discussed in this section.</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-101')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="jfG"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-102" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="102" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMxID0gRm9ybXVsYSgibisyIik7CiRhbnMyID0gRm9ybXVsYSgiNm4rMSIpOwokYW5zMyA9IEZvcm11bGEoIigoNipuKzgpKihuKzIpKS8yIik7CgpCRUdJTl9QR01MCkNvbnNpZGVyIHRoZSBzZXF1ZW5jZSBbYDEsIDcsIDEzLCAxOSwgXGxkb3RzLCA2biArIDdcdGV4dHsufWBdCmEuICBIb3cgbWFueSB0ZXJtcyBhcmUgdGhlcmUgaW4gdGhlIHNlcXVlbmNlPyBZb3VyIGFuc3dlciB3aWxsIGJlIGluIHRlcm1zIG9mIFtgblx0ZXh0ey59YF0KCiAgICBbX117JGFuczF9ezEwfQoKCmEuICBXaGF0IGlzIHRoZSBzZWNvbmQtdG8tbGFzdCB0ZXJtPwoKICAgIFtfXXskYW5zMn17MTB9CgoKYS4gIEZpbmQgdGhlIHN1bSBvZiBhbGwgdGhlIHRlcm1zIGluIHRoZSBzZXF1ZW5jZSwgaW4gdGVybXMgb2YgW2BuXHRleHR7Ln1gXQoKICAgIFtfXXskYW5zM317MTB9CgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYG4rMmBdIHRlcm1zLCBzaW5jZSB0byBnZXQgMSB1c2luZyB0aGUgZm9ybXVsYSBbYDZuKzdgXSB3ZSBtdXN0IHVzZSBbYG49LTFcdGV4dHsufWBdIFRodXMgd2UgaGF2ZSBbYG5gXSB0ZXJtcywgcGx1cyB0d28sIHdoZW4gW2BuPTBgXSBhbmQgW2BuPS0xXHRleHR7Ln1gXQphLiAgW2A2bisxXHRleHR7LH1gXSB3aGljaCBpcyA2IGxlc3MgdGhhbiBbYDZuKzdgXSAob3IgcGx1ZyBpbiBbYG4tMWBdIGZvciBbYG5gXSkuCmEuICBbYFxmcmFjeyg2bis4KShuKzIpfXsyfVx0ZXh0ey59YF0gUmV2ZXJzZSBhbmQgYWRkLiBFYWNoIHN1bSBnaXZlcyB0aGUgY29uc3RhbnQgW2A2bis4YF0gYW5kIHRoZXJlIGFyZSBbYG4rMmBdIHRlcm1zLiAgIAoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2611">Consider the sequence <span class="process-math">\(1, 7, 13, 19, \ldots, 6n + 7\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1311">
+<p id="p-2612">How many terms are there in the sequence? Your answer will be in terms of <span class="process-math">\(n\text{.}\)</span></p>
+<p id="p-2613"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1312">
+<p id="p-2614">What is the second-to-last term?</p>
+<p id="p-2615"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1313">
+<p id="p-2616">Find the sum of all the terms in the sequence, in terms of <span class="process-math">\(n\text{.}\)</span></p>
+<p id="p-2617"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-102')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="PmP"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-103" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="103" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgNSArIDcgKyA5ICsgMTErIFxjZG90cyArIDUyMWBdIHVzaW5nIGEgdGVjaG5pcXVlIGZyb20gdGhpcyBzZWN0aW9uLgoKW19dezY4MTE3fXsxMH0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYDY4MTE3XHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2625">Find <span class="process-math">\(5 + 7 + 9 + 11+ \cdots + 521\)</span> using a technique from this section.</p>
+<p id="p-2626"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-103')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="vtY"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-104" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="104" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgNSArIDE1ICsgNDUgKyBcY2RvdHMgKyA1XGNkb3QgM157MjB9XHRleHR7Ln1gXQoKW19deycoNS01KjNeMjEpLygtMiknfXsxMH0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYFxmcmFjezVcY2RvdCAzXnsyMX0tNX17Mn1cdGV4dHsufWBdIExldCB0aGUgc3VtIGJlIFtgU1x0ZXh0eyx9YF0gYW5kIGNvbXB1dGUgW2BTIC0gM1MgPSAtMlNcdGV4dHssfWBdIHdoaWNoIGNhdXNlcyB0ZXJtcyBleGNlcHQgW2A1YF0gYW5kIFtgLTVcY2RvdCAzXnsyMX1gXSB0byBjYW5jZWwuIFRoZW4gc29sdmUgZm9yIFtgU1x0ZXh0ey59YF0KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2629">Find <span class="process-math">\(5 + 15 + 45 + \cdots + 5\cdot 3^{20}\text{.}\)</span></p>
+<p id="p-2630"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-104')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="bBh"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-105" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="105" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgMSAtIFxmcmFjezJ9ezN9ICsgXGZyYWN7NH17OX0gLSBcY2RvdHMgKyBcZnJhY3syXnszMH19ezNeezMwfX1cdGV4dHsufWBdCgpbX117JygxKzJeMzEvM14zMSkvKDUvMyknfXsxMH0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYFxmcmFjezEgKyBcZnJhY3syXnszMX19ezNeezMxfX19ezUvM31cdGV4dHsufWBdIFRoaXMgdGltZSBjb21wdXRlIFtgUyArIFxmcmFjezJ9ezN9U1x0ZXh0ey59YF0KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2633">Find <span class="process-math">\(1 - \frac{2}{3} + \frac{4}{9} - \cdots + \frac{2^{30}}{3^{30}}\text{.}\)</span></p>
+<p id="p-2634"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-105')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="HIq"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-106" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="106" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgeGBdIGFuZCBbYHlgXSBzdWNoIHRoYXQgW2AyNywKICAgICAgICAgICAgeCwgeSwgMWBdIGlzIHBhcnQgb2YgYW4gYXJpdGhtZXRpYyBzZXF1ZW5jZS4KCltAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgeCA9IGBdIFtfXXsnNTUvMyd9ezV9LCBbYHkgPSBgXSBbX117JzI5LzMnfXs1fScpQF0qKgoKVGhlbiBmaW5kIFtgeGBdIGFuZCBbYHlgXSBzbyB0aGF0IHRoZSBzZXF1ZW5jZSBpcyBwYXJ0IG9mIGEgZ2VvbWV0cmljIHNlcXVlbmNlLgoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnW2B4ID0gYF0gW19dezl9ezV9LCBbYHkgPSBgXSBbX117M317NX0nKUBdKioKCihXYXJuaW5nOiBbYHhgXSBhbmQgW2B5YF0gbWlnaHQgbm90IGJlIGludGVnZXJzLikKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpGb3IgYXJpdGhtZXRpYzogW2B4ID0gNTUvM1x0ZXh0eyx9YF0gW2B5ID0gMjkvM1x0ZXh0ey59YF0gRm9yIGdlb21ldHJpYzogW2B4ID0gOWBdIGFuZCBbYHkgPSAzXHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2637">Find <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(27,
+x, y, 1\)</span> is part of an arithmetic sequence.</p>
+<p id="p-2638">Then find <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> so that the sequence is part of a geometric sequence.</p>
+<p id="p-2639">(Warning: <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> might not be integers.)</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-106')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="nPz"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-107" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="107" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgeGBdIGFuZCBbYHlgXSBzdWNoIHRoYXQgW2A1LAogICAgICAgICAgICB4LCB5LCAzMmBdIGlzIHBhcnQgb2YgYW4gYXJpdGhtZXRpYyBzZXF1ZW5jZS4KCltAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgeCA9IGBdIFtfXXsnMTQnfXs1fSwgW2B5ID0gYF0gW19deycyMyd9ezV9JylAXSoqCgpUaGVuIGZpbmQgW2B4YF0gYW5kIFtgeWBdIHNvIHRoYXQgdGhlIHNlcXVlbmNlIGlzIHBhcnQgb2YgYSBnZW9tZXRyaWMgc2VxdWVuY2UuCgpbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbYHggPSBgXSBbX117JzUqKDMyLzUpXigxLzMpJ317NX0sIFtgeSA9IGBdIFtfXXs1KigzMi81KV4oMi8zKX17NX0nKUBdKioKCihXYXJuaW5nOiBbYHhgXSBhbmQgW2B5YF0gbWlnaHQgbm90IGJlIGludGVnZXJzLikKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpGb3IgYXJpdGhtZXRpYzogW2B4ID0gMTRcdGV4dHssfWBdIFtgeSA9IDIzXHRleHR7Ln1gXSBGb3IgZ2VvbWV0cmljOiBbYHggPSA1KigzMi81KV4oMS8zKWBdIGFuZCBbYHkgPSA1KigzMi81KV4oMi8zKVx0ZXh0ey59YF0KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2641">Find <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that <span class="process-math">\(5,
+x, y, 32\)</span> is part of an arithmetic sequence.</p>
+<p id="p-2642">Then find <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> so that the sequence is part of a geometric sequence.</p>
+<p id="p-2643">(Warning: <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> might not be integers.)</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-107')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="TWI"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="KvS">Is there a pair of integers <span class="process-math">\((a,b)\)</span> such that <span class="process-math">\(a,
+x_1, y_1, b\)</span> is part of an arithmetic sequences and <span class="process-math">\(a,
+x_2, y_2, b\)</span> is part of a geometric sequence with <span class="process-math">\(x_1, x_2, y_1, y_2\)</span> all integers?</p></article><article class="exercise exercise-like" id="AdR"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="qDb">Consider the sequence <span class="process-math">\(2, 7, 15, 26, 40, 57, \ldots\)</span> (with <span class="process-math">\(a_0 = 2\)</span>). By looking at the differences between terms, express the sequence as a sequence of partial sums. Then find a closed formula for the sequence by computing the <span class="process-math">\(n\)</span>th partial sum.</p></article><article class="exercise exercise-like" id="gla"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="WKk">Starting with any rectangle, we can create a new, larger rectangle by attaching a square to the longer side. For example, if we start with a <span class="process-math">\(2\times 5\)</span> rectangle, we would glue on a <span class="process-math">\(5\times 5\)</span> square, forming a <span class="process-math">\(5 \times 7\)</span> rectangle:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/image-51.svg" role="img" class="contained"></div></div></div>
+<p id="CRt">The next rectangle would be formed by attaching a <span class="process-math">\(7 \times 7\)</span> square to the top or bottom of the <span class="process-math">\(5\times 7\)</span> rectangle. </p>
+<ol class="lower-alpha">
+<li id="zIs"><p id="YUW">Create a sequence of rectangles using this rule starting with a <span class="process-math">\(1\times 2\)</span> rectangle. Then write out the sequence of <em class="emphasis">perimeters</em> for the rectangles (the first term of the sequence would be 6, since the perimeter of a <span class="process-math">\(1\times 2\)</span> rectangle is 6 - the next term would be 10).</p></li>
+<li id="fPB"><p id="Fcf">Repeat the above part this time starting with a <span class="process-math">\(1 \times 3\)</span> rectangle.</p></li>
+<li id="LWK"><p id="ljo">Find recursive formulas for each of the sequences of perimeters you found in parts (a) and (b). Don't forget to give the initial conditions as well.</p></li>
+<li id="sdT"><p id="Rqx">Are the sequences arithmetic? Geometric? If not, are they <em class="emphasis">close</em> to being either of these (i.e., are the differences or ratios <em class="emphasis">almost</em> constant)? Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="Msj"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="iYC">If you have enough toothpicks, you can make a large triangular grid. Below, are the triangular grids of size 1 and of size 2. The size 1 grid requires 3 toothpicks, the size 2 grid requires 9 toothpicks.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:10% 40%;">
+<div class="sbspanel bottom" style="width:14.2857142857143%;"><img src="generated/latex-image/image-52.svg" role="img" class="contained"></div>
+<div class="sbspanel bottom" style="width:28.5714285714286%;"><img src="generated/latex-image/image-53.svg" role="img" class="contained"></div>
+</div></div>
+<ol id="PfL" class="lower-alpha">
+<li id="Ylc"><p id="xxG">Let <span class="process-math">\(t_n\)</span> be the number of toothpicks required to make a size <span class="process-math">\(n\)</span> triangular grid. Write out the first 5 terms of the sequence <span class="process-math">\(t_1, t_2, \ldots\text{.}\)</span></p></li>
+<li id="Esl"><p id="dEP">Find a recursive definition for the sequence. Explain why you are correct.</p></li>
+<li id="kzu"><p id="JLY">Is the sequence arithmetic or geometric? If not, is it the sequence of partial sums of an arithmetic or geometric sequence? Explain why your answer is correct.</p></li>
+<li id="QGD"><p id="pTh">Use your results from part (c) to find a closed formula for the sequence. Show your work.</p></li>
+</ol></article><article class="exercise exercise-like" id="szs"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<p id="vmU">If you were to shade in a <span class="process-math">\(n\times n\)</span> square on graph paper, you could do it the boring way (with sides parallel to the edge of the paper) or the interesting way, as illustrated below:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel middle" style="width:5.263157894736842%;"><img src="generated/latex-image/image-54.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:15.7894736842105%;"><img src="generated/latex-image/image-55.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:26.3157894736842%;"><img src="generated/latex-image/image-56.svg" role="img" class="contained"></div>
+<div class="sbspanel middle" style="width:36.8421052631579%;"><img src="generated/latex-image/image-57.svg" role="img" class="contained"></div>
+</div></div>
+<p id="bud">The interesting thing here, is that a <span class="process-math">\(3\times 3\)</span> square now has area 13. Our goal is the find a formula for the area of a <span class="process-math">\(n \times n\)</span> (diagonal) square.</p>
+<ol class="lower-alpha">
+<li id="wNM"><p id="Waq">Write out the first few terms of the sequence of areas (assume <span class="process-math">\(a_1 = 1\text{,}\)</span> <span class="process-math">\(a_2 = 5\text{,}\)</span> etc). Is the sequence arithmetic or geometric? If not, is it the sequence of partial sums of an arithmetic or geometric sequence? Explain why your answer is correct, referring to the diagonal squares.</p></li>
+<li id="cUV"><p id="Chz">Use your results from part (a) to find a closed formula for the sequence. Show your work. Note, while there are lots of ways to find a closed formula here, you should use partial sums specifically.</p></li>
+<li id="Jce"><p id="ioI">Find the closed formula in as many other interesting ways as you can.</p></li>
+</ol></article><article class="exercise exercise-like" id="YGB"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="HBm">Here is a surprising use of sequences to answer a counting question:  How many license plates consist of 6 symbols, using only the three numerals 1, 2, and 3 and the four letters a, b, c, and d, so that no numeral appears after any letter?  For example, “31ddac”, “123321”, and “ababab” are each acceptable license plates, but “13ba2c” is not.</p>
+<ol class="lower-alpha">
+<li id="pjn"><p id="OvR">First answer this question by considering different cases: how many of the license plates contain no numerals?  How many contain one numeral, etc.</p></li>
+<li id="Vqw"><p id="uDa">Now use the techniques of this section to show why the answer is <span class="process-math">\(4^7 - 3^7\text{.}\)</span></p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-8"><div class="fn">This insight is usually attributed to Carl Friedrich Gauss, one of the greatest mathematicians of all time, who discovered it as a child when his unpleasant elementary teacher thought he would keep the class busy by requiring them to compute the lengthy sum.</div></div>
+</div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

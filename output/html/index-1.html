@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:27-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Index</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<span class="mininav">Jump to:</span><span class="indexnav"><a href="#indexletter-a">A </a><a href="#indexletter-b">B </a><a href="#indexletter-c">C </a><a href="#indexletter-d">D </a><a href="#indexletter-e">E </a><a href="#indexletter-f">F </a><a href="#indexletter-g">G </a><a href="#indexletter-h">H </a><a href="#indexletter-i">I </a><a href="#indexletter-j">J </a><a href="#indexletter-k">K </a><a href="#indexletter-l">L </a><a href="#indexletter-m">M </a><br><a href="#indexletter-n">N </a><a href="#indexletter-o">O </a><a href="#indexletter-p">P </a><a href="#indexletter-q">Q </a><a href="#indexletter-r">R </a><a href="#indexletter-s">S </a><a href="#indexletter-t">T </a><a href="#indexletter-u">U </a><a href="#indexletter-v">V </a><a href="#indexletter-w">W </a><a href="#indexletter-x">X </a><a href="#indexletter-y">Y </a><a href="#indexletter-z">Z </a></span><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="appendix-1.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="backmatter.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="colophon-2.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="appendix-1.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="backmatter.html" title="Up">Up</a><a class="next-button button toolbar-item" href="colophon-2.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="internal">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="internal">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="internal">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link active"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="index" id="index-1"><h2 class="heading hide-type">
+<span class="type">Index</span> <span class="codenumber"></span> <span class="title">Index</span>
+</h2>
+<div class="indexletter" id="indexletter-a">
+<div class="indexitem">additive principle<span class="indexknowl">, <a href="sec_counting-addmult.html" class="internal" title="Section 1.1: Additive and Multiplicative Principles">Section</a> <a href="" class="xref" data-knowl="./knowl/assemblage-14.html" title="Summary: Additive Principle">Summary</a></span>
+</div>
+<div class="subindexitem">using sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-16.html" title="Summary: Additive Principle (with sets)">Summary</a></span>
+</div>
+<div class="indexitem">adjacent</div>
+<div class="subindexitem">edges<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1601.html" title="Item: Adjacent">Item</a></span>
+</div>
+<div class="subindexitem">vertices<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1601.html" title="Item: Adjacent">Item</a></span>
+</div>
+<div class="indexitem">alternating path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-413.html" title="Exercise 4.6.3">Exercise</a></span>
+</div>
+<div class="indexitem">ancestor (in a rooted tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3760.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">and (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-19.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-24.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">antecedent<span class="indexknowl">. <span class="see"><em>See</em> hypothesis</span></span>
+</div>
+<div class="indexitem">argument<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-37.html" title="Summary: Arguments">Summary</a></span>
+</div>
+<div class="indexitem">arithmetic sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-30.html" title="Summary: Arithmetic Sequences">Summary</a></span>
+</div>
+<div class="subindexitem">summing<span class="indexknowl">, <a href="sec_seq-arithgeom.html#xXj" class="internal" title="Subsubsection: Summing Arithmetic Sequences: Reverse and Add">Subsubsection</a></span>
+</div>
+<div class="indexitem">atomic statement<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-50.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">augmenting path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-413.html" title="Exercise 4.6.3">Exercise</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-b">
+<div class="indexitem">balls and bins<span class="indexknowl">. <span class="see"><em>See</em> stars and bars</span></span>
+</div>
+<div class="indexitem">base case<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2842.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1377.html" title="Item 1">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1379.html" title="Item 1">Item</a></span>
+</div>
+<div class="indexitem">biconditional<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-22.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-6.html" title="Summary: If and only if">Summary</a></span>
+</div>
+<div class="indexitem">bijection<span class="indexknowl">, <a href="sec_intro-functions.html#Ozi" class="internal" title="Subsection: Surjections, Injections, and Bijections">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-860.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-561.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-counting-functions-bijective.html" title="Example 1.3.2: Counting Bijective Functions">Example</a></span>
+</div>
+<div class="indexitem">binary connective<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-64.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">binary digit<span class="indexknowl">. <span class="see"><em>See</em> bit</span></span>
+</div>
+<div class="indexitem">binary predicate<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-15.html" title="Exercise 0.2.15">Exercise</a></span>
+</div>
+<div class="indexitem">binary representation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-258.html" title="Exercise 2.5.19">Exercise</a></span>
+</div>
+<div class="indexitem">binomial coefficient<span class="indexknowl">, <a href="sec_counting-binom.html#UCc" class="internal" title="Subsection: Binomial Coefficients">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-2056.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-1341.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-22.html" title="Summary: Binomial Coefficients">Summary</a></span>
+</div>
+<div class="subindexitem">closed formula for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-26.html" title="Summary: Closed formula for {n \choose k}">Summary</a></span>
+</div>
+<div class="subindexitem">objects counted by<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-22.html" title="Summary: Binomial Coefficients">Summary</a></span>
+</div>
+<div class="subindexitem">recurrence relation for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-23.html" title="Summary: Recurrence relation for {n \choose k}">Summary</a></span>
+</div>
+<div class="indexitem">binomial identity<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1679.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">examples of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1678.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">bipartite graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3620.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1602.html" title="Item: Bipartite graph">Item</a></span>
+</div>
+<div class="indexitem">bit<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1320.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">bit string<span class="indexknowl">, <a href="sec_counting-binom.html#InK" class="internal" title="Subsection: Bit Strings">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-1320.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-21.html" title="Summary: Bit Strings">Summary</a> <a href="" class="xref" data-knowl="./knowl/exercise-197.html" title="Exercise 2.1.17">Exercise</a></span>
+</div>
+<div class="subindexitem">as code for a subset<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1331.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">combinatorial proof involving<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-131.html" title="Exercise 1.4.10">Exercise</a></span>
+</div>
+<div class="subindexitem">correspondence with lattice path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1338.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">length<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1321.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-21.html" title="Summary: Bit Strings">Summary</a></span>
+</div>
+<div class="subindexitem">relation to stars and bars<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1847.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">weight<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1321.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-21.html" title="Summary: Bit Strings">Summary</a></span>
+</div>
+<div class="indexitem">Boolean variable<span class="indexknowl">. <span class="see"><em>See</em> propositional variable</span></span>
+</div>
+<div class="indexitem">bow ties<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-123.html" title="Exercise 1.4.2">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-162.html" title="Exercise 1.7.2">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-164.html" title="Exercise 1.7.4">Exercise</a></span>
+</div>
+<div class="indexitem">breadth first search<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3769.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Brooks' Theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-7.html" title="Theorem 4.4.5: Brooks' Theorem">Theorem</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-c">
+<div class="indexitem">Canadians, set of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-10.html" title="Paragraphs: Warning:">Paragraphs</a></span>
+</div>
+<div class="indexitem">cannonball stacking<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-226.html" title="Exercise 2.3.12">Exercise</a></span>
+</div>
+<div class="indexitem">cardinality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-611.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">of a set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-412.html" title="Item: \card{A}">Item</a></span>
+</div>
+<div class="subindexitem">of a union<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-16.html" title="Summary: Additive Principle (with sets)">Summary</a> <a href="" class="xref" data-knowl="./knowl/assemblage-19.html" title="Summary: Cardinality of a union (2 sets)">Summary</a> <a href="" class="xref" data-knowl="./knowl/assemblage-20.html" title="Summary: Cardinality of a union (3 sets)">Summary</a></span>
+</div>
+<div class="subindexitem">of Cartesian product<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-18.html" title="Summary: Multiplicative Principle (with sets)">Summary</a></span>
+</div>
+<div class="subindexitem">of power set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-285.html" title="Exercise 2.6.17">Exercise</a></span>
+</div>
+<div class="indexitem">Cartesian product<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-409.html" title="Item: \times">Item</a> <a href="" class="xref" data-knowl="./knowl/p-634.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-17.html" title="Summary: Cartesian Product">Summary</a></span>
+</div>
+<div class="subindexitem">cardinality of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-18.html" title="Summary: Multiplicative Principle (with sets)">Summary</a></span>
+</div>
+<div class="indexitem">cases<span class="indexknowl">, <a href="sec_logic-proofs.html#pWY" class="internal" title="Subsection: Proof by Cases">Subsection</a></span>
+</div>
+<div class="indexitem">characteristic equation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2768.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-33.html" title="Summary: Characteristic Roots">Summary</a></span>
+</div>
+<div class="indexitem">characteristic polynomial<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-33.html" title="Summary: Characteristic Roots">Summary</a></span>
+</div>
+<div class="indexitem">characteristic roots<span class="indexknowl">, <a href="sec_recurrence.html#Hke" class="internal" title="Subsection: The Characteristic Root Technique">Subsection</a> <a href="" class="xref" data-knowl="./knowl/assemblage-33.html" title="Summary: Characteristic Roots">Summary</a> <a href="" class="xref" data-knowl="./knowl/p-2782.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">repeated<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/asmb-char-rep-roots.html" title="Summary: Characteristic Root Technique for Repeated Roots">Summary</a></span>
+</div>
+<div class="indexitem">chessboard</div>
+<div class="subindexitem">counting squares on<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2670.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">missing squares<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-325.html" title="Exercise 3.2.20">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-326.html" title="Exercise 3.2.21">Exercise</a></span>
+</div>
+<div class="subindexitem">rook paths<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-7.html" title="Investigate! 1.3">Investigate!</a></span>
+</div>
+<div class="subindexitem">tiling<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-199.html" title="Exercise 2.1.19">Exercise</a></span>
+</div>
+<div class="indexitem">child (in a rooted tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3759.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">chordal graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3965.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Christmas<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-277.html" title="Exercise 2.6.9">Exercise</a></span>
+</div>
+<div class="indexitem">chromatic index<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3970.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">chromatic number<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1606.html" title="Item: Chromatic number">Item</a> <a href="" class="xref" data-knowl="./knowl/p-3940.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">circuit<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4022.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-49.html" title="Summary: Euler Paths and Circuits">Summary</a></span>
+</div>
+<div class="subindexitem">Euler<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a></span>
+</div>
+<div class="indexitem">clique<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3963.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">closed formula<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-27.html" title="Summary: Closed formula">Summary</a></span>
+</div>
+<div class="subindexitem">for a function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-833.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">for a sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-32.html" title="Summary: Finite Differences">Summary</a></span>
+</div>
+<div class="subindexitem">for arithmetic sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-30.html" title="Summary: Arithmetic Sequences">Summary</a></span>
+</div>
+<div class="subindexitem">for geometric sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-31.html" title="Summary: Geometric Sequences">Summary</a></span>
+</div>
+<div class="indexitem">codomain<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-804.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-554.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">coloring</div>
+<div class="subindexitem">edges<span class="indexknowl">, <a href="sec_coloring.html#CNg" class="internal" title="Subsection: Coloring Edges">Subsection</a></span>
+</div>
+<div class="subindexitem">vertices<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3940.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">vertices vs edges<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-391.html" title="Exercise 4.4.7">Exercise</a></span>
+</div>
+<div class="indexitem">combination<span class="indexknowl">, <a href="sec_counting-combperm.html" class="internal" title="Section 1.3: Combinations and Permutations">Section</a></span>
+</div>
+<div class="subindexitem">closed formula for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-26.html" title="Summary: Closed formula for {n \choose k}">Summary</a></span>
+</div>
+<div class="subindexitem">vs permutation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1528.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/example-40.html" title="Example 1.3.5">Example</a> <a href="" class="xref" data-knowl="./knowl/p-2056.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1044.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/exercise-162.html" title="Exercise 1.7.2">Exercise</a></span>
+</div>
+<div class="indexitem">combinatorial proof<span class="indexknowl">, <a href="sec_comb-proofs.html" class="internal" title="Section 1.4: Combinatorial Proofs">Section</a> <a href="" class="xref" data-knowl="./knowl/p-1711.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">common difference<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-30.html" title="Summary: Arithmetic Sequences">Summary</a></span>
+</div>
+<div class="indexitem">common ratio<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-31.html" title="Summary: Geometric Sequences">Summary</a></span>
+</div>
+<div class="indexitem">complement of a set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-411.html" title="Item: \bar{A}">Item</a> <a href="" class="xref" data-knowl="./knowl/p-622.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">complete bipartite graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3620.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1603.html" title="Item: Complete bipartite graph">Item</a></span>
+</div>
+<div class="indexitem">complete graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3604.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1604.html" title="Item: Complete graph">Item</a></span>
+</div>
+<div class="indexitem">complete inverse image<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-867.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-563.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">complex numbers (as characteristic roots)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2782.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">composition of functions<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-70.html" title="Exercise 0.4.20">Exercise</a></span>
+</div>
+<div class="indexitem">conclusion<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-3.html" title="Summary: Implications">Summary</a> <a href="" class="xref" data-knowl="./knowl/assemblage-37.html" title="Summary: Arguments">Summary</a></span>
+</div>
+<div class="indexitem">conditional<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-21.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-3.html" title="Summary: Implications">Summary</a></span>
+</div>
+<div class="indexitem">congruence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-55.html" title="Summary: Congruence Modulo n">Summary</a></span>
+</div>
+<div class="subindexitem">arithmetic<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-59.html" title="Summary: Congruence and Arithmetic">Summary</a></span>
+</div>
+<div class="subindexitem">divisibility<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-56.html" title="Summary: Congruence and Divisibility">Summary</a></span>
+</div>
+<div class="subindexitem">division<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-60.html" title="Summary: Congruence and Division">Summary</a></span>
+</div>
+<div class="subindexitem">equality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-57.html" title="Summary: Congruence and Equality">Summary</a></span>
+</div>
+<div class="subindexitem">equivalence relation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-58.html" title="Summary: Congruence Modulo n is an Equivalence Relation">Summary</a></span>
+</div>
+<div class="subindexitem">solving<span class="indexknowl">, <a href="sec_addtops-numbth.html#uMv" class="internal" title="Subsection: Solving Congruences">Subsection</a></span>
+</div>
+<div class="subindexitem">without solutions<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-61.html" title="Summary: Congruences with no solutions">Summary</a></span>
+</div>
+<div class="indexitem">conjunction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-19.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">connected graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3603.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1605.html" title="Item: Connected">Item</a></span>
+</div>
+<div class="indexitem">connectives<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-62.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-1.html" title="Summary: Logical Connectives">Summary</a></span>
+</div>
+<div class="indexitem">consequent<span class="indexknowl">. <span class="see"><em>See</em> conclusion</span></span>
+</div>
+<div class="indexitem">contradiction<span class="indexknowl">, <a href="sec_logic-proofs.html#dIG" class="internal" title="Subsection: Proof by Contradiction">Subsection</a></span>
+</div>
+<div class="indexitem">contrapositive<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-40.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">proof by<span class="indexknowl">, <a href="sec_logic-proofs.html#xBx" class="internal" title="Subsection: Proof by Contrapositive">Subsection</a></span>
+</div>
+<div class="indexitem">converse<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-39.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">convex polyhedron<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3884.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">counterexample<span class="indexknowl">, <a href="sec_logic-proofs.html#JPP" class="internal" title="Subsection: Proof by (counter) Example">Subsection</a></span>
+</div>
+<div class="indexitem">counting<span class="indexknowl">, <a href="ch_counting.html" class="internal" title="Chapter 1: Counting">Chapter</a></span>
+</div>
+<div class="subindexitem">divisors<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-94.html" title="Exercise 1.1.14">Exercise</a></span>
+</div>
+<div class="subindexitem">edges in a graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/lem-handshake.html" title="Lemma 4.1.5: Handshake Lemma">Lemma</a></span>
+</div>
+<div class="subindexitem">functions<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-counting-functions-all.html" title="Example 1.1.5: Counting functions">Example</a></span>
+</div>
+<div class="indexitem">cover (vertex)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-415.html" title="Exercise 4.6.5">Exercise</a></span>
+</div>
+<div class="indexitem">cube<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-32.html" title="Investigate! 4.6">Investigate!</a></span>
+</div>
+<div class="indexitem">cycle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1607.html" title="Item: Cycle">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1612.html" title="Item: Path">Item</a></span>
+</div>
+<div class="subindexitem">Hamilton<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4034.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">type of graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-d">
+<div class="indexitem">De Morgan's laws<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-39.html" title="Summary: De Morgan's Laws">Summary</a></span>
+</div>
+<div class="indexitem">deduction rule<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3175.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">degree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3605.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1608.html" title="Item: Degree of a vertex">Item</a></span>
+</div>
+<div class="subindexitem">degree sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3610.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">maximum<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3966.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">sum formula<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/lem-handshake.html" title="Lemma 4.1.5: Handshake Lemma">Lemma</a></span>
+</div>
+<div class="indexitem">
+<span class="process-math">\(\Delta^k\)</span>-constant<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2672.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-32.html" title="Summary: Finite Differences">Summary</a></span>
+</div>
+<div class="indexitem">depth first search<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3770.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">derangement<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2008.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">fraction of all permutations that are<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-160.html" title="Exercise 1.6.14">Exercise</a></span>
+</div>
+<div class="indexitem">descendant (in a rooted tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3760.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">difference equation<span class="indexknowl">. <span class="see"><em>See</em> recurrence relation</span></span>
+</div>
+<div class="indexitem">difference of sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-410.html" title="Item: \setminus">Item</a> <a href="" class="xref" data-knowl="./knowl/p-624.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">differences of a sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2672.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">differentiable functions</div>
+<div class="subindexitem">generalized product rule<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-266.html" title="Exercise 2.5.27">Exercise</a></span>
+</div>
+<div class="subindexitem">generalized sum rule<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-265.html" title="Exercise 2.5.26">Exercise</a></span>
+</div>
+<div class="indexitem">Diophantine equation<span class="indexknowl">, <a href="sec_addtops-numbth.html#aTE" class="internal" title="Subsection: Solving Linear Diophantine Equations">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-4431.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-62.html" title="Summary: Diophantine Equations">Summary</a></span>
+</div>
+<div class="subindexitem">solution<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-62.html" title="Summary: Diophantine Equations">Summary</a></span>
+</div>
+<div class="indexitem">direct proof<span class="indexknowl">, <a href="sec_logic-proofs.html#Ruo" class="internal" title="Subsection: Direct Proof">Subsection</a></span>
+</div>
+<div class="subindexitem">for implication<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-4.html" title="Summary: Direct Proofs of Implications">Summary</a></span>
+</div>
+<div class="indexitem">disjoint events<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1151.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">disjunction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-20.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">equivalent implication<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-imp-disj.html" title="Summary: Implications are Disjunctions">Summary</a></span>
+</div>
+<div class="indexitem">distribution (counting)<span class="indexknowl">, <a href="sec_stars-and-bars.html" class="internal" title="Section 1.5: Stars and Bars">Section</a> <a href="" class="xref" data-knowl="./knowl/example-48.html" title="Example 1.5.1">Example</a></span>
+</div>
+<div class="subindexitem">with upper bound restriction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1980.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">divides<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4331.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-53.html" title="Summary: The Divisibility Relation">Summary</a></span>
+</div>
+<div class="indexitem">divisibility<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-56.html" title="Summary: Congruence and Divisibility">Summary</a></span>
+</div>
+<div class="indexitem">divisibility relation<span class="indexknowl">, <a href="sec_addtops-numbth.html#CqU" class="internal" title="Subsection: Divisibility">Subsection</a> <a href="" class="xref" data-knowl="./knowl/assemblage-53.html" title="Summary: The Divisibility Relation">Summary</a></span>
+</div>
+<div class="indexitem">division algorithm<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4352.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-54.html" title="Summary: The Division Algorithm">Summary</a></span>
+</div>
+<div class="indexitem">division with remainder<span class="indexknowl">. <span class="see"><em>See</em> division algorithm</span></span>
+</div>
+<div class="indexitem">Doctor Who<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-539.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/exercise-324.html" title="Exercise 3.2.19">Exercise</a></span>
+</div>
+<div class="indexitem">dodecahedron<span class="indexknowl">, <a href="sec_planar.html#FHZ" class="internal" title="Subsection: Polyhedra">Subsection</a></span>
+</div>
+<div class="indexitem">domain<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-804.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-554.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">domain of discourse<span class="indexknowl">. <span class="see"><em>See</em> universe set</span></span>
+</div>
+<div class="indexitem">domino<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-16.html" title="Investigate! 2.2">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/exercise-199.html" title="Exercise 2.1.19">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-408.html" title="Exercise 4.5.10">Exercise</a></span>
+</div>
+<div class="indexitem">double induction<span class="indexknowl">. <span class="see"><em>See</em> induction, double</span></span>
+</div>
+<div class="indexitem">double negation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-41.html" title="Summary: Double Negation">Summary</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-e">
+<div class="indexitem">edge<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-43.html" title="Summary: Graph Definition">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1600.html" title="Item: Graph">Item</a></span>
+</div>
+<div class="indexitem">element of a set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-542.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">empty set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-394.html" title="Item: \emptyset">Item</a></span>
+</div>
+<div class="indexitem">enumeration<span class="indexknowl">. <span class="see"><em>See</em> counting</span></span>
+</div>
+<div class="indexitem">equality of graphs<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-112.html" title="Example 4.1.1">Example</a></span>
+</div>
+<div class="indexitem">equivalence relation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4362.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-58.html" title="Summary: Congruence Modulo n is an Equivalence Relation">Summary</a></span>
+</div>
+<div class="indexitem">Euclidean algorithm<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4435.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Euler circuit<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1610.html" title="Item: Euler circuit">Item</a> <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4022.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-49.html" title="Summary: Euler Paths and Circuits">Summary</a></span>
+</div>
+<div class="indexitem">Euler path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1609.html" title="Item: Euler path">Item</a> <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4022.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-49.html" title="Summary: Euler Paths and Circuits">Summary</a></span>
+</div>
+<div class="indexitem">Euler's formula for planar graphs<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-48.html" title="Summary: Euler's Formula for Planar Graphs">Summary</a></span>
+</div>
+<div class="indexitem">exclusive or<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-69.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">existential quantifier<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-f">
+<div class="indexitem">face (planar graph)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-30.html" title="Investigate! 4.4">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/p-3854.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">factorial<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1507.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Fibonacci sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-63.html" title="Example 2.1.2">Example</a> <a href="" class="xref" data-knowl="./knowl/assemblage-commonsequences.html" title="Summary: Common Sequences">Summary</a> <a href="" class="xref" data-knowl="./knowl/exercise-259.html" title="Exercise 2.5.20">Exercise</a></span>
+</div>
+<div class="subindexitem">differences<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1341.html" title="Item 3">Item</a></span>
+</div>
+<div class="subindexitem">identity<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-267.html" title="Exercise 2.5.28">Exercise</a></span>
+</div>
+<div class="subindexitem">partial sums<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-185.html" title="Exercise 2.1.5">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-244.html" title="Exercise 2.5.5">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-246.html" title="Exercise 2.5.7">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-281.html" title="Exercise 2.6.13">Exercise</a></span>
+</div>
+<div class="subindexitem">recurrence relation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2732.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-2775.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">finite differences<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-32.html" title="Summary: Finite Differences">Summary</a></span>
+</div>
+<div class="indexitem">football (American)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-248.html" title="Exercise 2.5.9">Exercise</a></span>
+</div>
+<div class="indexitem">for all (quantifier)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+<div class="indexitem">forest<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-46.html" title="Summary: Definition of a Tree">Summary</a></span>
+</div>
+<div class="indexitem">Four Color Theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/thm-four-color.html" title="Theorem 4.4.2: The Four Color Theorem">Theorem</a></span>
+</div>
+<div class="indexitem">free variable<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-157.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-804.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-554.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-counting-functions-all.html" title="Example 1.1.5: Counting functions">Example</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-8.html" title="Paragraphs: Counting with Functions">Paragraphs</a> <a href="sec_advPIE.html#TZm" class="internal" title="Subsection: Counting Functions">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-2048.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-2056.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">how to describe<span class="indexknowl">, <a href="sec_intro-functions.html#irZ" class="internal" title="Subsection: Describing Functions">Subsection</a></span>
+</div>
+<div class="subindexitem">increasing</div>
+<div class="subsubindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-145.html" title="Exercise 1.5.10">Exercise</a></span>
+</div>
+<div class="subindexitem">non-decreasing</div>
+<div class="subsubindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-145.html" title="Exercise 1.5.10">Exercise</a></span>
+</div>
+<div class="subindexitem">notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-555.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">two-line notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-824.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-556.html" title="Item">Item</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-g">
+<div class="indexitem">gcd<span class="indexknowl">. <span class="see"><em>See</em> greatest common divisor</span></span>
+</div>
+<div class="indexitem">generating function<span class="indexknowl">, <a href="sec_addtops-genfun.html" class="internal" title="Section 5.1: Generating Functions">Section</a></span>
+</div>
+<div class="subindexitem">differencing<span class="indexknowl">, <a href="sec_addtops-genfun.html#jpb" class="internal" title="Subsection: Differencing">Subsection</a></span>
+</div>
+<div class="subindexitem">multiplication and partial sums<span class="indexknowl">, <a href="sec_addtops-genfun.html#Pwk" class="internal" title="Subsection: Multiplication and Partial Sums">Subsection</a></span>
+</div>
+<div class="subindexitem">recurrence relation<span class="indexknowl">, <a href="sec_addtops-genfun.html#vDt" class="internal" title="Subsection: Solving Recurrence Relations with Generating Functions">Subsection</a></span>
+</div>
+<div class="indexitem">geometric sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-31.html" title="Summary: Geometric Sequences">Summary</a></span>
+</div>
+<div class="subindexitem">summing<span class="indexknowl">, <a href="sec_seq-arithgeom.html#ees" class="internal" title="Subsubsection: Summing Geometric Sequences: Multiply, Shift and Subtract">Subsubsection</a></span>
+</div>
+<div class="indexitem">girth<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3881.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Goldbach conjecture<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3446.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">golden ratio<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2775.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-43.html" title="Summary: Graph Definition">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1600.html" title="Item: Graph">Item</a></span>
+</div>
+<div class="subindexitem">adjacent<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1601.html" title="Item: Adjacent">Item</a></span>
+</div>
+<div class="subindexitem">bipartite<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3620.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1602.html" title="Item: Bipartite graph">Item</a></span>
+</div>
+<div class="subindexitem">chordal<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3965.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">chromatic index<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3970.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">chromatic number<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1606.html" title="Item: Chromatic number">Item</a> <a href="" class="xref" data-knowl="./knowl/p-3940.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/thm-four-color.html" title="Theorem 4.4.2: The Four Color Theorem">Theorem</a></span>
+</div>
+<div class="subindexitem">clique<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3963.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">coloring vertices vs edges<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-391.html" title="Exercise 4.4.7">Exercise</a></span>
+</div>
+<div class="subindexitem">complete<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3604.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1604.html" title="Item: Complete graph">Item</a></span>
+</div>
+<div class="subindexitem">complete bipartite<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1603.html" title="Item: Complete bipartite graph">Item</a></span>
+</div>
+<div class="subindexitem">connected<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3603.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1605.html" title="Item: Connected">Item</a></span>
+</div>
+<div class="subindexitem">cycle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1607.html" title="Item: Cycle">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1612.html" title="Item: Path">Item</a></span>
+</div>
+<div class="subindexitem">degree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3605.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1608.html" title="Item: Degree of a vertex">Item</a></span>
+</div>
+<div class="subindexitem">degree sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3610.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">drawing<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3566.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">edge<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-43.html" title="Summary: Graph Definition">Summary</a></span>
+</div>
+<div class="subindexitem">equal vs isomorphic<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-114.html" title="Example 4.1.3">Example</a></span>
+</div>
+<div class="subindexitem">equality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-112.html" title="Example 4.1.1">Example</a></span>
+</div>
+<div class="subindexitem">Euler circuit<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1610.html" title="Item: Euler circuit">Item</a></span>
+</div>
+<div class="subindexitem">Euler path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1609.html" title="Item: Euler path">Item</a></span>
+</div>
+<div class="subindexitem">forest<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a></span>
+</div>
+<div class="subindexitem">girth<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3881.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">induced subgraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1614.html" title="Item: Subgraph">Item</a></span>
+</div>
+<div class="subindexitem">isomorphic (intuitive definition)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3577.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">isomorphic (precise definition)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-44.html" title="Summary: Isomorphic Graphs">Summary</a></span>
+</div>
+<div class="subindexitem">isomorphism class<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3590.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">leaf<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a></span>
+</div>
+<div class="subindexitem">matching<span class="indexknowl">, <a href="sec_matchings.html" class="internal" title="Section 4.6: Matching in Bipartite Graphs">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4068.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-50.html" title="Summary: Matching Condition">Summary</a> <a href="" class="xref" data-knowl="./knowl/theorem-9.html" title="Theorem 4.6.1: Hall's Marriage Theorem">Theorem</a></span>
+</div>
+<div class="subindexitem">maximum degree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3966.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">multigraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3602.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1611.html" title="Item: Multigraph">Item</a></span>
+</div>
+<div class="subindexitem">neighbors<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-349.html" title="Exercise 4.1.12">Exercise</a> <a href="" class="xref" data-knowl="./knowl/p-4073.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-50.html" title="Summary: Matching Condition">Summary</a> <a href="" class="xref" data-knowl="./knowl/theorem-9.html" title="Theorem 4.6.1: Hall's Marriage Theorem">Theorem</a></span>
+</div>
+<div class="subindexitem">path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/li-1612.html" title="Item: Path">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a></span>
+</div>
+<div class="subindexitem">perfect<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3965.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/exercise-393.html" title="Exercise 4.4.9">Exercise</a></span>
+</div>
+<div class="subindexitem">Petersen<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-380.html" title="Exercise 4.3.11">Exercise</a></span>
+</div>
+<div class="subindexitem">planar<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1613.html" title="Item: Planar">Item</a></span>
+</div>
+<div class="subindexitem">simple<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3601.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">subgraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-45.html" title="Summary: Subgraphs">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1614.html" title="Item: Subgraph">Item</a></span>
+</div>
+<div class="subindexitem">trail<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a></span>
+</div>
+<div class="subindexitem">tree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a></span>
+</div>
+<div class="subindexitem">vertex<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-43.html" title="Summary: Graph Definition">Summary</a></span>
+</div>
+<div class="subindexitem">vertex coloring<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1616.html" title="Item: Vertex coloring">Item</a> <a href="" class="xref" data-knowl="./knowl/p-3940.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">walk<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a></span>
+</div>
+<div class="indexitem">graph (of a function)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-817.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">greatest common divisor<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4408.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-h">
+<div class="indexitem">Hall's Marriage Theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-9.html" title="Theorem 4.6.1: Hall's Marriage Theorem">Theorem</a></span>
+</div>
+<div class="indexitem">Hamilton cycle<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4034.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">in bipartite graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-410.html" title="Exercise 4.5.12">Exercise</a></span>
+</div>
+<div class="indexitem">Hamilton path<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4034.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">in bipartite graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-410.html" title="Exercise 4.5.12">Exercise</a></span>
+</div>
+<div class="indexitem">handshake lemma<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/lem-handshake.html" title="Lemma 4.1.5: Handshake Lemma">Lemma</a></span>
+</div>
+<div class="indexitem">handshakes<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-260.html" title="Exercise 2.5.21">Exercise</a></span>
+</div>
+<div class="subindexitem">connection to graphs<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-338.html" title="Exercise 4.1.1">Exercise</a></span>
+</div>
+<div class="indexitem">Hanoi<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-15.html" title="Investigate! 2.1">Investigate!</a></span>
+</div>
+<div class="indexitem">hat check problem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-55.html" title="Example 1.6.5">Example</a></span>
+</div>
+<div class="indexitem">hockey stick theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-263.html" title="Exercise 2.5.24">Exercise</a></span>
+</div>
+<div class="indexitem">homogeneous</div>
+<div class="subindexitem">recurrence relation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2783.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">houses and utilities puzzle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-111.html" title="Example 4.0.2">Example</a></span>
+</div>
+<div class="indexitem">hypothesis<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-3.html" title="Summary: Implications">Summary</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-i">
+<div class="indexitem">icosahedron<span class="indexknowl">, <a href="sec_planar.html#FHZ" class="internal" title="Subsection: Polyhedra">Subsection</a></span>
+</div>
+<div class="indexitem">if and only if (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-22.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-6.html" title="Summary: If and only if">Summary</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-27.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">iff<span class="indexknowl">. <span class="see"><em>See</em> if and only if</span></span>
+</div>
+<div class="indexitem">if…, then… (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-21.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-26.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">image<span class="indexknowl">, <a href="sec_intro-functions.html#uGr" class="internal" title="Subsection: Image and Inverse Image">Subsection</a></span>
+</div>
+<div class="subindexitem">of a set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-866.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">of a subset<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-564.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">of an element<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-804.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-557.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/li-562.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">implication<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-21.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-3.html" title="Summary: Implications">Summary</a></span>
+</div>
+<div class="subindexitem">direct proof for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-4.html" title="Summary: Direct Proofs of Implications">Summary</a></span>
+</div>
+<div class="subindexitem">equivalent disjunction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-imp-disj.html" title="Summary: Implications are Disjunctions">Summary</a></span>
+</div>
+<div class="indexitem">implicit quantifier<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/pars-implicituantifiers.html" title="Paragraphs: Implicit Quantifiers">Paragraphs</a></span>
+</div>
+<div class="indexitem">implies (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-21.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-26.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">inclusion/exclusion<span class="indexknowl">. <span class="see"><em>See</em> principle of inclusion/exclusion</span></span>
+</div>
+<div class="indexitem">inclusive or<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-69.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">induced subgraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-45.html" title="Summary: Subgraphs">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1614.html" title="Item: Subgraph">Item</a></span>
+</div>
+<div class="indexitem">induction<span class="indexknowl">, <a href="sec_seq-induction.html" class="internal" title="Section 2.5: Induction">Section</a> <a href="" class="xref" data-knowl="./knowl/p-2832.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-35.html" title="Summary: Induction Proof Structure">Summary</a></span>
+</div>
+<div class="subindexitem">base case<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2842.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1377.html" title="Item 1">Item</a></span>
+</div>
+<div class="subsubindexitem">for strong induction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1379.html" title="Item 1">Item</a></span>
+</div>
+<div class="subindexitem">contrasting regular and strong<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2923.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-2924.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">double<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-267.html" title="Exercise 2.5.28">Exercise</a></span>
+</div>
+<div class="subindexitem">incorrect use of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-10.html" title="Paragraphs: Warning:">Paragraphs</a></span>
+</div>
+<div class="subindexitem">inductive case<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2842.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1378.html" title="Item 2">Item</a></span>
+</div>
+<div class="subsubindexitem">for strong induction<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1380.html" title="Item 2">Item</a></span>
+</div>
+<div class="subindexitem">proof structure<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-35.html" title="Summary: Induction Proof Structure">Summary</a></span>
+</div>
+<div class="subindexitem">strong<span class="indexknowl">, <a href="sec_seq-induction.html#nTQ" class="internal" title="Subsection: Strong Induction">Subsection</a> <a href="" class="xref" data-knowl="./knowl/assemblage-36.html" title="Summary: Strong Induction Proof Structure">Summary</a></span>
+</div>
+<div class="indexitem">inductive case<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2842.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1378.html" title="Item 2">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1380.html" title="Item 2">Item</a></span>
+</div>
+<div class="indexitem">inductive hypothesis<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1378.html" title="Item 2">Item</a> <a href="" class="xref" data-knowl="./knowl/p-2869.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">strong<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2903.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">initial condition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-28.html" title="Summary: Recursive definition">Summary</a></span>
+</div>
+<div class="subindexitem">for a function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-12.html" title="Summary: Recursively Defined Functions">Summary</a></span>
+</div>
+<div class="indexitem">injection<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1009.html" title="Item 2">Item</a> <a href="sec_intro-functions.html#Ozi" class="internal" title="Subsection: Surjections, Injections, and Bijections">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-855.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-559.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-counting-functions-injective.html" title="Example 1.3.4: Counting injective functions">Example</a> <a href="" class="xref" data-knowl="./knowl/p-2056.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">integer lattice<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1334.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">integer solutions to equation (counting)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-stars-bars-int-sol.html" title="Example 1.5.3">Example</a></span>
+</div>
+<div class="indexitem">integers, set of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-388.html" title="Item 3">Item</a> <a href="" class="xref" data-knowl="./knowl/li-397.html" title="Item: \Z">Item</a></span>
+</div>
+<div class="indexitem">interior angles<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-250.html" title="Exercise 2.5.11">Exercise</a></span>
+</div>
+<div class="indexitem">intersection of sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-407.html" title="Item: \cap">Item</a> <a href="" class="xref" data-knowl="./knowl/p-621.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">inverse image<span class="indexknowl">, <a href="sec_intro-functions.html#uGr" class="internal" title="Subsection: Image and Inverse Image">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-867.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-563.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">comparison to inverse function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-869.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">of a subset<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-565.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">isomorphic</div>
+<div class="subindexitem">intuitive definition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3577.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">precise definition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-44.html" title="Summary: Isomorphic Graphs">Summary</a></span>
+</div>
+<div class="indexitem">isomorphism class<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3590.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">isomorphism of graphs<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-44.html" title="Summary: Isomorphic Graphs">Summary</a></span>
+</div>
+<div class="indexitem">iteration<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2751.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-2764.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-k">
+<div class="indexitem">
+<span class="process-math">\(k\)</span>-permutation of <span class="process-math">\(n\)</span> elements<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-25.html" title="Summary: k-permutations of n elements">Summary</a> <a href="" class="xref" data-knowl="./knowl/p-1515.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">
+<span class="process-math">\(K_n\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3604.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">knights and knaves<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-2.html" title="Investigate! 0.2">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/investigation-24.html" title="Investigate! 3.1">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/exercise-337.html" title="Exercise 3.3.11">Exercise</a></span>
+</div>
+<div class="indexitem">Kruskal's algorithm<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3780.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Königsberg, Seven Bridges of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-27.html" title="Investigate! 4.1">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/p-4023.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-l">
+<div class="indexitem">lattice path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1335.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">correspondence with bit string<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1338.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">length of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1336.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">lattice, integer<span class="indexknowl">. <span class="see"><em>See</em> integer lattice</span></span>
+</div>
+<div class="indexitem">law of logic<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-99.html" title="Example 3.1.9">Example</a></span>
+</div>
+<div class="indexitem">leaf<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a> <a href="" class="xref" data-knowl="./knowl/p-3742.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">length of a bit string<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1321.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-21.html" title="Summary: Bit Strings">Summary</a></span>
+</div>
+<div class="indexitem">linear Diophantine equation<span class="indexknowl">. <span class="see"><em>See</em> Diophantine equation</span></span>
+</div>
+<div class="indexitem">logical connectives<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-62.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-1.html" title="Summary: Logical Connectives">Summary</a></span>
+</div>
+<div class="indexitem">logical equivalence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-38.html" title="Summary: Logical Equivalence">Summary</a></span>
+</div>
+<div class="indexitem">logically valid<span class="indexknowl">. <span class="see"><em>See</em> law of logic</span></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-m">
+<div class="indexitem">magic chocolate bunnies<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-280.html" title="Exercise 2.6.12">Exercise</a></span>
+</div>
+<div class="indexitem">marriage problem<span class="indexknowl">. <span class="see"><em>See</em> matching</span></span>
+</div>
+<div class="indexitem">matching<span class="indexknowl">, <a href="sec_matchings.html" class="internal" title="Section 4.6: Matching in Bipartite Graphs">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4068.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">partial<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-412.html" title="Exercise 4.6.2">Exercise</a></span>
+</div>
+<div class="indexitem">matching condition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-50.html" title="Summary: Matching Condition">Summary</a> <a href="" class="xref" data-knowl="./knowl/theorem-9.html" title="Theorem 4.6.1: Hall's Marriage Theorem">Theorem</a></span>
+</div>
+<div class="indexitem">mathematical induction<span class="indexknowl">. <span class="see"><em>See</em> induction</span><span class="see">; induction</span></span>
+</div>
+<div class="indexitem">maximum degree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3966.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">minimum spanning tree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3780.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">mod<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4365.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">modular arithmetic<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-59.html" title="Summary: Congruence and Arithmetic">Summary</a></span>
+</div>
+<div class="indexitem">modulo <span class="process-math">\(n\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-55.html" title="Summary: Congruence Modulo n">Summary</a></span>
+</div>
+<div class="indexitem">
+<em class="emphasis">modus ponens</em><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3175.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">molecular statement<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-50.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">monochromatic<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-13.html" title="Paragraphs: Ramsey Theory">Paragraphs</a></span>
+</div>
+<div class="indexitem">multigraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3602.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1611.html" title="Item: Multigraph">Item</a></span>
+</div>
+<div class="indexitem">multiplicative principle<span class="indexknowl">, <a href="sec_counting-addmult.html" class="internal" title="Section 1.1: Additive and Multiplicative Principles">Section</a> <a href="" class="xref" data-knowl="./knowl/assemblage-15.html" title="Summary: Multiplicative Principle">Summary</a></span>
+</div>
+<div class="subindexitem">using sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-18.html" title="Summary: Multiplicative Principle (with sets)">Summary</a></span>
+</div>
+<div class="indexitem">multiset</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-136.html" title="Exercise 1.5.1">Exercise</a></span>
+</div>
+<div class="subindexitem">relation to multigraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3602.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-n">
+<div class="indexitem">
+<span class="process-math">\(n\)</span> choose <span class="process-math">\(k\)</span><span class="indexknowl">. <span class="see"><em>See</em> binomial coefficient</span></span>
+</div>
+<div class="indexitem">natural numbers, set of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-396.html" title="Item: \N">Item</a></span>
+</div>
+<div class="indexitem">necessary condition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-7.html" title="Summary: Necessary and Sufficient">Summary</a></span>
+</div>
+<div class="indexitem">negation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-23.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">interaction with quantifiers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-9.html" title="Summary: Quantifiers and Negation">Summary</a></span>
+</div>
+<div class="indexitem">neighbors of vertices<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-349.html" title="Exercise 4.1.12">Exercise</a> <a href="" class="xref" data-knowl="./knowl/p-4073.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/theorem-9.html" title="Theorem 4.6.1: Hall's Marriage Theorem">Theorem</a></span>
+</div>
+<div class="indexitem">neighbors of verties<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-50.html" title="Summary: Matching Condition">Summary</a></span>
+</div>
+<div class="indexitem">non-planar graph<span class="indexknowl">, <a href="sec_planar.html#ZAQ" class="internal" title="Subsection: Non-planar Graphs">Subsection</a></span>
+</div>
+<div class="subindexitem">
+<span class="process-math">\(K_{3,3}\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-3.html" title="Theorem 4.3.2">Theorem</a></span>
+</div>
+<div class="subindexitem">
+<span class="process-math">\(K_5\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-2.html" title="Theorem 4.3.1">Theorem</a></span>
+</div>
+<div class="subindexitem">Petersen graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-380.html" title="Exercise 4.3.11">Exercise</a></span>
+</div>
+<div class="indexitem">not (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-23.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-28.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">NP-complete<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4038.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">number theory<span class="indexknowl">, <a href="sec_addtops-numbth.html" class="internal" title="Section 5.2: Introduction to Number Theory">Section</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-o">
+<div class="indexitem">octahedron<span class="indexknowl">, <a href="sec_planar.html#FHZ" class="internal" title="Subsection: Polyhedra">Subsection</a></span>
+</div>
+<div class="indexitem">one-to-one function<span class="indexknowl">. <span class="see"><em>See</em> injection</span></span>
+</div>
+<div class="indexitem">onto function<span class="indexknowl">. <span class="see"><em>See</em> surjection</span></span>
+</div>
+<div class="indexitem">operations on sets<span class="indexknowl">, <a href="sec_intro-sets.html#dPx" class="internal" title="Subsection: Operations On Sets">Subsection</a></span>
+</div>
+<div class="indexitem">or (logical connective)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-20.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">inclusive vs exclusive<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-69.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">truth condition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-25.html" title="Item">Item</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-p">
+<div class="indexitem">parent (in a rooted tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3759.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">partial matching<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-412.html" title="Exercise 4.6.2">Exercise</a></span>
+</div>
+<div class="indexitem">partial sums<span class="indexknowl">. <span class="see"><em>See</em> sequence of partial sums</span></span>
+</div>
+<div class="indexitem">partition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4362.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Pascal's triangle<span class="indexknowl">, <a href="sec_counting-binom.html#AJl" class="internal" title="Subsection: Pascal's Triangle">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-1358.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1275.html" title="Item 2.1.17.d">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1348.html" title="Item 2.3.12.d">Item</a></span>
+</div>
+<div class="subindexitem">patterns in<span class="indexknowl">, <a href="sec_comb-proofs.html#zbp" class="internal" title="Subsection: Patterns in Pascal's Triangle">Subsection</a></span>
+</div>
+<div class="subindexitem">sum of row in<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-262.html" title="Exercise 2.5.23">Exercise</a></span>
+</div>
+<div class="indexitem">path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1612.html" title="Item: Path">Item</a> <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a></span>
+</div>
+<div class="subindexitem">alternating<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-413.html" title="Exercise 4.6.3">Exercise</a></span>
+</div>
+<div class="subindexitem">augmenting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-413.html" title="Exercise 4.6.3">Exercise</a></span>
+</div>
+<div class="subindexitem">Euler<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4022.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-49.html" title="Summary: Euler Paths and Circuits">Summary</a></span>
+</div>
+<div class="subindexitem">Hamilton<span class="indexknowl">, <a href="sec_paths.html" class="internal" title="Section 4.5: Euler Paths and Circuits">Section</a> <a href="" class="xref" data-knowl="./knowl/p-4034.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">type of graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-11.html" title="Paragraphs: Named Graphs">Paragraphs</a></span>
+</div>
+<div class="indexitem">perfect graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3965.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/exercise-393.html" title="Exercise 4.4.9">Exercise</a></span>
+</div>
+<div class="indexitem">perfect matching<span class="indexknowl">. <span class="see"><em>See</em> matching</span></span>
+</div>
+<div class="indexitem">permutation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1503.html" title="Paragraph">Paragraph</a> <a href="sec_counting-combperm.html" class="internal" title="Section 1.3: Combinations and Permutations">Section</a> <a href="" class="xref" data-knowl="./knowl/assemblage-25.html" title="Summary: k-permutations of n elements">Summary</a></span>
+</div>
+<div class="subindexitem">of <span class="process-math">\(k\)</span> elements chosen from <span class="process-math">\(n\)</span><span class="indexknowl"> <span class="see">(<em>see</em> <span class="process-math">\(k\)</span>-permutation of <span class="process-math">\(n\)</span> elements)</span></span>
+</div>
+<div class="subindexitem">of <span class="process-math">\(n\)</span> elements<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-24.html" title="Summary: Permutations of n elements">Summary</a></span>
+</div>
+<div class="subindexitem">to count functions<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-counting-functions-bijective.html" title="Example 1.3.2: Counting Bijective Functions">Example</a></span>
+</div>
+<div class="subindexitem">to count words<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-38.html" title="Example 1.3.3">Example</a></span>
+</div>
+<div class="subindexitem">vs combination<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1528.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/example-40.html" title="Example 1.3.5">Example</a> <a href="" class="xref" data-knowl="./knowl/p-2056.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1044.html" title="Item">Item</a> <a href="" class="xref" data-knowl="./knowl/exercise-162.html" title="Exercise 1.7.2">Exercise</a></span>
+</div>
+<div class="indexitem">Petersen graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-380.html" title="Exercise 4.3.11">Exercise</a></span>
+</div>
+<div class="indexitem">PIE<span class="indexknowl">. <span class="see"><em>See</em> principle of inclusion/exclusion</span></span>
+</div>
+<div class="indexitem">pigeonhole principle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-107.html" title="Example 3.2.9">Example</a></span>
+</div>
+<div class="indexitem">planar graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1613.html" title="Item: Planar">Item</a> <a href="" class="xref" data-knowl="./knowl/investigation-30.html" title="Investigate! 4.4">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/p-3850.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">chromatic number of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/thm-four-color.html" title="Theorem 4.4.2: The Four Color Theorem">Theorem</a></span>
+</div>
+<div class="subindexitem">non-planar graph<span class="indexknowl">, <a href="sec_planar.html#ZAQ" class="internal" title="Subsection: Non-planar Graphs">Subsection</a></span>
+</div>
+<div class="subsubindexitem">
+<span class="process-math">\(K_{3,3}\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-3.html" title="Theorem 4.3.2">Theorem</a></span>
+</div>
+<div class="subsubindexitem">
+<span class="process-math">\(K_5\)</span><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-2.html" title="Theorem 4.3.1">Theorem</a></span>
+</div>
+<div class="subsubindexitem">Petersen graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-380.html" title="Exercise 4.3.11">Exercise</a></span>
+</div>
+<div class="indexitem">planar region<span class="indexknowl">. <span class="see"><em>See</em> face (planar graph)</span></span>
+</div>
+<div class="indexitem">planar representation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3853.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Platonic solid<span class="indexknowl">. <span class="see"><em>See</em> regular polyhedron</span></span>
+</div>
+<div class="indexitem">playing cards<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-322.html" title="Exercise 3.2.17">Exercise</a></span>
+</div>
+<div class="indexitem">polyhedron<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3884.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-3884.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">regular<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-32.html" title="Investigate! 4.6">Investigate!</a></span>
+</div>
+<div class="indexitem">polynomial fitting<span class="indexknowl">, <a href="sec_polyfit.html" class="internal" title="Section 2.3: Polynomial Fitting">Section</a></span>
+</div>
+<div class="indexitem">power set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-400.html" title="Item: \pow(A)">Item</a> <a href="" class="xref" data-knowl="./knowl/li-400.html" title="Item: \pow(A)">Item</a> <a href="" class="xref" data-knowl="./knowl/p-606.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">cardinality of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-285.html" title="Exercise 2.6.17">Exercise</a></span>
+</div>
+<div class="indexitem">powers of 2<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-commonsequences.html" title="Summary: Common Sequences">Summary</a> <a href="" class="xref" data-knowl="./knowl/example-65.html" title="Example 2.1.4">Example</a></span>
+</div>
+<div class="indexitem">predicate<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-157.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">binary<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-15.html" title="Exercise 0.2.15">Exercise</a></span>
+</div>
+<div class="indexitem">premises<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-37.html" title="Summary: Arguments">Summary</a></span>
+</div>
+<div class="indexitem">Prim's algorithm<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3780.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">prime numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-90.html" title="Example 2.5.5">Example</a> <a href="" class="xref" data-knowl="./knowl/theorem-1.html" title="Theorem 3.2.1">Theorem</a> <a href="" class="xref" data-knowl="./knowl/exercise-315.html" title="Exercise 3.2.10">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-320.html" title="Exercise 3.2.15">Exercise</a></span>
+</div>
+<div class="indexitem">principle of inclusion/exclusion<span class="indexknowl">, <a href="sec_advPIE.html" class="internal" title="Section 1.6: Advanced Counting Using PIE">Section</a> <a href="sec_counting-addmult.html#EXs" class="internal" title="Subsection: Principle of Inclusion/Exclusion">Subsection</a></span>
+</div>
+<div class="subindexitem">for 2 sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-19.html" title="Summary: Cardinality of a union (2 sets)">Summary</a></span>
+</div>
+<div class="subindexitem">for 3 sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-20.html" title="Summary: Cardinality of a union (3 sets)">Summary</a></span>
+</div>
+<div class="subindexitem">for 4 or more sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1988.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">product notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-9.html" title="Paragraphs: Partial sums">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/exercise-193.html" title="Exercise 2.1.13">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-194.html" title="Exercise 2.1.14">Exercise</a></span>
+</div>
+<div class="indexitem">product principle<span class="indexknowl">. <span class="see"><em>See</em> multiplicative principle</span></span>
+</div>
+<div class="indexitem">proof</div>
+<div class="subindexitem">by cases<span class="indexknowl">, <a href="sec_logic-proofs.html#pWY" class="internal" title="Subsection: Proof by Cases">Subsection</a></span>
+</div>
+<div class="subindexitem">by contradiction<span class="indexknowl">, <a href="sec_logic-proofs.html#dIG" class="internal" title="Subsection: Proof by Contradiction">Subsection</a></span>
+</div>
+<div class="subindexitem">by contrapositive<span class="indexknowl">, <a href="sec_logic-proofs.html#xBx" class="internal" title="Subsection: Proof by Contrapositive">Subsection</a></span>
+</div>
+<div class="subindexitem">by indcution<span class="indexknowl">, <a href="sec_seq-induction.html" class="internal" title="Section 2.5: Induction">Section</a> <a href="" class="xref" data-knowl="./knowl/assemblage-35.html" title="Summary: Induction Proof Structure">Summary</a></span>
+</div>
+<div class="subindexitem">combinatorial<span class="indexknowl">, <a href="sec_comb-proofs.html" class="internal" title="Section 1.4: Combinatorial Proofs">Section</a> <a href="" class="xref" data-knowl="./knowl/p-1711.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">proper vertex coloring<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1616.html" title="Item: Vertex coloring">Item</a></span>
+</div>
+<div class="indexitem">proposition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3126.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">propositional variable<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-65.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">puzzle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-337.html" title="Exercise 3.3.11">Exercise</a></span>
+</div>
+<div class="subindexitem">cardinality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-48.html" title="Exercise 0.3.28">Exercise</a></span>
+</div>
+<div class="subindexitem">chocolate bar<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/blockquote-10.html" title="Quotation">Quotation</a></span>
+</div>
+<div class="subindexitem">domino path<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-408.html" title="Exercise 4.5.10">Exercise</a></span>
+</div>
+<div class="subindexitem">houses and utilities<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-111.html" title="Example 4.0.2">Example</a></span>
+</div>
+<div class="subindexitem">knights and knaves<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-2.html" title="Investigate! 0.2">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/investigation-24.html" title="Investigate! 3.1">Investigate!</a></span>
+</div>
+<div class="subindexitem">seven bridges<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-27.html" title="Investigate! 4.1">Investigate!</a></span>
+</div>
+<div class="subindexitem">square division<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-268.html" title="Exercise 2.5.29">Exercise</a></span>
+</div>
+<div class="subindexitem">Tower of Hanoi<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-15.html" title="Investigate! 2.1">Investigate!</a></span>
+</div>
+<div class="indexitem">Pythagorean theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-72.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Pythagorean triple<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-4431.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-q">
+<div class="indexitem">quantifier<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+<div class="subindexitem">for all<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+<div class="subindexitem">implicit<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/pars-implicituantifiers.html" title="Paragraphs: Implicit Quantifiers">Paragraphs</a></span>
+</div>
+<div class="subindexitem">interaction with negation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-9.html" title="Summary: Quantifiers and Negation">Summary</a></span>
+</div>
+<div class="subindexitem">there exists<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-r">
+<div class="indexitem">racetrack principle<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2889.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Ramsey theory<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-13.html" title="Paragraphs: Ramsey Theory">Paragraphs</a></span>
+</div>
+<div class="indexitem">range of a function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-805.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-558.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">rational numbers, set of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-398.html" title="Item: \Q">Item</a></span>
+</div>
+<div class="indexitem">real numbers, set of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-399.html" title="Item: \R">Item</a></span>
+</div>
+<div class="indexitem">recurrence relation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-28.html" title="Summary: Recursive definition">Summary</a></span>
+</div>
+<div class="subindexitem">finding for sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-80.html" title="Example 2.4.1">Example</a></span>
+</div>
+<div class="subindexitem">for a function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-12.html" title="Summary: Recursively Defined Functions">Summary</a></span>
+</div>
+<div class="subindexitem">for binomial coefficient<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-23.html" title="Summary: Recurrence relation for {n \choose k}">Summary</a></span>
+</div>
+<div class="subindexitem">for number of bit strings<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1329.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">for number of lattice paths<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1340.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">generating function<span class="indexknowl">, <a href="sec_addtops-genfun.html#vDt" class="internal" title="Subsection: Solving Recurrence Relations with Generating Functions">Subsection</a></span>
+</div>
+<div class="subindexitem">solving<span class="indexknowl">, <a href="sec_recurrence.html" class="internal" title="Section 2.4: Solving Recurrence Relations">Section</a> <a href="" class="xref" data-knowl="./knowl/assemblage-33.html" title="Summary: Characteristic Roots">Summary</a> <a href="" class="xref" data-knowl="./knowl/asmb-char-rep-roots.html" title="Summary: Characteristic Root Technique for Repeated Roots">Summary</a> <a href="" class="xref" data-knowl="./knowl/p-2782.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">verifying solution to<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-81.html" title="Example 2.4.2">Example</a></span>
+</div>
+<div class="indexitem">recursive definition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-28.html" title="Summary: Recursive definition">Summary</a></span>
+</div>
+<div class="subindexitem">for arithmetic sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-30.html" title="Summary: Arithmetic Sequences">Summary</a></span>
+</div>
+<div class="subindexitem">for geometric sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-31.html" title="Summary: Geometric Sequences">Summary</a></span>
+</div>
+<div class="indexitem">recursively defined function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-12.html" title="Summary: Recursively Defined Functions">Summary</a></span>
+</div>
+<div class="indexitem">reference, self<span class="indexknowl">. <span class="see"><em>See</em> self reference</span></span>
+</div>
+<div class="indexitem">region (graph)<span class="indexknowl">. <span class="see"><em>See</em> face (planar graph)</span></span>
+</div>
+<div class="indexitem">regular polyhedron<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-32.html" title="Investigate! 4.6">Investigate!</a></span>
+</div>
+<div class="indexitem">remainder class<span class="indexknowl">, <a href="sec_addtops-numbth.html#iyd" class="internal" title="Subsection: Remainder Classes">Subsection</a></span>
+</div>
+<div class="indexitem">residue class<span class="indexknowl">. <span class="see"><em>See</em> remainder class</span></span>
+</div>
+<div class="indexitem">rook paths<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-7.html" title="Investigate! 1.3">Investigate!</a></span>
+</div>
+<div class="indexitem">root (in a tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3758.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">rooted tree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3726.html" title="Paragraph">Paragraph</a> <a href="sec_trees.html#sCJ" class="internal" title="Subsection: Rooted Trees">Subsection</a></span>
+</div>
+<div class="indexitem">
+<em class="emphasis">rule of four</em><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-816.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-s">
+<div class="indexitem">search</div>
+<div class="subindexitem">breadth first<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3769.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">depth first<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3770.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">self reference<span class="indexknowl">. <span class="see"><em>See</em> reference, self</span></span>
+</div>
+<div class="indexitem">sentence (compared to statement)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-61.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">sentential variable<span class="indexknowl">. <span class="see"><em>See</em> propositional variable</span></span>
+</div>
+<div class="indexitem">sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2387.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">as function<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2389.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">closed formula for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-27.html" title="Summary: Closed formula">Summary</a> <a href="" class="xref" data-knowl="./knowl/example-63.html" title="Example 2.1.2">Example</a></span>
+</div>
+<div class="subindexitem">inductive definition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-28.html" title="Summary: Recursive definition">Summary</a></span>
+</div>
+<div class="subindexitem">notation for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2387.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">recursive definition for<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-28.html" title="Summary: Recursive definition">Summary</a> <a href="" class="xref" data-knowl="./knowl/example-63.html" title="Example 2.1.2">Example</a></span>
+</div>
+<div class="indexitem">sequence of partial sums<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/paragraphs-9.html" title="Paragraphs: Partial sums">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/example-sum-of-arithmetic.html" title="Example 2.2.6">Example</a> <a href="" class="xref" data-knowl="./knowl/exercise-257.html" title="Exercise 2.5.18">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-281.html" title="Exercise 2.6.13">Exercise</a></span>
+</div>
+<div class="subindexitem">for Fibonacci sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1246.html" title="Item 2.1.5.b">Item</a></span>
+</div>
+<div class="subindexitem">for triangular numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2548.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-539.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">cardinality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-412.html" title="Item: \card{A}">Item</a></span>
+</div>
+<div class="subindexitem">complement<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-411.html" title="Item: \bar{A}">Item</a></span>
+</div>
+<div class="subindexitem">difference<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-410.html" title="Item: \setminus">Item</a> <a href="" class="xref" data-knowl="./knowl/p-624.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">intersection<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-407.html" title="Item: \cap">Item</a></span>
+</div>
+<div class="subindexitem">notation for<span class="indexknowl">, <a href="sec_intro-sets.html#RBf" class="internal" title="Subsection: Notation">Subsection</a></span>
+</div>
+<div class="subindexitem">of all subsets<span class="indexknowl"> <span class="see">(<em>see</em> power set)</span></span>
+</div>
+<div class="subindexitem">of integers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-388.html" title="Item 3">Item</a> <a href="" class="xref" data-knowl="./knowl/li-397.html" title="Item: \Z">Item</a></span>
+</div>
+<div class="subindexitem">of natural numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-396.html" title="Item: \N">Item</a></span>
+</div>
+<div class="subindexitem">of rational numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-398.html" title="Item: \Q">Item</a></span>
+</div>
+<div class="subindexitem">of real numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-399.html" title="Item: \R">Item</a></span>
+</div>
+<div class="subindexitem">operations<span class="indexknowl">, <a href="sec_intro-sets.html#dPx" class="internal" title="Subsection: Operations On Sets">Subsection</a></span>
+</div>
+<div class="subindexitem">product<span class="indexknowl"> <span class="see">(<em>see</em> Cartesian product)</span></span>
+</div>
+<div class="subindexitem">relationships between<span class="indexknowl">, <a href="sec_intro-sets.html#xIo" class="internal" title="Subsection: Relationships Between Sets">Subsection</a></span>
+</div>
+<div class="subindexitem">union<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-408.html" title="Item: \cup">Item</a></span>
+</div>
+<div class="subindexitem">Venn diagram<span class="indexknowl">, <a href="sec_intro-sets.html#JWG" class="internal" title="Subsection: Venn Diagrams">Subsection</a></span>
+</div>
+<div class="indexitem">set builder notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-548.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Seven Bridges of Königsberg<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-27.html" title="Investigate! 4.1">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/p-4023.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">sibling (in a rooted tree)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3761.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Sigma notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/ex-first-partial-sums.html" title="Example 2.1.5">Example</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-9.html" title="Paragraphs: Partial sums">Paragraphs</a></span>
+</div>
+<div class="indexitem">simple graph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3601.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">six color theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-392.html" title="Exercise 4.4.8">Exercise</a></span>
+</div>
+<div class="indexitem">size of a set</div>
+<div class="subindexitem">see cardinality<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-412.html" title="Item: \card{A}">Item</a></span>
+</div>
+<div class="indexitem">solitary number<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-20.html" title="Exercise 0.2.20">Exercise</a></span>
+</div>
+<div class="indexitem">spanning tree<span class="indexknowl">, <a href="sec_trees.html#YJS" class="internal" title="Subsection: Spanning Trees">Subsection</a> <a href="" class="xref" data-knowl="./knowl/assemblage-spanningtree.html" title="Summary: Spanning tree">Summary</a></span>
+</div>
+<div class="subindexitem">minimum<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3780.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">square numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-commonsequences.html" title="Summary: Common Sequences">Summary</a></span>
+</div>
+<div class="indexitem">stars and bars<span class="indexknowl">, <a href="sec_stars-and-bars.html" class="internal" title="Section 1.5: Stars and Bars">Section</a></span>
+</div>
+<div class="subindexitem">chart<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1847.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">vs combination<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1044.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">statement<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-50.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">sticks and stones<span class="indexknowl">. <span class="see"><em>See</em> stars and bars</span></span>
+</div>
+<div class="indexitem">string</div>
+<div class="subindexitem">binary<span class="indexknowl"> <span class="see">(<em>see</em> bit string)</span></span>
+</div>
+<div class="subindexitem">ternary<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-132.html" title="Exercise 1.4.11">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-196.html" title="Exercise 2.1.16">Exercise</a></span>
+</div>
+<div class="indexitem">strong induction<span class="indexknowl">. <span class="see"><em>See</em> induction, strong</span></span>
+</div>
+<div class="indexitem">subgraph<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-45.html" title="Summary: Subgraphs">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1614.html" title="Item: Subgraph">Item</a></span>
+</div>
+<div class="indexitem">subset<span class="indexknowl">, <a href="sec_counting-binom.html#cgB" class="internal" title="Subsection: Subsets">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-593.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="sec_counting-binom.html#cgB" class="internal" title="Subsection: Subsets">Subsection</a></span>
+</div>
+<div class="subindexitem">encoding as bit string<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1331.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">sufficient condition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-7.html" title="Summary: Necessary and Sufficient">Summary</a></span>
+</div>
+<div class="indexitem">sum principle<span class="indexknowl">. <span class="see"><em>See</em> additive principle</span></span>
+</div>
+<div class="indexitem">summation notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/ex-first-partial-sums.html" title="Example 2.1.5">Example</a> <a href="" class="xref" data-knowl="./knowl/paragraphs-9.html" title="Paragraphs: Partial sums">Paragraphs</a> <a href="" class="xref" data-knowl="./knowl/exercise-193.html" title="Exercise 2.1.13">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-194.html" title="Exercise 2.1.14">Exercise</a></span>
+</div>
+<div class="indexitem">surjection<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1010.html" title="Item 3">Item</a> <a href="sec_intro-functions.html#Ozi" class="internal" title="Subsection: Surjections, Injections, and Bijections">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-850.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-560.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-57.html" title="Example 1.6.7">Example</a> <a href="" class="xref" data-knowl="./knowl/example-58.html" title="Example 1.6.8">Example</a> <a href="" class="xref" data-knowl="./knowl/example-59.html" title="Example 1.6.9">Example</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-t">
+<div class="indexitem">tautology<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3143.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">telescoping<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-2741.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">ternary string<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-132.html" title="Exercise 1.4.11">Exercise</a> <a href="" class="xref" data-knowl="./knowl/exercise-196.html" title="Exercise 2.1.16">Exercise</a></span>
+</div>
+<div class="indexitem">tetrahedron<span class="indexknowl">, <a href="sec_planar.html#FHZ" class="internal" title="Subsection: Polyhedra">Subsection</a></span>
+</div>
+<div class="indexitem">there exists (quantifier)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+<div class="indexitem">tour, Euler<span class="indexknowl">. <span class="see"><em>See</em> Euler circuit</span></span>
+</div>
+<div class="indexitem">Tower of Hanoi<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/investigation-15.html" title="Investigate! 2.1">Investigate!</a> <a href="" class="xref" data-knowl="./knowl/p-2379.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">trail<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a></span>
+</div>
+<div class="subindexitem">Euler<span class="indexknowl"> <span class="see">(<em>see</em> Euler path)</span></span>
+</div>
+<div class="indexitem">transitive sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-47.html" title="Exercise 0.3.27">Exercise</a></span>
+</div>
+<div class="indexitem">tree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1615.html" title="Item: Tree">Item</a> <a href="" class="xref" data-knowl="./knowl/assemblage-46.html" title="Summary: Definition of a Tree">Summary</a></span>
+</div>
+<div class="subindexitem">number of edges and vertices<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/prop-tree-edge-vertex.html" title="Proposition 4.2.4">Proposition</a></span>
+</div>
+<div class="subindexitem">rooted<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3726.html" title="Paragraph">Paragraph</a> <a href="sec_trees.html#sCJ" class="internal" title="Subsection: Rooted Trees">Subsection</a></span>
+</div>
+<div class="subindexitem">spanning<span class="indexknowl">, <a href="sec_trees.html#YJS" class="internal" title="Subsection: Spanning Trees">Subsection</a> <a href="" class="xref" data-knowl="./knowl/assemblage-spanningtree.html" title="Summary: Spanning tree">Summary</a></span>
+</div>
+<div class="indexitem">triangular numbers<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-commonsequences.html" title="Summary: Common Sequences">Summary</a> <a href="" class="xref" data-knowl="./knowl/example-65.html" title="Example 2.1.4">Example</a> <a href="" class="xref" data-knowl="./knowl/p-2546.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/example-82.html" title="Example 2.4.3">Example</a></span>
+</div>
+<div class="indexitem">truth condition<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-2.html" title="Summary: Truth Conditions for Connectives">Summary</a></span>
+</div>
+<div class="subindexitem">for and<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-24.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">for if and only if<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-27.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">for if…, then…<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-26.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">for not<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-28.html" title="Item">Item</a></span>
+</div>
+<div class="subindexitem">for or<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-25.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">truth table<span class="indexknowl">, <a href="sec_propositional.html#DTz" class="internal" title="Subsection: Truth Tables">Subsection</a></span>
+</div>
+<div class="indexitem">truth value<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-65.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/p-67.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">
+<em class="emphasis">The Twelve Days of Christmas</em><span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-277.html" title="Exercise 2.6.9">Exercise</a></span>
+</div>
+<div class="indexitem">two-line notation<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-824.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-556.html" title="Item">Item</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-u">
+<div class="indexitem">unary connective<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-64.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">union of sets<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-408.html" title="Item: \cup">Item</a> <a href="" class="xref" data-knowl="./knowl/p-620.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">cardinality of<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-16.html" title="Summary: Additive Principle (with sets)">Summary</a></span>
+</div>
+<div class="indexitem">universal quantifier<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-8.html" title="Summary: Universal and Existential Quantifiers">Summary</a></span>
+</div>
+<div class="indexitem">universe set<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-395.html" title="Item: \U">Item</a> <a href="" class="xref" data-knowl="./knowl/p-622.html" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-v">
+<div class="indexitem">valid<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/assemblage-37.html" title="Summary: Arguments">Summary</a></span>
+</div>
+<div class="indexitem">variable, propositional<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-65.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Venn diagram<span class="indexknowl">, <a href="sec_intro-sets.html#JWG" class="internal" title="Subsection: Venn Diagrams">Subsection</a> <a href="" class="xref" data-knowl="./knowl/p-640.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">for counting<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1197.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">intersection<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-641.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">set difference<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-642.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">vertex<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3548.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-43.html" title="Summary: Graph Definition">Summary</a> <a href="" class="xref" data-knowl="./knowl/li-1600.html" title="Item: Graph">Item</a></span>
+</div>
+<div class="indexitem">vertex coloring<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1616.html" title="Item: Vertex coloring">Item</a> <a href="" class="xref" data-knowl="./knowl/p-3940.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">vertex cover<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-415.html" title="Exercise 4.6.5">Exercise</a></span>
+</div>
+<div class="indexitem">vertex degree<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3605.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/li-1608.html" title="Item: Degree of a vertex">Item</a></span>
+</div>
+<div class="subindexitem">degree sequence<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-3610.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="indexitem">Vizing's Theorem<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/theorem-8.html" title="Theorem 4.4.7: Vizing's Theorem">Theorem</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-w">
+<div class="indexitem">walk<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-1617.html" title="Item: Walk">Item</a> <a href="" class="xref" data-knowl="./knowl/p-4022.html" title="Paragraph">Paragraph</a></span>
+</div>
+<div class="subindexitem">Euler<span class="indexknowl"> <span class="see">(<em>see</em> Euler path)</span></span>
+</div>
+<div class="indexitem">weight (bit string)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/li-763.html" title="Item">Item</a></span>
+</div>
+<div class="indexitem">weight of a bit string<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/p-1321.html" title="Paragraph">Paragraph</a> <a href="" class="xref" data-knowl="./knowl/assemblage-21.html" title="Summary: Bit Strings">Summary</a></span>
+</div>
+<div class="indexitem">word (counting)<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/example-28.html" title="Example 1.1.1">Example</a> <a href="" class="xref" data-knowl="./knowl/example-38.html" title="Example 1.3.3">Example</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-z"><div class="indexitem">zombies<span class="indexknowl">, <a href="" class="xref" data-knowl="./knowl/exercise-247.html" title="Exercise 2.5.8">Exercise</a></span>
+</div></div></section></div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

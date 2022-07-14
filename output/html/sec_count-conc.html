@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:18-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Chapter Summary</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_advPIE.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_counting.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_sequences.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_advPIE.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_counting.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_sequences.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="internal">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="active">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="internal">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="internal">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="Bmb"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.7</span> <span class="title">Chapter Summary</span>
+</h2>
+<section class="introduction" id="NAt"><article class="project-like" id="tHC"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<p id="BVV">Suppose you have a huge box of animal crackers containing plenty of each of 10 different animals. For the counting questions below, carefully examine their similarities and differences, and then give an answer. The answers are all one of the following:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="mMX"><tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P(10,6)\qquad\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\({10 \choose 6}\qquad\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(10^6\qquad\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\({15 \choose 9}\text{.}\)</span></td>
+</tr></table></div></div></div>
+<ol id="ide" class="decimal">
+<li id="WUf"><p id="TZz">How many animal parades containing 6 crackers can you line up?</p></li>
+<li id="Dbo"><p id="AgI">How many animal parades of 6 crackers can you line up so that the animals appear in alphabetical order?</p></li>
+<li id="jix"><p id="gnR">How many ways could you line up 6 different animals in alphabetical order?</p></li>
+<li id="PpG"><p id="Mva">How many ways could you line up 6 different animals if they can come in any order?</p></li>
+<li id="vwP"><p id="sCj">How many ways could you give 6 children one animal cracker each?</p></li>
+<li id="bDY"><p id="YJs">How many ways could you give 6 children one animal cracker each so that no two kids get the same animal?</p></li>
+<li id="HLh"><p id="EQB">How many ways could you give out 6 giraffes to 10 kids?</p></li>
+<li id="nSq"><p id="kXK">Write a question about giving animal crackers to kids that has the answer <span class="process-math">\({10\choose 6}\text{.}\)</span></p></li>
+</ol></article><p id="Okn">With all the different counting techniques we have mastered in this last chapter, it might be difficult to know when to apply which technique. Indeed, it is very easy to get mixed up and use the wrong counting method for a given problem. You get better with practice. As you practice you start to notice some trends that can help you distinguish between types of counting problems. Here are some suggestions that you might find helpful when deciding how to tackle a counting problem and checking whether your solution is correct.</p>
+<ul id="urw" class="disc">
+<li id="mdd"><p id="ReT">Remember that you are counting the number of items in some <em class="emphasis">list of outcomes</em>. Write down part of this list. Write down an element in the middle of the list – how are you deciding whether your element really is in the list. Could you get this element more than once using your proposed answer?</p></li>
+<li id="Skm"><p id="xmc">If generating an element on the list involves selecting something (for example, picking a letter or picking a position to put a letter, etc), can the things you select be repeated? Remember, permutations and combinations select objects from a set <em class="emphasis">without</em> repeats.</p></li>
+<li id="yrv"><p id="dtl">Does order matter? Be careful here and be sure you know what your answer really means. We usually say that order matters when you get different outcomes when the same objects are selected in different orders. Combinations and “Stars &amp; Bars” are used when order <em class="emphasis">does not</em> matter.</p></li>
+<li id="eyE"><p id="JAu"> There are four possibilities when it comes to order and repeats. If order matters and repeats are allowed, the answer will look like <span class="process-math">\(n^k\text{.}\)</span> If order matters and repeats are not allowed, we have <span class="process-math">\(P(n,k)\text{.}\)</span> If order doesn't matter and repeats are allowed, use stars and bars. If order doesn't matter and repeats are not allowed, use <span class="process-math">\({n\choose k}\text{.}\)</span> But be careful: this only applies when you are selecting things, and you should make sure you know exactly what you are selecting before determining which case you are in.</p></li>
+<li id="KFN"><p id="pHD">Think about how you would represent your counting problem in terms of sets or functions. We know how to count different sorts of sets and different types of functions.</p></li>
+<li id="qMW"><p id="VOM">As we saw with combinatorial proofs, you can often solve a counting problem in more than one way. Do that, and compare your numerical answers. If they don't match, something is amiss.</p></li>
+</ul>
+<p id="ayF">While we have covered many counting techniques, we have really only scratched the surface of the large subject of <em class="emphasis">enumerative combinatorics</em>. There are mathematicians doing original research in this area even as you read this. Counting can be really hard.</p>
+<p id="GFO">In the next chapter, we will approach counting questions from a very different direction, and in doing so, answer infinitely many counting questions at the same time. We will create <em class="emphasis">sequences</em> of answers to related questions.</p></section><section class="exercises" id="Ejh"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Chapter Review</span>
+</h3>
+<article class="exercise exercise-like" id="PrT"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-83" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="83" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQyg4LDUpIik7CiRhbnMyID0gQ29tcHV0ZSgiQygxMiw5KSIpOwokYW5zMyA9IENvbXB1dGUoIjReOSIpOwokYW5zNCA9IENvbXB1dGUoIjReOSAtIChDKDQsMSkqM145IC0gQyg0LDIpKjJeOSArIEMoNCwzKSoxXjkpIik7CgpCRUdJTl9QR01MCllvdSBoYXZlIDkgcHJlc2VudHMgdG8gZ2l2ZSB0byB5b3VyIDQga2lkcy4gSG93IG1hbnkgd2F5cyBjYW4gdGhpcyBiZSBkb25lIGlmOgphLiAgVGhlIHByZXNlbnRzIGFyZSBpZGVudGljYWwsIGFuZCBlYWNoIGtpZCBnZXRzIGF0IGxlYXN0IG9uZSBwcmVzZW50PwoKICAgIFtfXXskYW5zMX17NX0KCgphLiAgVGhlIHByZXNlbnRzIGFyZSBpZGVudGljYWwsIGFuZCBzb21lIGtpZHMgbWlnaHQgZ2V0IG5vIHByZXNlbnRzPwoKICAgIFtfXXskYW5zMn17NX0KCgphLiAgVGhlIHByZXNlbnRzIGFyZSB1bmlxdWUsIGFuZCBzb21lIGtpZHMgbWlnaHQgZ2V0IG5vIHByZXNlbnRzPwoKICAgIFtfXXskYW5zM317NX0KCgphLiAgVGhlIHByZXNlbnRzIGFyZSB1bmlxdWUgYW5kIGVhY2gga2lkIGdldHMgYXQgbGVhc3Qgb25lIHByZXNlbnQ/CgogICAgW19deyRhbnM0fXsxNX0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezggXGNob29zZSA1fWBdIHdheXMsIGFmdGVyIGdpdmluZyBvbmUgcHJlc2VudCB0byBlYWNoIGtpZCwgeW91IGFyZSBsZWZ0IHdpdGggNSBwcmVzZW50cyAoc3RhcnMpIHdoaWNoIG5lZWQgdG8gYmUgZGl2aWRlIGFtb25nIHRoZSA0IGtpZHMgKGdpdmluZyAzIGJhcnMpLgphLiAgW2B7MTIgXGNob29zZSA5fWBdIHdheXMuIFlvdSBoYXZlIDkgc3RhcnMgYW5kIDMgYmFycy4KYS4gIFtgNF45XHRleHR7Ln1gXSBZb3UgaGF2ZSA0IGNob2ljZXMgZm9yIHdob20gdG8gZ2l2ZSBlYWNoIHByZXNlbnQuIFRoaXMgaXMgbGlrZSBtYWtpbmcgYSBmdW5jdGlvbiBmcm9tIHRoZSBzZXQgb2YgcHJlc2VudHMgdG8gdGhlIHNldCBvZiBraWRzLgphLiAgW2A0XjkgLSBcbGVmdFt7NCBcY2hvb3NlIDF9M145IC0gezRcY2hvb3NlIDJ9Ml45ICsgezQgXGNob29zZSAzfTFeOSBccmlnaHRdYF0gd2F5cy4gTm93IHRoZSBmdW5jdGlvbiBmcm9tIHRoZSBzZXQgb2YgcHJlc2VudHMgdG8gdGhlIHNldCBvZiBraWRzIG11c3QgYmUgc3VyamVjdGl2ZS4gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2144">You have 9 presents to give to your 4 kids. How many ways can this be done if:</p>
+<ol class="lower-alpha">
+<li id="li-1047">
+<p id="p-2145">The presents are identical, and each kid gets at least one present?</p>
+<p id="p-2146"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1048">
+<p id="p-2147">The presents are identical, and some kids might get no presents?</p>
+<p id="p-2148"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1049">
+<p id="p-2149">The presents are unique, and some kids might get no presents?</p>
+<p id="p-2150"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1050">
+<p id="p-2151">The presents are unique and each kid gets at least one present?</p>
+<p id="p-2152"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-83')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="vzc"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="PNF">For each of the following counting problems, say whether the answer is <span class="process-math">\({10\choose 4}\text{,}\)</span> <span class="process-math">\(P(10,4)\text{,}\)</span> or neither. If you answer is “neither,” say what the answer should be instead.</p>
+<ol class="lower-alpha">
+<li id="QLH"><p id="gSU">How many shortest lattice paths are there from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((10,4)\text{?}\)</span></p></li>
+<li id="wSQ"><p id="Nad">If you have 10 bow ties, and you want to select 4 of them for next week, how many choices do you have?</p></li>
+<li id="cZZ"><p id="thm">Suppose you have 10 bow ties and you will wear a different one on each of the next 4 days. How many choices do you have?</p></li>
+<li id="Jhi"><p id="Zov">If you want to wear 4 of your 10 bow ties next week (Monday through Sunday), how many ways can this be accomplished?</p></li>
+<li id="por"><p id="FvE">Out of a group of 10 classmates, how many ways can you rank your top 4 friends?</p></li>
+<li id="VvA"><p id="lCN">If 10 students come to their professor's office but only 4 can fit at a time, how different combinations of 4 students can see the prof first?</p></li>
+<li id="BCJ"><p id="RJW">How many 4 letter words can be made from the first 10 letters of the alphabet?</p></li>
+<li id="hJS"><p id="xRf">How many ways can you make the word “cake” from the first 10 letters of the alphabet?</p></li>
+<li id="NRb"><p id="dYo">How many ways are there to distribute 10 identical apples among 4 children?</p></li>
+<li id="tYk"><p id="Kfx">If you have 10 kids (and live in a shoe) and 4 types of cereal, how many ways can your kids eat breakfast?</p></li>
+<li id="aft"><p id="qmG">How many ways can you arrange exactly 4 ones in a string of 10 binary digits?</p></li>
+<li id="GmC"><p id="WtP">You want to select 4 distinct, single-digit numbers as your lotto picks. How many choices do you have?</p></li>
+<li id="mtL"><p id="CAY">10 kids want ice-cream. You have 4 varieties. How many ways are there to give the kids as much ice-cream as they want?</p></li>
+<li id="SAU"><p id="iIh">How many 1-1 functions are there from <span class="process-math">\(\{1,2,\ldots, 10\}\)</span> to <span class="process-math">\(\{a,b,c,d\}\text{?}\)</span></p></li>
+<li id="yId"><p id="OPq">How many surjective functions are there from <span class="process-math">\(\{1,2,\ldots, 10\}\)</span> to <span class="process-math">\(\{a,b,c,d\}\text{?}\)</span></p></li>
+<li id="ePm"><p id="uWz">Each of your 10 bow ties match 4 pairs of suspenders. How many outfits can you make?</p></li>
+<li id="KWv"><p id="bdI">After the party, the 10 kids each choose one of 4 party-favors. How many outcomes?</p></li>
+<li id="rdE"><p id="HkR">How many 6-elements subsets are there of the set <span class="process-math">\(\{1,2,\ldots, 10\}\)</span></p></li>
+<li id="XkN"><p id="nsa">How many ways can you split up 11 kids into 5 named teams?</p></li>
+<li id="DrW"><p id="Tzj">How many solutions are there to <span class="process-math">\(x_1 + x_2 + \cdots + x_5 = 6\)</span> where each <span class="process-math">\(x_i\)</span> is a non-negative integer?</p></li>
+<li id="jzf"><p id="zGs">Your band goes on tour. There are 10 cities within driving distance, but only enough time to play 4 of them. How many choices do you have for the cities on your tour?</p></li>
+<li id="PGo"><p id="fNB">In how many different ways can you play the 4 cities you choose?</p></li>
+<li id="vNx"><p id="LUK">Out of the 10 breakfast cereals available, you want to have 4 bowls. How many ways can you do this?</p></li>
+<li id="bUG"><p id="sbT">There are 10 types of cookies available. You want to make a 4 cookie stack. How many different stacks can you make?</p></li>
+<li id="IbP"><p id="Yjc">From your home at (0,0) you want to go to either the donut shop at (5,4) or the one at (3,6). How many paths could you take?</p></li>
+<li id="oiY"><p id="Eql">How many 10-digit numbers do not contain a sub-string of 4 repeated digits?</p></li>
+</ol></article><article class="exercise exercise-like" id="bGl"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-84" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="84" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiMl44Iik7CiRhbnMyID0gQ29tcHV0ZSgiNyozMSIpOwokYW5zMyA9IENvbXB1dGUoIkMoMywyKSpDKDUsMykiKTsKJGFuczQgPSBDb21wdXRlKCIzKjQhIik7CgpCRUdJTl9QR01MCmJvdyB0aWVzUmVjYWxsLCB5b3Ugb3duIDMgcmVndWxhciB0aWVzIGFuZCA1IGJvdyB0aWVzLiBZb3UgcmVhbGl6ZSB0aGF0IGl0IHdvdWxkIGJlIG9rYXkgdG8gd2VhciBtb3JlIHRoYW4gdHdvIHRpZXMgdG8geW91ciBjbG93biBjb2xsZWdlIGludGVydmlldy4KYS4gIFlvdSBtdXN0IHNlbGVjdCBzb21lIG9mIHlvdXIgdGllcyB0byB3ZWFyLiBFdmVyeXRoaW5nIGlzIG9rYXksIGZyb20gbm8gdGllcyB1cCB0byBhbGwgdGllcy4gSG93IG1hbnkgY2hvaWNlcyBkbyB5b3UgaGF2ZT8KCiAgICBbX117JGFuczF9ezV9CgoKYS4gIElmIHlvdSB3YW50IHRvIHdlYXIgYXQgbGVhc3Qgb25lIHJlZ3VsYXIgdGllIGFuZCBvbmUgYm93IHRpZSwgYnV0IGFyZSB3aWxsaW5nIHRvIHdlYXIgdXAgdG8gYWxsIHlvdXIgdGllcywgaG93IG1hbnkgY2hvaWNlcyBkbyB5b3UgaGF2ZSBmb3Igd2hpY2ggdGllcyB0byB3ZWFyPwoKICAgIFtfXXskYW5zMn17NX0KCgphLiAgSG93IG1hbnkgY2hvaWNlcyBvZiB3aGljaCB0aWVzIHRvIHdlYXIgZG8geW91IGhhdmUgaWYgeW91IHdlYXIgZXhhY3RseSAyIG9mIHRoZSAzIHJlZ3VsYXIgdGllcyBhbmQgMyBvZiB0aGUgNSBib3cgdGllcz8KCiAgICBbX117JGFuczN9ezV9CgoKYS4gIE9uY2UgeW91IGhhdmUgc2VsZWN0ZWQgMiByZWd1bGFyIGFuZCAzIGJvdyB0aWVzLCBpbiBob3cgbWFueSBvcmRlcnMgY291bGQgeW91IHB1dCB0aGUgdGllcyBvbiwgYXNzdW1pbmcgeW91IG11c3QgaGF2ZSBvbmUgb2YgdGhlIHRocmVlIGJvdyB0aWVzIG9uIHRvcD8KCiAgICBbX117JGFuczR9ezV9CgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYDJeOCA9IDI1NmBdIGNob2ljZXMuIFlvdSBoYXZlIHR3byBjaG9pY2VzIGZvciBlYWNoIHRpZTogd2VhciBpdCBvciBkb24ndC4KCgphLiAgWW91IGhhdmUgNyBjaG9pY2VzIGZvciByZWd1bGFyIHRpZXMgKHRoZSA4IGNob2ljZXMgbGVzcyB0aGUgIm5vIHJlZ3VsYXIgdGllIiBvcHRpb24pIGFuZCAzMSBjaG9pY2VzIGZvciBib3cgdGllcyAoMzIgdG90YWwgbWludXMgdGhlICJubyBib3cgdGllIiBvcHRpb24pLiBUaHVzIHRvdGFsIHlvdSBoYXZlIFtgNyBcY2RvdCAzMSA9IDIxN2BdIGNob2ljZXMuCgoKYS4gIFtgezNcY2hvb3NlIDJ9ezVcY2hvb3NlIDN9ID0gMzBgXSBjaG9pY2VzLgoKCmEuICBTZWxlY3Qgb25lIG9mIHRoZSAzIGJvdyB0aWVzIHRvIGdvIG9uIHRvcC4gVGhlcmUgYXJlIHRoZW4gNCBjaG9pY2VzIGZvciB0aGUgbmV4dCB0aWUsIDMgZm9yIHRoZSB0aWUgYWZ0ZXIgdGhhdCwgYW5kIHNvIG9uLiBUaHVzIFtgM1xjZG90IDQhID0gNzJgXSBjaG9pY2VzLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2206">bow tiesRecall, you own 3 regular ties and 5 bow ties. You realize that it would be okay to wear more than two ties to your clown college interview.</p>
+<ol class="lower-alpha">
+<li id="li-1107">
+<p id="p-2207">You must select some of your ties to wear. Everything is okay, from no ties up to all ties. How many choices do you have?</p>
+<p id="p-2208"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1108">
+<p id="p-2209">If you want to wear at least one regular tie and one bow tie, but are willing to wear up to all your ties, how many choices do you have for which ties to wear?</p>
+<p id="p-2210"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1109">
+<p id="p-2211">How many choices of which ties to wear do you have if you wear exactly 2 of the 3 regular ties and 3 of the 5 bow ties?</p>
+<p id="p-2212"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1110">
+<p id="p-2213">Once you have selected 2 regular and 3 bow ties, in how many orders could you put the ties on, assuming you must have one of the three bow ties on top?</p>
+<p id="p-2214"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-84')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="HNu"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="cbX">Give a counting question where the answer is <span class="process-math">\(8\cdot 3 \cdot 3 \cdot 5\text{.}\)</span> Give another question where the answer is <span class="process-math">\(8 + 3 + 3 + 5\text{.}\)</span></p></article><article class="exercise exercise-like" id="nUD"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-85" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="85" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiNF41Iik7CiRhbnMyID0gQ29tcHV0ZSgiNF40KjIiKTsKJGFuczMgPSBDb21wdXRlKCJDKDUsMykqMl4zKjJeMiArIEMoNSw0KSoyXjQqMiArIEMoNSw1KSoyXjUiKTsKCkJFR0lOX1BHTUwKQ29uc2lkZXIgZml2ZSBkaWdpdCBudW1iZXJzIFtgXGFscGhhID0gYV8xYV8yYV8zYV80YV81XHRleHR7LH1gXSB3aXRoIGVhY2ggZGlnaXQgZnJvbSB0aGUgc2V0IFtgXHsxLDIsMyw0XH1cdGV4dHsufWBdCmEuICBIb3cgbWFueSBzdWNoIG51bWJlcnMgYXJlIHRoZXJlPwoKICAgIFtfXXskYW5zMX17NX0KCgphLiAgSG93IG1hbnkgc3VjaCBudW1iZXJzIGFyZSB0aGVyZSBmb3Igd2hpY2ggdGhlIF9zdW1fIG9mIHRoZSBkaWdpdHMgaXMgZXZlbj8KCiAgICBbX117JGFuczJ9ezV9CgoKYS4gIEhvdyBtYW55IHN1Y2ggbnVtYmVycyBjb250YWluIG1vcmUgZXZlbiBkaWdpdHMgdGhhbiBvZGQgZGlnaXRzPwoKICAgIFtfXXskYW5zM317MTB9CgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYDReNWBdIG51bWJlcnMuCgoKYS4gIFtgNF40XGNkb3QgMmBdIG51bWJlcnMgKGNob29zZSBhbnkgZGlnaXRzIGZvciB0aGUgZmlyc3QgZm91ciBkaWdpdHMgXC0gdGhlbiBwaWNrIGVpdGhlciBhbiBldmVuIG9yIGFuIG9kZCBsYXN0IGRpZ2l0IHRvIG1ha2UgdGhlIHN1bSBldmVuKS4KCgphLiAgV2UgbmVlZCAzIG9yIG1vcmUgZXZlbiBkaWdpdHMuIDMgZXZlbiBkaWdpdHM6IFtgezUgXGNob29zZSAzfTJeMyAyXjJcdGV4dHsufWBdIDQgZXZlbiBkaWdpdHM6IFtgezUgXGNob29zZSA0fTJeNCAyXHRleHR7Ln1gXSA1IGV2ZW4gZGlnaXRzOiBbYHs1IFxjaG9vc2UgNX0yXjVcdGV4dHsufWBdIFNvIGFsbCB0b2dldGhlcjogW2B7NSBcY2hvb3NlIDN9Ml4zIDJeMiArIHs1IFxjaG9vc2UgNH0yXjQgMiArIHs1IFxjaG9vc2UgNX0yXjVgXSBudW1iZXJzLgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2226">Consider five digit numbers <span class="process-math">\(\alpha = a_1a_2a_3a_4a_5\text{,}\)</span> with each digit from the set <span class="process-math">\(\{1,2,3,4\}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1115">
+<p id="p-2227">How many such numbers are there?</p>
+<p id="p-2228"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1116">
+<p id="p-2229">How many such numbers are there for which the <em class="emphasis">sum</em> of the digits is even?</p>
+<p id="p-2230"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1117">
+<p id="p-2231">How many such numbers contain more even digits than odd digits?</p>
+<p id="p-2232"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-85')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="UbM"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-86" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="86" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiNTEiKTsKCkJFR0lOX1BHTUwKSW4gYSByZWNlbnQgc21hbGwgc3VydmV5IG9mIGFpcmxpbmUgcGFzc2VuZ2VycywgMjUgc2FpZCB0aGV5IGhhZCBmbG93biBBbWVyaWNhbiBpbiB0aGUgbGFzdCB5ZWFyLCAzMCBoYWQgZmxvd24gSmV0IEJsdWUsIGFuZCAyMCBoYWQgZmxvd24gQ29udGluZW50YWwuIE9mIHRob3NlLCAxMCByZXBvcnRlZCB0aGV5IGhhZCBmbG93biBvbiBBbWVyaWNhbiBhbmQgSmV0IEJsdWUsIDEyIGhhZCBmbG93biBvbiBKZXQgQmx1ZSBhbmQgQ29udGluZW50YWwsIGFuZCA3IGhhZCBmbG93biBvbiBBbWVyaWNhbiBhbmQgQ29udGluZW50YWwuIDUgcGFzc2VuZ2VycyBoYWQgZmxvd24gb24gYWxsIHRocmVlIGFpcmxpbmVzLgoKSG93IG1hbnkgcGFzc2VuZ2VycyB3ZXJlIHN1cnZleWVkPyAoQXNzdW1lIHRoZSByZXN1bHRzIGFib3ZlIG1ha2UgdXAgdGhlIGVudGlyZSBzdXJ2ZXkuKQoKW19deyRhbnMxfXs1fQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCjUxIHBhc3NlbmdlcnMuIFdlIGFyZSBhc2tpbmcgZm9yIHRoZSBzaXplIG9mIHRoZSB1bmlvbiBvZiB0aHJlZSBub24tZGlzam9pbnQgc2V0cy4gVXNpbmcgUElFLCB3ZSBoYXZlIFtgMjUrMzArMjAtMTAgLTEyLTcrNSA9IDUxXHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2240">In a recent small survey of airline passengers, 25 said they had flown American in the last year, 30 had flown Jet Blue, and 20 had flown Continental. Of those, 10 reported they had flown on American and Jet Blue, 12 had flown on Jet Blue and Continental, and 7 had flown on American and Continental. 5 passengers had flown on all three airlines.</p>
+<p id="p-2241">How many passengers were surveyed? (Assume the results above make up the entire survey.)</p>
+<p id="p-2242"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-86')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="AiV"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-87" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="87" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiMl44Iik7CiRhbnMyID0gQ29tcHV0ZSgiQyg4LDUpIik7CgpCRUdJTl9QR01MClJlY2FsbCwgYnkgW2A4YF0tYml0IHN0cmluZ3MsIHdlIG1lYW4gc3RyaW5ncyBvZiBiaW5hcnkgZGlnaXRzLCBvZiBsZW5ndGggOC4KYS4gIEhvdyBtYW55IFtgOGBdLWJpdCBzdHJpbmdzIGFyZSB0aGVyZSB0b3RhbD8KCiAgICBbX117JGFuczF9ezV9CgoKYS4gIEhvdyBtYW55IFtgOGBdLWJpdCBzdHJpbmdzIGhhdmUgd2VpZ2h0IDU/CgogICAgW19deyRhbnMyfXs1fQoKCmEuICBIb3cgbWFueSBzdWJzZXRzIG9mIHRoZSBzZXQgW2Bce2EsYixjLGQsZSxmLGcsaFx9YF0gY29udGFpbiBleGFjdGx5IDUgZWxlbWVudHM/CgogICAgW19deyRhbnMyfXs1fQoKCmEuICBFeHBsYWluIHdoeSB5b3VyIGFuc3dlcnMgdG8gcGFydHMgKGIpIGFuZCAoYykgYXJlIHRoZSBzYW1lLiBXaHkgYXJlIHRoZXNlIHF1ZXN0aW9ucyBlcXVpdmFsZW50PwoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2AyXjhgXSBzdHJpbmdzLgoKCmEuICBbYHs4IFxjaG9vc2UgNX1gXSBzdHJpbmdzLgoKCmEuICBbYHs4IFxjaG9vc2UgNX1gXSBzdHJpbmdzLgoKCmEuICBUaGVyZSBpcyBhIGJpamVjdGlvbiBiZXR3ZWVuIHN1YnNldHMgYW5kIGJpdCBzdHJpbmdzOiBhIDEgbWVhbnMgdGhhdCBlbGVtZW50IGluIGlzIHRoZSBzdWJzZXQsIGEgMCBtZWFucyB0aGF0IGVsZW1lbnQgaXMgbm90IGluIHRoZSBzdWJzZXQuIFRvIGdldCBhIHN1YnNldCBvZiBhbiA4IGVsZW1lbnQgc2V0IHdlIGhhdmUgYW4gOC1iaXQgc3RyaW5nLiBUbyBtYWtlIHN1cmUgdGhlIHN1YnNldCBjb250YWlucyBleGFjdGx5IDUgZWxlbWVudHMsIHRoZXJlIG11c3QgYmUgNSAxJ3MsIHNvIHRoZSB3ZWlnaHQgbXVzdCBiZSA1LgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2245">Recall, by <span class="process-math">\(8\)</span>-bit strings, we mean strings of binary digits, of length 8.</p>
+<ol class="lower-alpha">
+<li id="li-1121">
+<p id="p-2246">How many <span class="process-math">\(8\)</span>-bit strings are there total?</p>
+<p id="p-2247"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1122">
+<p id="p-2248">How many <span class="process-math">\(8\)</span>-bit strings have weight 5?</p>
+<p id="p-2249"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1123">
+<p id="p-2250">How many subsets of the set <span class="process-math">\(\{a,b,c,d,e,f,g,h\}\)</span> contain exactly 5 elements?</p>
+<p id="p-2251"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1124"><p id="p-2252">Explain why your answers to parts (b) and (c) are the same. Why are these questions equivalent?</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-87')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="gqe"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-88" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="88" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxMywxMCkrQygxNyw4KSIpOwoKQkVHSU5fUEdNTApXaGF0IGlzIHRoZSBjb2VmZmljaWVudCBvZiBbYHheezEwfWBdIGluIHRoZSBleHBhbnNpb24gb2YgW2AoeCsxKV57MTN9ICsgeF4yKHgrMSleezE3fVx0ZXh0ez99YF0KCltfXXskYW5zMX17MTB9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2B7MTMgXGNob29zZSAxMH0gKyB7MTcgXGNob29zZSA4fVx0ZXh0ey59YF0KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2261">What is the coefficient of <span class="process-math">\(x^{10}\)</span> in the expansion of <span class="process-math">\((x+1)^{13} + x^2(x+1)^{17}\text{?}\)</span></p>
+<p id="p-2262"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-88')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Mxn"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div id="webwork-89" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="89" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQyg4LDUqNV41KjIxXjMpIik7CiRhbnMyID0gQ29tcHV0ZSgiQyg4LDUpKiA1ISAqIFAoMjEsMykiKTsKCkJFR0lOX1BHTUwKSG93IG1hbnkgOC1sZXR0ZXIgd29yZHMgY29udGFpbiBleGFjdGx5IDUgdm93ZWxzPyAoT25lIHN1Y2ggd29yZCBpcyAiYWFpb29idHQiOyBkb24ndCBjb25zaWRlciAieSIgYSB2b3dlbCBmb3IgdGhpcyBleGVyY2lzZS4pCgpbX117JGFuczF9ezh9CgpXaGF0IGlmIHJlcGVhdGVkIGxldHRlcnMgd2VyZSBub3QgYWxsb3dlZD8KCltfXXskYW5zMn17OH0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpXaXRoIHJlcGVhdGVkIGxldHRlcnMgYWxsb3dlZCwgd2Ugc2VsZWN0IHdoaWNoIDUgb2YgdGhlIDggbGV0dGVycyB3aWxsIGJlIHZvd2VscywgdGhlbiBwaWNrIG9uZSBvZiB0aGUgNSB2b3dlbHMgZm9yIGVhY2ggc3BvdCwgYW5kIGZpbmFsbHkgcGljayBvbmUgb2YgdGhlIG90aGVyIDIxIGxldHRlcnMgZm9yIGVhY2ggb2YgdGhlIHJlbWFpbmluZyAzIHNwb3RzLiBUaHVzLCBbYHs4IFxjaG9vc2UgNX01XjUgMjFeM2BdIHdvcmRzLgoKV2l0aG91dCByZXBlYXRzLCB3ZSBzdGlsbCBwaWNrIHRoZSBwb3NpdGlvbnMgb2YgdGhlIHZvd2VscywgYnV0IG5vdyBlYWNoIHRpbWUgd2UgcGxhY2Ugb25lIHRoZXJlLCB0aGVyZSBpcyBvbmUgZmV3ZXIgY2hvaWNlIGZvciB0aGUgbmV4dCBvbmUuIFNpbWlsYXJseSwgd2UgY2Fubm90IHJlcGVhdCB0aGUgY29uc29uYW50cy4gV2UgZ2V0IFtgezggXGNob29zZSA1fTUhCiAgICAgICAgICAgIFAoMjEsIDMpYF0gd29yZHMuCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2265">How many 8-letter words contain exactly 5 vowels? (One such word is “aaioobtt”; don’t consider “y” a vowel for this exercise.)</p>
+<p id="p-2266"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-2267">What if repeated letters were not allowed?</p>
+<p id="p-2268"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-89')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="sEw"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div id="webwork-90" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="90" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQyg1LDIpKkMoMTEsNikiKTsKJGFuczIgPSBDb21wdXRlKCJDKDE2LDgpIC0gQygxMiw3KSpDKDQsMSkiKTsKJGFuczMgPSBDb21wdXRlKCJDKDUsMikqQygxMSwgNikgKyBDKDEyLDUpKkMoNCwzKSAtIEMoNSwyKSpDKDcsMykqQyg0LDMpIik7CgpCRUdJTl9QR01MCkZvciBlYWNoIG9mIHRoZSBmb2xsb3dpbmcsIGZpbmQgdGhlIG51bWJlciBvZiBzaG9ydGVzdCBsYXR0aWNlIHBhdGhzIGZyb20gW2AoMCwwKWBdIHRvIFtgKDgsOClgXSB3aGljaDoKYS4gIHBhc3MgdGhyb3VnaCB0aGUgcG9pbnQgW2AoMiwzKVx0ZXh0ey59YF0KCiAgICBbX117JGFuczF9ezEwfQoKCmEuICBhdm9pZCAoZG8gbm90IHBhc3MgdGhyb3VnaCkgdGhlIHBvaW50IFtgKDcsNSlcdGV4dHsufWBdCgogICAgW19deyRhbnMyfXsxMH0KCgphLiAgZWl0aGVyIHBhc3MgdGhyb3VnaCBbYCgyLDMpYF0gb3IgW2AoNSw3KWBdIChvciBib3RoKS4KCiAgICBbX117JGFuczN9ezE1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgphLiAgW2B7NSBcY2hvb3NlIDJ9ezExIFxjaG9vc2UgNn1gXSBwYXRocy4KYS4gIFtgezE2IFxjaG9vc2UgOH0gLSB7MTIgXGNob29zZSA3fXs0IFxjaG9vc2UgMX1gXSBwYXRocy4KYS4gIFtgezUgXGNob29zZSAyfXsxMSBcY2hvb3NlIDZ9ICsgezEyIFxjaG9vc2UgNX17NCBcY2hvb3NlIDN9IC0gezUgXGNob29zZSAyfXs3IFxjaG9vc2UgM317NCBcY2hvb3NlIDN9YF0gcGF0aHMuICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2273">For each of the following, find the number of shortest lattice paths from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((8,8)\)</span> which:</p>
+<ol class="lower-alpha">
+<li id="li-1129">
+<p id="p-2274">pass through the point <span class="process-math">\((2,3)\text{.}\)</span></p>
+<p id="p-2275"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1130">
+<p id="p-2276">avoid (do not pass through) the point <span class="process-math">\((7,5)\text{.}\)</span></p>
+<p id="p-2277"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1131">
+<p id="p-2278">either pass through <span class="process-math">\((2,3)\)</span> or <span class="process-math">\((5,7)\)</span> (or both).</p>
+<p id="p-2279"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-90')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="YLF"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div id="webwork-91" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="91" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxOCw4KSooQygxOCw4KSAtIDEpIik7CgpCRUdJTl9QR01MCllvdSBsaXZlIGluIEdyaWQtVG93biBvbiB0aGUgY29ybmVyIG9mIDJuZCBhbmQgM3JkLCBhbmQgd29yayBpbiBhIGJ1aWxkaW5nIG9uIHRoZSBjb3JuZXIgb2YgMTB0aCBhbmQgMTN0aC4gSG93IG1hbnkgcm91dGVzIGFyZSB0aGVyZSB3aGljaCB0YWtlIHlvdSBmcm9tIGhvbWUgdG8gd29yayBhbmQgdGhlbiBiYWNrIGhvbWUsIGJ1dCBieSBhIGRpZmZlcmVudCByb3V0ZT8KCltfXXskYW5zMX17MTB9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2B7MTggXGNob29zZSA4fVxsZWZ0KHsxOCBcY2hvb3NlIDh9IC0gMVxyaWdodClgXSByb3V0ZXMuIEZvciBlYWNoIG9mIHRoZSBbYFxiaW5vbXsxOH17OH1gXSByb3V0ZXMgdG8gd29yayB0aGVyZSBpcyBleGFjdGx5IG9uZSBmZXdlciByb3V0ZSBiYWNrLgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2287">You live in Grid-Town on the corner of 2nd and 3rd, and work in a building on the corner of 10th and 13th. How many routes are there which take you from home to work and then back home, but by a different route?</p>
+<p id="p-2288"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-91')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="ESO"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<div id="webwork-92" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="92" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiMl43ICsgMl43IC0gMl40Iik7CgpCRUdJTl9QR01MCkhvdyBtYW55IDEwLWJpdCBzdHJpbmdzIHN0YXJ0IHdpdGggW2AxMTFgXSBvciBlbmQgd2l0aCBbYDEwMWBdIG9yIGJvdGg/CgpbX117JGFuczF9ezEwfQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgMl43ICsgMl43IC0gMl40YF0gc3RyaW5ncyAodXNpbmcgUElFKS4KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2291">How many 10-bit strings start with <span class="process-math">\(111\)</span> or end with <span class="process-math">\(101\)</span> or both?</p>
+<p id="p-2292"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-92')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="kZX"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<div id="webwork-93" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="93" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQyg3LDMpICsgQyg3LDQpIC0gQyg0LDEpIik7CgpCRUdJTl9QR01MCkhvdyBtYW55IDEwLWJpdCBzdHJpbmdzIG9mIHdlaWdodCA2IHN0YXJ0IHdpdGggW2AxMTFgXSBvciBlbmQgd2l0aCBbYDEwMWBdIG9yIGJvdGg/CgpbX117JGFuczF9ezEwfQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgezcgXGNob29zZSAzfSArIHs3IFxjaG9vc2UgNH0gLSB7NCBcY2hvb3NlIDF9YF0gc3RyaW5ncy4KCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2295">How many 10-bit strings of weight 6 start with <span class="process-math">\(111\)</span> or end with <span class="process-math">\(101\)</span> or both?</p>
+<p id="p-2296"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-93')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Rhg"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<div id="webwork-94" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="94" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiNiEgLSA0KjMhIik7CiRhbnMyID0gQ29tcHV0ZSgiNiEgLSBDKDYsMykqMyEiKTsKCkJFR0lOX1BHTUwKSG93IG1hbnkgNiBsZXR0ZXIgd29yZHMgbWFkZSBmcm9tIHRoZSBsZXR0ZXJzIFtgYSxiLGMsZCxlLGZgXSB3aXRob3V0IHJlcGVhdHMgZG8gbm90IGNvbnRhaW4gdGhlIHN1Yi13b3JkICJiYWQiIGluIGNvbnNlY3V0aXZlIGxldHRlcnM/CgpbX117JGFuczF9ezV9CgpIb3cgbWFueSBkb24ndCB0byBjb250YWluIHRoZSBzdWJ3b3JkICJiYWQiIGluIG5vdC1uZWNlc3NhcmlseSBjb25zZWN1dGl2ZSBsZXR0ZXJzIChidXQgaW4gb3JkZXIpPwoKW19deyRhbnMyfXs1fQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OClRoZXJlIGFyZSA0IHNwb3RzIHRvIHN0YXJ0IHRoZSB3b3JkLCBhbmQgdGhlbiB0aGVyZSBhcmUgW2AzIWBdIHdheXMgdG8gYXJyYW5nZSB0aGUgb3RoZXIgbGV0dGVycyBpbiB0aGUgcmVtYWluaW5nIHRocmVlIHNwb3RzLiBUaHVzIHRoZSBudW1iZXIgb2Ygd29yZHMgYXZvaWRpbmcgdGhlIHN1Yi13b3JkICJiYWQiIGluIGNvbnNlY3V0aXZlIGxldHRlcnMgaXMgW2A2ISAtIDRcY2RvdCAzIVx0ZXh0ey59YF0KCklmIHdlIG5vdyBuZWVkIHRvIGF2b2lkIHdvcmRzIHRoYXQgcHV0ICJiIiBiZWZvcmUgImEiIGJlZm9yZSAiZCIsIHdlIG11c3QgY2hvb3NlIHdoaWNoIHNwb3RzIHRob3NlIGxldHRlcnMgZ28gKGluIHRoYXQgb3JkZXIpIGFuZCB0aGVuIGFycmFuZ2UgdGhlIHJlbWFpbmluZyB0aHJlZSBsZXR0ZXJzLiBUaHVzLCBbYDYhIC0gezYgXGNob29zZSAzfTMhYF0gd29yZHMuCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2299">How many 6 letter words made from the letters <span class="process-math">\(a,b,c,d,e,f\)</span> without repeats do not contain the sub-word “bad” in consecutive letters?</p>
+<p id="p-2300"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-2301">How many don’t to contain the subword “bad” in not-necessarily consecutive letters (but in order)?</p>
+<p id="p-2302"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-94')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="xop"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="nkW">Explain using lattice paths why <span class="process-math">\(\sum_{k=0}^n {n \choose k} = 2^n\text{.}\)</span></p></article><article class="exercise exercise-like" id="dvy"><h4 class="heading"><span class="codenumber">16<span class="period">.</span></span></h4>
+<div id="webwork-95" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="95" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxOSwxNSkiKTsKJGFuczIgPSBDb21wdXRlKCJDKDI0LDIwKSIpOwokYW5zMyA9IENvbXB1dGUoIkMoMTksMTUpIC0gKEMoNSwxKSpDKDEyLDgpIC0gQyg1LDIpKkMoNSwxKSkiKTsKJHNob3dIaW50ID0gMDsKJHNob3dTb2x1dGlvbiA9IDM7CgpCRUdJTl9QR01MClN1cHBvc2UgeW91IGhhdmUgMjAgb25lLWRvbGxhciBiaWxscyB0byBnaXZlIG91dCBhcyBwcml6ZXMgdG8geW91ciB0b3AgNSBkaXNjcmV0ZSBtYXRoIHN0dWRlbnRzLiBIb3cgbWFueSB3YXlzIGNhbiB5b3UgZG8gdGhpcyBpZjoKYS4gIEVhY2ggb2YgdGhlIDUgc3R1ZGVudHMgZ2V0cyBhdCBsZWFzdCAxIGRvbGxhcj8KCiAgICBbX117JGFuczF9ezV9CgoKYS4gIFNvbWUgc3R1ZGVudHMgbWlnaHQgZ2V0IG5vdGhpbmc/CgogICAgW19deyRhbnMyfXs1fQoKCmEuICBFYWNoIHN0dWRlbnQgZ2V0cyBhdCBsZWFzdCAxIGRvbGxhciBidXQgbm8gbW9yZSB0aGFuIDcgZG9sbGFycz8KCiAgICBbX117JGFuczN9ezE1fQoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UClN0YXJzIGFuZCBiYXJzLgoKCkVORF9QR01MX0hJTlQKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezE5IFxjaG9vc2UgMTV9YF0gd2F5cy4KYS4gIFtgezI0IFxjaG9vc2UgMjB9YF0gd2F5cy4KYS4gIFtgezE5IFxjaG9vc2UgMTV9IC0gXGxlZnRbezUgXGNob29zZSAxfXsxMiBcY2hvb3NlIDh9IC0gezUgXGNob29zZSAyfXs1IFxjaG9vc2UgMX0gXHJpZ2h0XWBdIHdheXMuICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2309">Suppose you have 20 one-dollar bills to give out as prizes to your top 5 discrete math students. How many ways can you do this if:</p>
+<ol class="lower-alpha">
+<li id="li-1135">
+<p id="p-2310">Each of the 5 students gets at least 1 dollar?</p>
+<p id="p-2311"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1136">
+<p id="p-2312">Some students might get nothing?</p>
+<p id="p-2313"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1137">
+<p id="p-2314">Each student gets at least 1 dollar but no more than 7 dollars?</p>
+<p id="p-2315"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-95')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="JCH"><h4 class="heading"><span class="codenumber">17<span class="period">.</span></span></h4>
+<div id="webwork-96" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="96" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiNV40ICsgNV40IC0gNV4zIik7CiRhbnMyID0gQ29tcHV0ZSgiNCo1XjQgKyA1KjQqNV4zIC0gNCo0KjVeMyIpOwokYW5zMyA9IENvbXB1dGUoIjUhIC0gKDQhICsgNCEgLSAzISkiKTsKJGFuczQgPSBDb21wdXRlKCI1ISAtIChDKDUsMSkqNCEgLSBDKDUsMikqMyEgKyBDKDUsMykqMiEgLSBDKDUsNCkqMSEgKyBDKDUsNSkqMCEpIik7CgpCRUdJTl9QR01MCkhvdyBtYW55IGZ1bmN0aW9ucyBbYGY6IFx7MSwyLDMsNCw1XH0gXHRvIFx7YSxiLGMsZCxlXH1gXSBhcmUgdGhlcmUgc2F0aXNmeWluZzoKYS4gIFtgZigxKSA9IGFgXSBvciBbYGYoMikgPSBiYF0gKG9yIGJvdGgpPwoKICAgIFtfXXskYW5zMX17MTB9CgoKYS4gIFtgZigxKSBcbmUgYWBdIG9yIFtgZigyKSBcbmUgYmBdIChvciBib3RoKT8KCiAgICBbX117JGFuczJ9ezEwfQoKCmEuICBbYGYoMSkgXG5lIGFgXSBfYW5kXyBbYGYoMikgXG5lIGJcdGV4dHssfWBdIGFuZCBbYGZgXSBpcyBpbmplY3RpdmU/CgogICAgW19deyRhbnMzfXsxMH0KCgphLiAgW2BmYF0gaXMgc3VyamVjdGl2ZSwgYnV0IFtgZigxKSBcbmUgYVx0ZXh0eyx9YF0gW2BmKDIpIFxuZSBiXHRleHR7LH1gXSBbYGYoMykgXG5lIGNcdGV4dHssfWBdIFtgZig0KSBcbmUgZGBdIGFuZCBbYGYoNSkgXG5lIGVcdGV4dHs/fWBdCgogICAgW19deyRhbnM0fXsxNX0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgNV40ICsgNV40IC0gNV4zYF0gZnVuY3Rpb25zLgoKCmEuICBbYDRcY2RvdCA1XjQgKyA1IFxjZG90IDQgXGNkb3QgNV4zIC0gNCBcY2RvdCA0IFxjZG90IDVeM2BdIGZ1bmN0aW9ucy4KCgphLiAgW2A1ISAtIFxsZWZ0WyA0ISArIDQhIC0gMyEgXHJpZ2h0XWBdIGZ1bmN0aW9ucy4gTm90ZSB3ZSB1c2UgZmFjdG9yaWFscyBpbnN0ZWFkIG9mIHBvd2VycyBiZWNhdXNlIHdlIGFyZSBsb29raW5nIGZvciBpbmplY3RpdmUgZnVuY3Rpb25zLgoKCmEuICBOb3RlIHRoYXQgYmVpbmcgc3VyamVjdGl2ZSBoZXJlIGlzIHRoZSBzYW1lIGFzIGJlaW5nIGluamVjdGl2ZSwgc28gd2UgY2FuIHN0YXJ0IHdpdGggYWxsIFtgNSFgXSBpbmplY3RpdmUgZnVuY3Rpb25zIGFuZCBzdWJ0cmFjdCB0aG9zZSB3aGljaCBoYXZlIG9uZSBvciBtb3JlICJmaXhlZCBwb2ludCIuIFdlIGdldCBbYDUhIC0gXGxlZnRbezUgXGNob29zZSAxfTQhIC0gezUgXGNob29zZSAyfTMhICsgezUgXGNob29zZSAzfTIhIC0gezUgXGNob29zZSA0fTEhICsgezUgXGNob29zZSA1fSAwIVxyaWdodF1gXSBmdW5jdGlvbnMuCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2324">How many functions <span class="process-math">\(f: \{1,2,3,4,5\} \to \{a,b,c,d,e\}\)</span> are there satisfying:</p>
+<ol class="lower-alpha">
+<li id="li-1141">
+<p id="p-2325"><span class="process-math">\(f(1) = a\)</span> or <span class="process-math">\(f(2) = b\)</span> (or both)?</p>
+<p id="p-2326"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1142">
+<p id="p-2327"><span class="process-math">\(f(1) \ne a\)</span> or <span class="process-math">\(f(2) \ne b\)</span> (or both)?</p>
+<p id="p-2328"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1143">
+<p id="p-2329"><span class="process-math">\(f(1) \ne a\)</span> <em class="emphasis">and</em> <span class="process-math">\(f(2) \ne b\text{,}\)</span> and <span class="process-math">\(f\)</span> is injective?</p>
+<p id="p-2330"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1144">
+<p id="p-2331"><span class="process-math">\(f\)</span> is surjective, but <span class="process-math">\(f(1) \ne a\text{,}\)</span> <span class="process-math">\(f(2) \ne b\text{,}\)</span> <span class="process-math">\(f(3) \ne c\text{,}\)</span> <span class="process-math">\(f(4) \ne d\)</span> and <span class="process-math">\(f(5) \ne e\text{?}\)</span></p>
+<p id="p-2332"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-96')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="pJQ"><h4 class="heading"><span class="codenumber">18<span class="period">.</span></span></h4>
+<div id="webwork-97" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="97" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiNF42IC0gKEMoNCwxKSozXjYgLSBDKDQsMikqMl42ICsgQyg0LDMpKjFeNikiKTsKCkJFR0lOX1BHTUwKSG93IG1hbnkgZnVuY3Rpb25zIG1hcCBbYFx7MSwyLDMsNCw1LDZcfWBdIF9vbnRvXyBbYFx7YSxiLGMsZFx9YF0gKGkuZS4sIGhvdyBtYW55IF9zdXJqZWN0aW9uc18gYXJlIHRoZXJlKT8KCltfXXskYW5zMX17MTV9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2A0XjYgLSBcbGVmdFt7NCBcY2hvb3NlIDF9M142IC0gezQgXGNob29zZSAyfTJeNiArIHs0IFxjaG9vc2UgM30gMV42IFxyaWdodF1cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2342">How many functions map <span class="process-math">\(\{1,2,3,4,5,6\}\)</span> <em class="emphasis">onto</em> <span class="process-math">\(\{a,b,c,d\}\)</span> (i.e., how many <em class="emphasis">surjections</em> are there)?</p>
+<p id="p-2343"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-97')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="VQZ"><h4 class="heading"><span class="codenumber">19<span class="period">.</span></span></h4>
+<div id="webwork-98" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="98" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJjb250ZXh0SW50ZWdlckZ1bmN0aW9ucy5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCJJbnRlZ2VyRnVuY3Rpb25zIik7CiRhbnMxID0gQ29tcHV0ZSgiQygxMiw0KSIpOwokYW5zMiA9IENvbXB1dGUoIlAoMTIsNCkiKTsKJGFuczMgPSBDb21wdXRlKCJDKDIxLDEyKSIpOwokYW5zNCA9IENvbXB1dGUoIjEwXjEyIik7CiRhbnM1ID0gQ29tcHV0ZSgiNjE4NzEwNDAwMCIpOwoKQkVHSU5fUEdNTApUbyB0aGFuayB5b3VyIG1hdGggcHJvZmVzc29yIGZvciBkb2luZyBzdWNoIGFuIGFtYXppbmcgam9iIGFsbCBzZW1lc3RlciwgeW91IGRlY2lkZSB0byBiYWtlIE9zY2FyIGNvb2tpZXMuIFlvdSBrbm93IGhvdyB0byBtYWtlIDEwIGRpZmZlcmVudCB0eXBlcyBvZiBjb29raWVzLgphLiAgSWYgeW91IHdhbnQgdG8gZ2l2ZSB5b3VyIHByb2Zlc3NvciA0IGRpZmZlcmVudCB0eXBlcyBvZiBjb29raWVzLCBob3cgbWFueSBkaWZmZXJlbnQgY29tYmluYXRpb25zIG9mIGNvb2tpZSB0eXBlIGNhbiB5b3Ugc2VsZWN0PyBFeHBsYWluIHlvdXIgYW5zd2VyLgoKICAgIFtfXXskYW5zMX17NX0KCgphLiAgVG8ga2VlcCB0aGluZ3MgaW50ZXJlc3RpbmcsIHlvdSBkZWNpZGUgdG8gbWFrZSBhIGRpZmZlcmVudCBudW1iZXIgb2YgZWFjaCB0eXBlIG9mIGNvb2tpZS4gSWYgYWdhaW4geW91IHdhbnQgdG8gc2VsZWN0IDQgY29va2llIHR5cGVzLCBob3cgbWFueSB3YXlzIGNhbiB5b3Ugc2VsZWN0IHRoZSBjb29raWUgdHlwZXMgYW5kIGRlY2lkZSBmb3Igd2hpY2ggdGhlcmUgd2lsbCBiZSB0aGUgbW9zdCwgc2Vjb25kIG1vc3QsIGV0Yy4gRXhwbGFpbiB5b3VyIGFuc3dlci4KCiAgICBbX117JGFuczJ9ezV9CgoKYS4gIFlvdSBjaGFuZ2UgeW91ciBtaW5kIGFnYWluLiBUaGlzIHRpbWUgeW91IGRlY2lkZSB5b3Ugd2lsbCBtYWtlIGEgdG90YWwgb2YgMTIgY29va2llcy4gRWFjaCBjb29raWUgY291bGQgYmUgYW55IG9uZSBvZiB0aGUgMTAgdHlwZXMgb2YgY29va2llcyB5b3Uga25vdyBob3cgdG8gYmFrZSAoYW5kIGl0J3Mgb2theSBpZiB5b3UgbGVhdmUgc29tZSB0eXBlcyBvdXQpLiBIb3cgbWFueSBjaG9pY2VzIGRvIHlvdSBoYXZlPyBFeHBsYWluLgoKICAgIFtfXXskYW5zM317NX0KCgphLiAgWW91IHJlYWxpemUgdGhhdCB0aGUgcHJldmlvdXMgcGxhbiBkaWQgbm90IGFjY291bnQgZm9yIHByZXNlbnRhdGlvbi4gVGhpcyB0aW1lLCB5b3Ugb25jZSBhZ2FpbiB3YW50IHRvIG1ha2UgMTIgY29va2llcywgZWFjaCBvbmUgY291bGQgYmUgYW55IG9uZSBvZiB0aGUgMTAgdHlwZXMgb2YgY29va2llcy4gSG93ZXZlciwgbm93IHlvdSBwbGFuIHRvIHNoYXBlIHRoZSBjb29raWVzIGludG8gdGhlIG51bWVyYWxzIDEsIDIsIC4uLiwgMTIgKGFuZCBwcm9iYWJseSBhcnJhbmdlIHRoZW0gdG8gbWFrZSBhIGdpYW50IGNsb2NrLCBidXQgeW91IGhhdmVuJ3QgZGVjaWRlZCBvbiB0aGF0IHlldCkuIEhvdyBtYW55IGNob2ljZXMgZG8geW91IGhhdmUgZm9yIHdoaWNoIHR5cGVzIG9mIGNvb2tpZXMgdG8gYmFrZSBpbnRvIHdoaWNoIG51bWVyYWxzPyBFeHBsYWluLgoKICAgIFtfXXskYW5zNH17NX0KCgphLiAgVGhlIG9ubHkgZmxhdyB3aXRoIHRoZSBsYXN0IHBsYW4gaXMgdGhhdCB5b3VyIHByb2Zlc3NvciBtaWdodCBub3QgZ2V0IHRvIHNhbXBsZSBhbGwgMTAgZGlmZmVyZW50IHZhcmlldGllcyBvZiBjb29raWVzLiBIb3cgbWFueSBjaG9pY2VzIGRvIHlvdSBoYXZlIGZvciB3aGljaCB0eXBlcyBvZiBjb29raWVzIHRvIG1ha2UgaW50byB3aGljaCBudW1lcmFscywgZ2l2ZW4gdGhhdCBlYWNoIHR5cGUgb2YgY29va2llIHNob3VsZCBiZSBwcmVzZW50IGF0IGxlYXN0IG9uY2U/IEV4cGxhaW4uCgogICAgW19deyRhbnM1fXsxNX0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgezEwIFxjaG9vc2UgNH1gXSBjb21iaW5hdGlvbnMuIFlvdSBuZWVkIHRvIGNob29zZSA0IG9mIHRoZSAxMCBjb29raWUgdHlwZXMuIE9yZGVyIGRvZXNuJ3QgbWF0dGVyLgphLiAgW2BQKDEwLCA0KSA9IDEwIFxjZG90IDkgXGNkb3QgOCBcY2RvdCA3YF0gd2F5cy4gWW91IGFyZSBjaG9vc2luZyBhbmQgYXJyYW5naW5nIDQgb3V0IG9mIDEwIGNvb2tpZXMuIE9yZGVyIG1hdHRlcnMgbm93LgphLiAgW2B7MjEgXGNob29zZSAxMn1gXSBjaG9pY2VzLiBZb3UgbXVzdCBzd2l0Y2ggYmV0d2VlbiBjb29raWUgdHlwZSA5IHRpbWVzIGFzIHlvdSBtYWtlIHlvdXIgMTIgY29va2llcy4gVGhlIGNvb2tpZXMgYXJlIHRoZSBzdGFycywgdGhlIHN3aXRjaGVzIGJldHdlZW4gY29va2llIHR5cGVzIGFyZSB0aGUgYmFycy4KYS4gIFtgMTBeezEyfWBdIGNob2ljZXMuIFlvdSBoYXZlIDEwIGNob2ljZXMgZm9yIHRoZSAiMSIgY29va2llLCAxMCBjaG9pY2VzIGZvciB0aGUgIjIiIGNvb2tpZSwgYW5kIHNvIG9uLgphLiAgW2AxMF57MTJ9IC0gXGxlZnRbezEwIFxjaG9vc2UgMX05XnsxMn0gLSB7MTAgXGNob29zZSAyfTheezEyfSArIFxjZG90cyAtIHsxMCBcY2hvb3NlIDEwfTBeezEyfSBccmlnaHRdYF0gY2hvaWNlcy4gV2UgbXVzdCB1c2UgUElFIHRvIHJlbW92ZSBhbGwgdGhlIHdheXMgaW4gd2hpY2ggb25lIG9yIG1vcmUgY29va2llIHR5cGUgaXMgbm90IHNlbGVjdGVkLiAgIAoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2346">To thank your math professor for doing such an amazing job all semester, you decide to bake Oscar cookies. You know how to make 10 different types of cookies.</p>
+<ol class="lower-alpha">
+<li id="li-1149">
+<p id="p-2347">If you want to give your professor 4 different types of cookies, how many different combinations of cookie type can you select? Explain your answer.</p>
+<p id="p-2348"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1150">
+<p id="p-2349">To keep things interesting, you decide to make a different number of each type of cookie. If again you want to select 4 cookie types, how many ways can you select the cookie types and decide for which there will be the most, second most, etc. Explain your answer.</p>
+<p id="p-2350"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1151">
+<p id="p-2351">You change your mind again. This time you decide you will make a total of 12 cookies. Each cookie could be any one of the 10 types of cookies you know how to bake (and it’s okay if you leave some types out). How many choices do you have? Explain.</p>
+<p id="p-2352"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1152">
+<p id="p-2353">You realize that the previous plan did not account for presentation. This time, you once again want to make 12 cookies, each one could be any one of the 10 types of cookies. However, now you plan to shape the cookies into the numerals 1, 2, ..., 12 (and probably arrange them to make a giant clock, but you haven’t decided on that yet). How many choices do you have for which types of cookies to bake into which numerals? Explain.</p>
+<p id="p-2354"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</li>
+<li id="li-1153">
+<p id="p-2355">The only flaw with the last plan is that your professor might not get to sample all 10 different varieties of cookies. How many choices do you have for which types of cookies to make into which numerals, given that each type of cookie should be present at least once? Explain.</p>
+<p id="p-2356"><span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-98')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="BYi"><h4 class="heading"><span class="codenumber">20<span class="period">.</span></span></h4>
+<p id="YbY">For which of the parts of the previous problem (<a href="" class="xref" data-knowl="./knowl/exr-cookie-counting.html" title="Exercise 1.7.19">Exercise 1.7.19</a>) does it make sense to interpret the counting question as counting some number of functions? Say what the domain and codomain should be, and whether you are counting all functions, injections, surjections, or something else.</p></article></section></section></div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>

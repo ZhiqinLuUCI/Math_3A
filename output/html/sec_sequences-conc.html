@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-07-12T23:42:19-07:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Chapter Summary</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Discrete Mathematics">
+<meta property="book:author" content="Oscar Levin">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2./pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=000445521324161818100:qhc2ahxtur8"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_oscarlevin.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/custom-styles.css">
+</head>
+<body id="levin-DMOI" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\renewcommand{\d}{\displaystyle}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathbf B}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\U}{\mathcal U}
+\newcommand{\pow}{\mathcal P}
+\newcommand{\inv}{^{-1}}
+\newcommand{\st}{:}
+\renewcommand{\iff}{\leftrightarrow}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\imp}{\rightarrow}
+\newcommand{\Imp}{\Rightarrow}
+\newcommand{\isom}{\cong}
+
+\renewcommand{\bar}{\overline}
+\newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\twoline}[2]{\begin{pmatrix}#1 \\ #2 \end{pmatrix}}
+
+\newcommand{\vtx}[2]{node[fill,circle,inner sep=0pt, minimum size=4pt,label=#1:#2]{}}
+\newcommand{\va}[1]{\vtx{above}{#1}}
+\newcommand{\vb}[1]{\vtx{below}{#1}}
+\newcommand{\vr}[1]{\vtx{right}{#1}}
+\newcommand{\vl}[1]{\vtx{left}{#1}}
+\renewcommand{\v}{\vtx{above}{}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="http://discrete.openmathbooks.org/dmoi3.html" target="_blank"><img src="external/images/cover.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="dmoi.html"><span class="title">Discrete Mathematics:</span> <span class="subtitle">An Open Introduction, 3rd edition</span></a></h1>
+<p class="byline">Oscar Levin</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_seq-induction.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch_sequences.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch_logic.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_seq-induction.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch_sequences.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch_logic.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="RGW" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="dedication-1.html" data-scroll="dedication-1" class="internal">Dedication</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface.html" data-scroll="xOf" class="internal">Preface</a></li>
+<li><a href="preface-2.html" data-scroll="dVo" class="internal">How to use this book</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_intro.html" data-scroll="DYQ" class="internal"><span class="codenumber">0</span> <span class="title">Introduction and Preliminaries</span></a><ul>
+<li><a href="sec_intro-intro.html" data-scroll="hPw" class="internal">What is Discrete Mathematics?</a></li>
+<li><a href="sec_intro-statements.html" data-scroll="QDd" class="internal">Mathematical Statements</a></li>
+<li><a href="sec_intro-sets.html" data-scroll="ltW" class="internal">Sets</a></li>
+<li><a href="sec_intro-functions.html" data-scroll="CkQ" class="internal">Functions</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_counting.html" data-scroll="raE" class="internal"><span class="codenumber">1</span> <span class="title">Counting</span></a><ul>
+<li><a href="sec_counting-addmult.html" data-scroll="sJa" class="internal">Additive and Multiplicative Principles</a></li>
+<li><a href="sec_counting-binom.html" data-scroll="vZs" class="internal">Binomial Coefficients</a></li>
+<li><a href="sec_counting-combperm.html" data-scroll="yda" class="internal">Combinations and Permutations</a></li>
+<li><a href="sec_comb-proofs.html" data-scroll="SUg" class="internal">Combinatorial Proofs</a></li>
+<li><a href="sec_stars-and-bars.html" data-scroll="qkt" class="internal">Stars and Bars</a></li>
+<li><a href="sec_advPIE.html" data-scroll="HKU" class="internal">Advanced Counting Using PIE</a></li>
+<li><a href="sec_count-conc.html" data-scroll="Bmb" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_sequences.html" data-scroll="KxW" class="internal"><span class="codenumber">2</span> <span class="title">Sequences</span></a><ul>
+<li><a href="sec_seq_intro.html" data-scroll="tgm" class="internal">Describing Sequences</a></li>
+<li><a href="sec_seq-arithgeom.html" data-scroll="lIR" class="internal">Arithmetic and Geometric Sequences</a></li>
+<li><a href="sec_polyfit.html" data-scroll="ylR" class="internal">Polynomial Fitting</a></li>
+<li><a href="sec_recurrence.html" data-scroll="bcV" class="internal">Solving Recurrence Relations</a></li>
+<li><a href="sec_seq-induction.html" data-scroll="Prg" class="internal">Induction</a></li>
+<li><a href="sec_sequences-conc.html" data-scroll="YaY" class="active">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_logic.html" data-scroll="wur" class="internal"><span class="codenumber">3</span> <span class="title">Symbolic Logic and Proofs</span></a><ul>
+<li><a href="sec_propositional.html" data-scroll="XMq" class="internal">Propositional Logic</a></li>
+<li><a href="sec_logic-proofs.html" data-scroll="lnf" class="internal">Proofs</a></li>
+<li><a href="sec_logic-conc.html" data-scroll="KVi" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_graphtheory.html" data-scroll="gBz" class="internal"><span class="codenumber">4</span> <span class="title">Graph Theory</span></a><ul>
+<li><a href="sec_gt-intro.html" data-scroll="HLu" class="internal">Definitions</a></li>
+<li><a href="sec_trees.html" data-scroll="gor" class="internal">Trees</a></li>
+<li><a href="sec_planar.html" data-scroll="ttH" class="internal">Planar Graphs</a></li>
+<li><a href="sec_coloring.html" data-scroll="qyO" class="internal">Coloring</a></li>
+<li><a href="sec_paths.html" data-scroll="tPg" class="internal">Euler Paths and Circuits</a></li>
+<li><a href="sec_matchings.html" data-scroll="dWo" class="internal">Matching in Bipartite Graphs</a></li>
+<li><a href="sec_gt-conc.html" data-scroll="ZOY" class="internal">Chapter Summary</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="ch_additionalTopics.html" data-scroll="KTv" class="internal"><span class="codenumber">5</span> <span class="title">Additional Topics</span></a><ul>
+<li><a href="sec_addtops-genfun.html" data-scroll="XaJ" class="internal">Generating Functions</a></li>
+<li><a href="sec_addtops-numbth.html" data-scroll="WjL" class="internal">Introduction to Number Theory</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="mqL" class="internal"><span class="title">Backmatter</span></a></li>
+<li class="link"><a href="solutions-1.html" data-scroll="SxU" class="internal"><span class="codenumber">A</span> <span class="title">Selected Hints</span></a></li>
+<li class="link"><a href="solutions-2.html" data-scroll="yFd" class="internal"><span class="codenumber">B</span> <span class="title">Selected Solutions</span></a></li>
+<li class="link"><a href="appendix-1.html" data-scroll="GjC" class="internal"><span class="codenumber">C</span> <span class="title">List of Symbols</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="YaY"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.6</span> <span class="title">Chapter Summary</span>
+</h2>
+<section class="introduction" id="Eih"><article class="project-like" id="kpq"><h6 class="heading">
+<span class="type">Investigate!</span> </h6>
+<p id="KHn">Each day your supply of magic chocolate covered espresso beans doubles (each one splits in half), but then you eat 5 of them. You have 10 at the start of day 0.</p>
+<ol class="decimal">
+<li id="BnB"><p id="tJc">Write out the first few terms of the sequence. Then give a recursive definition for the sequence and explain how you know it is correct.</p></li>
+<li id="huK"><p id="ZQl">Prove, using induction, that the last digit of the number of beans you have on the <span class="process-math">\(n\)</span>th day is always a 5 for all <span class="process-math">\(n \ge 1\text{.}\)</span></p></li>
+<li id="NBT"><p id="FXu">Find a closed formula for the <span class="process-math">\(n\)</span>th term of the sequence and prove it is correct by induction.</p></li>
+</ol></article><p id="qOw">In this chapter we explored sequences and mathematical induction. At first these might not seem entirely related, but there is a link: recursive reasoning. When we have many cases (maybe infinitely many), it is often easier to describe a particular case by saying how it relates to other cases, instead of describing it absolutely. For sequences, we can describe the <span class="process-math">\(n\)</span>th term in the sequence by saying how it is related to the <em class="emphasis">previous</em> term. When showing a statement involving the variable <span class="process-math">\(n\)</span> is true for all values of <span class="process-math">\(n\text{,}\)</span> we can describe why the case for <span class="process-math">\(n = k\)</span> is true on the basis of why the case for <span class="process-math">\(n = k-1\)</span> is true.</p>
+<p id="WVF">While thinking of problems recursively is often easier than thinking of them absolutely (at least after you get used to thinking in this way), our ultimate goal is to move beyond this recursive description. For sequences, we want to find <em class="emphasis">closed formulas</em> for the <span class="process-math">\(n\)</span>th term of the sequence. For proofs, we want to know the statement is actually true for a particular <span class="process-math">\(n\)</span> (not only under the assumption that the statement is true for the previous value of <span class="process-math">\(n\)</span>). In this chapter we saw some methods for moving from recursive descriptions to absolute descriptions.</p>
+<ul id="DcO" class="disc">
+<li id="cKR"><p id="meD">If the terms of a sequence increase by a constant difference or constant ratio (these are both recursive descriptions), then the sequences are arithmetic or geometric, respectively, and we have closed formulas for each of these based on the initial terms and common difference or ratio.</p></li>
+<li id="ISa"><p id="SlM">If the terms of a sequence increase at a polynomial rate (that is, if the differences between terms form a sequence with a polynomial closed formula), then the sequence is itself given by a polynomial closed formula (of degree one more than the sequence of differences).</p></li>
+<li id="oZj"><p id="ysV">If the terms of a sequence increase at an exponential rate, then we expect the closed formula for the sequence to be exponential. These sequences often have relatively nice recursive formulas, and the <em class="emphasis">characteristic root technique</em> allows us to find the closed formula for these sequences.</p></li>
+<li id="Vgs"><p id="eAe">If we want to prove that a statement is true for all values of <span class="process-math">\(n\)</span> (greater than some first small value), and we can describe why the statement being true for <span class="process-math">\(n = k\)</span> implies the statement is true for <span class="process-math">\(n = k+1\text{,}\)</span> then the <em class="emphasis">principle of mathematical induction</em> gives us that the statement is true for all values of <span class="process-math">\(n\)</span> (greater than the base case).</p></li>
+</ul>
+<p id="jjX">Throughout the chapter we tried to understand <em class="emphasis">why</em> these facts listed above are true. In part, that is what proofs, by induction or not, attempt to accomplish: they explain why mathematical truths are in fact truths. As we develop our ability to reason about mathematics, it is a good idea to make sure that the methods of our reasoning are sound. The branch of mathematics that deals with deciding whether reasoning is good or not is <em class="emphasis">mathematical logic</em>, the subject of the next chapter.</p></section><section class="exercises" id="XPQ"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Chapter Review</span>
+</h3>
+<article class="exercise exercise-like" id="Iec"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-117" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="117" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOwoKQkVHSU5fUEdNTApGaW5kIFtgMyArIDcgKyAxMSsgXGNkb3RzICsgNDI3XHRleHR7Ln1gXQoKW19dezIzMDA1fXs1fQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgXGZyYWN7NDMwXGNkb3QgMTA3fXsyfSA9IDIzMDA1XHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3022">Find <span class="process-math">\(3 + 7 + 11+ \cdots + 427\text{.}\)</span></p>
+<p id="p-3023"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-117')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="oll"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-118" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="118" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMxID0gRm9ybXVsYSgibisyIik7CiRhbnMyID0gRm9ybXVsYSgiNG4rMiIpOwokYW5zMyA9IEZvcm11bGEoIigoNG4rOCkqKG4rMikpLzIiKTsKCkJFR0lOX1BHTUwKQ29uc2lkZXIgdGhlIHNlcXVlbmNlIFtgMiwgNiwgMTAsIDE0LCBcbGRvdHMsIDRuICsgNlx0ZXh0ey59YF0KYS4gIEhvdyBtYW55IHRlcm1zIGFyZSB0aGVyZSBpbiB0aGUgc2VxdWVuY2U/CgogICAgW19deyRhbnMxfXsxMH0KCgphLiAgV2hhdCBpcyB0aGUgc2Vjb25kLXRvLWxhc3QgdGVybT8KCiAgICBbX117JGFuczJ9ezEwfQoKCmEuICBGaW5kIHRoZSBzdW0gb2YgYWxsIHRoZSB0ZXJtcyBpbiB0aGUgc2VxdWVuY2UuCgogICAgW19deyRhbnMzfXsxMH0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgbisyYF0gdGVybXMuCmEuICBbYDRuKzJcdGV4dHsufWBdCmEuICBbYFxmcmFjeyg0bis4KShuKzIpfXsyfVx0ZXh0ey59YF0gICAKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3026">Consider the sequence <span class="process-math">\(2, 6, 10, 14, \ldots, 4n + 6\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1397">
+<p id="p-3027">How many terms are there in the sequence?</p>
+<p id="p-3028"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1398">
+<p id="p-3029">What is the second-to-last term?</p>
+<p id="p-3030"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+<li id="li-1399">
+<p id="p-3031">Find the sum of all the terms in the sequence.</p>
+<p id="p-3032"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-118')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Usu"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-119" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="119" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJwYXJzZXJQb3BVcC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCktPnZhcmlhYmxlcy0+YXJlKG4gPT4gIlJlYWwiKTsKJGdlb21ldHJpYyA9IFBvcFVwKApbIj8iLCJhcml0aG1ldGljIiwiZ2VvbWV0cmljIiwibmVpdGhlciJdLAoiZ2VvbWV0cmljIiwgIyBjb3JyZWN0IGFuc3dlcgopOwokc3VtID0gQ29tcHV0ZSgiKDItMio1XjI1KS8oLTQpIik7CgpCRUdJTl9QR01MCkNvbnNpZGVyIHRoZSBzZXF1ZW5jZSBnaXZlbiBieSBbYGFfbiA9IDJcY2RvdCA1XntuLTF9XHRleHR7Ln1gXQphLiAgRmluZCB0aGUgZmlyc3QgNCB0ZXJtcyBvZiB0aGUgc2VxdWVuY2UuCgogICAgW0BLZXlib2FyZEluc3RydWN0aW9ucygnW2BhXzEgPSBgXSBbX117Mn17M30sIFtgYV8yID0gYF0gW19dezEwfXszfSwgW2BhXzMgPSBgXSBbX117NTB9ezN9LCBbYGFfNCA9IGBdIFtfXXsyNTB9ezN9IC4uLi4nKUBdKioKCiAgICBXaGF0IHNvcnQgb2Ygc2VxdWVuY2UgaXMgdGhpcz8KCiAgICBbX117JGdlb21ldHJpY317NX0KCgphLiAgRmluZCB0aGUgX3N1bV8gb2YgdGhlIGZpcnN0IDI1IHRlcm1zLiBUaGF0IGlzLCBjb21wdXRlIFtgXHN1bV97az0xfV57MjV9YV9rXHRleHR7Ln1gXQoKICAgIFtfXXskc3VtfXsxMH0KCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KYS4gIFtgMiwgMTAsIDUwLCAyNTAsIFxsZG90c2BdIFRoZSBzZXF1ZW5jZSBpcyBnZW9tZXRyaWMuCmEuICBbYFxmcmFjezIgLSAyXGNkb3QgNV57MjV9fXstNH1cdGV4dHsufWBdICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3040">Consider the sequence given by <span class="process-math">\(a_n = 2\cdot 5^{n-1}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1403">
+<p id="p-3041">Find the first 4 terms of the sequence.</p>
+<p id="p-3042">What sort of sequence is this?</p>
+<p id="p-3043"><ul style="list-style:circle;">
+<li id="li-1405"><p id="p-3045">arithmetic</p></li>
+<li id="li-1406"><p id="p-3046">geometric</p></li>
+<li id="li-1407"><p id="p-3047">neither</p></li>
+</ul></p>
+</li>
+<li id="li-1408">
+<p id="p-3048">Find the <em class="emphasis">sum</em> of the first 25 terms. That is, compute <span class="process-math">\(\sum_{k=1}^{25}a_k\text{.}\)</span></p>
+<p id="p-3049"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-119')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="AzD"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="dFc">Consider the sequence <span class="process-math">\(5, 11, 19, 29, 41, 55,\ldots\text{.}\)</span> Assume <span class="process-math">\(a_1 = 5\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="gln"><p id="bfV">Find a closed formula for <span class="process-math">\(a_n\text{,}\)</span> the <span class="process-math">\(n\)</span>th term of the sequence, by writing each term as a sum of a sequence. Hint: first find <span class="process-math">\(a_0\text{,}\)</span> but ignore it when collapsing the sum.</p></li>
+<li id="Msw"><p id="Hne">Find a closed formula again, this time using either polynomial fitting or the characteristic root technique (whichever is appropriate). Show your work.</p></li>
+<li id="szF"><p id="nun">Find a closed formula once again, this time by recognizing the sequence as a modification to some well known sequence(s). Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="gGM"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-120" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="120" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMgPSBGb3JtdWxhKCJuXjIgKyA0biAtIDEiKTsKCkJFR0lOX1BHTUwKVXNlIHBvbHlub21pYWwgZml0dGluZyB0byBmaW5kIGEgY2xvc2VkIGZvcm11bGEgZm9yIHRoZSBzZXF1ZW5jZSBbYChhX24pX3tuXGdlIDF9XHRleHR7On1gXQoKW2BgYAogICAgICAgICAgICAgIDQsIDExLCAyMCwgMzEsIDQ0LCBcbGRvdHMKICAgICAgICAgICAgXHRleHR7Ln1gYGBdCgoKCltAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgYV9uID0gYF0gW19deyRhbnN9ezEwfScpQF0qKgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgYV9uID0gbl4yICsgNG4gLSAxXHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3059">Use polynomial fitting to find a closed formula for the sequence <span class="process-math">\((a_n)_{n\ge 1}\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-3060">
+\begin{equation*}
+4, 11, 20, 31, 44, \ldots
+\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-120')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="MNV"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="pTu">Suppose the closed formula for a particular sequence is a degree 3 polynomial. What can you say about the closed formula for:</p>
+<ol class="lower-alpha">
+<li id="YGO"><p id="TBw">The sequence of partial sums.</p></li>
+<li id="ENX"><p id="zIF">The sequence of second differences.</p></li>
+</ol></article><article class="exercise exercise-like" id="sVe"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="WaD">Consider the sequence given recursively by <span class="process-math">\(a_1 = 4\text{,}\)</span> <span class="process-math">\(a_2 = 6\)</span> and <span class="process-math">\(a_n = a_{n-1} + a_{n-2}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="xjy"><p id="seg">Write out the first 6 terms of the sequence.</p></li>
+<li id="dqH"><p id="Ylp">Could the closed formula for <span class="process-math">\(a_n\)</span> be a polynomial? Explain.</p></li>
+</ol></article><article class="exercise exercise-like" id="Zcn"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div id="webwork-121" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="121" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMgPSBGb3JtdWxhKCIobiszKSpuIik7CgpCRUdJTl9QR01MClRoZSBzZXF1ZW5jZSBbYChhX24pX3tuIFxnZSAxfWBdIHN0YXJ0cyBbYC0xLCAwLCAyLCA1LCA5LCAxNFxsZG90c2BdIGFuZCBoYXMgY2xvc2VkIGZvcm11bGEgW2BhX24gPSBcZGZyYWN7KG4rMSkobi0yKX17Mn1cdGV4dHsufWBdIFVzZSB0aGlzIGZhY3QgdG8gZmluZCBhIGNsb3NlZCBmb3JtdWxhIGZvciB0aGUgc2VxdWVuY2UgW2AoYl9uKV97biBcZ2UgMX1gXSB3aGljaCBzdGFydHMgW2A0LCAxMCwgMTgsIDI4LCA0MCwgXGxkb3RzXHRleHR7Ln1gXQoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnW2BiX24gPSBgXSBbX117JGFuc317MTB9JylAXSoqCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2BiX24gPSAobiszKW5cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><p id="p-3073">The sequence <span class="process-math">\((a_n)_{n \ge 1}\)</span> starts <span class="process-math">\(-1, 0, 2, 5, 9, 14\ldots\)</span> and has closed formula <span class="process-math">\(a_n = \dfrac{(n+1)(n-2)}{2}\text{.}\)</span> Use this fact to find a closed formula for the sequence <span class="process-math">\((b_n)_{n \ge 1}\)</span> which starts <span class="process-math">\(4, 10, 18, 28, 40, \ldots\text{.}\)</span></p></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-121')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="Fjw"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="ioV">The in song <em class="emphasis">The Twelve Days of Christmas</em>, my true love gave to me first 1 gift, then 2 gifts and 1 gift, then 3 gifts, 2 gifts and 1 gift, and so on. How many gifts did my true love give me all together during the twelve days?</p></article><article class="exercise exercise-like" id="lqF"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div id="webwork-122" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="122" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMgPSBGb3JtdWxhKCIzLzcgKiAoLTIpXm4gKyA0LzcgKiA1Xm4iKTsKCkJFR0lOX1BHTUwKQ29uc2lkZXIgdGhlIHJlY3VycmVuY2UgcmVsYXRpb24gW2BhX24gPSAzYV97bi0xfSArIDEwIGFfe24tMn1gXSB3aXRoIGZpcnN0IHR3byB0ZXJtcyBbYGFfMCA9IDFgXSBhbmQgW2BhXzEgPSAyXHRleHR7Ln1gXQphLiAgV3JpdGUgb3V0IHRoZSBmaXJzdCA1IHRlcm1zIG9mIHRoZSBzZXF1ZW5jZSBkZWZpbmVkIGJ5IHRoaXMgcmVjdXJyZW5jZSByZWxhdGlvbi4KCiAgICBbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdbYGFfMiA9IGBdIFtfXXsxNn17M30sIFtgYV8zID0gYF0gW19dezY4fXszfSwgW2BhXzQgPSBgXSBbX117MzY0fXszfSwgLi4uJylAXSoqCgoKYS4gIFNvbHZlIHRoZSByZWN1cnJlbmNlIHJlbGF0aW9uLiBUaGF0IGlzLCBmaW5kIGEgY2xvc2VkIGZvcm11bGEgZm9yIFtgYV9uXHRleHR7Ln1gXQoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgYV9uID0gYF0gW19deyRhbnN9ezEwfScpQF0qKgoKCgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYDEsIDIsIDE2LCA2OCwgMzY0LCBcbGRvdHNcdGV4dHsufWBdCmEuICBbYGFfbiA9IFxmcmFjezN9ezd9KC0yKV5uICsgXGZyYWN7NH17N301Xm5cdGV4dHsufWBdICAgCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3076">Consider the recurrence relation <span class="process-math">\(a_n = 3a_{n-1} + 10 a_{n-2}\)</span> with first two terms <span class="process-math">\(a_0 = 1\)</span> and <span class="process-math">\(a_1 = 2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1422"><p id="p-3077">Write out the first 5 terms of the sequence defined by this recurrence relation.</p></li>
+<li id="li-1423"><p id="p-3078">Solve the recurrence relation. That is, find a closed formula for <span class="process-math">\(a_n\text{.}\)</span></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-122')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="RxO"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div id="webwork-123" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="123" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgpLT52YXJpYWJsZXMtPmFyZShuID0+ICJSZWFsIik7CiRhbnMgPSBGb3JtdWxhKCIxLzYqKC0yKV5uICsgNS82KjRebiIpOwoKQkVHSU5fUEdNTApDb25zaWRlciB0aGUgcmVjdXJyZW5jZSByZWxhdGlvbiBbYGFfbiA9IDJhX3tuLTF9ICsgOGFfe24tMn1cdGV4dHssfWBdIHdpdGggaW5pdGlhbCB0ZXJtcyBbYGFfMCA9IDFgXSBhbmQgW2BhXzE9IDNcdGV4dHsufWBdCmEuICBGaW5kIHRoZSBuZXh0IHR3byB0ZXJtcyBvZiB0aGUgc2VxdWVuY2UgKFtgYV8yYF0gYW5kIFtgYV8zYF0pLgoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgYV8yID0gYF0gW19dezE0fXszfSwgW2BhXzMgPSBgXSBbX117NTJ9ezN9JylAXSoqCgoKYS4gIFNvbHZlIHRoZSByZWN1cnJlbmNlIHJlbGF0aW9uLiBUaGF0IGlzLCBmaW5kIGEgY2xvc2VkIGZvcm11bGEgZm9yIHRoZSBbYG5gXXRoIHRlcm0gb2YgdGhlIHNlcXVlbmNlLgoKICAgIFtAS2V5Ym9hcmRJbnN0cnVjdGlvbnMoJ1tgYV9uID0gYF0gW19deyRhbnN9ezEwfScpQF0qKgoKCgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCmEuICBbYGFfMiA9IDE0XHRleHR7Ln1gXSBbYGFfMyA9IDUyXHRleHR7Ln1gXQphLiAgW2BhX24gPSBcZnJhY3sxfXs2fSgtMilebiArIFxmcmFjezV9ezZ9NF5uXHRleHR7Ln1gXSAgIAoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3082">Consider the recurrence relation <span class="process-math">\(a_n = 2a_{n-1} + 8a_{n-2}\text{,}\)</span> with initial terms <span class="process-math">\(a_0 = 1\)</span> and <span class="process-math">\(a_1= 3\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="li-1426"><p id="p-3083">Find the next two terms of the sequence (<span class="process-math">\(a_2\)</span> and <span class="process-math">\(a_3\)</span>).</p></li>
+<li id="li-1427"><p id="p-3084">Solve the recurrence relation. That is, find a closed formula for the <span class="process-math">\(n\)</span>th term of the sequence.</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-123')">Make Interactive</button></div>
+</div></article><article class="exercise exercise-like" id="xEX"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<p id="aKw">Your magic chocolate bunnies  reproduce like rabbits: every large bunny produces 2 new mini bunnies each day, and each day every mini bunny born the previous day grows into a large bunny. Assume you start with 2 mini bunnies and no bunny ever dies (or gets eaten).</p>
+<ol class="lower-alpha">
+<li id="SRC"><p id="Jcr">Write out the first few terms of the sequence.</p></li>
+<li id="yYL"><p id="pjA">Give a recursive definition of the sequence and explain why it is correct.</p></li>
+<li id="ffU"><p id="VqJ">Find a closed formula for the <span class="process-math">\(n\)</span>th term of the sequence.</p></li>
+</ol></article><article class="exercise exercise-like" id="dMg"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<p id="GRF">Consider the sequence of partial sums of <em class="emphasis">squares</em> of Fibonacci numbers: <span class="process-math">\(F_1^2\text{,}\)</span> <span class="process-math">\(F_1^2 + F_2^2\text{,}\)</span> <span class="process-math">\(F_1^2 + F_2^2 + F_3^2, \ldots\text{.}\)</span>  The sequences starts <span class="process-math">\(1, 2, 6, 15, 40,\ldots\)</span></p>
+<ol class="lower-alpha">
+<li id="jPN"><p id="NMk">Guess a formula for the <span class="process-math">\(n\)</span>th partial sum, in terms of Fibonacci numbers.  Hint: write each term as a product.</p></li>
+<li id="PWW"><p id="tTt">Prove your formula is correct by mathematical induction.</p></li>
+<li id="wef">
+<p id="aaC">Explain what this problem has to do with the following picture:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:37.5%;margin-right:37.5%;"><div class="sbspanel top" style="width:100%;"><img src="generated/latex-image/goldenrectangles.svg" role="img" class="contained"></div></div></div>
+</li>
+</ol></article><article class="exercise exercise-like" id="JTp"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<p id="mYO">Prove the following statements by mathematical induction:</p>
+<ol class="lower-alpha">
+<li id="clo"><p id="p-derived-clo"><span class="process-math">\(n! \lt n^n\)</span> for <span class="process-math">\(n \ge 2\)</span></p></li>
+<li id="Isx"><p id="p-derived-Isx"><span class="process-math">\(\d\frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} +\frac{1}{3\cdot 4}+\cdots + \frac{1}{n\cdot(n+1)} = \d\frac{n}{n+1}\)</span> for all <span class="process-math">\(n \in \Z^+\text{.}\)</span></p></li>
+<li id="ozG"><p id="p-derived-ozG"><span class="process-math">\(4^n - 1\)</span> is a multiple of 3 for all <span class="process-math">\(n \in \N\text{.}\)</span></p></li>
+<li id="UGP"><p id="GhL">The <em class="emphasis">greatest</em> amount of postage you <em class="emphasis">cannot</em> make exactly using 4 and 9 cent stamps is 23 cents.</p></li>
+<li id="ANY"><p id="moU">Every even number squared is divisible by 4.</p></li>
+</ol></article><article class="exercise exercise-like" id="qay"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<p id="TfX">Prove <span class="process-math">\(1^3 + 2^3 + 3^3 + \cdots + n^3 = \left(\frac{n(n+1)}{2}\right)^2\)</span> holds for all <span class="process-math">\(n \ge 1\text{,}\)</span> by mathematical induction.</p></article><article class="exercise exercise-like" id="WhH"><h4 class="heading"><span class="codenumber">16<span class="period">.</span></span></h4>
+<p id="zng">Suppose <span class="process-math">\(a_0 = 1\text{,}\)</span> <span class="process-math">\(a_1 = 1\)</span> and <span class="process-math">\(a_n = 3a_{n-1} - 2a_{n-1}\text{.}\)</span> Prove, using strong induction, that <span class="process-math">\(a_n = 1\)</span> for all <span class="process-math">\(n\text{.}\)</span></p></article><article class="exercise exercise-like" id="CoQ"><h4 class="heading"><span class="codenumber">17<span class="period">.</span></span></h4>
+<p id="fup">Prove using induction that every set containing <span class="process-math">\(n\)</span> elements has <span class="process-math">\(2^n\)</span> different subsets for any <span class="process-math">\(n \ge 1\text{.}\)</span></p></article></section></section></div></main>
+</div>
+<!--Start: Google Global Site Tag code--><!--*** DO NOT COPY ANOTHER PROJECT'S MAGIC NUMBERS/ID ***--><!--***           GET YOUR OWN FROM GOOGLE             ***-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-66485406-1"></script><script>  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-66485406-1');
+</script><!--End: Google Global Site Tag code-->
+</body>
+</html>
